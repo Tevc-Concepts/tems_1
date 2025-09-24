@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 22:50:12.133082",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "model_name",
+  "model_type",
+  "training_data",
+  "deployment_status",
+  "prediction_parameters",
+  "last_updated",
+  "model_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "model_name",
+   "fieldtype": "Data",
+   "label": "Model Name"
+  },
+  {
+   "fieldname": "model_type",
+   "fieldtype": "Select",
+   "label": "Model Type",
+   "options": "Regression\nClassification\nTime Series\nNLP"
+  },
+  {
+   "fieldname": "training_data",
+   "fieldtype": "Data",
+   "label": "Training Data"
+  },
+  {
+   "fieldname": "prediction_parameters",
+   "fieldtype": "JSON",
+   "label": "Prediction Parameters"
+  },
+  {
+   "fieldname": "deployment_status",
+   "fieldtype": "Select",
+   "label": "Deployment Status",
+   "options": "Draft\nTesting\nDeployed\nDeprecated"
+  },
+  {
+   "fieldname": "last_updated",
+   "fieldtype": "Date",
+   "label": "Last Updated"
+  },
+  {
+   "fieldname": "model_version",
+   "fieldtype": "Data",
+   "label": "Model Version"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-22 22:56:14.447758",
+ "modified_by": "Administrator",
+ "module": "ATE",
+ "name": "Prediction Model",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

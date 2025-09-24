@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 21:56:36.921138",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "assessment_id",
+  "route",
+  "column_break_hvgv",
+  "risk_type",
+  "severity_type",
+  "likelihood",
+  "analysis_section",
+  "impact_analysis",
+  "assessment_date",
+  "column_break_wlrs",
+  "mitigation_strategies",
+  "assessor"
+ ],
+ "fields": [
+  {
+   "fieldname": "assessment_id",
+   "fieldtype": "Data",
+   "label": "Assessment ID"
+  },
+  {
+   "description": "Reference to the specific transport route being assessed",
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route ID",
+   "options": "Route Planning"
+  },
+  {
+   "description": "Type of climate risk (e.g., Flood, Heatwave)",
+   "fieldname": "risk_type",
+   "fieldtype": "Select",
+   "label": "Risk Type",
+   "options": "Flood\nHeatwave\nLandslide\nDrought"
+  },
+  {
+   "fieldname": "column_break_hvgv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Risk intensity",
+   "fieldname": "severity_type",
+   "fieldtype": "Select",
+   "label": "Severity Type",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "description": "Probability of occurrence",
+   "fieldname": "likelihood",
+   "fieldtype": "Select",
+   "label": "Likelihood",
+   "options": "Rare\nPossible\nLikely\nCertain"
+  },
+  {
+   "fieldname": "analysis_section",
+   "fieldtype": "Section Break",
+   "label": "Analysis"
+  },
+  {
+   "description": "Detailed analysis of potential consequences",
+   "fieldname": "impact_analysis",
+   "fieldtype": "Long Text",
+   "label": "Impact Analysis"
+  },
+  {
+   "description": "When the assessment was conducted",
+   "fieldname": "assessment_date",
+   "fieldtype": "Date",
+   "label": "Assessment Date"
+  },
+  {
+   "fieldname": "column_break_wlrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Recommended actions to reduce or manage risk",
+   "fieldname": "mitigation_strategies",
+   "fieldtype": "Long Text",
+   "label": "Mitigation Strategies"
+  },
+  {
+   "description": "Person responsible for the assessment",
+   "fieldname": "assessor",
+   "fieldtype": "Link",
+   "label": "Assessor",
+   "options": "User"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-22 22:48:27.271371",
+ "modified_by": "Administrator",
+ "module": "ATE",
+ "name": "Climate Risk Assessment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 22:02:57.268482",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "route_name",
+  "start_location",
+  "end_location",
+  "schedule",
+  "is_active",
+  "column_break_ltys",
+  "duration",
+  "vehicle_type",
+  "driver",
+  "status",
+  "section_break_xqpq",
+  "waypoints",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "route_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Route Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Start Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "End Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "schedule",
+   "fieldtype": "Datetime",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "column_break_ltys",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Data",
+   "label": "Vehicle type"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Data",
+   "label": "Driver"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nActive\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "section_break_xqpq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "waypoints",
+   "fieldtype": "Table",
+   "label": "WayPoints",
+   "options": "Way Points"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-22 22:36:51.372068",
+ "modified_by": "Administrator",
+ "module": "TEMS",
+ "name": "Route Planning",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

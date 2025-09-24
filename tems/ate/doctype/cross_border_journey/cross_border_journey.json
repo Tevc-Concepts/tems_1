@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 20:34:17.525420",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "journey_id",
+  "origin_country",
+  "destination_country",
+  "border_crossings",
+  "column_break_reej",
+  "customs_documents",
+  "status",
+  "vehicle_details",
+  "driver_details",
+  "section_break_mlli",
+  "required_permits",
+  "column_break_gvei",
+  "route_plan",
+  "security_assessment"
+ ],
+ "fields": [
+  {
+   "fieldname": "journey_id",
+   "fieldtype": "Data",
+   "label": "Journey ID"
+  },
+  {
+   "fieldname": "origin_country",
+   "fieldtype": "Link",
+   "label": "Origin Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "destination_country",
+   "fieldtype": "Link",
+   "label": "Destination Country",
+   "options": "Country"
+  },
+  {
+   "default": "0",
+   "fieldname": "border_crossings",
+   "fieldtype": "Check",
+   "label": "Border Crossings"
+  },
+  {
+   "fieldname": "column_break_reej",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "customs_documents",
+   "fieldtype": "Attach",
+   "label": "Customs Documents"
+  },
+  {
+   "fieldname": "required_permits",
+   "fieldtype": "Text",
+   "label": "Required Permits"
+  },
+  {
+   "fieldname": "vehicle_details",
+   "fieldtype": "Link",
+   "label": "Vehicle Details",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "driver_details",
+   "fieldtype": "Link",
+   "label": "Driver Details",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "route_plan",
+   "fieldtype": "Text Editor",
+   "label": "Route Plan"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nProgress\nClosed\nHold\nAbandon"
+  },
+  {
+   "fieldname": "section_break_mlli",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_gvei",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "security_assessment",
+   "fieldtype": "Text Editor",
+   "label": "Security Assesssment"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-22 20:45:39.573264",
+ "modified_by": "Administrator",
+ "module": "ATE",
+ "name": "Cross Border Journey",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

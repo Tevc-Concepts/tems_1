@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 22:22:51.781151",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "stop_name",
+  "location",
+  "stop_type",
+  "mandatory_stop",
+  "column_break_oinv",
+  "departure_time",
+  "arrival_time",
+  "amenities_available"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "stop_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Stop Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Location",
+   "options": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stop_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Stop Type",
+   "options": "Pickup\nDrop-off\nRest\nCheckpoint\nTransfer",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "mandatory_stop",
+   "fieldtype": "Check",
+   "label": "Mandatory Stop"
+  },
+  {
+   "fieldname": "column_break_oinv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "departure_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Departure Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "arrival_time",
+   "fieldtype": "Datetime",
+   "label": "Arrival Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amenities_available",
+   "fieldtype": "Select",
+   "label": "Amenities Available",
+   "options": "Toilet\nFuel\nFood\nParking"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-22 22:28:24.108333",
+ "modified_by": "Administrator",
+ "module": "TEMS",
+ "name": "Way Points",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 20:47:49.017458",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "declaration_id",
+  "journey_reference",
+  "goods_description",
+  "hs_code",
+  "column_break_dhug",
+  "goods_value",
+  "duty_calculated",
+  "supporting_documents",
+  "declaration_status",
+  "submission_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "declaration_id",
+   "fieldtype": "Data",
+   "label": "Declaration ID"
+  },
+  {
+   "fieldname": "journey_reference",
+   "fieldtype": "Link",
+   "label": "Journey Reference",
+   "options": "Cross Border Journey"
+  },
+  {
+   "fieldname": "goods_description",
+   "fieldtype": "Long Text",
+   "label": "Goods Description"
+  },
+  {
+   "fieldname": "hs_code",
+   "fieldtype": "Data",
+   "label": "HS Code"
+  },
+  {
+   "fieldname": "column_break_dhug",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "goods_value",
+   "fieldtype": "Float",
+   "label": "Goods Value"
+  },
+  {
+   "fieldname": "duty_calculated",
+   "fieldtype": "Float",
+   "label": "Duty Calculated"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Attach",
+   "label": "Supporting Documents"
+  },
+  {
+   "fieldname": "declaration_status",
+   "fieldtype": "Select",
+   "label": "Declaration Status"
+  },
+  {
+   "fieldname": "submission_date",
+   "fieldtype": "Date",
+   "label": "Submission Date"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-22 20:52:49.804587",
+ "modified_by": "Administrator",
+ "module": "ATE",
+ "name": "Customs Declaration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -22,6 +22,6 @@ INTER-RELATIONSHIPS:
 - Finance (Payroll, incentives).
 
 OUTPUTS:
-- DocType JSONs, Workspace JSON.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py 
 - hooks.py reminders.
 - Unit tests (`tems/tests/test_hrms.py`).

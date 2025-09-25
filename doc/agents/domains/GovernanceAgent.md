@@ -21,6 +21,6 @@ INTER-RELATIONSHIPS:
 - Finance (Budget compliance).
 
 OUTPUTS:
-- DocType JSONs, Workspace JSON.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py 
 - hooks.py entries.
 - Unit tests (`tems/tests/test_governance.py`).

@@ -21,6 +21,6 @@ INTER-RELATIONSHIPS:
 - Finance (Carbon credits).
 
 OUTPUTS:
-- DocType JSONs, Workspace JSON.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py 
 - hooks.py jobs.
-- Unit tests (`tems/tests/test_climate.py`).
+- Unit tests (`tems_climate/tests/test_climate.py`).

@@ -1,0 +1,31 @@
+{
+    "title": "TEMS Governance",
+    "name": "TEMS Governance",
+    "content": [],
+    "public": 0,
+    "sequence_id": 1,
+    "shortcuts": [
+        {
+            "type": "doctype",
+            "name": "Governance Policy"
+        },
+        {
+            "type": "doctype",
+            "name": "Compliance Obligation"
+        },
+        {
+            "type": "doctype",
+            "name": "Governance Meeting"
+        }
+    ],
+    "links": [
+        {
+            "type": "report",
+            "link_to": "Policy Review Schedule"
+        },
+        {
+            "type": "report",
+            "link_to": "Obligation Status Aging"
+        }
+    ]
+}

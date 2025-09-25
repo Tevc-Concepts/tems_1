@@ -1,0 +1,77 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-25 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "process_name",
+        "min_amount",
+        "max_amount",
+        "approver_roles",
+        "escalation_role",
+        "sla_hours"
+    ],
+    "fields": [
+        {
+            "fieldname": "process_name",
+            "label": "Process Name",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "min_amount",
+            "label": "Min Amount",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "max_amount",
+            "label": "Max Amount",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "approver_roles",
+            "label": "Approver Roles",
+            "fieldtype": "Table",
+            "options": "Approval Role"
+        },
+        {
+            "fieldname": "escalation_role",
+            "label": "Escalation Role",
+            "fieldtype": "Link",
+            "options": "Role"
+        },
+        {
+            "fieldname": "sla_hours",
+            "label": "SLA (Hours)",
+            "fieldtype": "Int"
+        }
+    ],
+    "module": "TEMS Governance",
+    "name": "Approval Matrix",
+    "owner": "Administrator",
+    "custom": 0,
+    "istable": 0,
+    "modified": "2025-09-25 00:00:00.000",
+    "modified_by": "Administrator",
+    "permissions_manager": 0,
+    "read_only": 0,
+    "restrict_to_domain": "TEMS",
+    "show_name_in_global_search": 0,
+    "track_changes": 0,
+    "track_views": 0,
+    "track_seen": 0,
+    "unique": 0,
+    "user_permissions": 0,
+    "version": 1,
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        }
+    ]
+}

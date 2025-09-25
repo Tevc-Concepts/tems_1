@@ -24,7 +24,7 @@ INTER-RELATIONSHIPS:
 - Supply Chain (Spares).
 
 OUTPUTS:
-- DocType JSONs (`tems/doctype`).
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py 
 - Workspace JSON fixtures.
 - hooks.py entries.
 - Unit tests (`tems/tests/test_fleet.py`).

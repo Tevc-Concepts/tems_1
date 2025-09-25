@@ -22,6 +22,6 @@ INTER-RELATIONSHIPS:
 - Governance (Policy compliance).
 
 OUTPUTS:
-- DocType JSONs, fixtures.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py , fixtures.
 - hooks.py events.
 - Unit tests (`tems/tests/test_safety.py`).

@@ -22,6 +22,6 @@ INTER-RELATIONSHIPS:
 
 OUTPUTS:
 - Insights dashboards JSON fixtures.
-- DocType JSONs.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py 
 - hooks.py jobs.
 - Unit tests (`tems/tests/test_insights.py`).

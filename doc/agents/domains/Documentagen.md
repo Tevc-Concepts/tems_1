@@ -22,6 +22,6 @@ INTER-RELATIONSHIPS:
 - Governance (Policies).
 
 OUTPUTS:
-- DocType JSONs, Workspace JSON.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py 
 - hooks.py file handlers.
-- Unit tests (`tems/tests/test_documents.py`).
+- Unit tests (`tems_{domain}/tests/test_documents.py`).

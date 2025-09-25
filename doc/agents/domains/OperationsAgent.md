@@ -40,7 +40,7 @@ INTER-RELATIONSHIPS:
 - Supply Chain: spare parts affecting availability.
 
 OUTPUTS:
-- DocType JSONs (Operation Plan, Movement Log, Trip Allocation, Cost & Revenue Ledger).
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py (Operation Plan, Movement Log, Trip Allocation, Cost & Revenue Ledger).
 - Workspace JSON fixture for Operations role.
 - hooks.py event handlers for movement states.
 - Unit tests (`tems/tests/test_operations.py`).

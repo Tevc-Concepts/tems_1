@@ -21,6 +21,6 @@ INTER-RELATIONSHIPS:
 - Governance (Service quality reporting).
 
 OUTPUTS:
-- DocType JSONs, Workspace JSON.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py 
 - hooks.py entries.
-- Unit tests (`tems/tests/test_crm.py`).
+- Unit tests (`tems_{domain}/tests/test_crm.py`).

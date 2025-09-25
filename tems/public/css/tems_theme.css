@@ -1,0 +1,8 @@
+/* TEMS theme overrides: scoped, non-invasive */
+.tems-branding .page-head {
+    color: var(--gray-900);
+}
+
+.tems-kpi {
+    font-weight: 600;
+}

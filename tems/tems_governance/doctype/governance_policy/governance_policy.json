@@ -1,0 +1,132 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-25 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "title",
+        "code",
+        "category",
+        "owner_employee",
+        "effective_from",
+        "review_cycle",
+        "next_review_date",
+        "status",
+        "acknowledgement_required",
+        "attached_files",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "title",
+            "label": "Title",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "code",
+            "label": "Code",
+            "fieldtype": "Data",
+            "unique": 1
+        },
+        {
+            "fieldname": "category",
+            "label": "Category",
+            "fieldtype": "Select",
+            "options": "Policy\nSOP\nGuideline\nOther"
+        },
+        {
+            "fieldname": "owner_employee",
+            "label": "Owner (Employee)",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "effective_from",
+            "label": "Effective From",
+            "fieldtype": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "review_cycle",
+            "label": "Review Cycle",
+            "fieldtype": "Select",
+            "options": "Monthly\nQuarterly\nBiannually\nAnnually"
+        },
+        {
+            "fieldname": "next_review_date",
+            "label": "Next Review Date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "index": 1
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Draft\nActive\nUnder Review\nArchived",
+            "in_list_view": 1,
+            "index": 1
+        },
+        {
+            "fieldname": "acknowledgement_required",
+            "label": "Acknowledgement Required",
+            "fieldtype": "Check"
+        },
+        {
+            "fieldname": "attached_files",
+            "label": "Attached Files",
+            "fieldtype": "Table",
+            "options": "Governance Policy File"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Governance Policy",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 0,
+    "links": [],
+    "modified": "2025-09-25 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "TEMS Governance",
+    "name": "Governance Policy",
+    "owner": "Administrator",
+    "permissions_manager": 1,
+    "read_only": 0,
+    "restrict_to_domain": "TEMS",
+    "show_name_in_global_search": 0,
+    "track_changes": 0,
+    "track_views": 0,
+    "track_seen": 0,
+    "unique": 0,
+    "user_permissions": 0,
+    "version": 1,
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1,
+            "print": 1,
+            "report": 1,
+            "export": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "print": 1,
+            "report": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

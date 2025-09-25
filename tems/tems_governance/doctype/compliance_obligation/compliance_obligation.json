@@ -1,0 +1,99 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2025-09-25 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "title",
+        "code",
+        "regulator",
+        "due_frequency",
+        "next_due_date",
+        "evidence_required",
+        "status",
+        "evidence_files"
+    ],
+    "fields": [
+        {
+            "fieldname": "title",
+            "label": "Title",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "code",
+            "label": "Code",
+            "fieldtype": "Data",
+            "unique": 1
+        },
+        {
+            "fieldname": "regulator",
+            "label": "Regulator",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "due_frequency",
+            "label": "Due Frequency",
+            "fieldtype": "Select",
+            "options": "Monthly\nQuarterly\nBiannually\nAnnually"
+        },
+        {
+            "fieldname": "next_due_date",
+            "label": "Next Due Date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "index": 1
+        },
+        {
+            "fieldname": "evidence_required",
+            "label": "Evidence Required",
+            "fieldtype": "Check"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nSubmitted\nCompliant\nOverdue",
+            "in_list_view": 1,
+            "index": 1
+        },
+        {
+            "fieldname": "evidence_files",
+            "label": "Evidence Files",
+            "fieldtype": "Table",
+            "options": "Governance Policy File"
+        }
+    ],
+    "is_submittable": 1,
+    "module": "TEMS Governance",
+    "name": "Compliance Obligation",
+    "owner": "Administrator",
+    "permissions_manager": 1,
+    "read_only": 0,
+    "restrict_to_domain": "TEMS",
+    "show_name_in_global_search": 1,
+    "track_changes": 1,
+    "track_views": 1,
+    "track_seen": 1,
+    "unique": 0,
+    "user_permissions": 0,
+    "version": 1,
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1,
+            "submit": 1,
+            "print": 1,
+            "report": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1,
+            "report": 1
+        }
+    ]
+}

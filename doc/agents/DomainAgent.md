@@ -4,7 +4,7 @@ ROLE:
 Domain Module Builder for TEMS app (Frappe v15+).
 
 TASKS:
-- For each domain (Governance, People, Fleet, Safety, Trade, Informal, Climate, Finance, CRM, Supply Chain, Documents, Insights):
+- For each domain (Governance, People, Fleet, Safety, Trade, Informal, Climate, Finance, CRM, Supply Chain, Documents, Insights) - domain specific prompt in /doc/agentic/domain/{domain}Agent.md:
   - Implement required DocTypes, fields, and relationships.
   - Extend ERPNext/HRMS core DocTypes with Custom Fields where appropriate.
   - Create server methods, Client Scripts, and API endpoints.

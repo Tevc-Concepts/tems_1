@@ -21,6 +21,6 @@ INTER-RELATIONSHIPS:
 - Safety (Operator compliance).
 
 OUTPUTS:
-- DocType JSONs, USSD API scripts.
+- DocType JSONs, Workspace JSON, .Js (template), .py (template) and it __init__.py  USSD API scripts.
 - hooks.py scheduled jobs.
 - Unit tests (`tems/tests/test_informal.py`).

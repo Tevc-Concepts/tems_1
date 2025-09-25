@@ -1,0 +1,47 @@
+{
+    "actions": [],
+    "creation": "2025-09-25 00:00:00.000000",
+    "doctype": "DocType",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "role"
+    ],
+    "fields": [
+        {
+            "fieldname": "role",
+            "label": "Role",
+            "fieldtype": "Link",
+            "options": "Role",
+            "in_list_view": 1
+        }
+    ],
+    "module": "TEMS Governance",
+    "name": "Approval Role",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1,
+            "submit": 0,
+            "cancel": 0,
+            "amend": 0
+        }
+    ],
+    "custom": 0,
+    "modified": "2025-09-25 00:00:00.000000",
+    "modified_by": "Administrator",
+    "permissions_manager": 0,
+    "read_only": 0,
+    "restrict_to_domain": "TEMS",
+    "show_name_in_global_search": 0,
+    "track_changes": 0,
+    "track_views": 0,
+    "track_seen": 0,
+    "unique": 0,
+    "user_permissions": 0,
+    "version": 1
+}

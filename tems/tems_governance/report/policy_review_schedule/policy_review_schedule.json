@@ -1,0 +1,16 @@
+{
+    "add_total_row": 0,
+    "columns": [],
+    "disabled": 0,
+    "filters": [],
+    "is_standard": "Yes",
+    "doctype": "Report",
+    "module": "TEMS Governance",
+    "name": "Policy Review Schedule",
+    "prepared_report": 0,
+    "ref_doctype": "Governance Policy",
+    "report_name": "Policy Review Schedule",
+    "report_type": "Query Report",
+    "owner": "Administrator",
+    "query": "select name, title, owner_employee, next_review_date, status from `tabGovernance Policy` order by next_review_date asc"
+}

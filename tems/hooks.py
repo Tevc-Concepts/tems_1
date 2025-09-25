@@ -1,8 +1,11 @@
 app_name = "tems"
-app_title = "Transport Enterprise Management System"
-app_publisher = "Tevc & Gabceltd "
-app_description = "TEMS (Transport Enterprise Management System) is a next-generation digital platform designed to revolutionize mobility and logistics across Africa. Built on the robust and modular Frappe Framework, TEMS empowers transport cooperatives, fleet operators, and mobility entrepreneurs with a scalable, mobile-first solution tailored to the continent’s unique infrastructure and user needs."
+app_title = "TEMS"
+app_publisher = "Tevc Concepts Limited"
+app_description = "Transport Excellence Management System customizations"
 app_email = "code@tevcng.com"
+app_icon = "octicon octicon-file-directory"
+app_color = "grey"
+app_version = "0.1.0"
 app_license = "mit"
 
 # Apps
@@ -25,12 +28,12 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/tems/css/tems.css"
-# app_include_js = "/assets/tems/js/tems.js"
+app_include_css = "/assets/tems/css/tems_theme.css"
+app_include_js = "/assets/tems/js/tems_desk.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/tems/css/tems.css"
-# web_include_js = "/assets/tems/js/tems.js"
+# web_include_css = "/assets/tems/css/tems_theme.css"
+# web_include_js = "/assets/tems/js/tems_web.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "tems/public/scss/website"
@@ -133,38 +136,44 @@ app_license = "mit"
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
+# Fixtures
+fixtures = [
+	{"dt": "Role", "filters": [["name", "in", [
+		"TEMS Executive","Fleet Manager","Fleet Officer","Safety Officer","Safety Manager","Driver","Informal Operator","Border Agent","Community Leader","Maintenance Tech"
+	]]]},
+	"Workspace",
+	"Custom Field",
+	"Print Format",
+	"Report",
+]
+
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Journey Plan": {
+		"on_submit": "tems.api.journey.on_submit",
+		"validate": "tems.api.journey.validate_journey",
+	},
+	"Asset": {
+		"after_insert": "tems.api.assets.after_insert",
+	},
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"tems.tasks.all"
-# 	],
-# 	"daily": [
-# 		"tems.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"tems.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"tems.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"tems.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"daily": [
+		"tems.tasks.daily_sync_checkpoint",
+    	"tems.tasks.daily_interest_compute",
+    	"tems.tems_governance.api.notify_upcoming_reviews_and_obligations",
+	],
+	"cron": {
+		"0 1 * * *": ["tems.tasks.compute_nightly_jobs"],
+	},
+}
 
 # Testing
 # -------

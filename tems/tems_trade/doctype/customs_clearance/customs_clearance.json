@@ -1,0 +1,70 @@
+{
+    "doctype": "DocType",
+    "name": "Customs Clearance",
+    "module": "TEMS Trade",
+    "engine": "InnoDB",
+    "field_order": [
+        "shipment_ref",
+        "broker",
+        "fee",
+        "status",
+        "documents"
+    ],
+    "fields": [
+        {
+            "fieldname": "shipment_ref",
+            "label": "Shipment Ref",
+            "fieldtype": "Dynamic Link",
+            "options": "reference_doctype"
+        },
+        {
+            "fieldname": "reference_doctype",
+            "label": "Reference Doctype",
+            "fieldtype": "Select",
+            "options": "\nDelivery Note\nSales Invoice\nSales Order",
+            "reqd": 1
+        },
+        {
+            "fieldname": "broker",
+            "label": "Broker",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "fee",
+            "label": "Fee",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Draft\nSubmitted\nReleased\nRejected",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "documents",
+            "label": "Documents",
+            "fieldtype": "Table",
+            "options": "File"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Border Agent",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "doctype": "DocType",
+    "istable": 1,
+    "name": "Climate Risk Journey",
+    "module": "TEMS Climate",
+    "engine": "InnoDB",
+    "field_order": [
+        "journey_plan",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "journey_plan",
+            "label": "Journey Plan",
+            "fieldtype": "Link",
+            "options": "Journey Plan"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ]
+}

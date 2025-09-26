@@ -7,3 +7,11 @@ TEMS Operations
 TEMS People
 TEMS Fleet
 TEMS Safety
+TEMS Trade
+TEMS Informal
+TEMS Climate
+TEMS Finance
+TEMS CRM
+TEMS Supply Chain
+TEMS Documents
+TEMS Insights

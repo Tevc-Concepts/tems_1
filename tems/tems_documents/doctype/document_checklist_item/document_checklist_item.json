@@ -1,0 +1,25 @@
+{
+    "doctype": "DocType",
+    "istable": 1,
+    "name": "Document Checklist Item",
+    "module": "TEMS Documents",
+    "engine": "InnoDB",
+    "field_order": [
+        "doc_type",
+        "required"
+    ],
+    "fields": [
+        {
+            "fieldname": "doc_type",
+            "label": "Document Type",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "required",
+            "label": "Required",
+            "fieldtype": "Check",
+            "default": 1
+        }
+    ]
+}

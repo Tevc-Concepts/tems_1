@@ -1,0 +1,64 @@
+{
+    "doctype": "DocType",
+    "name": "Trade Lane",
+    "module": "TEMS Trade",
+    "engine": "InnoDB",
+    "field_order": [
+        "origin_country",
+        "destination_country",
+        "border_posts",
+        "documents_required"
+    ],
+    "fields": [
+        {
+            "fieldname": "origin_country",
+            "label": "Origin Country",
+            "fieldtype": "Link",
+            "options": "Country",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "destination_country",
+            "label": "Destination Country",
+            "fieldtype": "Link",
+            "options": "Country",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "border_posts",
+            "label": "Border Posts",
+            "fieldtype": "Table",
+            "options": "Trade Lane Border Post"
+        },
+        {
+            "fieldname": "documents_required",
+            "label": "Documents Required",
+            "fieldtype": "Table",
+            "options": "Trade Lane Document"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1
+        },
+        {
+            "role": "Border Agent",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Active Informal Operators",
+    "report_name": "Active Informal Operators",
+    "doctype": "Informal Operator Profile",
+    "is_standard": "Yes",
+    "report_type": "Script Report",
+    "reference_doctype": "Informal Operator Profile",
+    "module": "TEMS Informal"
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Spare Parts Min Stock Breach",
+    "report_name": "Spare Parts Min Stock Breach",
+    "doctype": "Spare Part",
+    "is_standard": "Yes",
+    "report_type": "Script Report",
+    "reference_doctype": "Spare Part",
+    "module": "TEMS Supply Chain"
+}

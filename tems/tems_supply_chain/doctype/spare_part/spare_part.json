@@ -1,0 +1,31 @@
+{
+    "doctype": "DocType",
+    "name": "Spare Part",
+    "module": "TEMS Supply Chain",
+    "engine": "InnoDB",
+    "field_order": [
+        "item",
+        "min_stock",
+        "reorder_qty"
+    ],
+    "fields": [
+        {
+            "fieldname": "item",
+            "label": "Item",
+            "fieldtype": "Link",
+            "options": "Item",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "min_stock",
+            "label": "Min Stock",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "reorder_qty",
+            "label": "Reorder Qty",
+            "fieldtype": "Float"
+        }
+    ]
+}

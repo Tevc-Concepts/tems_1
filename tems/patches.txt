@@ -7,7 +7,15 @@
 tems.patches.v15.seed_governance
 tems.patches.v15.seed_operations
 tems.patches.v15.rename_asset_to_vehicle_in_operations
+tems.patches.v15.align_vehicle_vs_asset
 tems.patches.v15.seed_people
 tems.patches.v15.seed_fleet
 tems.patches.v15.seed_safety
 tems.patches.v15.add_indexes_safety
+tems.patches.v15.seed_trade
+tems.patches.v15.seed_informal
+tems.patches.v15.seed_climate
+tems.patches.v15.seed_finance
+tems.patches.v15.seed_crm
+tems.patches.v15.seed_supply_chain
+tems.patches.v15.seed_documents

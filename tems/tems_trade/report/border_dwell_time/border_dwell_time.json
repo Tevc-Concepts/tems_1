@@ -1,0 +1,9 @@
+{
+    "name": "Border Dwell Time",
+    "report_name": "Border Dwell Time",
+    "doctype": "Border Crossing",
+    "is_standard": "Yes",
+    "report_type": "Script Report",
+    "reference_doctype": "Border Crossing",
+    "module": "TEMS Trade"
+}

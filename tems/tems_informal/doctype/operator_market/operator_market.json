@@ -1,0 +1,36 @@
+{
+    "doctype": "DocType",
+    "istable": 1,
+    "name": "Operator Market",
+    "module": "TEMS Informal",
+    "engine": "InnoDB",
+    "field_order": [
+        "market",
+        "geohash",
+        "operating_days",
+        "fees"
+    ],
+    "fields": [
+        {
+            "fieldname": "market",
+            "label": "Market",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "geohash",
+            "label": "Geohash",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "operating_days",
+            "label": "Operating Days",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "fees",
+            "label": "Fees",
+            "fieldtype": "Currency"
+        }
+    ]
+}

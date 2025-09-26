@@ -1,0 +1,31 @@
+{
+    "doctype": "DocType",
+    "istable": 1,
+    "name": "Trade Lane Border Post",
+    "module": "TEMS Trade",
+    "engine": "InnoDB",
+    "field_order": [
+        "border_post",
+        "country",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "border_post",
+            "label": "Border Post",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "country",
+            "label": "Country",
+            "fieldtype": "Link",
+            "options": "Country"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ]
+}

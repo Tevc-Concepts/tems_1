@@ -1,0 +1,64 @@
+{
+    "doctype": "DocType",
+    "name": "Emissions Log",
+    "module": "TEMS Climate",
+    "engine": "InnoDB",
+    "field_order": [
+        "vehicle",
+        "journey_plan",
+        "fuel_liters",
+        "emission_factor",
+        "co2e_kg"
+    ],
+    "fields": [
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "journey_plan",
+            "label": "Journey Plan",
+            "fieldtype": "Link",
+            "options": "Journey Plan"
+        },
+        {
+            "fieldname": "fuel_liters",
+            "label": "Fuel Liters",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "emission_factor",
+            "label": "Emission Factor",
+            "fieldtype": "Float",
+            "description": "kg CO2e per liter"
+        },
+        {
+            "fieldname": "co2e_kg",
+            "label": "CO2e (kg)",
+            "fieldtype": "Float",
+            "read_only": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Manager",
+            "read": 1,
+            "create": 1
+        },
+        {
+            "role": "Safety Officer",
+            "read": 1
+        }
+    ]
+}

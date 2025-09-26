@@ -142,8 +142,8 @@ fixtures = [
 		"TEMS Executive","Operations Manager","Operations Officer","Fleet Manager","Fleet Officer","Safety Officer","Safety Manager","Driver","Informal Operator","Border Agent","Community Leader","Maintenance Tech"
 	]]]},
 	"Workspace",
-	{"dt": "Number Card", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety"]]]},
-	{"dt": "Client Script", "filters": [["module", "in", ["TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety"]]]},
+	{"dt": "Number Card", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},
+	{"dt": "Client Script", "filters": [["module", "in", ["TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},
 	{"dt": "Workflow", "filters": [["document_type", "in", ["Safety Incident"]]]},
 	"Custom Field",
 	"Print Format",
@@ -174,9 +174,12 @@ scheduler_events = {
     	"tems.tasks.daily_interest_compute",
     	"tems.tems_governance.api.notify_upcoming_reviews_and_obligations",
 		"tems.tasks.notify_overdue_investigations",
+		"tems.tasks.aggregate_emissions_daily",
 	],
 	"cron": {
 		"0 1 * * *": ["tems.tasks.compute_nightly_jobs"],
+		"0 2 * * *": ["tems.tasks.update_tariffs"],
+		"0 3 * * 1": ["tems.tasks.rotate_rosca"],
 	},
 }
 

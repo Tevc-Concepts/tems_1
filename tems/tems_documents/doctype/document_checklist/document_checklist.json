@@ -1,0 +1,25 @@
+{
+    "doctype": "DocType",
+    "name": "Document Checklist",
+    "module": "TEMS Documents",
+    "engine": "InnoDB",
+    "field_order": [
+        "context",
+        "items"
+    ],
+    "fields": [
+        {
+            "fieldname": "context",
+            "label": "Context",
+            "fieldtype": "Select",
+            "options": "Asset\nDriver\nTrip",
+            "reqd": 1
+        },
+        {
+            "fieldname": "items",
+            "label": "Items",
+            "fieldtype": "Table",
+            "options": "Document Checklist Item"
+        }
+    ]
+}

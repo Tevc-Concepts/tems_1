@@ -1,0 +1,42 @@
+{
+    "doctype": "DocType",
+    "name": "Allocation Rule",
+    "module": "TEMS Finance",
+    "engine": "InnoDB",
+    "field_order": [
+        "cost_type",
+        "allocation_basis",
+        "cost_center",
+        "percentage"
+    ],
+    "fields": [
+        {
+            "fieldname": "cost_type",
+            "label": "Cost Type",
+            "fieldtype": "Select",
+            "options": "Fuel\nMaintenance\nToll\nFine\nOther",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "allocation_basis",
+            "label": "Allocation Basis",
+            "fieldtype": "Select",
+            "options": "Kilometers\nHours\nTrips",
+            "reqd": 1
+        },
+        {
+            "fieldname": "cost_center",
+            "label": "Cost Center",
+            "fieldtype": "Link",
+            "options": "Cost Center",
+            "reqd": 1
+        },
+        {
+            "fieldname": "percentage",
+            "label": "Percentage",
+            "fieldtype": "Float",
+            "reqd": 1
+        }
+    ]
+}

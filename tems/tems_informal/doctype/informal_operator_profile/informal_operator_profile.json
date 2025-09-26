@@ -1,0 +1,64 @@
+{
+    "doctype": "DocType",
+    "name": "Informal Operator Profile",
+    "module": "TEMS Informal",
+    "engine": "InnoDB",
+    "field_order": [
+        "phone",
+        "ussd_id",
+        "id_type",
+        "id_number",
+        "photo",
+        "markets"
+    ],
+    "fields": [
+        {
+            "fieldname": "phone",
+            "label": "Phone",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "ussd_id",
+            "label": "USSD ID",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "id_type",
+            "label": "ID Type",
+            "fieldtype": "Select",
+            "options": "National ID\nDriver License\nVoter Card\nPassport"
+        },
+        {
+            "fieldname": "id_number",
+            "label": "ID Number",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "photo",
+            "label": "Photo",
+            "fieldtype": "Attach Image"
+        },
+        {
+            "fieldname": "markets",
+            "label": "Markets",
+            "fieldtype": "Table",
+            "options": "Operator Market"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Informal Operator",
+            "read": 1,
+            "create": 1
+        }
+    ]
+}

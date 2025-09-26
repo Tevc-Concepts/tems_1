@@ -15,6 +15,19 @@ def daily_interest_compute():
 def compute_nightly_jobs():
     frappe.logger().info("TEMS.compute_nightly_jobs ran")
 
+
+def update_tariffs():
+    frappe.logger().info("TEMS.update_tariffs (Trade) ran")
+
+
+def rotate_rosca():
+    frappe.logger().info("TEMS.rotate_rosca (Informal) ran")
+
+
+def aggregate_emissions_daily():
+    # stub aggregation; real logic can precompute summaries
+    frappe.logger().info("TEMS.aggregate_emissions_daily (Climate) ran")
+
 DateLike = Union[str, datetime, date]
 
 

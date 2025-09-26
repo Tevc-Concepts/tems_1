@@ -1,0 +1,43 @@
+{
+    "charts": [],
+    "content": "[{\"id\":\"hdrPeople\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>People & Drivers</b></span>\",\"col\":12}}]",
+    "creation": "2025-09-26 00:00:00",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "for_user": "",
+    "hide_custom": 0,
+    "icon": "people",
+    "idx": 0,
+    "is_hidden": 0,
+    "label": "People",
+    "links": [],
+    "module": "TEMS People",
+    "name": "People",
+    "number_cards": [],
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "quick_lists": [],
+    "restrict_to_domain": "",
+    "roles": [],
+    "sequence_id": 56.0,
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Driver Qualification",
+            "link_to": "Driver Qualification"
+        },
+        {
+            "type": "DocType",
+            "label": "Training Record",
+            "link_to": "Training Record"
+        },
+        {
+            "type": "Report",
+            "label": "Training Compliance by Dept",
+            "link_to": "Training Compliance by Dept"
+        }
+    ],
+    "title": "People & Drivers"
+}

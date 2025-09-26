@@ -1,0 +1,9 @@
+{
+    "name": "Total Cost by Type",
+    "report_name": "Total Cost by Type",
+    "doctype": "Fleet Cost",
+    "is_standard": "Yes",
+    "report_type": "Script Report",
+    "reference_doctype": "Fleet Cost",
+    "module": "TEMS Finance"
+}

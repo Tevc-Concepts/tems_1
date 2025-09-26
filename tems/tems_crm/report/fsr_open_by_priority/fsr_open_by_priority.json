@@ -1,0 +1,9 @@
+{
+    "name": "FSR Open by Priority",
+    "report_name": "FSR Open by Priority",
+    "doctype": "Field Service Request",
+    "is_standard": "Yes",
+    "report_type": "Script Report",
+    "reference_doctype": "Field Service Request",
+    "module": "TEMS CRM"
+}

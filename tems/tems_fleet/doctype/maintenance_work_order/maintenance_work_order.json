@@ -4,7 +4,7 @@
     "module": "TEMS Fleet",
     "engine": "InnoDB",
     "field_order": [
-        "asset",
+        "vehicle",
         "vendor",
         "status",
         "planned_date",
@@ -14,10 +14,10 @@
     ],
     "fields": [
         {
-            "fieldname": "asset",
-            "label": "Asset",
+            "fieldname": "vehicle",
+            "label": "Vehicle",
             "fieldtype": "Link",
-            "options": "Asset",
+            "options": "Vehicle",
             "reqd": 1,
             "in_list_view": 1
         },

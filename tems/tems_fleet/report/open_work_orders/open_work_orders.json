@@ -14,7 +14,7 @@
     "name": "Open Work Orders",
     "owner": "Administrator",
     "prepared_report": 0,
-    "query": "SELECT name, asset, vendor, status, planned_date FROM `tabMaintenance Work Order` WHERE status = 'Open' ORDER BY planned_date",
+    "query": "SELECT name, vehicle, vendor, status, planned_date FROM `tabMaintenance Work Order` WHERE status = 'Open' ORDER BY planned_date",
     "ref_doctype": "Maintenance Work Order",
     "report_name": "Open Work Orders",
     "report_type": "Query Report",

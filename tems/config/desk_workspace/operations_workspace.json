@@ -1,4 +1,6 @@
 {
+    "doctype": "Workspace",
+    "module": "TEMS Operations",
     "title": "TEMS Operations",
     "name": "TEMS Operations",
     "content": [],

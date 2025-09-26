@@ -1,0 +1,9 @@
+{
+    "name": "Checklist Count by Context",
+    "report_name": "Checklist Count by Context",
+    "doctype": "Document Checklist",
+    "is_standard": "Yes",
+    "report_type": "Script Report",
+    "reference_doctype": "Document Checklist",
+    "module": "TEMS Documents"
+}

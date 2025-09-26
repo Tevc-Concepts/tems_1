@@ -1,0 +1,57 @@
+{
+    "doctype": "DocType",
+    "name": "Fleet Cost",
+    "module": "TEMS Finance",
+    "engine": "InnoDB",
+    "field_order": [
+        "asset",
+        "cost_type",
+        "amount",
+        "date",
+        "reference_doctype",
+        "reference_name"
+    ],
+    "fields": [
+        {
+            "fieldname": "asset",
+            "label": "Asset",
+            "fieldtype": "Link",
+            "options": "Asset",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "cost_type",
+            "label": "Cost Type",
+            "fieldtype": "Select",
+            "options": "Fuel\nMaintenance\nToll\nFine\nOther",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "amount",
+            "label": "Amount",
+            "fieldtype": "Currency",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "date",
+            "label": "Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "reference_doctype",
+            "label": "Reference Doctype",
+            "fieldtype": "Link",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "reference_name",
+            "label": "Reference Name",
+            "fieldtype": "Dynamic Link",
+            "options": "reference_doctype"
+        }
+    ]
+}

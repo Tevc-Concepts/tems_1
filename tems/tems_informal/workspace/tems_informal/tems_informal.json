@@ -1,0 +1,43 @@
+{
+  "charts": [],
+  "content": "[{\"id\":\"hdrInformal\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Informal</b></span>\",\"col\":12}}]",
+  "creation": "2025-09-26 00:00:00",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "people",
+  "idx": 0,
+  "is_hidden": 0,
+  "label": "Informal",
+  "links": [],
+  "module": "TEMS Informal",
+  "name": "Informal",
+  "number_cards": [],
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": "",
+  "roles": [],
+  "sequence_id": 51.0,
+  "shortcuts": [
+    {
+      "type": "DocType",
+      "label": "Informal Operator Profile",
+      "link_to": "Informal Operator Profile"
+    },
+    {
+      "type": "DocType",
+      "label": "Operator Route Association",
+      "link_to": "Operator Route Association"
+    },
+    {
+      "type": "Report",
+      "label": "Active Informal Operators",
+      "link_to": "Active Informal Operators"
+    }
+  ],
+  "title": "Informal"
+}

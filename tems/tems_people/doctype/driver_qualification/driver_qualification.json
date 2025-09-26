@@ -1,0 +1,86 @@
+{
+    "doctype": "DocType",
+    "name": "Driver Qualification",
+    "module": "TEMS People",
+    "engine": "InnoDB",
+    "field_order": [
+        "employee",
+        "license_no",
+        "license_class",
+        "medical_clearance",
+        "expiry_date",
+        "verified_by",
+        "verification_date",
+        "status"
+    ],
+    "fields": [
+        {
+            "fieldname": "employee",
+            "label": "Employee",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "license_no",
+            "label": "License No",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "license_class",
+            "label": "License Class",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "medical_clearance",
+            "label": "Medical Clearance",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "expiry_date",
+            "label": "Expiry Date",
+            "fieldtype": "Date",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "verified_by",
+            "label": "Verified By",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "verification_date",
+            "label": "Verification Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Active\nVerified\nSuspended\nExpired",
+            "in_list_view": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1
+        }
+    ]
+}

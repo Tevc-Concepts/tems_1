@@ -1,0 +1,10 @@
+{
+    "doctype": "Client Script",
+    "name": "Duty Assignment - Validate Today",
+    "module": "TEMS Operations",
+    "is_standard": 1,
+    "dt": "Duty Assignment",
+    "enabled": 1,
+    "view": "Form",
+    "script": "frappe.ui.form.on('Duty Assignment', {\n  validate(frm) {\n    if (frm.doc.status === 'Planned' && frm.doc.schedule_slot) {\n      const slot = frm.doc.schedule_slot;\n      const slotDate = frappe.datetime.obj_to_str(frappe.datetime.str_to_obj(slot)).slice(0,10);\n      if (slotDate !== frappe.datetime.now_date()) {\n        frappe.msgprint(__('When status is Planned, Schedule Slot must be today.'));\n        frappe.validated = false;\n      }\n    }\n  }\n});"
+}

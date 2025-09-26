@@ -1,0 +1,21 @@
+{
+    "creation": "2025-09-25 00:00:00.000000",
+    "docstatus": 0,
+    "doctype": "Number Card",
+    "document_type": "Safety Incident",
+    "dynamic_filters_json": "[]",
+    "filters_json": "[[\"Safety Incident\",\"status\",\"!=\",\"Closed\",false]]",
+    "function": "Count",
+    "idx": 0,
+    "is_public": 1,
+    "is_standard": 1,
+    "label": "Open Safety Incidents",
+    "modified": "2025-09-25 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "TEMS Safety",
+    "name": "Open Safety Incidents",
+    "owner": "Administrator",
+    "show_percentage_stats": 1,
+    "stats_time_interval": "Daily",
+    "type": "Document Type"
+}

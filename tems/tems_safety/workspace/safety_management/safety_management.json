@@ -1,0 +1,97 @@
+{
+    "category": "Modules",
+    "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Safety Management\"}}]",
+    "creation": "2025-09-25 00:00:00.000000",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "extends_another_page": 0,
+    "hide_custom": 0,
+    "icon": "security",
+    "idx": 0,
+    "is_hidden": 0,
+    "label": "Safety Management",
+    "link_to": "module",
+    "links": [
+        {
+            "type": "Link",
+            "label": "Safety Incidents",
+            "link_type": "DocType",
+            "link_to": "Safety Incident",
+            "onboard": 1,
+            "hidden": 0,
+            "is_query_report": 0,
+            "link_count": 0
+        },
+        {
+            "type": "Link",
+            "label": "Spot Checks",
+            "link_type": "DocType",
+            "link_to": "Spot Check",
+            "onboard": 1,
+            "hidden": 0,
+            "is_query_report": 0,
+            "link_count": 0
+        },
+        {
+            "type": "Link",
+            "label": "Safety Incidents by Severity",
+            "link_type": "Report",
+            "link_to": "Safety Incidents by Severity",
+            "onboard": 0,
+            "hidden": 0,
+            "is_query_report": 1,
+            "link_count": 0
+        },
+        {
+            "type": "Link",
+            "label": "Spot Checks Today",
+            "link_type": "Report",
+            "link_to": "Spot Checks Today",
+            "onboard": 0,
+            "hidden": 0,
+            "is_query_report": 1,
+            "link_count": 0
+        }
+    ],
+    "modified": "2025-09-25 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "TEMS Safety",
+    "name": "Safety Management",
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "restrict_to_domain": "",
+    "roles": [
+        {
+            "role": "Safety Officer"
+        },
+        {
+            "role": "Safety Manager"
+        },
+        {
+            "role": "System Manager"
+        }
+    ],
+    "sequence_id": 1,
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Safety Incident",
+            "link_to": "Safety Incident"
+        },
+        {
+            "type": "DocType",
+            "label": "Spot Check",
+            "link_to": "Spot Check"
+        }
+    ],
+    "title": "Safety Management",
+    "charts": [],
+    "number_cards": [
+        {
+            "number_card": "Open Safety Incidents",
+            "number_card_name": "Open Safety Incidents"
+        }
+    ]
+}

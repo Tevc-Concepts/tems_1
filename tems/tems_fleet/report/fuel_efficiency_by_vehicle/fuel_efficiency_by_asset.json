@@ -1,0 +1,42 @@
+{
+    "add_total_row": 0,
+    "creation": "2025-09-25 00:00:00",
+    "disabled": 0,
+    "docstatus": 0,
+    "doctype": "Report",
+    "filters": [
+        {
+            "fieldname": "from_date",
+            "label": "From Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "to_date",
+            "label": "To Date",
+            "fieldtype": "Date"
+        }
+    ],
+    "is_standard": "Yes",
+    "idx": 0,
+    "json": "{}",
+    "letter_head": "",
+    "module": "TEMS Fleet",
+    "name": "Fuel Efficiency by Vehicle",
+    "owner": "Administrator",
+    "prepared_report": 0,
+    "query": "",
+    "ref_doctype": "Fuel Log",
+    "report_name": "Fuel Efficiency by Vehicle",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "Fleet Officer"
+        },
+        {
+            "role": "Fleet Manager"
+        },
+        {
+            "role": "System Manager"
+        }
+    ]
+}

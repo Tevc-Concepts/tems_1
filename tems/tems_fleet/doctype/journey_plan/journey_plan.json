@@ -1,0 +1,91 @@
+{
+    "doctype": "DocType",
+    "name": "Journey Plan",
+    "module": "TEMS Fleet",
+    "engine": "InnoDB",
+    "field_order": [
+        "route",
+        "driver",
+        "vehicle",
+        "start_time",
+        "end_time",
+        "risk_score",
+        "weather_snapshot",
+        "sos_contact"
+    ],
+    "fields": [
+        {
+            "fieldname": "route",
+            "label": "Route",
+            "fieldtype": "Link",
+            "options": "Route Planning",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "driver",
+            "label": "Driver",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "reqd": 0,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "start_time",
+            "label": "Start Time",
+            "fieldtype": "Datetime",
+            "reqd": 1
+        },
+        {
+            "fieldname": "end_time",
+            "label": "End Time",
+            "fieldtype": "Datetime"
+        },
+        {
+            "fieldname": "risk_score",
+            "label": "Risk Score",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "weather_snapshot",
+            "label": "Weather Snapshot",
+            "fieldtype": "JSON"
+        },
+        {
+            "fieldname": "sos_contact",
+            "label": "SOS Contact",
+            "fieldtype": "Data"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        }
+    ],
+    "index_web_pages_for_search": 1
+}

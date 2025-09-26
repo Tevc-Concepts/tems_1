@@ -1,0 +1,35 @@
+{
+    "doctype": "DocType",
+    "name": "Incident Participant",
+    "module": "TEMS Safety",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "employee",
+        "role",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "employee",
+            "label": "Employee",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "role",
+            "label": "Role",
+            "fieldtype": "Select",
+            "options": "driver\nassistant\nother",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": []
+}

@@ -1,0 +1,10 @@
+{
+    "doctype": "Client Script",
+    "name": "Driver Qualification - Validate Expiry",
+    "module": "TEMS People",
+    "is_standard": 1,
+    "dt": "Driver Qualification",
+    "enabled": 1,
+    "view": "Form",
+    "script": "frappe.ui.form.on('Driver Qualification', {\n  validate(frm) {\n    if (frm.doc.expiry_date && frappe.datetime.get_diff(frm.doc.expiry_date, frappe.datetime.now_date()) < 0) {\n      frappe.msgprint(__('License expired — update before using as active driver.'));\n      frappe.validated = false;\n    }\n  }\n});"
+}

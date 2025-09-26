@@ -1,0 +1,94 @@
+{
+    "doctype": "DocType",
+    "name": "Operations Event",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "journey_reference",
+        "event_time",
+        "vehicle",
+        "lat",
+        "lng",
+        "geohash",
+        "event_type",
+        "variance_minutes"
+    ],
+    "fields": [
+        {
+            "fieldname": "journey_reference",
+            "label": "Journey Reference",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "event_time",
+            "label": "Event Time",
+            "fieldtype": "Datetime",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "lat",
+            "label": "Latitude",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "lng",
+            "label": "Longitude",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "geohash",
+            "label": "Geohash",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "event_type",
+            "label": "Event Type",
+            "fieldtype": "Select",
+            "options": "Depart\nArrive\nCheckpoint\nDelay Reason",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "variance_minutes",
+            "label": "Variance (min)",
+            "fieldtype": "Int"
+        }
+    ],
+    "indexes": [
+        {
+            "index_fields": [
+                "event_time"
+            ]
+        },
+        {
+            "index_fields": [
+                "geohash"
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

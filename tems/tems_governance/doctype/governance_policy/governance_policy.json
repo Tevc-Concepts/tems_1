@@ -1,7 +1,7 @@
 {
     "actions": [],
     "allow_rename": 1,
-    "creation": "2025-09-25 00:00:00.000000",
+    "creation": "2025-09-25 00:00:00",
     "doctype": "DocType",
     "engine": "InnoDB",
     "field_order": [
@@ -9,6 +9,7 @@
         "code",
         "category",
         "owner_employee",
+        "column_break_hgyv",
         "effective_from",
         "review_cycle",
         "next_review_date",
@@ -20,65 +21,65 @@
     "fields": [
         {
             "fieldname": "title",
-            "label": "Title",
             "fieldtype": "Data",
+            "label": "Title",
             "reqd": 1
         },
         {
             "fieldname": "code",
-            "label": "Code",
             "fieldtype": "Data",
+            "label": "Code",
             "unique": 1
         },
         {
             "fieldname": "category",
-            "label": "Category",
             "fieldtype": "Select",
+            "label": "Category",
             "options": "Policy\nSOP\nGuideline\nOther"
         },
         {
             "fieldname": "owner_employee",
-            "label": "Owner (Employee)",
             "fieldtype": "Link",
+            "label": "Owner (Employee)",
             "options": "Employee"
         },
         {
             "fieldname": "effective_from",
-            "label": "Effective From",
             "fieldtype": "Date",
+            "label": "Effective From",
             "reqd": 1
         },
         {
             "fieldname": "review_cycle",
-            "label": "Review Cycle",
             "fieldtype": "Select",
+            "label": "Review Cycle",
             "options": "Monthly\nQuarterly\nBiannually\nAnnually"
         },
         {
             "fieldname": "next_review_date",
-            "label": "Next Review Date",
             "fieldtype": "Date",
             "in_list_view": 1,
-            "index": 1
+            "label": "Next Review Date"
         },
         {
             "fieldname": "status",
-            "label": "Status",
             "fieldtype": "Select",
-            "options": "Draft\nActive\nUnder Review\nArchived",
             "in_list_view": 1,
-            "index": 1
+            "label": "Status",
+            "options": "Draft\nActive\nUnder Review\nArchived"
         },
         {
+            "default": "0",
             "fieldname": "acknowledgement_required",
-            "label": "Acknowledgement Required",
-            "fieldtype": "Check"
+            "fieldtype": "Check",
+            "label": "Acknowledgement Required"
         },
         {
             "fieldname": "attached_files",
-            "label": "Attached Files",
             "fieldtype": "Table",
-            "options": "Governance Policy File"
+            "label": "Attached Files",
+            "options": "Governance Policy File",
+            "editable_grid": 1
         },
         {
             "fieldname": "amended_from",
@@ -88,45 +89,40 @@
             "options": "Governance Policy",
             "print_hide": 1,
             "read_only": 1
+        },
+        {
+            "fieldname": "column_break_hgyv",
+            "fieldtype": "Column Break"
         }
     ],
-    "is_submittable": 0,
     "links": [],
-    "modified": "2025-09-25 00:00:00.000000",
+    "modified": "2025-09-25 17:12:53.772578",
     "modified_by": "Administrator",
     "module": "TEMS Governance",
     "name": "Governance Policy",
     "owner": "Administrator",
-    "permissions_manager": 1,
-    "read_only": 0,
-    "restrict_to_domain": "TEMS",
-    "show_name_in_global_search": 0,
-    "track_changes": 0,
-    "track_views": 0,
-    "track_seen": 0,
-    "unique": 0,
-    "user_permissions": 0,
-    "version": 1,
     "permissions": [
         {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
             "create": 1,
             "delete": 1,
+            "export": 1,
             "print": 1,
+            "read": 1,
             "report": 1,
-            "export": 1
+            "role": "System Manager",
+            "write": 1
         },
         {
-            "role": "TEMS Executive",
-            "read": 1,
-            "write": 1,
             "create": 1,
             "print": 1,
-            "report": 1
+            "read": 1,
+            "report": 1,
+            "role": "TEMS Executive",
+            "write": 1
         }
     ],
+    "row_format": "Dynamic",
     "sort_field": "modified",
-    "sort_order": "DESC"
+    "sort_order": "DESC",
+    "states": []
 }

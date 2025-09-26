@@ -1,0 +1,9 @@
+{
+    "doctype": "Client Script",
+    "name": "safety_incident_form",
+    "module": "TEMS Safety",
+    "is_standard": 1,
+    "dt": "Safety Incident",
+    "view": "Form",
+    "script": "frappe.ui.form.on('Safety Incident', {\n  refresh(frm) {\n    // Warn if severity is major/critical and vehicle missing\n    const sev = (frm.doc.severity || '').toLowerCase();\n    if ((sev === 'major' || sev === 'critical') && !frm.doc.vehicle) {\n      frm.dashboard.set_headline(__('Vehicle is required for Major/Critical incidents'));\n    }\n  },\n  validate(frm) {\n    if (frm.doc.status === 'Closed' && !frm.doc.description) {\n      frappe.msgprint(__('Provide a description before closing the incident'));\n      frappe.validated = false;\n    }\n  }\n});"
+}

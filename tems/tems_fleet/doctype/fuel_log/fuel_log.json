@@ -1,0 +1,88 @@
+{
+    "doctype": "DocType",
+    "name": "Fuel Log",
+    "module": "TEMS Fleet",
+    "engine": "InnoDB",
+    "field_order": [
+        "vehicle",
+        "odometer",
+        "liters",
+        "price_per_liter",
+        "total_cost",
+        "station",
+        "geohash",
+        "date"
+    ],
+    "fields": [
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "odometer",
+            "label": "Odometer",
+            "fieldtype": "Float",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "liters",
+            "label": "Liters",
+            "fieldtype": "Float",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "price_per_liter",
+            "label": "Price / Liter",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "total_cost",
+            "label": "Total Cost",
+            "fieldtype": "Currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "station",
+            "label": "Station",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "geohash",
+            "label": "Geohash",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "date",
+            "label": "Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        }
+    ]
+}

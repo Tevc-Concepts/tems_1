@@ -1,0 +1,78 @@
+{
+    "doctype": "DocType",
+    "name": "Duty Assignment",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "journey_reference",
+        "driver",
+        "assistant",
+        "schedule_slot",
+        "status"
+    ],
+    "indexes": [
+        {
+            "index_fields": [
+                "schedule_slot"
+            ]
+        },
+        {
+            "index_fields": [
+                "status"
+            ]
+        }
+    ],
+    "fields": [
+        {
+            "fieldname": "journey_reference",
+            "label": "Journey Reference",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "driver",
+            "label": "Driver",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "assistant",
+            "label": "Assistant",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "schedule_slot",
+            "label": "Schedule Slot",
+            "fieldtype": "Datetime",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Planned\nAssigned\nIn Progress\nCompleted\nCancelled",
+            "in_list_view": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

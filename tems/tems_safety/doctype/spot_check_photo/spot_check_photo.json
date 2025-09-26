@@ -1,0 +1,25 @@
+{
+    "doctype": "DocType",
+    "name": "Spot Check Photo",
+    "module": "TEMS Safety",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "image",
+        "caption"
+    ],
+    "fields": [
+        {
+            "fieldname": "image",
+            "label": "Image",
+            "fieldtype": "Attach Image",
+            "reqd": 1
+        },
+        {
+            "fieldname": "caption",
+            "label": "Caption",
+            "fieldtype": "Data"
+        }
+    ],
+    "permissions": []
+}

@@ -34,7 +34,7 @@
             "delete": 1,
             "submit": 0,
             "cancel": 0,
-            "amend": 0  
+            "amend": 0
         }
     ],
     "custom": 0,
@@ -42,7 +42,6 @@
     "modified_by": "Administrator",
     "permissions_manager": 0,
     "read_only": 0,
-    "restrict_to_domain": "TEMS",
     "show_name_in_global_search": 0,
     "track_changes": 0,
     "track_views": 0,
@@ -50,5 +49,4 @@
     "unique": 0,
     "user_permissions": 0,
     "version": 1
-
 }

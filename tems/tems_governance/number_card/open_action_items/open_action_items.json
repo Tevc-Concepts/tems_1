@@ -1,0 +1,22 @@
+{
+ "creation": "2025-09-25 00:00:00",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Meeting Action Item",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Meeting Action Item\",\"status\",\"in\",\"Open,In Progress\",false]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Open Action Items",
+ "modified": "2025-09-25 19:46:14.333393",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Open Action Items",
+ "owner": "Administrator",
+ "parent_document_type": "Governance Meeting",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Weekly",
+ "type": "Document Type"
+}

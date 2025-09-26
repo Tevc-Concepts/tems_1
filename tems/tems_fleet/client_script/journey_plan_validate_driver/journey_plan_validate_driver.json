@@ -1,0 +1,9 @@
+{
+    "doctype": "Client Script",
+    "name": "journey_plan_validate_driver",
+    "module": "TEMS Fleet",
+    "is_standard": 1,
+    "dt": "Journey Plan",
+    "view": "Form",
+    "script": "frappe.ui.form.on('Journey Plan', {\n    validate(frm) {\n        const driver = frm.doc.driver;\n        if (!driver) return;\n        frappe.call({\n            method: 'tems.tems.tems_people.api.validate_driver_active',\n            args: { employee: driver },\n            callback(r) {\n                if (r && r.message === false) {\n                    frappe.msgprint(__('Driver is not active or has expired qualification.'));\n                    frappe.validated = false;\n                }\n            }\n        });\n    }\n});"
+}

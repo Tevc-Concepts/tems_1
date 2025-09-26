@@ -1,0 +1,41 @@
+{
+    "doctype": "DocType",
+    "name": "Planned Departure",
+    "module": "TEMS Operations",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "departure_time",
+        "vehicle",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "departure_time",
+            "label": "Departure Time",
+            "fieldtype": "Time",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Data"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        }
+    ]
+}

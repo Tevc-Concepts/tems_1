@@ -1,0 +1,21 @@
+{
+ "creation": "2025-09-25 00:00:00",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Governance Policy",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Governance Policy\",\"status\",\"=\",\"Active\",false]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Active Policies",
+ "modified": "2025-09-25 19:47:42.322625",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Active Policies",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Weekly",
+ "type": "Document Type"
+}

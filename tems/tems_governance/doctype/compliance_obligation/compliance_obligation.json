@@ -1,7 +1,7 @@
 {
     "actions": [],
     "allow_rename": 1,
-    "creation": "2025-09-25 00:00:00.000000",
+    "creation": "2025-09-25 00:00:00",
     "doctype": "DocType",
     "engine": "InnoDB",
     "field_order": [
@@ -12,88 +12,103 @@
         "next_due_date",
         "evidence_required",
         "status",
-        "evidence_files"
+        "evidence_files",
+        "amended_from"
     ],
     "fields": [
         {
             "fieldname": "title",
-            "label": "Title",
             "fieldtype": "Data",
+            "label": "Title",
             "reqd": 1
         },
         {
             "fieldname": "code",
-            "label": "Code",
             "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Code",
             "unique": 1
         },
         {
             "fieldname": "regulator",
-            "label": "Regulator",
-            "fieldtype": "Data"
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Regulator"
         },
         {
             "fieldname": "due_frequency",
-            "label": "Due Frequency",
             "fieldtype": "Select",
+            "label": "Due Frequency",
             "options": "Monthly\nQuarterly\nBiannually\nAnnually"
         },
         {
             "fieldname": "next_due_date",
-            "label": "Next Due Date",
             "fieldtype": "Date",
             "in_list_view": 1,
-            "index": 1
+            "label": "Next Due Date"
         },
         {
+            "default": "0",
             "fieldname": "evidence_required",
-            "label": "Evidence Required",
-            "fieldtype": "Check"
+            "fieldtype": "Check",
+            "label": "Evidence Required"
         },
         {
             "fieldname": "status",
-            "label": "Status",
             "fieldtype": "Select",
-            "options": "Open\nSubmitted\nCompliant\nOverdue",
             "in_list_view": 1,
-            "index": 1
+            "label": "Status",
+            "options": "Open\nSubmitted\nCompliant\nOverdue"
         },
         {
             "fieldname": "evidence_files",
-            "label": "Evidence Files",
             "fieldtype": "Table",
-            "options": "Governance Policy File"
+            "label": "Evidence Files",
+            "options": "Governance Policy File",
+            "editable_grid": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Compliance Obligation",
+            "print_hide": 1,
+            "read_only": 1,
+            "search_index": 1
         }
     ],
     "is_submittable": 1,
+    "links": [],
+    "modified": "2025-09-25 17:41:35.249105",
+    "modified_by": "Administrator",
     "module": "TEMS Governance",
     "name": "Compliance Obligation",
     "owner": "Administrator",
-    "permissions_manager": 1,
-    "read_only": 0,
-    "restrict_to_domain": "TEMS",
-    "show_name_in_global_search": 1,
-    "track_changes": 1,
-    "track_views": 1,
-    "track_seen": 1,
-    "unique": 0,
-    "user_permissions": 0,
-    "version": 1,
     "permissions": [
         {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
             "create": 1,
             "delete": 1,
-            "submit": 1,
             "print": 1,
-            "report": 1
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "submit": 1,
+            "write": 1
         },
         {
-            "role": "TEMS Executive",
             "read": 1,
-            "report": 1
+            "report": 1,
+            "role": "TEMS Executive"
         }
-    ]
+    ],
+    "row_format": "Dynamic",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1,
+    "track_seen": 1,
+    "track_views": 1
 }

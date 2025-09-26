@@ -1,0 +1,73 @@
+{
+    "doctype": "DocType",
+    "name": "Dispatch Schedule",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "date",
+        "route",
+        "shift",
+        "dispatcher",
+        "notes",
+        "planned_departures"
+    ],
+    "fields": [
+        {
+            "fieldname": "date",
+            "label": "Date",
+            "fieldtype": "Date",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "route",
+            "label": "Route",
+            "fieldtype": "Data",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "shift",
+            "label": "Shift",
+            "fieldtype": "Select",
+            "options": "Morning\nAfternoon\nNight"
+        },
+        {
+            "fieldname": "dispatcher",
+            "label": "Dispatcher",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "planned_departures",
+            "label": "Planned Departures",
+            "fieldtype": "Table",
+            "options": "Planned Departure",
+            "editable_grid": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

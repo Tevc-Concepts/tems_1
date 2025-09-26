@@ -1,0 +1,82 @@
+{
+    "doctype": "DocType",
+    "name": "Maintenance Work Order",
+    "module": "TEMS Fleet",
+    "engine": "InnoDB",
+    "field_order": [
+        "asset",
+        "vendor",
+        "status",
+        "planned_date",
+        "completion_date",
+        "cost",
+        "parts_used"
+    ],
+    "fields": [
+        {
+            "fieldname": "asset",
+            "label": "Asset",
+            "fieldtype": "Link",
+            "options": "Asset",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vendor",
+            "label": "Vendor",
+            "fieldtype": "Link",
+            "options": "Supplier",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nIn Progress\nCompleted\nCancelled",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "planned_date",
+            "label": "Planned Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "completion_date",
+            "label": "Completion Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "cost",
+            "label": "Cost",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "parts_used",
+            "label": "Parts Used",
+            "fieldtype": "Table",
+            "options": "Maintenance Part Item"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "doctype": "DocType",
+    "name": "Shift Plan",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "date",
+        "shift_type",
+        "supervisor",
+        "team"
+    ],
+    "fields": [
+        {
+            "fieldname": "date",
+            "label": "Date",
+            "fieldtype": "Date",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "shift_type",
+            "label": "Shift Type",
+            "fieldtype": "Link",
+            "options": "Shift Type",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "supervisor",
+            "label": "Supervisor",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "team",
+            "label": "Team",
+            "fieldtype": "Table",
+            "options": "Shift Team Member",
+            "editable_grid": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        }
+    ]
+}

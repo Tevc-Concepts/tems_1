@@ -139,13 +139,17 @@ app_include_js = "/assets/tems/js/tems_desk.js"
 # Fixtures
 fixtures = [
 	{"dt": "Role", "filters": [["name", "in", [
-		"TEMS Executive","Fleet Manager","Fleet Officer","Safety Officer","Safety Manager","Driver","Informal Operator","Border Agent","Community Leader","Maintenance Tech"
+		"TEMS Executive","Operations Manager","Operations Officer","Fleet Manager","Fleet Officer","Safety Officer","Safety Manager","Driver","Informal Operator","Border Agent","Community Leader","Maintenance Tech"
 	]]]},
 	"Workspace",
+	{"dt": "Number Card", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety"]]]},
+	{"dt": "Client Script", "filters": [["module", "in", ["TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety"]]]},
+	{"dt": "Workflow", "filters": [["document_type", "in", ["Safety Incident"]]]},
 	"Custom Field",
 	"Print Format",
 	"Report",
 ]
+
 
 # Document Events
 # ---------------
@@ -169,6 +173,7 @@ scheduler_events = {
 		"tems.tasks.daily_sync_checkpoint",
     	"tems.tasks.daily_interest_compute",
     	"tems.tems_governance.api.notify_upcoming_reviews_and_obligations",
+		"tems.tasks.notify_overdue_investigations",
 	],
 	"cron": {
 		"0 1 * * *": ["tems.tasks.compute_nightly_jobs"],

@@ -1,0 +1,26 @@
+[
+    {
+        "doctype": "Custom Field",
+        "name": "Employee-driver_badge_id",
+        "dt": "Employee",
+        "fieldname": "driver_badge_id",
+        "label": "Driver Badge ID",
+        "fieldtype": "Data",
+        "insert_after": "employee_number",
+        "module": "TEMS People",
+        "reqd": 0,
+        "hidden": 0
+    },
+    {
+        "doctype": "Custom Field",
+        "name": "Employee-emergency_contact_phone",
+        "dt": "Employee",
+        "fieldname": "emergency_contact_phone",
+        "label": "Emergency Contact Phone",
+        "fieldtype": "Data",
+        "insert_after": "cell_number",
+        "module": "TEMS People",
+        "reqd": 0,
+        "hidden": 0
+    }
+]

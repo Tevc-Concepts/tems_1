@@ -1,0 +1,154 @@
+{
+    "doctype": "DocType",
+    "name": "Safety Incident",
+    "module": "TEMS Safety",
+    "engine": "InnoDB",
+    "is_submittable": 1,
+    "field_order": [
+        "title",
+        "incident_date",
+        "severity",
+        "status",
+        "vehicle",
+        "route",
+        "location",
+        "description",
+        "attachments",
+        "attachments_folder",
+        "participants",
+        "investigator",
+        "closure_notes",
+        "target_resolution_date",
+        "escalation_level",
+        "escalated_on"
+    ],
+    "fields": [
+        {
+            "fieldname": "title",
+            "label": "Title",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "incident_date",
+            "label": "Incident Date & Time",
+            "fieldtype": "Datetime",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "severity",
+            "label": "Severity",
+            "fieldtype": "Select",
+            "options": "near miss\nminor\nmajor\ncritical",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nUnder Investigation\nClosed",
+            "reqd": 1,
+            "default": "Open",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "route",
+            "label": "Route Planning",
+            "fieldtype": "Link",
+            "options": "Route Planning"
+        },
+        {
+            "fieldname": "location",
+            "label": "Location",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "description",
+            "label": "Description",
+            "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "attachments",
+            "label": "Attachments",
+            "fieldtype": "Attach"
+        },
+        {
+            "fieldname": "attachments_folder",
+            "label": "Attachments Folder",
+            "fieldtype": "Link",
+            "options": "Drive File",
+            "read_only": 1
+        },
+        {
+            "fieldname": "participants",
+            "label": "Participants",
+            "fieldtype": "Table",
+            "options": "Incident Participant"
+        },
+        {
+            "fieldname": "investigator",
+            "label": "Investigator",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "closure_notes",
+            "label": "Closure Notes",
+            "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "target_resolution_date",
+            "label": "Target Resolution Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "escalation_level",
+            "label": "Escalation Level",
+            "fieldtype": "Select",
+            "options": "\nL1\nL2"
+        },
+        {
+            "fieldname": "escalated_on",
+            "label": "Escalated On",
+            "fieldtype": "Datetime"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        },
+        {
+            "role": "Safety Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        },
+        {
+            "role": "Safety Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        }
+    ],
+    "index_web_pages_for_search": 1
+}

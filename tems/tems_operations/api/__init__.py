@@ -2,6 +2,12 @@ import frappe
 
 
 @frappe.whitelist()
+def ping_operations():
+    return {"ok": True, "module": "operations"}
+import frappe
+
+
+@frappe.whitelist()
 def compute_otp(from_date: str, to_date: str, route: str | None = None):
     """Stub for Operations OTP computation. To be implemented in Operations domain.
 

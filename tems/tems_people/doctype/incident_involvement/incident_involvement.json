@@ -1,0 +1,56 @@
+{
+    "doctype": "DocType",
+    "name": "Incident Involvement",
+    "module": "TEMS People",
+    "engine": "InnoDB",
+    "field_order": [
+        "incident",
+        "employee",
+        "role",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "incident",
+            "label": "Safety Incident",
+            "fieldtype": "Link",
+            "options": "Safety Incident",
+            "reqd": 1
+        },
+        {
+            "fieldname": "employee",
+            "label": "Employee",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fieldname": "role",
+            "label": "Role",
+            "fieldtype": "Select",
+            "options": "driver\nassistant\nother"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Safety Manager",
+            "read": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1
+        }
+    ]
+}

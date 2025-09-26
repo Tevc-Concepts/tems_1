@@ -1,0 +1,72 @@
+{
+    "doctype": "DocType",
+    "name": "Training Record",
+    "module": "TEMS People",
+    "engine": "InnoDB",
+    "field_order": [
+        "employee",
+        "training_type",
+        "provider",
+        "start_date",
+        "end_date",
+        "certificate_id",
+        "status"
+    ],
+    "fields": [
+        {
+            "fieldname": "employee",
+            "label": "Employee",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "training_type",
+            "label": "Training Type",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "provider",
+            "label": "Provider",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "start_date",
+            "label": "Start Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "end_date",
+            "label": "End Date",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "certificate_id",
+            "label": "Certificate ID",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Planned\nIn Progress\nCompleted"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        }
+    ]
+}

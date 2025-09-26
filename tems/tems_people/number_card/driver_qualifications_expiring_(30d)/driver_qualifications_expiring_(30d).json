@@ -1,0 +1,21 @@
+{
+ "creation": "2025-09-25 00:00:00",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Driver Qualification",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[[\"Driver Qualification\",\"expiry_date\",\"Next 30 days\",\"\",false]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Driver Qualifications Expiring (30d)",
+ "modified": "2025-09-25 19:42:43.186327",
+ "modified_by": "Administrator",
+ "module": "TEMS People",
+ "name": "Driver Qualifications Expiring (30d)",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Weekly",
+ "type": "Document Type"
+}

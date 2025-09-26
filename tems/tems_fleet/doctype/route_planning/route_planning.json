@@ -1,0 +1,59 @@
+{
+    "doctype": "DocType",
+    "name": "Route Planning",
+    "module": "TEMS Fleet",
+    "engine": "InnoDB",
+    "field_order": [
+        "route_name",
+        "distance_km",
+        "duration_estimate",
+        "waypoints"
+    ],
+    "fields": [
+        {
+            "fieldname": "route_name",
+            "label": "Route Name",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "distance_km",
+            "label": "Distance (km)",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "duration_estimate",
+            "label": "Duration Estimate (mins)",
+            "fieldtype": "Int"
+        },
+        {
+            "fieldname": "waypoints",
+            "label": "Way Points",
+            "fieldtype": "Table",
+            "options": "Way Points"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Fleet Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        }
+    ]
+}

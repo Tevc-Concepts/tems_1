@@ -1,0 +1,106 @@
+{
+    "doctype": "DocType",
+    "name": "SOS Event",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "created_at",
+        "reporter_employee",
+        "reporter_phone",
+        "vehicle",
+        "journey_reference",
+        "lat",
+        "lng",
+        "geohash",
+        "status",
+        "resolved_at",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "created_at",
+            "label": "Created At",
+            "fieldtype": "Datetime",
+            "default": "Now",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "reporter_employee",
+            "label": "Reporter (Employee)",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "reporter_phone",
+            "label": "Reporter Phone",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "journey_reference",
+            "label": "Journey Reference",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "lat",
+            "label": "Latitude",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "lng",
+            "label": "Longitude",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "geohash",
+            "label": "Geohash",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nAcknowledged\nResolved",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "resolved_at",
+            "label": "Resolved At",
+            "fieldtype": "Datetime"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Safety Manager",
+            "read": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "doctype": "DocType",
+    "name": "Control Exception",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "type",
+        "severity",
+        "occurred_at",
+        "vehicle",
+        "journey_reference",
+        "description",
+        "resolution",
+        "status",
+        "sla_minutes",
+        "sla_breached"
+    ],
+    "fields": [
+        {
+            "fieldname": "type",
+            "label": "Type",
+            "fieldtype": "Select",
+            "options": "Delay\nBreakdown\nNo Show\nOverload",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "severity",
+            "label": "Severity",
+            "fieldtype": "Select",
+            "options": "Low\nMedium\nHigh",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "occurred_at",
+            "label": "Occurred At",
+            "fieldtype": "Datetime",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "journey_reference",
+            "label": "Journey Reference",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "description",
+            "label": "Description",
+            "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "resolution",
+            "label": "Resolution",
+            "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nAcknowledged\nResolved\nClosed",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "sla_minutes",
+            "label": "SLA Minutes",
+            "fieldtype": "Int"
+        },
+        {
+            "fieldname": "sla_breached",
+            "label": "SLA Breached",
+            "fieldtype": "Check"
+        }
+    ],
+    "indexes": [
+        {
+            "index_fields": [
+                "status"
+            ]
+        },
+        {
+            "index_fields": [
+                "occurred_at"
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

@@ -23,7 +23,8 @@
             "fieldname": "participants",
             "label": "Participants",
             "fieldtype": "Table",
-            "options": "Meeting Participant"
+            "options": "Meeting Participant",
+            "editable_grid": 1
         },
         {
             "fieldname": "agenda",
@@ -39,7 +40,8 @@
             "fieldname": "action_items",
             "label": "Action Items",
             "fieldtype": "Table",
-            "options": "Meeting Action Item"
+            "options": "Meeting Action Item",
+            "editable_grid": 1
         }
     ],
     "module": "TEMS Governance",
@@ -51,7 +53,6 @@
     "modified_by": "Administrator",
     "permissions_manager": 0,
     "read_only": 0,
-    "restrict_to_domain": "TEMS",
     "show_name_in_global_search": 0,
     "track_changes": 0,
     "track_views": 0,

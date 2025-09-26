@@ -1,0 +1,45 @@
+{
+    "doctype": "Workflow",
+    "workflow_name": "Safety Incident Workflow",
+    "document_type": "Safety Incident",
+    "workflow_state_field": "status",
+    "is_active": 1,
+    "states": [
+        {
+            "state": "Open",
+            "doc_status": 0,
+            "allow_edit": "Safety Officer"
+        },
+        {
+            "state": "Under Investigation",
+            "doc_status": 0,
+            "allow_edit": "Safety Officer"
+        },
+        {
+            "state": "Closed",
+            "doc_status": 1,
+            "allow_edit": "Safety Manager"
+        }
+    ],
+    "transitions": [
+        {
+            "state": "Open",
+            "action": "Start Investigation",
+            "next_state": "Under Investigation",
+            "allowed": "Safety Officer"
+        },
+        {
+            "state": "Under Investigation",
+            "action": "Close",
+            "next_state": "Closed",
+            "allowed": "Safety Manager",
+            "condition": "doc.description"
+        },
+        {
+            "state": "Under Investigation",
+            "action": "Reopen",
+            "next_state": "Open",
+            "allowed": "Safety Manager"
+        }
+    ]
+}

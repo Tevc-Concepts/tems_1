@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-26 09:34:39.096334",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "drive_integration_section",
+  "default_drive_team",
+  "incident_parent_folder",
+  "incident_folder_sharing_section",
+  "table_eejj",
+  "grant_read",
+  "grant_upload",
+  "grant_write",
+  "grant_share"
+ ],
+ "fields": [
+  {
+   "fieldname": "drive_integration_section",
+   "fieldtype": "Section Break",
+   "label": "Drive Integration"
+  },
+  {
+   "fieldname": "default_drive_team",
+   "fieldtype": "Link",
+   "label": "Default Drive Team",
+   "options": "Drive Team"
+  },
+  {
+   "fieldname": "incident_parent_folder",
+   "fieldtype": "Link",
+   "label": "Incident Parent Folder",
+   "options": "Drive File"
+  },
+  {
+   "fieldname": "incident_folder_sharing_section",
+   "fieldtype": "Section Break",
+   "label": "Incident Folder Sharing"
+  },
+  {
+   "fieldname": "table_eejj",
+   "fieldtype": "Table",
+   "options": "TEMS Role Share"
+  },
+  {
+   "default": "1",
+   "fieldname": "grant_read",
+   "fieldtype": "Check",
+   "label": "Grant Read"
+  },
+  {
+   "default": "1",
+   "fieldname": "grant_upload",
+   "fieldtype": "Check",
+   "label": "Grant Upload"
+  },
+  {
+   "default": "0",
+   "fieldname": "grant_write",
+   "fieldtype": "Check",
+   "label": "Grant Write"
+  },
+  {
+   "default": "0",
+   "fieldname": "grant_share",
+   "fieldtype": "Check",
+   "label": "Grant Share"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-09-26 09:40:48.770707",
+ "modified_by": "Administrator",
+ "module": "tems",
+ "name": "TEMS Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

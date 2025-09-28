@@ -1,0 +1,21 @@
+{% extends "templates/web.html" %}
+{% block title %}Safety Dashboard{% endblock %}
+{% block page_content %}
+<div class="tems-branding tems-dashboard">
+    <h1 class="page-title">Safety Dashboard</h1>
+    <div class="kpi-grid">
+        <div data-doctype="Number Card" data-name="Open Safety Incidents" class="kpi-card"></div>
+    </div>
+    <script>
+        frappe.after_ajax(() => {
+            frappe.call('frappe.desk.doctype.number_card.number_card.get_result', {
+                doc: { name: 'Open Safety Incidents', function: 'Count', type: 'Document Type', document_type: 'Safety Incident' },
+                filters: [["Safety Incident", "status", "!=", "Closed"]]
+            }).then(r => {
+                const el = document.querySelector('[data-name="Open Safety Incidents"]');
+                if (el) el.innerHTML = `<div class="title">Open Safety Incidents</div><div class="value">${r.message ?? 0}</div>`;
+            });
+        })
+    </script>
+</div>
+{% endblock %}

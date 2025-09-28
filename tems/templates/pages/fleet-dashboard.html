@@ -1,0 +1,24 @@
+{% extends "templates/web.html" %}
+{% block title %}Fleet Dashboard{% endblock %}
+{% block page_content %}
+<div class="tems-branding tems-dashboard">
+    <h1 class="page-title">Fleet Dashboard</h1>
+    <div class="kpi-grid">
+        <!-- Embed Frappe Insights dashboards or number cards via widgets -->
+        <div data-doctype="Number Card" data-name="Open Work Orders" class="kpi-card"></div>
+    </div>
+    <div class="notes text-muted">Configure and export Insights dashboards, then link here.</div>
+    <script>
+        frappe.after_ajax(() => {
+            // Render Number Card inline if available
+            frappe.call('frappe.desk.doctype.number_card.number_card.get_result', {
+                doc: { name: 'Open Work Orders', function: 'Count', type: 'Document Type', document_type: 'Maintenance Work Order' },
+                filters: [["Maintenance Work Order", "status", "=", "Open"]]
+            }).then(r => {
+                const el = document.querySelector('[data-name="Open Work Orders"]');
+                if (el) el.innerHTML = `<div class="title">Open Work Orders</div><div class="value">${r.message ?? 0}</div>`;
+            });
+        })
+    </script>
+</div>
+{% endblock %}

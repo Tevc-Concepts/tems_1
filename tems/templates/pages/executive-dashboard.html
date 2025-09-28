@@ -1,0 +1,30 @@
+{% extends "templates/web.html" %}
+{% block title %}Executive Dashboard{% endblock %}
+{% block page_content %}
+<div class="tems-branding tems-dashboard">
+    <h1 class="page-title">Executive Dashboard</h1>
+    <div class="kpi-grid">
+        <div data-name="Open Work Orders" class="kpi-card"></div>
+        <div data-name="Open Safety Incidents" class="kpi-card"></div>
+        <div data-name="Today's Duty Assignments" class="kpi-card"></div>
+    </div>
+    <script>
+        const cards = [
+            { name: 'Open Work Orders', document_type: 'Maintenance Work Order', filters: [["Maintenance Work Order", "status", "=", "Open"]] },
+            { name: 'Open Safety Incidents', document_type: 'Safety Incident', filters: [["Safety Incident", "status", "!=", "Closed"]] },
+            { name: "Today's Duty Assignments", document_type: 'Duty Assignment', filters: [["Duty Assignment", "schedule_slot", "Today", ""]] },
+        ];
+        frappe.after_ajax(() => {
+            cards.forEach(cfg => {
+                frappe.call('frappe.desk.doctype.number_card.number_card.get_result', {
+                    doc: { name: cfg.name, function: 'Count', type: 'Document Type', document_type: cfg.document_type },
+                    filters: cfg.filters
+                }).then(r => {
+                    const el = document.querySelector(`.kpi-card[data-name="${cfg.name}"]`);
+                    if (el) el.innerHTML = `<div class="title">${cfg.name}</div><div class="value">${r.message ?? 0}</div>`;
+                });
+            });
+        })
+    </script>
+</div>
+{% endblock %}

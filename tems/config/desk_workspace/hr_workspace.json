@@ -1,0 +1,33 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS People",
+    "title": "HR",
+    "name": "HR",
+    "public": 1,
+    "icon": "organization",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Employee",
+            "link_to": "Employee"
+        },
+        {
+            "type": "DocType",
+            "label": "Driver Qualification",
+            "link_to": "Driver Qualification"
+        }
+    ],
+    "links": [],
+    "number_cards": [
+        {
+            "label": "Driver Qualifications Expiring (30d)",
+            "number_card_name": "Driver Qualifications Expiring (30d)"
+        }
+    ],
+    "roles": [
+        {
+            "role": "HR"
+        }
+    ]
+}

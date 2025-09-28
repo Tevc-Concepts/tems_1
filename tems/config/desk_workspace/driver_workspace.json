@@ -1,0 +1,33 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS People",
+    "title": "Driver",
+    "name": "Driver",
+    "public": 1,
+    "icon": "steering-wheel",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Journey Plan",
+            "link_to": "Journey Plan"
+        },
+        {
+            "type": "DocType",
+            "label": "Spot Check",
+            "link_to": "Spot Check"
+        }
+    ],
+    "links": [],
+    "number_cards": [
+        {
+            "label": "Driver Qualifications Expiring (30d)",
+            "number_card_name": "Driver Qualifications Expiring (30d)"
+        }
+    ],
+    "roles": [
+        {
+            "role": "Driver"
+        }
+    ]
+}

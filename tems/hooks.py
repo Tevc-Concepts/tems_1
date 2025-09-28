@@ -32,8 +32,8 @@ app_include_css = "/assets/tems/css/tems_theme.css"
 app_include_js = "/assets/tems/js/tems_desk.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/tems/css/tems_theme.css"
-# web_include_js = "/assets/tems/js/tems_web.js"
+web_include_css = "/assets/tems/css/tems_theme.css"
+web_include_js = "/assets/tems/js/tems_web.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "tems/public/scss/website"
@@ -137,9 +137,26 @@ app_include_js = "/assets/tems/js/tems_desk.js"
 # }
 
 # Fixtures
+
+# Fixtures ensure roles/workspaces/number cards ship with the app (export-fixtures)
 fixtures = [
 	{"dt": "Role", "filters": [["name", "in", [
-		"TEMS Executive","Operations Manager","Operations Officer","Fleet Manager","Fleet Officer","Safety Officer","Safety Manager","Driver","Informal Operator","Border Agent","Community Leader","Maintenance Tech"
+		"TEMS Executive",
+		"Operations Manager",
+		"Operations Officer",
+		"Fleet Manager",
+		"Fleet Officer",
+		"Safety Officer",
+		"Safety Manager",
+		"Driver",
+		"Informal Operator",
+		"Border Agent",
+		"Community Leader",
+		"Maintenance Tech",
+		"Finance Manager",
+		"Finance Officer",
+		"Analyst",
+		"HR"
 	]]]},
 	"Workspace",
 	{"dt": "Number Card", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},

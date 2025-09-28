@@ -1,0 +1,47 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Operations",
+    "title": "Operations Manager",
+    "name": "Operations Manager",
+    "public": 1,
+    "icon": "briefcase",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Duty Assignment",
+            "link_to": "Duty Assignment"
+        },
+        {
+            "type": "DocType",
+            "label": "Route Planning",
+            "link_to": "Route Planning"
+        }
+    ],
+    "links": [
+        {
+            "type": "Link",
+            "label": "Operations Control",
+            "link_type": "Workspace",
+            "link_to": "Operations Control"
+        }
+    ],
+    "number_cards": [
+        {
+            "label": "Today's Duty Assignments",
+            "number_card_name": "Today's Duty Assignments"
+        },
+        {
+            "label": "Open Control Exceptions",
+            "number_card_name": "Open Control Exceptions"
+        }
+    ],
+    "roles": [
+        {
+            "role": "Operations Manager"
+        },
+        {
+            "role": "Operations Officer"
+        }
+    ]
+}

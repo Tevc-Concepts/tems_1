@@ -1,0 +1,24 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Insights",
+    "title": "Analyst",
+    "name": "Analyst",
+    "public": 1,
+    "icon": "graph",
+    "content": [],
+    "shortcuts": [],
+    "links": [
+        {
+            "type": "Link",
+            "label": "Insights",
+            "link_type": "Workspace",
+            "link_to": "Insights"
+        }
+    ],
+    "number_cards": [],
+    "roles": [
+        {
+            "role": "Analyst"
+        }
+    ]
+}

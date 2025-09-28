@@ -1,0 +1,43 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Fleet",
+    "title": "Fleet Officer",
+    "name": "Fleet Officer",
+    "public": 1,
+    "icon": "car",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Vehicle",
+            "link_to": "Vehicle"
+        },
+        {
+            "type": "DocType",
+            "label": "Maintenance Work Order",
+            "link_to": "Maintenance Work Order"
+        }
+    ],
+    "links": [
+        {
+            "type": "Link",
+            "label": "Fleet Dashboard",
+            "link_type": "Page",
+            "link_to": "fleet_dashboard"
+        }
+    ],
+    "number_cards": [
+        {
+            "label": "Open Work Orders",
+            "number_card_name": "Open Work Orders"
+        }
+    ],
+    "roles": [
+        {
+            "role": "Fleet Officer"
+        },
+        {
+            "role": "Fleet Manager"
+        }
+    ]
+}

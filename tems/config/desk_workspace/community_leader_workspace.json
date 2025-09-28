@@ -1,0 +1,17 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Governance",
+    "title": "Community Leader",
+    "name": "Community Leader",
+    "public": 1,
+    "icon": "megaphone",
+    "content": [],
+    "shortcuts": [],
+    "links": [],
+    "number_cards": [],
+    "roles": [
+        {
+            "role": "Community Leader"
+        }
+    ]
+}

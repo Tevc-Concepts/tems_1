@@ -1,0 +1,23 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Trade",
+    "title": "Border Agent",
+    "name": "Border Agent",
+    "public": 1,
+    "icon": "shield",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Trade Lane",
+            "link_to": "Trade Lane"
+        }
+    ],
+    "links": [],
+    "number_cards": [],
+    "roles": [
+        {
+            "role": "Border Agent"
+        }
+    ]
+}

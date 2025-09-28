@@ -1,0 +1,38 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Finance",
+    "title": "Finance Manager",
+    "name": "Finance Manager",
+    "public": 1,
+    "icon": "credit-card",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Purchase Invoice",
+            "link_to": "Purchase Invoice"
+        },
+        {
+            "type": "DocType",
+            "label": "Sales Invoice",
+            "link_to": "Sales Invoice"
+        }
+    ],
+    "links": [
+        {
+            "type": "Link",
+            "label": "Insights",
+            "link_type": "Workspace",
+            "link_to": "Insights"
+        }
+    ],
+    "number_cards": [],
+    "roles": [
+        {
+            "role": "Finance Manager"
+        },
+        {
+            "role": "Finance Officer"
+        }
+    ]
+}

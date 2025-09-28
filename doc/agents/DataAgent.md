@@ -17,8 +17,8 @@ CONSTRAINTS:
 - All reporting data must come from linked DocTypes (no siloed data).
 
 INTER-RELATIONSHIPS:
-- Fleet ↔ HR ↔ Finance (Driver performance, TCO).
-- Safety ↔ Climate (Journey risk reports).
+- Fleet ↔ Operation  ↔HR ↔ Finance (Driver performance, Vehicle Profitability,Customer Profitabilty, Route Profitabilit, TCO).
+- Operation  ↔ Safety ↔ Climate (Journey risk reports).
 - Trade ↔ Finance (Cross-border compliance).
 - CRM ↔ Governance (Customer SLA monitoring).
 

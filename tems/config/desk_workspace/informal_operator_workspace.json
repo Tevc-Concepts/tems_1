@@ -1,0 +1,23 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Informal",
+    "title": "Informal Operator",
+    "name": "Informal Operator",
+    "public": 1,
+    "icon": "person",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Informal Operator Profile",
+            "link_to": "Informal Operator Profile"
+        }
+    ],
+    "links": [],
+    "number_cards": [],
+    "roles": [
+        {
+            "role": "Informal Operator"
+        }
+    ]
+}

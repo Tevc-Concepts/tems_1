@@ -1,0 +1,43 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Safety",
+    "title": "Safety Officer",
+    "name": "Safety Officer",
+    "public": 1,
+    "icon": "alert-octagon",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Safety Incident",
+            "link_to": "Safety Incident"
+        },
+        {
+            "type": "DocType",
+            "label": "Inspection",
+            "link_to": "Inspection"
+        }
+    ],
+    "links": [
+        {
+            "type": "Link",
+            "label": "Safety Dashboard",
+            "link_type": "Page",
+            "link_to": "safety_dashboard"
+        }
+    ],
+    "number_cards": [
+        {
+            "label": "Open Safety Incidents",
+            "number_card_name": "Open Safety Incidents"
+        }
+    ],
+    "roles": [
+        {
+            "role": "Safety Officer"
+        },
+        {
+            "role": "Safety Manager"
+        }
+    ]
+}

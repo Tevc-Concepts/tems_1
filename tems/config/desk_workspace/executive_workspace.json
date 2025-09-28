@@ -1,0 +1,48 @@
+{
+    "doctype": "Workspace",
+    "module": "TEMS Governance",
+    "title": "Executive",
+    "name": "Executive",
+    "public": 1,
+    "icon": "octicon octicon-graph",
+    "content": [],
+    "shortcuts": [
+        {
+            "type": "DocType",
+            "label": "Journey Plan",
+            "link_to": "Journey Plan"
+        },
+        {
+            "type": "DocType",
+            "label": "Safety Incident",
+            "link_to": "Safety Incident"
+        }
+    ],
+    "links": [
+        {
+            "type": "Link",
+            "label": "Executive Dashboard",
+            "link_type": "Page",
+            "link_to": "executive_dashboard"
+        }
+    ],
+    "number_cards": [
+        {
+            "label": "Open Work Orders",
+            "number_card_name": "Open Work Orders"
+        },
+        {
+            "label": "Open Safety Incidents",
+            "number_card_name": "Open Safety Incidents"
+        },
+        {
+            "label": "Today's Duty Assignments",
+            "number_card_name": "Today's Duty Assignments"
+        }
+    ],
+    "roles": [
+        {
+            "role": "TEMS Executive"
+        }
+    ]
+}

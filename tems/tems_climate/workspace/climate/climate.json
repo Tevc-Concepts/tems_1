@@ -1,0 +1,62 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"hdrClimate\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Climate</b></span>\",\"col\":12}},{\"id\":\"YkN0aWLSPa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Climate Risk Assessment\",\"col\":3}},{\"id\":\"sfXCaHDjh0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Climate Risk Event\",\"col\":3}},{\"id\":\"4RWRHoke3f\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Emission Log\",\"col\":3}},{\"id\":\"D9NRX0N8q8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Emission by Vehicle per Month\",\"col\":3}}]",
+ "creation": "2025-09-26 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "sun",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Climate",
+ "links": [],
+ "modified": "2025-09-28 22:56:48.207211",
+ "modified_by": "Administrator",
+ "module": "TEMS Climate",
+ "name": "Climate",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 57.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Climate Risk Assessment",
+   "link_to": "Climate Risk Assessment",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Emission Log",
+   "link_to": "Emissions Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Climate Risk Event",
+   "link_to": "Climate Risk Events",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Emission by Vehicle per Month",
+   "link_to": "Emissions by Vehicle per month",
+   "report_ref_doctype": "Emissions Log",
+   "type": "Report"
+  }
+ ],
+ "title": "Climate"
+}

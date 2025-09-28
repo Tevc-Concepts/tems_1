@@ -9,7 +9,7 @@ def execute(filters=None):
     data = frappe.db.sql(
         """
         select context, count(*) as count
-        from `tabDocument Checklist`
+        from `tabDocument Checklists`
         group by context
         order by context
         """,

@@ -1,48 +1,62 @@
 {
-    "charts": [],
-    "content": "[{\"id\":\"hdrTrade\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Trade & Borders</b></span>\",\"col\":12}}]",
-    "creation": "2025-09-26 00:00:00",
-    "custom_blocks": [],
-    "docstatus": 0,
-    "doctype": "Workspace",
-    "for_user": "",
-    "hide_custom": 0,
-    "icon": "globe",
-    "idx": 0,
-    "is_hidden": 0,
-    "label": "Trade and Borders",
-    "links": [],
-    "module": "TEMS Trade",
-    "name": "Trade and Borders",
-    "number_cards": [],
-    "owner": "Administrator",
-    "parent_page": "",
-    "public": 1,
-    "quick_lists": [],
-    "restrict_to_domain": "",
-    "roles": [],
-    "sequence_id": 58.0,
-    "shortcuts": [
-        {
-            "type": "DocType",
-            "label": "Trade Lane",
-            "link_to": "Trade Lane"
-        },
-        {
-            "type": "DocType",
-            "label": "Border Crossing",
-            "link_to": "Border Crossing"
-        },
-        {
-            "type": "DocType",
-            "label": "Customs Clearance",
-            "link_to": "Customs Clearance"
-        },
-        {
-            "type": "Report",
-            "label": "Border Dwell Time",
-            "link_to": "Border Dwell Time"
-        }
-    ],
-    "title": "Trade & Borders"
+ "charts": [],
+ "content": "[{\"id\":\"hdrTrade\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Trade and Borders</b></span>\",\"col\":12}},{\"id\":\"bjsmdBGiYt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trade Lane\",\"col\":3}},{\"id\":\"QOwj3T-aEq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Border Crossing\",\"col\":3}},{\"id\":\"gR2GkI0AeG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customs Clearance\",\"col\":3}},{\"id\":\"9tqT-fRBll\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Border Dwell Time\",\"col\":3}}]",
+ "creation": "2025-09-26 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "globe",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Trade and Borders",
+ "links": [],
+ "modified": "2025-09-28 22:18:58.966836",
+ "modified_by": "Administrator",
+ "module": "TEMS Trade",
+ "name": "Trade and Borders",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 58.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Trade Lane",
+   "link_to": "Trade Lane",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Border Crossing",
+   "link_to": "Border Crossing",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Customs Clearance",
+   "link_to": "Customs Clearance",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Border Dwell Time",
+   "link_to": "Border Dwelling",
+   "report_ref_doctype": "Border Crossing",
+   "type": "Report"
+  }
+ ],
+ "title": "Trade and Borders"
 }

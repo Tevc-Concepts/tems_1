@@ -26,7 +26,16 @@
             "link_to": "Insights"
         }
     ],
-    "number_cards": [],
+    "number_cards": [
+        {
+            "label": "Unpaid Sales Invoices",
+            "number_card_name": "Unpaid Sales Invoices"
+        },
+        {
+            "label": "Overdue Purchase Invoices",
+            "number_card_name": "Overdue Purchase Invoices"
+        }
+    ],
     "roles": [
         {
             "role": "Finance Manager"

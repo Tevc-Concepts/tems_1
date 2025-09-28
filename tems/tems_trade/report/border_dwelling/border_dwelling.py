@@ -1,3 +1,6 @@
+# Copyright (c) 2025, Tevc Concepts Limited and contributors
+# For license information, please see license.txt
+
 import frappe
 
 def execute(filters=None):

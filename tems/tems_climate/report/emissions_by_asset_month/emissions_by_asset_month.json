@@ -1,9 +1,0 @@
-{
-    "name": "Emissions by Vehicle/Month",
-    "report_name": "Emissions by Vehicle/Month",
-    "doctype": "Emissions Log",
-    "is_standard": "Yes",
-    "report_type": "Script Report",
-    "reference_doctype": "Emissions Log",
-    "module": "TEMS Climate"
-}

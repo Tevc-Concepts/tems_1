@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-28 23:23:05.257583",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "items",
+  "min_stock",
+  "reorder_qty",
+  "asset_compatibility"
+ ],
+ "fields": [
+  {
+   "fieldname": "items",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Items",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "items.min_order_qty",
+   "fieldname": "min_stock",
+   "fieldtype": "Float",
+   "label": "Min Stock"
+  },
+  {
+   "fieldname": "asset_compatibility",
+   "fieldtype": "Small Text",
+   "label": "Asset Compatibility"
+  },
+  {
+   "fieldname": "reorder_qty",
+   "fieldtype": "Float",
+   "label": "Reorder Qty"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-28 23:28:07.048763",
+ "modified_by": "Administrator",
+ "module": "TEMS Supply Chain",
+ "name": "Spare Parts",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

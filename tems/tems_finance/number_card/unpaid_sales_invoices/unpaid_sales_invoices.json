@@ -1,0 +1,15 @@
+{
+    "doctype": "Number Card",
+    "name": "Unpaid Sales Invoices",
+    "module": "TEMS Finance",
+    "label": "Unpaid Sales Invoices",
+    "type": "Document Type",
+    "document_type": "Sales Invoice",
+    "function": "Count",
+    "filters_json": "[[\"Sales Invoice\",\"status\",\"=\",\"Unpaid\",false]]",
+    "dynamic_filters_json": "[]",
+    "is_public": 1,
+    "is_standard": 1,
+    "show_percentage_stats": 1,
+    "stats_time_interval": "Monthly"
+}

@@ -1,38 +1,46 @@
 {
-    "charts": [],
-    "content": "[{\"id\":\"hdrDocs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Documents</b></span>\",\"col\":12}}]",
-    "creation": "2025-09-26 00:00:00",
-    "custom_blocks": [],
-    "docstatus": 0,
-    "doctype": "Workspace",
-    "for_user": "",
-    "hide_custom": 0,
-    "icon": "file",
-    "idx": 0,
-    "is_hidden": 0,
-    "label": "Documents",
-    "links": [],
-    "module": "TEMS Documents",
-    "name": "Documents",
-    "number_cards": [],
-    "owner": "Administrator",
-    "parent_page": "",
-    "public": 1,
-    "quick_lists": [],
-    "restrict_to_domain": "",
-    "roles": [],
-    "sequence_id": 55.0,
-    "shortcuts": [
-        {
-            "type": "DocType",
-            "label": "Document Checklist",
-            "link_to": "Document Checklist"
-        },
-        {
-            "type": "Report",
-            "label": "Checklist Count by Context",
-            "link_to": "Checklist Count by Context"
-        }
-    ],
-    "title": "Documents"
+ "charts": [],
+ "content": "[{\"id\":\"hdrDocs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Documents</b></span>\",\"col\":12}},{\"id\":\"aeOdoQSzh-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Document Checklist\",\"col\":3}},{\"id\":\"PsMulp0z9-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Check List Count by Context\",\"col\":3}}]",
+ "creation": "2025-09-26 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "file",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Documents",
+ "links": [],
+ "modified": "2025-09-28 23:16:46.099722",
+ "modified_by": "Administrator",
+ "module": "TEMS Documents",
+ "name": "Documents",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 55.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Document Checklist",
+   "link_to": "Document Checklists",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Check List Count by Context",
+   "link_to": "Checklist Count by Context",
+   "report_ref_doctype": "Document Checklists",
+   "type": "Report"
+  }
+ ],
+ "title": "Documents"
 }

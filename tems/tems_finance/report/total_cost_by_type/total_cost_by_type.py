@@ -9,7 +9,7 @@ def execute(filters=None):
     data = frappe.db.sql(
         """
         select cost_type, sum(amount) as total
-        from `tabFleet Cost`
+        from `tabFleet Costs`
         group by cost_type
         order by cost_type
         """,

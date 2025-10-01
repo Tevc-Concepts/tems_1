@@ -1,43 +1,109 @@
 {
-    "charts": [],
-    "content": "[{\"id\":\"hdrPeople\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>People & Drivers</b></span>\",\"col\":12}}]",
-    "creation": "2025-09-26 00:00:00",
-    "custom_blocks": [],
-    "docstatus": 0,
-    "doctype": "Workspace",
-    "for_user": "",
-    "hide_custom": 0,
-    "icon": "people",
-    "idx": 0,
-    "is_hidden": 0,
-    "label": "People",
-    "links": [],
-    "module": "TEMS People",
-    "name": "People",
-    "number_cards": [],
-    "owner": "Administrator",
-    "parent_page": "",
-    "public": 1,
-    "quick_lists": [],
-    "restrict_to_domain": "",
-    "roles": [],
-    "sequence_id": 56.0,
-    "shortcuts": [
-        {
-            "type": "DocType",
-            "label": "Driver Qualification",
-            "link_to": "Driver Qualification"
-        },
-        {
-            "type": "DocType",
-            "label": "Training Record",
-            "link_to": "Training Record"
-        },
-        {
-            "type": "Report",
-            "label": "Training Compliance by Dept",
-            "link_to": "Training Compliance by Dept"
-        }
-    ],
-    "title": "People & Drivers"
+ "charts": [],
+ "content": "[{\"id\":\"kFPAiC5S8w\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">People and Drivers</span>\",\"col\":12}},{\"id\":\"PjHYTTWUEu\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Driver Doc Expiring in 30days\",\"col\":4}},{\"id\":\"ez_wPM8EE5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"lKBqtCOaSS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Active Driver Qualification\",\"col\":3}},{\"id\":\"peEpR9EORz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Planned Training\",\"col\":3}},{\"id\":\"WXUTXS2FSt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"In Progress Training\",\"col\":3}},{\"id\":\"DI7OAGn6zT\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"_MsDbN7P75\",\"type\":\"card\",\"data\":{\"card_name\":\"Driver Detail\",\"col\":4}}]",
+ "creation": "2025-10-01 09:36:26.562433",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "share-people",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "People",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Detail",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Qualification",
+   "link_count": 0,
+   "link_to": "Driver Qualification",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Training Record",
+   "link_count": 0,
+   "link_to": "Training Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Expiring Driving",
+   "link_count": 0,
+   "link_to": "Expiring Driver Qualifications",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Training Compliance",
+   "link_count": 0,
+   "link_to": "Training Compliance by Dept",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-10-01 10:18:08.491809",
+ "modified_by": "Administrator",
+ "module": "TEMS People",
+ "name": "People",
+ "number_cards": [
+  {
+   "label": "Driver Doc Expiring in 30days",
+   "number_card_name": "Driver Qualification Expire in 30d"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "TEMS",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 59.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Active Driver Qualification",
+   "link_to": "Driver Qualification",
+   "stats_filter": "[[\"Driver Qualification\",\"status\",\"=\",\"Active\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Planned Training",
+   "link_to": "Training Record",
+   "stats_filter": "[[\"Training Record\",\"status\",\"=\",\"Planned\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "In Progress Training",
+   "link_to": "Training Record",
+   "stats_filter": "[[\"Training Record\",\"status\",\"=\",\"In Progress\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "People"
 }

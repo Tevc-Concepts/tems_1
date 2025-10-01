@@ -1,43 +1,54 @@
 {
-    "charts": [],
-    "content": "[{\"id\":\"hdrCRM\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CRM</b></span>\",\"col\":12}}]",
-    "creation": "2025-09-26 00:00:00",
-    "custom_blocks": [],
-    "docstatus": 0,
-    "doctype": "Workspace",
-    "for_user": "",
-    "hide_custom": 0,
-    "icon": "crm",
-    "idx": 0,
-    "is_hidden": 0,
-    "label": "CRM",
-    "links": [],
-    "module": "TEMS CRM",
-    "name": "CRM",
-    "number_cards": [],
-    "owner": "Administrator",
-    "parent_page": "",
-    "public": 1,
-    "quick_lists": [],
-    "restrict_to_domain": "",
-    "roles": [],
-    "sequence_id": 53.0,
-    "shortcuts": [
-        {
-            "type": "DocType",
-            "label": "Field Service Request",
-            "link_to": "Field Service Request"
-        },
-        {
-            "type": "DocType",
-            "label": "Customer Feedback",
-            "link_to": "Customer Feedback"
-        },
-        {
-            "type": "Report",
-            "label": "FSR Open by Priority",
-            "link_to": "FSR Open by Priority"
-        }
-    ],
-    "title": "CRM"
+ "charts": [],
+ "content": "[{\"id\":\"hdrCRM\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CRM</b></span>\",\"col\":12}},{\"id\":\"DGrkDdx1DX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"customer Feedback\",\"col\":3}},{\"id\":\"u6RIW2NA3w\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Field Service Request\",\"col\":3}},{\"id\":\"cjc4dLSpz7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"FSR Open By Priority\",\"col\":3}}]",
+ "creation": "2025-09-26 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "crm",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "CRM",
+ "links": [],
+ "modified": "2025-09-30 15:54:06.710982",
+ "modified_by": "Administrator",
+ "module": "TEMS CRM",
+ "name": "CRM",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "TEMS",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 53.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "customer Feedback",
+   "link_to": "Customer Feedbacks",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Field Service Request",
+   "link_to": "Field Service Requests",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "FSR Open By Priority",
+   "link_to": "FSR Open By Priority",
+   "report_ref_doctype": "Field Service Requests",
+   "type": "Report"
+  }
+ ],
+ "title": "CRM"
 }

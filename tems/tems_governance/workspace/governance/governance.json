@@ -1,0 +1,122 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"6ebXEVTJgp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Governance</span>\",\"col\":12}},{\"id\":\"rEY-YjDAug\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Governance Policy\",\"col\":3}},{\"id\":\"hM6QeA6rTH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Compliance Obligation\",\"col\":3}},{\"id\":\"nUrSGLDb9p\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Meeting Evidence\",\"col\":3}},{\"id\":\"9QnZlsJ46e\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle ESG Logs\",\"col\":3}},{\"id\":\"qLa0ospRIf\",\"type\":\"card\",\"data\":{\"card_name\":\"Details\",\"col\":4}}]",
+ "creation": "2025-10-01 10:50:32.049399",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "permission",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Governance",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Details",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Policies",
+   "link_count": 0,
+   "link_to": "Governance Policy",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Compliance Obligation",
+   "link_count": 0,
+   "link_to": "Compliance Obligation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Meetings",
+   "link_count": 0,
+   "link_to": "Governance Meeting",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Policy Review Report",
+   "link_count": 0,
+   "link_to": "Policy Review Schedule",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Obligation Status Report",
+   "link_count": 0,
+   "link_to": "Obligation Status Aging",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-10-01 10:58:01.552426",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Governance",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "TEMS",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 60.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Governance Policy",
+   "link_to": "Governance Policy",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Compliance Obligation",
+   "link_to": "Compliance Obligation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Meeting Evidence",
+   "link_to": "Governance Meeting",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle ESG Logs",
+   "link_to": "Vehicle Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Governance"
+}

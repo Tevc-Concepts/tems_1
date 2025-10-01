@@ -1,126 +1,154 @@
 {
-    "charts": [],
-    "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Fleet Manager\"}}]",
-    "creation": "2025-09-25 00:00:00",
-    "custom_blocks": [],
-    "docstatus": 0,
-    "doctype": "Workspace",
-    "for_user": "",
-    "hide_custom": 0,
-    "icon": "car",
-    "idx": 0,
-    "indicator_color": "blue",
-    "is_hidden": 0,
-    "label": "Fleet Manager",
-    "links": [
-        {
-            "type": "Link",
-            "label": "Vehicle",
-            "link_type": "DocType",
-            "link_to": "Vehicle",
-            "onboard": 0,
-            "hidden": 0,
-            "is_query_report": 0,
-            "link_count": 0
-        },
-        {
-            "type": "Link",
-            "label": "Journey Plan",
-            "link_type": "DocType",
-            "link_to": "Journey Plan",
-            "onboard": 1,
-            "hidden": 0,
-            "is_query_report": 0,
-            "link_count": 0
-        },
-        {
-            "type": "Link",
-            "label": "Maintenance Work Order",
-            "link_type": "DocType",
-            "link_to": "Maintenance Work Order",
-            "onboard": 1,
-            "hidden": 0,
-            "is_query_report": 0,
-            "link_count": 0
-        },
-        {
-            "type": "Link",
-            "label": "Fuel Log",
-            "link_type": "DocType",
-            "link_to": "Fuel Log",
-            "onboard": 1,
-            "hidden": 0,
-            "is_query_report": 0,
-            "link_count": 0
-        },
-        {
-            "type": "Link",
-            "label": "Route Planning",
-            "link_type": "DocType",
-            "link_to": "Route Planning",
-            "onboard": 1,
-            "hidden": 0,
-            "is_query_report": 0,
-            "link_count": 0
-        },
-        {
-            "type": "Link",
-            "label": "Open Work Orders",
-            "link_type": "Report",
-            "link_to": "Open Work Orders",
-            "onboard": 0,
-            "hidden": 0,
-            "is_query_report": 1,
-            "link_count": 0
-        },
-        {
-            "type": "Link",
-            "label": "Fuel Efficiency by Vehicle",
-            "link_type": "Report",
-            "link_to": "Fuel Efficiency by Vehicle",
-            "onboard": 0,
-            "hidden": 0,
-            "is_query_report": 1,
-            "link_count": 0
-        }
-    ],
-    "modified": "2025-09-25 00:00:00",
-    "modified_by": "Administrator",
-    "module": "TEMS Fleet",
-    "name": "Fleet Manager",
-    "number_cards": [
-        {
-            "label": "Open Work Orders",
-            "number_card_name": "Open Work Orders"
-        }
-    ],
-    "owner": "Administrator",
-    "parent_page": "",
-    "public": 1,
-    "quick_lists": [],
-    "roles": [
-        {
-            "role": "System Manager"
-        },
-        {
-            "role": "Fleet Manager"
-        },
-        {
-            "role": "Fleet Officer"
-        }
-    ],
-    "sequence_id": 40.0,
-    "shortcuts": [
-        {
-            "type": "DocType",
-            "label": "Journey Plan",
-            "link_to": "Journey Plan"
-        },
-        {
-            "type": "DocType",
-            "label": "Maintenance Work Order",
-            "link_to": "Maintenance Work Order"
-        }
-    ],
-    "title": "Fleet Manager"
+ "charts": [],
+ "content": "[{\"id\":\"O7v7Zfy8kZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Fleet Manager</span>\",\"col\":12}},{\"id\":\"_t0CvVeHvJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Journey Plan\",\"col\":3}},{\"id\":\"5IYGyoif0m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Route Planning\",\"col\":3}},{\"id\":\"9SbkJ1ma4E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Maintenance Work Order (Open)\",\"col\":3}},{\"id\":\"bHzrbFNwJ2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hDbTAMmD7C\",\"type\":\"card\",\"data\":{\"card_name\":\"Asset Space\",\"col\":4}}]",
+ "creation": "2025-09-25 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "car",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "Fleet Manager",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Space",
+   "link_count": 8,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset",
+   "link_count": 0,
+   "link_to": "Asset",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle",
+   "link_count": 0,
+   "link_to": "Vehicle",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Journey Plan",
+   "link_count": 0,
+   "link_to": "Journey Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance Work Order",
+   "link_count": 0,
+   "link_to": "Maintenance Work Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fuel Log",
+   "link_count": 0,
+   "link_to": "Fuel Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Route Planning",
+   "link_count": 0,
+   "link_to": "Route Planning",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Open Work Order",
+   "link_count": 0,
+   "link_to": "Open Work Orders",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Fuel Efficiency by Vehicle",
+   "link_count": 0,
+   "link_to": "Fuel Efficiency by Vehicle",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-10-01 08:57:02.497127",
+ "modified_by": "Administrator",
+ "module": "TEMS Fleet",
+ "name": "Fleet Manager",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Fleet Manager"
+  },
+  {
+   "role": "Fleet Officer"
+  }
+ ],
+ "sequence_id": 40.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Journey Plan",
+   "link_to": "Journey Plan",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Maintenance Work Order (Open)",
+   "link_to": "Maintenance Work Order",
+   "stats_filter": "[[\"Maintenance Work Order\",\"status\",\"in\",[\"Open\",\"In Progress\",null],false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Route Planning",
+   "link_to": "Route Planning",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Fleet Manager"
 }

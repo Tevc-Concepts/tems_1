@@ -9,7 +9,7 @@ def execute(filters=None):
     data = frappe.db.sql(
         """
         select priority, count(*) as open_count
-        from `tabField Service Request`
+        from `tabField Service Requests`
         where status = 'Open'
         group by priority
         order by priority

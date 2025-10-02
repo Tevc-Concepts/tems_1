@@ -1,0 +1,46 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Duty Assignment",
+  "enabled": 1,
+  "modified": "2025-10-01 23:33:15.017647",
+  "module": "TEMS Operations",
+  "name": "Duty Assignment - Validate Today",
+  "script": "frappe.ui.form.on('Duty Assignment', {\n  validate(frm) {\n    if (frm.doc.status === 'Planned' && frm.doc.schedule_slot) {\n      const slot = frm.doc.schedule_slot;\n      const slotDate = frappe.datetime.obj_to_str(frappe.datetime.str_to_obj(slot)).slice(0,10);\n      if (slotDate !== frappe.datetime.now_date()) {\n        frappe.msgprint(__('When status is Planned, Schedule Slot must be today.'));\n        frappe.validated = false;\n      }\n    }\n  }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Driver Qualification",
+  "enabled": 1,
+  "modified": "2025-10-01 23:33:15.049994",
+  "module": "TEMS People",
+  "name": "Driver Qualification - Validate Expiry",
+  "script": "frappe.ui.form.on('Driver Qualification', {\n  validate(frm) {\n    if (frm.doc.expiry_date && frappe.datetime.get_diff(frm.doc.expiry_date, frappe.datetime.now_date()) < 0) {\n      frappe.msgprint(__('License expired — update before using as active driver.'));\n      frappe.validated = false;\n    }\n  }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Journey Plan",
+  "enabled": 0,
+  "modified": "2025-10-01 23:33:15.114255",
+  "module": "TEMS Fleet",
+  "name": "journey_plan_validate_driver",
+  "script": "frappe.ui.form.on('Journey Plan', {\n    validate(frm) {\n        const driver = frm.doc.driver;\n        if (!driver) return;\n        frappe.call({\n            method: 'tems.tems.tems_people.api.validate_driver_active',\n            args: { employee: driver },\n            callback(r) {\n                if (r && r.message === false) {\n                    frappe.msgprint(__('Driver is not active or has expired qualification.'));\n                    frappe.validated = false;\n                }\n            }\n        });\n    }\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Safety Incident",
+  "enabled": 0,
+  "modified": "2025-10-01 23:33:15.160770",
+  "module": "TEMS Safety",
+  "name": "safety_incident_form",
+  "script": "frappe.ui.form.on('Safety Incident', {\n  refresh(frm) {\n    // Warn if severity is major/critical and vehicle missing\n    const sev = (frm.doc.severity || '').toLowerCase();\n    if ((sev === 'major' || sev === 'critical') && !frm.doc.vehicle) {\n      frm.dashboard.set_headline(__('Vehicle is required for Major/Critical incidents'));\n    }\n  },\n  validate(frm) {\n    if (frm.doc.status === 'Closed' && !frm.doc.description) {\n      frappe.msgprint(__('Provide a description before closing the incident'));\n      frappe.validated = false;\n    }\n  }\n});",
+  "view": "Form"
+ }
+]

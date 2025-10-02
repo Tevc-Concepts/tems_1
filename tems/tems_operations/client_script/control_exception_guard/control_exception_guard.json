@@ -1,0 +1,10 @@
+{
+    "doctype": "Client Script",
+    "name": "Control Exception - SLA & Close Guard",
+    "module": "TEMS Operations",
+    "is_standard": 1,
+    "dt": "Control Exception",
+    "enabled": 1,
+    "view": "Form",
+    "script": "frappe.ui.form.on('Control Exception', {\n  validate(frm) {\n    if (frm.doc.status === 'Closed' && !frm.doc.resolution) {\n      frappe.msgprint(__('Resolution is required before closing.'));\n      frappe.validated = false;\n    }\n    // flag SLA breach if age exceeds SLA minutes\n    if (frm.doc.sla_minutes && frm.doc.occurred_at) {\n      const ageMin = Math.floor((frappe.datetime.now_datetime() - new Date(frm.doc.occurred_at)) / 60000);\n      frm.set_value('sla_breached', ageMin > frm.doc.sla_minutes);\n    }\n  }\n});"
+}

@@ -1,0 +1,9 @@
+{
+    "doctype": "Number Card",
+    "label": "Active Policies",
+    "function": "Count",
+    "document_type": "Governance Policy",
+    "filters_json": "{\n  \"status\": [\"=\", \"Active\"]\n}",
+    "stats_time_interval": "Daily",
+    "module": "TEMS Governance"
+}

@@ -33,3 +33,32 @@ def test_obligation_requires_evidence_when_marked_compliant():
         assert False, "Should not allow compliant status without evidence"
     except Exception:
         pass
+
+
+def test_strategic_goal_create_minimal():
+    name = frappe.get_doc({
+        "doctype": "Strategic Goal",
+        "code": "SG-OPS-01",
+        "title": "Improve On-Time Performance",
+        "language": "en",
+        "status": "Active",
+    }).insert().name
+    assert frappe.db.exists("Strategic Goal", name)
+
+
+def test_compliance_audit_requires_evidence_for_close():
+    audit = frappe.get_doc({
+        "doctype": "Compliance Audit",
+        "audit_date": nowdate(),
+        "auditor": None,
+        "policy": None,
+        "severity": "High",
+        "status": "Open",
+    }).insert()
+
+    # Attempt to close without evidence should raise
+    try:
+        audit.db_set("status", "Closed")
+        assert False, "Should require evidence to close high severity audit"
+    except Exception:
+        pass

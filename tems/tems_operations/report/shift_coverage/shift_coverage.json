@@ -1,0 +1,25 @@
+{
+    "doctype": "Report",
+    "name": "Shift Coverage",
+    "is_standard": "Yes",
+    "report_name": "Shift Coverage",
+    "ref_doctype": "Duty Assignment",
+    "report_type": "Script Report",
+    "module": "TEMS Operations",
+    "filters": [
+        {
+            "fieldname": "for_date",
+            "label": "For Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        }
+    ],
+    "roles": [
+        {
+            "role": "Operations Manager"
+        },
+        {
+            "role": "Operations Officer"
+        }
+    ]
+}

@@ -13,68 +13,125 @@ This map outlines dependencies and integration flows across TEMS modules on Frap
   - Provides: Driver Qualification, Training Records, Performance Reviews
   - Used by: Operations (assignment), Safety (eligibility), Finance (payroll links)
 
-- Fleet
-  - Depends on: ERPNext Asset/Vehicle, Maintenance
-  - Provides: Vehicle master, Maintenance Work Orders, Emission Logs
-  - Used by: Operations (allocation), Finance (asset costs), Climate (emissions)
+# TEMS Module Map — Inter-Domain Dependencies
 
-- Safety
-  - Depends on: People (driver fitness), Operations (journeys)
-  - Provides: Journey Plan, Incident Report, Risk Assessment, Custom Checkpoints
-  - Used by: Governance (policy adherence), Insights (risk KPIs)
+This map reflects current implemented DocTypes and the 13 domains. Vehicle is the operational nucleus; Assets roll up to Vehicle.
 
-- Trade
-  - Depends on: Finance (FX), Documents (border docs)
-  - Provides: Border Crossing, FX Transactions
-  - Used by: Operations (cross-border journeys), Insights (trade flows)
+```mermaid
+flowchart LR
+  subgraph HRMS/People
+    Employee
+    DriverQualification
+    TrainingRecord
+  end
 
-- Informal Economy
-  - Depends on: People (KYC), Finance (wallets/loans)
-  - Provides: Trip Match, Savings Group, Micro-Loans
-  - Used by: Operations (fill-rate), Insights (inclusion metrics)
+  subgraph Fleet
+    Vehicle
+    Asset
+    JourneyPlan
+    RoutePlanning
+    MaintenanceWorkOrder
+    FuelLog
+  end
 
-- Climate
-  - Depends on: Fleet (vehicle types), Operations (routes)
-  - Provides: Climate Alerts, Renewable Assets, Emission Accounting
-  - Used by: Governance (ESG), Insights (carbon KPIs)
+  subgraph Operations
+    DispatchSchedule
+    ShiftPlan
+    DutyAssignment
+    OperationsEvent
+    ControlException
+    SOSEvent
+  end
 
-- Finance
-  - Depends on: ERPNext Accounting, FX feeds
-  - Provides: Journey Costing, Cost/Revenue Ledger, TCO, FX Risk Log
-  - Used by: Operations (profitability), Trade, Insights
+  subgraph Safety
+    SafetyIncident
+    SpotCheck
+    IncidentParticipant
+  end
 
-- CRM
-  - Depends on: ERPNext CRM
-  - Provides: Customer, Orders, SLA Logs
-  - Used by: Operations (fulfillment), Insights (service KPIs)
+  subgraph Trade
+    TradeLane
+    BorderCrossing
+    CustomsClearance
+  end
 
-- Supply Chain
-  - Depends on: ERPNext Stock/Buying
-  - Provides: Suppliers, Procurement Orders, Inventory Items
-  - Used by: Fleet (spares), Operations (consumption), Finance (costing)
+  subgraph Documents
+    DocumentChecklist
+    DocumentChecklistItem
+  end
 
-- Documents
-  - Depends on: Drive
-  - Provides: Compliance Documents, Policy Documents, Attachments
-  - Used by: Governance, Safety, Trade, Operations
+  subgraph Finance
+    FleetCost
+    AllocationRule
+  end
 
-- Insights
-  - Depends on: All data-producing modules
-  - Provides: KPI Config, Dashboards, Report Subscriptions
-  - Used by: Executives and managers across roles
+  subgraph CRM
+    FieldServiceRequest
+    CustomerFeedback
+  end
 
-## Data Flow Highlights
+  subgraph SupplyChain
+    SparePart
+  end
 
-- Journey Plan → Vehicle Trip → Cost/Revenue Ledger → Profitability KPIs
-- Driver Qualification → Journey validation (block expired/invalid)
-- Incident Reports → Risk Score adjustments → Governance alerts
-- Maintenance Work Orders → Vehicle availability → Route Planning
-- Border Crossing + FX → Trade Costs → Finance ledgers
-- Emission Logs + Route → Climate Impact KPIs
+  subgraph Informal
+    InformalOperatorProfile
+    OperatorMarket
+    OperatorRouteAssociation
+  end
 
-## Implementation Pointers
+  subgraph Climate
+    EmissionsLog
+  end
 
-- Use Link fields to ERPNext/HRMS doctypes (Employee, Asset/Vehicle, Item).
-- Keep customizations inside `apps/tems`; use fixtures for Roles, Workspaces, Custom Fields.
-- Register assets and hooks in `tems/hooks.py`.
-- Add scheduler jobs for integrations: FX rates, Weather, Tariff databases.
+  subgraph Governance
+    GovernancePolicy
+    ComplianceObligation
+    ApprovalMatrix
+    GovernanceMeeting
+  end
+
+  Employee -->|assigned as| DutyAssignment
+  Employee -->|driver| JourneyPlan
+  DriverQualification -->|validates| JourneyPlan
+
+  Asset -->|belongs to| Vehicle
+  JourneyPlan -->|uses| Vehicle
+  FuelLog -->|for| Vehicle
+  MaintenanceWorkOrder -->|for| Asset
+  MaintenanceWorkOrder -->|rolls up cost to| Vehicle
+
+  DispatchSchedule --> DutyAssignment
+  DutyAssignment --> OperationsEvent
+  ControlException --> OperationsEvent
+  SOSEvent --> OperationsEvent
+
+  SafetyIncident -->|references| Vehicle
+  IncidentParticipant -->|references| Employee
+
+  TradeLane --> BorderCrossing
+  BorderCrossing -->|links| JourneyPlan
+  CustomsClearance -->|links| DeliveryNote
+
+  DocumentChecklist -->|applies to| Vehicle
+
+  FleetCost -->|for| Vehicle
+  AllocationRule --> FleetCost
+
+  FieldServiceRequest -->|assigned_to| Employee
+  CustomerFeedback -->|journey_plan| JourneyPlan
+
+  SparePart -->|Item link| MaintenanceWorkOrder
+
+  InformalOperatorProfile --> OperatorRouteAssociation
+  OperatorRouteAssociation --> RoutePlanning
+
+  EmissionsLog -->|vehicle/journey| JourneyPlan
+
+  GovernancePolicy -->|applies to| Vehicle
+  ComplianceObligation -->|notifies| Employee
+```
+
+Notes
+- Shapes are conceptual; refer to domain packages under `tems/tems_*` for exact DocType names and paths.
+- All operations and costing ultimately reference Vehicle, with asset-level drill-down for traceability.

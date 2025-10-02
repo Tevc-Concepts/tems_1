@@ -1,0 +1,111 @@
+{
+    "doctype": "DocType",
+    "name": "Strategic Goal",
+    "module": "TEMS Governance",
+    "istable": 0,
+    "engine": "InnoDB",
+    "field_order": [
+        "code",
+        "title",
+        "language",
+        "description",
+        "owner_employee",
+        "effective_from",
+        "effective_to",
+        "status",
+        "kpi_section",
+        "kpi_dashboard",
+        "kpi_number_card"
+    ],
+    "fields": [
+        {
+            "fieldname": "code",
+            "label": "Code",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "unique": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "title",
+            "label": "Title",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1,
+            "translatable": 1
+        },
+        {
+            "fieldname": "language",
+            "label": "Language",
+            "fieldtype": "Select",
+            "options": "en\nfr\nar\nha\nyo",
+            "default": "en"
+        },
+        {
+            "fieldname": "description",
+            "label": "Description",
+            "fieldtype": "Text",
+            "translatable": 1
+        },
+        {
+            "fieldname": "owner_employee",
+            "label": "Owner (Employee)",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "effective_from",
+            "label": "Effective From",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "effective_to",
+            "label": "Effective To",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Draft\nActive\nArchived",
+            "default": "Active",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "kpi_section",
+            "label": "KPI",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "kpi_dashboard",
+            "label": "Insights Dashboard",
+            "fieldtype": "Link",
+            "options": "Dashboard"
+        },
+        {
+            "fieldname": "kpi_number_card",
+            "label": "Primary KPI Card",
+            "fieldtype": "Link",
+            "options": "Number Card"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1
+        }
+    ]
+}

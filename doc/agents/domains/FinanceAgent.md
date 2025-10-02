@@ -14,6 +14,12 @@ CONSTRAINTS:
 - New DocTypes: Journey Costing, FX Risk Log.
 - Fixtures: Role "Finance Manager", Workspace "Finance".
 - hooks.py: cron job for FX rate updates.
+- Profitability = tracked at Vehicle level.
+- Drill-down = show Asset-level costs (fuel, tires, repairs) contributing to Vehicle profit.
+- FX risk, tariffs, duties also tied to Vehicle.
+- Reports:
+    - Vehicle Profitability Summary.
+    - Asset Lifecycle Cost Breakdown.
 
 INTER-RELATIONSHIPS:
 - Fleet (TCO, maintenance).

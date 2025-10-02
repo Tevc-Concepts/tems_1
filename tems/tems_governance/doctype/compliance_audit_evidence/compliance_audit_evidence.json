@@ -1,0 +1,25 @@
+{
+    "doctype": "DocType",
+    "name": "Compliance Audit Evidence",
+    "module": "TEMS Governance",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "file",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "file",
+            "label": "File",
+            "fieldtype": "Link",
+            "options": "File",
+            "reqd": 1
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ]
+}

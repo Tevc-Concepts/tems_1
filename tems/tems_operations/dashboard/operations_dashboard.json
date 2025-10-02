@@ -1,0 +1,10 @@
+{
+    "doctype": "Dashboard",
+    "name": "Operations Dashboard",
+    "module": "TEMS Operations",
+    "disabled": 0,
+    "title": "Operations Dashboard",
+    "charts": [],
+    "cards": [],
+    "is_default": 0
+}

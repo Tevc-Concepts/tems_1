@@ -1,0 +1,77 @@
+{
+    "doctype": "DocType",
+    "name": "Trip Allocation",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "journey_plan",
+        "vehicle",
+        "driver",
+        "assistant",
+        "schedule_slot",
+        "status"
+    ],
+    "fields": [
+        {
+            "fieldname": "journey_plan",
+            "label": "Journey Plan",
+            "fieldtype": "Link",
+            "options": "Journey Plan",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "driver",
+            "label": "Driver",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "assistant",
+            "label": "Assistant",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "schedule_slot",
+            "label": "Schedule Slot",
+            "fieldtype": "Datetime"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Planned\nAssigned\nIn Progress\nCompleted\nCancelled",
+            "reqd": 1
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

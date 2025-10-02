@@ -29,6 +29,10 @@ CONSTRAINTS:
 - Fixtures: Role "Operations Manager", Workspace "Operations".
 - hooks.py: trigger state changes on Movement Log (Check-In → In Transit → Delivered).
 - Must be offline-first with mobile forms for drivers.
+- All Trips/Plans/Allocations reference Vehicle, never directly Assets.
+- Movement Log (Check-In, Transit, Diversion, Delivered) is tied to Vehicle.
+- Cost & Revenue Ledger references Vehicle → then breaks down to Asset usage (fuel, tires, trailer, etc.).
+- Operational KPIs (utilization, margins) always at Vehicle level.
 
 INTER-RELATIONSHIPS:
 - Fleet: vehicles, maintenance availability.

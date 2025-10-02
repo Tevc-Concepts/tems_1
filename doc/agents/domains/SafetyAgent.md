@@ -14,6 +14,9 @@ CONSTRAINTS:
 - New DocTypes: Journey Plan, Incident Report, Risk Assessment.
 - Fixtures: Role "Safety Officer", Workspace "Safety & Risk".
 - hooks.py: validate driver competence before Journey approval.
+- Risk Assessments and Incidents tie to Vehicle.
+- Drivers are linked through HRMS, but validation is Driver + Vehicle (not Asset).
+- Journey Plan always references a Vehicle.
 
 INTER-RELATIONSHIPS:
 - Fleet (Vehicles assigned).

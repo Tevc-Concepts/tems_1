@@ -15,9 +15,12 @@ CONSTRAINTS:
 - New DocTypes: Driver Qualification, Training Record, Competency Matrix, Succession Plan.
 - Fixtures: Role "HR Manager", Workspace "People & Competency".
 - hooks.py: reminders for license/medical renewals.
+- Drivers are assigned to Vehicles, not Assets.
+- Training/Competency logs tie to Driver–Vehicle combinations.
+- Example: “Driver X certified to operate Vehicle Y type.”
 
 INTER-RELATIONSHIPS:
-- Fleet (Assign drivers to assets).
+- Fleet (Assign drivers to Vehicle).
 - Safety (Competency validation).
 - Finance (Payroll, incentives).
 

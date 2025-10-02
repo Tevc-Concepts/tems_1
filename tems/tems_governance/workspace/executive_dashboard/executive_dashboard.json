@@ -1,0 +1,45 @@
+{
+    "doctype": "Workspace",
+    "name": "Executive Dashboard",
+    "label": "Executive Dashboard",
+    "module": "TEMS Governance",
+    "title": "Executive Dashboard",
+    "public": 1,
+    "sequence_id": 10,
+    "content": "[]",
+    "charts": [],
+    "custom_blocks": [],
+    "shortcuts": [
+        {
+            "label": "Strategic Goals",
+            "type": "DocType",
+            "link_to": "Strategic Goal"
+        },
+        {
+            "label": "Policies",
+            "type": "DocType",
+            "link_to": "Governance Policy"
+        },
+        {
+            "label": "Compliance Audits",
+            "type": "DocType",
+            "link_to": "Compliance Audit"
+        },
+        {
+            "label": "Goals Overview",
+            "type": "Report",
+            "link_to": "Strategic Goals Overview",
+            "is_query_report": 0
+        }
+    ],
+    "links": [],
+    "number_cards": [],
+    "roles": [
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "TEMS Executive"
+        }
+    ]
+}

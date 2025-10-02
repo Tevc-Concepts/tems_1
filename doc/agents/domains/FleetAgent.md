@@ -16,6 +16,12 @@ CONSTRAINTS:
 - New DocTypes: Maintenance Work Order, Asset Utilization Log.
 - Fixtures: Role "Fleet Manager", Workspace "Fleet Manager".
 - hooks.py: doc_events for Asset & Work Order.
+- DocTypes:
+  - Vehicle (core entity, parent of Assets).
+  - Asset (linked to Vehicle, can be replaced/retired).
+  - Asset Utilization Log.
+  - Preventive maintenance is tracked at Asset level, but always tied  back to Vehicle.
+  - Uptime/downtime reporting must roll up to Vehicle.
 
 INTER-RELATIONSHIPS:
 - HRMS (Drivers, Technicians).

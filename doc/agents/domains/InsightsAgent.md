@@ -8,6 +8,12 @@ TASKS:
 - Add Predictive Analytics (maintenance, demand).
 - Build Anomaly Detection workflows.
 - Auto-generate Reports with summaries.
+- Core dashboards:
+    - Vehicle Utilization.
+    - Vehicle Profitability.
+    - Asset Lifecycle Costs (drill-down).
+- Data triangulation:
+    - Vehicle = intersection of HRMS (Driver), Fleet (Assets), Finance (Profitability), Operations (Trips), Safety (Incidents).
 
 CONSTRAINTS:
 - Use Frappe Insights dashboards (export as fixtures).

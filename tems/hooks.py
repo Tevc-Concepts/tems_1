@@ -158,46 +158,160 @@ fixtures = [
 		"Analyst",
 		"HR"
 	]]]},
-	"Workspace",
 	{"dt": "Number Card", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},
-	{"dt": "Client Script", "filters": [["module", "in", ["TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},
+    {"dt": "Client Script", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},
 	{"dt": "Workflow", "filters": [["document_type", "in", ["Safety Incident"]]]},
 	"Custom Field",
 	"Print Format",
 	"Report",
-]
+	"Dashboard",
+    "Dashboard Chart",
+    "Email Template",
+    "Notification",
+    "Scheduled Job Type",
+    "Tag",
+    # Intentionally exclude "Workspace" fixtures; use module-based JSON in tems_*/workspace/* instead
+    ]
 
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
+
+# -------------------------------
+# Document Events
+# -------------------------------
 doc_events = {
-	"Journey Plan": {
-		"on_submit": "tems.api.journey.on_submit",
-		"validate": "tems.api.journey.validate_journey",
-	},
-	"Asset": {
-		"after_insert": "tems.api.assets.after_insert",
-	},
+    # Vehicle Updates (ERPNext core doctype, extended in TEMS)
+    "Vehicle": {
+        "on_update": "tems.tems_fleet.handlers.update_vehicle_profitability",
+        "on_submit": "tems.tems_fleet.handlers.validate_vehicle_assets"
+    },
+
+    # Asset Updates (ERPNext core doctype, extended in TEMS)
+    "Asset": {
+        "on_update": "tems.tems_fleet.handlers.rollup_asset_cost_to_vehicle",
+        "on_trash": "tems.tems_fleet.handlers.prevent_asset_without_vehicle"
+    },
+
+    # Operations Module
+    "Operation Plan": {
+        "before_submit": "tems.tems_operations.handlers.ensure_vehicle_available",
+        "on_submit": "tems.tems_operations.handlers.log_movement_start"
+    },
+    "Movement Log": {
+        "on_update": "tems.tems_operations.handlers.update_vehicle_status"
+    },
+    "Trip Allocation": {
+        "before_insert": "tems.tems_operations.handlers.ensure_driver_vehicle_valid"
+    },
+    "Operations Event": {
+        "after_insert": "tems.tems_operations.handlers.publish_operations_event",
+        "on_update": "tems.tems_operations.handlers.publish_operations_event"
+    },
+    "SOS Event": {
+        "after_insert": "tems.tems_operations.handlers.publish_sos_event",
+        "on_update": "tems.tems_operations.handlers.publish_sos_event"
+    },
+
+    # Finance Module
+    "Cost And Revenue Ledger": {
+        "on_update": "tems.tems_finance.handlers.recalculate_vehicle_profitability"
+    },
+
+    # Safety Module
+    "Incident Report": {
+        "on_submit": "tems.tems_safety.handlers.log_incident_against_vehicle"
+    },
+    "Risk Assessment": {
+        "before_submit": "tems.tems_safety.handlers.validate_vehicle_risk"
+    },
+
+    # People (HRMS Extension)
+    "Employee": {
+        "on_update": "tems.tems_people.handlers.check_driver_vehicle_assignment"
+    },
+
+    # Supply Chain
+    "Procurement Order": {
+        "on_submit": "tems.tems_supply_chain.handlers.link_spare_parts_to_asset"
+    },
+
+    # Trade
+    "Border Crossing": {
+        "on_submit": "tems.tems_trade.handlers.log_vehicle_crossing"
+    },
+
+    # CRM
+    "Order": {
+        "on_submit": "tems.tems_crm.handlers.link_order_to_vehicle"
+    },
+
+    # Climate / ESG
+    "Climate Alert": {
+        "on_update": "tems.tems_climate.handlers.apply_weather_to_vehicle"
+    },
+    "Emission Log": {
+        "on_update": "tems.tems_climate.handlers.rollup_emission_to_vehicle"
+    },
+
+    # Governance
+    "Policy": {
+        "on_update": "tems.tems_governance.handlers.apply_policy_to_vehicle"
+    },
+
+    # Governance domain logs (per GovernanceAgent)
+    "Spot Check": {
+        "on_update": "tems.tems_governance.handlers.on_spot_check",
+        "on_submit": "tems.tems_governance.handlers.on_spot_check"
+    },
+    "Compliance Audit": {
+        "on_update": "tems.tems_governance.handlers.on_compliance_audit",
+        "on_submit": "tems.tems_governance.handlers.on_compliance_audit"
+    },
+
+    # Documents
+    "Compliance Document": {
+        "on_update": "tems.tems_documents.handlers.validate_vehicle_document"
+    }
 }
 
 # Scheduled Tasks
 # ---------------
 
 scheduler_events = {
+    "all": [
+        "tems.tems_operations.tasks.sync_vehicle_status",
+        "tems.tems_fleet.tasks.sync_asset_costs",
+        "tems.tems_finance.tasks.update_vehicle_profitability"
+    ],
 	"daily": [
-		"tems.tasks.daily_sync_checkpoint",
-    	"tems.tasks.daily_interest_compute",
+		"tems.tems_operations.tasks.daily_sync_checkpoint",
+    	"tems.tems_finance.tasks.daily_interest_compute",
     	"tems.tems_governance.api.notify_upcoming_reviews_and_obligations",
-		"tems.tasks.notify_overdue_investigations",
-		"tems.tasks.aggregate_emissions_daily",
+		"tems.tems_governance.tasks.notify_overdue_investigations",
+		"tems.tems_safety.tasks.aggregate_emissions_daily",
+        "tems.tems_operations.tasks.generate_daily_operations_report",
+        "tems.tems_operations.tasks.validate_driver_vehicle_assignments",
+        "tems.tems_finance.tasks.update_fx_rates"
 	],
 	"cron": {
 		"0 1 * * *": ["tems.tasks.compute_nightly_jobs"],
 		"0 2 * * *": ["tems.tasks.update_tariffs"],
 		"0 3 * * 1": ["tems.tasks.rotate_rosca"],
 	},
+	"hourly": [
+		"tems.tems_operations.tasks.hourly_sync_checkpoint",
+        "tems.tems_operations.tasks.check_vehicle_availability"
+	],
+	"weekly": [
+		"tems.tems_operations.tasks.weekly_sync_checkpoint"
+	],
+	"monthly": [
+		"tems.tems_operations.tasks.monthly_sync_checkpoint",
+		"tems.tems_safety.tasks.aggregate_emissions_monthly"
+	],
 }
 
 # Testing
@@ -218,6 +332,16 @@ scheduler_events = {
 # override_doctype_dashboards = {
 # 	"Task": "tems.task.get_dashboard_data"
 # }
+# -------------------------------
+# Override ERPNext Doctypes (Optional, to extend Vehicle/Asset behavior)
+# -------------------------------
+# No overrides registered currently. Keep disabled to avoid import errors until implemented.
+# override_doctype_class = {
+#     "Asset": "tems.tems_fleet.overrides.CustomAsset",
+#     "Vehicle": "tems.tems_fleet.overrides.CustomVehicle"
+# }
+
+
 
 # exempt linked doctypes from being automatically cancelled
 #

@@ -1,0 +1,8 @@
+{
+    "doctype": "Client Script",
+    "dt": "Compliance Obligation",
+    "module": "TEMS Governance",
+    "enabled": 1,
+    "view": "Form",
+    "script": "frappe.ui.form.on('Compliance Obligation', { validate(frm) { const status = (frm.doc.status || '').toLowerCase(); if (status === 'compliant' && frm.doc.evidence_required && (!frm.doc.evidence || frm.doc.evidence.length === 0)) { frappe.msgprint(__('Evidence is required to mark as Compliant.')); frappe.validated = false; } } });"
+}

@@ -1,0 +1,100 @@
+{
+    "doctype": "DocType",
+    "name": "Movement Log",
+    "module": "TEMS Operations",
+    "engine": "InnoDB",
+    "field_order": [
+        "vehicle",
+        "operation_plan",
+        "state",
+        "event_time",
+        "location_lat",
+        "location_lng",
+        "geohash",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "operation_plan",
+            "label": "Operation Plan",
+            "fieldtype": "Link",
+            "options": "Operation Plan"
+        },
+        {
+            "fieldname": "state",
+            "label": "State",
+            "fieldtype": "Select",
+            "options": "Check-In\nCheck-Out\nIn Transit\nDiversion\nOut Transit\nDelivery Confirmation\nDelivered",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "event_time",
+            "label": "Event Time",
+            "fieldtype": "Datetime",
+            "default": "Now",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "location_lat",
+            "label": "Latitude",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "location_lng",
+            "label": "Longitude",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "geohash",
+            "label": "Geohash",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "indexes": [
+        {
+            "index_fields": [
+                "vehicle",
+                "event_time"
+            ]
+        },
+        {
+            "index_fields": [
+                "geohash"
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

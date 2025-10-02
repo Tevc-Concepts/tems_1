@@ -1,0 +1,93 @@
+{
+    "doctype": "DocType",
+    "name": "Compliance Audit",
+    "module": "TEMS Governance",
+    "engine": "InnoDB",
+    "field_order": [
+        "audit_date",
+        "auditor",
+        "policy",
+        "scope",
+        "findings",
+        "severity",
+        "status",
+        "evidence_section",
+        "evidence"
+    ],
+    "fields": [
+        {
+            "fieldname": "audit_date",
+            "label": "Audit Date",
+            "fieldtype": "Date",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "auditor",
+            "label": "Auditor",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "policy",
+            "label": "Policy",
+            "fieldtype": "Link",
+            "options": "Governance Policy",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "scope",
+            "label": "Scope",
+            "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "findings",
+            "label": "Findings",
+            "fieldtype": "Long Text"
+        },
+        {
+            "fieldname": "severity",
+            "label": "Severity",
+            "fieldtype": "Select",
+            "options": "Low\nMedium\nHigh\nCritical",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nIn Progress\nClosed",
+            "default": "Open",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "evidence_section",
+            "label": "Evidence",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "evidence",
+            "label": "Evidence",
+            "fieldtype": "Table",
+            "options": "Compliance Audit Evidence"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Safety Manager",
+            "read": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1
+        }
+    ]
+}

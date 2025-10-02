@@ -1,0 +1,9 @@
+{
+    "doctype": "Number Card",
+    "label": "Obligations Due (30d)",
+    "function": "Count",
+    "document_type": "Compliance Obligation",
+    "filters_json": "{\n  \"next_due_date\": [\"between\", [\"Today\", \"Today+30days\"]],\n  \"status\": [\"in\", [\"Open\", \"Submitted\"]]\n}",
+    "stats_time_interval": "Daily",
+    "module": "TEMS Governance"
+}

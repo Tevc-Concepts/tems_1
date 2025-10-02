@@ -1,0 +1,75 @@
+{
+    "doctype": "DocType",
+    "name": "Leadership Meeting",
+    "module": "TEMS Governance",
+    "engine": "InnoDB",
+    "field_order": [
+        "meeting_date",
+        "agenda",
+        "decisions",
+        "participants_section",
+        "participants",
+        "action_items_section",
+        "action_items"
+    ],
+    "fields": [
+        {
+            "fieldname": "meeting_date",
+            "label": "Meeting Date",
+            "fieldtype": "Datetime",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "agenda",
+            "label": "Agenda",
+            "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "decisions",
+            "label": "Decisions",
+            "fieldtype": "Long Text"
+        },
+        {
+            "fieldname": "participants_section",
+            "label": "Participants",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "participants",
+            "label": "Participants",
+            "fieldtype": "Table",
+            "options": "Meeting Participant"
+        },
+        {
+            "fieldname": "action_items_section",
+            "label": "Action Items",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "action_items",
+            "label": "Action Items",
+            "fieldtype": "Table",
+            "options": "Meeting Action Item"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "doctype": "Report",
+    "name": "Control Exceptions Aging",
+    "is_standard": "Yes",
+    "report_name": "Control Exceptions Aging",
+    "ref_doctype": "Control Exception",
+    "report_type": "Script Report",
+    "module": "TEMS Operations",
+    "filters": [
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nAcknowledged",
+            "default": "Open"
+        }
+    ],
+    "roles": [
+        {
+            "role": "Operations Manager"
+        },
+        {
+            "role": "Operations Officer"
+        }
+    ]
+}

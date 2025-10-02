@@ -1,0 +1,103 @@
+{
+    "doctype": "DocType",
+    "name": "Cost And Revenue Ledger",
+    "owner": "Administrator",
+    "creation": "2024-06-17 10:20:00.000000",
+    "modified": "2024-06-17 10:20:00.000000",
+    "modified_by": "Administrator",
+    "custom": 0,
+    "module": "TEMS Finance",
+    "engine": "InnoDB",
+    "field_order": [
+        "date",
+        "vehicle",
+        "type",
+        "amount",
+        "currency",
+        "asset",
+        "reference_doctype",
+        "reference_name",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "date",
+            "label": "Date",
+            "fieldtype": "Date",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "type",
+            "label": "Type",
+            "fieldtype": "Select",
+            "options": "Cost\nRevenue",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "amount",
+            "label": "Amount",
+            "fieldtype": "Currency",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "currency",
+            "label": "Currency",
+            "fieldtype": "Link",
+            "options": "Currency",
+            "default": "USD"
+        },
+        {
+            "fieldname": "asset",
+            "label": "Asset (Breakdown)",
+            "fieldtype": "Link",
+            "options": "Asset"
+        },
+        {
+            "fieldname": "reference_doctype",
+            "label": "Reference DocType",
+            "fieldtype": "Data"
+        },
+        {
+            "fieldname": "reference_name",
+            "label": "Reference Name",
+            "fieldtype": "Dynamic Link",
+            "options": "reference_doctype"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Finance Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Finance Officer",
+            "read": 1,
+            "write": 1
+        }
+    ]
+}

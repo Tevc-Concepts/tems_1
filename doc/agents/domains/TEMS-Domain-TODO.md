@@ -419,7 +419,7 @@ Custom Fields on Core
 
 Workspace & Reports
 - Workspace: “Supply Chain (TEMS)”
-- Reports: “Spare Consumption by Asset”, “Vendor Performance Trend”
+- Reports: “Spare Consumption by Vehicle”, “Vendor Performance Trend”
 
 Server/API & Hooks
 - Hook: on Work Order submit → create Spare Request for shortages
@@ -442,14 +442,14 @@ Goal: Operational document management with Drive integration.
 
 Primary DocTypes (new)
 - Verification Document: owner_doctype/owner_name, document_type, issue_date, expiry_date, file (Link File), status
-- Document Checklist: context (asset/driver/trip), items (Table: doc_type, required)
+- Document Checklist: context (vehicle/driver/trip), items (Table: doc_type, required)
 - Document Review: doc (Link Verification Document), reviewer (Employee), outcome, notes
 
 Links to Core
-- File (Drive), Employee, Asset, Journey Plan
+- File (Drive), Employee, Vehicle, Journey Plan
 
 Custom Fields on Core
-- Asset: registration_doc (Link Verification Document)
+- Vehicle: registration_doc (Link Verification Document)
 - Employee: license_doc (Link Verification Document)
 
 Workspace & Reports

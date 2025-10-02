@@ -1,0 +1,9 @@
+{
+    "doctype": "Report",
+    "name": "Strategic Goals Overview",
+    "report_name": "Strategic Goals Overview",
+    "ref_doctype": "Strategic Goal",
+    "report_type": "Script Report",
+    "is_standard": "Yes",
+    "module": "TEMS Governance"
+}

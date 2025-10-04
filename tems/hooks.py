@@ -35,6 +35,10 @@ app_include_js = "/assets/tems/js/tems_desk.js"
 web_include_css = "/assets/tems/css/tems_theme.css"
 web_include_js = "/assets/tems/js/tems_web.js"
 
+# Fixtures for roles, workspaces, custom fields, etc. (already present)
+
+"""NOTE: A unified doc_events mapping is defined later below. This early placeholder is removed during merge."""
+
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "tems/public/scss/website"
 
@@ -174,38 +178,28 @@ fixtures = [
     ]
 
 
-# Document Events
-# ---------------
-# Hook on document methods and events
-
-
-# -------------------------------
-# Document Events
-# -------------------------------
 doc_events = {
-    # Vehicle Updates (ERPNext core doctype, extended in TEMS)
+    # Core Fleet assets
     "Vehicle": {
         "on_update": "tems.tems_fleet.handlers.update_vehicle_profitability",
         "on_submit": "tems.tems_fleet.handlers.validate_vehicle_assets"
     },
-
-    # Asset Updates (ERPNext core doctype, extended in TEMS)
     "Asset": {
+        "after_insert": "tems.tems_fleet.api.asset.after_insert",
         "on_update": "tems.tems_fleet.handlers.rollup_asset_cost_to_vehicle",
         "on_trash": "tems.tems_fleet.handlers.prevent_asset_without_vehicle"
     },
-
-    # Operations Module
+    "Maintenance Work Order": {
+        "after_insert": "tems.tems_fleet.api.maintenance_work_order.after_insert",
+        "on_update": "tems.tems_fleet.api.maintenance_work_order.on_update"
+    },
+    # Operations
     "Operation Plan": {
         "before_submit": "tems.tems_operations.handlers.ensure_vehicle_available",
         "on_submit": "tems.tems_operations.handlers.log_movement_start"
     },
-    "Movement Log": {
-        "on_update": "tems.tems_operations.handlers.update_vehicle_status"
-    },
-    "Trip Allocation": {
-        "before_insert": "tems.tems_operations.handlers.ensure_driver_vehicle_valid"
-    },
+    "Movement Log": {"on_update": "tems.tems_operations.handlers.update_vehicle_status"},
+    "Trip Allocation": {"before_insert": "tems.tems_operations.handlers.ensure_driver_vehicle_valid"},
     "Operations Event": {
         "after_insert": "tems.tems_operations.handlers.publish_operations_event",
         "on_update": "tems.tems_operations.handlers.publish_operations_event"
@@ -214,54 +208,31 @@ doc_events = {
         "after_insert": "tems.tems_operations.handlers.publish_sos_event",
         "on_update": "tems.tems_operations.handlers.publish_sos_event"
     },
-
-    # Finance Module
-    "Cost And Revenue Ledger": {
-        "on_update": "tems.tems_finance.handlers.recalculate_vehicle_profitability"
+    # Finance
+    "Cost And Revenue Ledger": {"on_update": "tems.tems_finance.handlers.recalculate_vehicle_profitability"},
+    # Safety
+    "Journey Plan": {
+        "validate": "tems.tems_safety.api.journey_plan.validate_driver_competence",
+        "after_insert": "tems.tems_safety.api.journey_plan.after_insert"
     },
-
-    # Safety Module
     "Incident Report": {
+        "after_insert": "tems.tems_safety.api.incident_report.after_insert",
         "on_submit": "tems.tems_safety.handlers.log_incident_against_vehicle"
     },
-    "Risk Assessment": {
-        "before_submit": "tems.tems_safety.handlers.validate_vehicle_risk"
-    },
-
-    # People (HRMS Extension)
-    "Employee": {
-        "on_update": "tems.tems_people.handlers.check_driver_vehicle_assignment"
-    },
-
+    "Risk Assessment": {"before_submit": "tems.tems_safety.handlers.validate_vehicle_risk"},
+    # People
+    "Employee": {"on_update": "tems.tems_people.handlers.check_driver_vehicle_assignment"},
     # Supply Chain
-    "Procurement Order": {
-        "on_submit": "tems.tems_supply_chain.handlers.link_spare_parts_to_asset"
-    },
-
+    "Procurement Order": {"on_submit": "tems.tems_supply_chain.handlers.link_spare_parts_to_asset"},
     # Trade
-    "Border Crossing": {
-        "on_submit": "tems.tems_trade.handlers.log_vehicle_crossing"
-    },
-
+    "Border Crossing": {"on_submit": "tems.tems_trade.handlers.log_vehicle_crossing"},
     # CRM
-    "Order": {
-        "on_submit": "tems.tems_crm.handlers.link_order_to_vehicle"
-    },
-
-    # Climate / ESG
-    "Climate Alert": {
-        "on_update": "tems.tems_climate.handlers.apply_weather_to_vehicle"
-    },
-    "Emission Log": {
-        "on_update": "tems.tems_climate.handlers.rollup_emission_to_vehicle"
-    },
-
+    "Order": {"on_submit": "tems.tems_crm.handlers.link_order_to_vehicle"},
+    # Climate
+    "Climate Alert": {"on_update": "tems.tems_climate.handlers.apply_weather_to_vehicle"},
+    "Emission Log": {"on_update": "tems.tems_climate.handlers.rollup_emission_to_vehicle"},
     # Governance
-    "Policy": {
-        "on_update": "tems.tems_governance.handlers.apply_policy_to_vehicle"
-    },
-
-    # Governance domain logs (per GovernanceAgent)
+    "Policy": {"on_update": "tems.tems_governance.handlers.apply_policy_to_vehicle"},
     "Spot Check": {
         "on_update": "tems.tems_governance.handlers.on_spot_check",
         "on_submit": "tems.tems_governance.handlers.on_spot_check"
@@ -270,11 +241,8 @@ doc_events = {
         "on_update": "tems.tems_governance.handlers.on_compliance_audit",
         "on_submit": "tems.tems_governance.handlers.on_compliance_audit"
     },
-
     # Documents
-    "Compliance Document": {
-        "on_update": "tems.tems_documents.handlers.validate_vehicle_document"
-    }
+    "Compliance Document": {"on_update": "tems.tems_documents.handlers.validate_vehicle_document"}
 }
 
 # Scheduled Tasks
@@ -292,6 +260,7 @@ scheduler_events = {
     	"tems.tems_governance.api.notify_upcoming_reviews_and_obligations",
 		"tems.tems_governance.tasks.notify_overdue_investigations",
 		"tems.tems_safety.tasks.aggregate_emissions_daily",
+        "tems.tems_fleet.tasks.compute_predictive_maintenance",  # new stub daily predictive maintenance rollup
         "tems.tems_operations.tasks.generate_daily_operations_report",
         "tems.tems_operations.tasks.validate_driver_vehicle_assignments",
         "tems.tems_finance.tasks.update_fx_rates"

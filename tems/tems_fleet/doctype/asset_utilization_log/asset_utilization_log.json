@@ -1,0 +1,35 @@
+{
+    "doctype": "DocType",
+    "name": "Asset Utilization Log",
+    "module": "TEMS Fleet",
+    "fields": [
+        {
+            "fieldname": "asset",
+            "fieldtype": "Link",
+            "options": "Asset"
+        },
+        {
+            "fieldname": "vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "utilization_hours",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "log_date",
+            "fieldtype": "Date"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "Fleet Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "submit": 1,
+            "cancel": 1
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "doctype": "Number Card",
+    "name": "Incidents This Month",
+    "module": "TEMS Safety",
+    "document_type": "Safety Incident",
+    "label": "Incidents This Month",
+    "function": "Count",
+    "filters_json": "[[\"Safety Incident\",\"incident_date\",\"Between\",\"This Month\",false]]",
+    "dynamic_filters_json": "[]",
+    "type": "Document Type",
+    "is_standard": 1,
+    "is_public": 1,
+    "show_percentage_stats": 0,
+    "stats_time_interval": "Daily"
+}

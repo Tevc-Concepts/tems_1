@@ -1,0 +1,35 @@
+{
+    "doctype": "DocType",
+    "name": "Journey Plan",
+    "module": "TEMS Safety",
+    "fields": [
+        {
+            "fieldname": "driver",
+            "fieldtype": "Link",
+            "options": "Employee"
+        },
+        {
+            "fieldname": "vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "start_time",
+            "fieldtype": "Datetime"
+        },
+        {
+            "fieldname": "end_time",
+            "fieldtype": "Datetime"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "Safety Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "submit": 1,
+            "cancel": 1
+        }
+    ]
+}

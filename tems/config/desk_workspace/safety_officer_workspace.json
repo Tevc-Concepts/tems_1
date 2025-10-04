@@ -30,6 +30,10 @@
         {
             "label": "Open Safety Incidents",
             "number_card_name": "Open Safety Incidents"
+        },
+        {
+            "label": "Incidents This Month",
+            "number_card_name": "Incidents This Month"
         }
     ],
     "roles": [

@@ -1,0 +1,40 @@
+{
+    "title": "Fleet Manager",
+    "name": "Fleet Manager",
+    "shortcuts": [
+        {
+            "type": "doctype",
+            "name": "Asset"
+        },
+        {
+            "type": "doctype",
+            "name": "Maintenance Work Order"
+        },
+        {
+            "type": "page",
+            "name": "fleet-dashboard"
+        }
+    ],
+    "cards": [
+        {
+            "type": "card",
+            "doctype": "Maintenance Work Order",
+            "metric": "Open Work Orders"
+        },
+        {
+            "type": "card",
+            "doctype": "Maintenance Work Order",
+            "metric": "Overdue Maintenance"
+        }
+    ],
+    "number_cards": [
+        {
+            "label": "Open Work Orders",
+            "number_card_name": "Open Work Orders"
+        },
+        {
+            "label": "Overdue Maintenance",
+            "number_card_name": "Overdue Maintenance"
+        }
+    ]
+}

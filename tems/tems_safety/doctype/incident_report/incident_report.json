@@ -1,0 +1,30 @@
+{
+    "doctype": "DocType",
+    "name": "Incident Report",
+    "module": "TEMS Safety",
+    "fields": [
+        {
+            "fieldname": "vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle"
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Text"
+        },
+        {
+            "fieldname": "incident_date",
+            "fieldtype": "Date"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "Safety Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "submit": 1,
+            "cancel": 1
+        }
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "doctype": "DocType",
+    "name": "Lease Loan",
+    "module": "TEMS Finance",
+    "engine": "InnoDB",
+    "field_order": [
+        "asset",
+        "vehicle",
+        "financier",
+        "start_date",
+        "end_date",
+        "principal",
+        "rate",
+        "schedule",
+        "status"
+    ],
+    "fields": [
+        {
+            "fieldname": "asset",
+            "label": "Asset",
+            "fieldtype": "Link",
+            "options": "Asset"
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "financier",
+            "label": "Financier",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "start_date",
+            "label": "Start Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "end_date",
+            "label": "End Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "principal",
+            "label": "Principal",
+            "fieldtype": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "rate",
+            "label": "Rate (%)",
+            "fieldtype": "Float",
+            "reqd": 1
+        },
+        {
+            "fieldname": "schedule",
+            "label": "Schedule",
+            "fieldtype": "Table",
+            "options": "Lease Loan Schedule"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Active\nClosed\nDefaulted",
+            "default": "Active"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Finance Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Finance Officer",
+            "read": 1,
+            "create": 1
+        }
+    ]
+}

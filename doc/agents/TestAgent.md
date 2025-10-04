@@ -6,7 +6,7 @@ Quality Assurance & Validation Agent for TEMS.
 TASKS:
 - Create automated unit and integration tests for all modules.
 - Build smoke-test scripts for new installations and migrations.
-- Provide test data fixtures for HR, Fleet, Finance, Safety scenarios.
+- Provide test data fixtures for People, Fleet, Finance, Safety scenarios.
 - Validate scheduler jobs, hooks, and role-based permissions.
 - Ensure offline-first and low-bandwidth behavior is testable.
 

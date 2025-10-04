@@ -6,7 +6,7 @@ External Integrations Engineer for TEMS.
 TASKS:
 - Implement API integrations:
   - Mobile Money (M-Pesa, MTN, Airtel).
-  - USSD Gateway for basic operator onboarding and reporting.
+  - WhatsAPP Gateway for basic operator onboarding and reporting.
   - GPS/Telematics devices for fleet tracking.
   - Weather/Climate APIs for journey risk.
 - Create scheduler jobs for syncing tariffs, FX rates, and weather data.

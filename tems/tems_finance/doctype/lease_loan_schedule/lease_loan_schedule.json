@@ -1,0 +1,44 @@
+{
+    "doctype": "DocType",
+    "name": "Lease Loan Schedule",
+    "module": "TEMS Finance",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "due_date",
+        "amount",
+        "interest_component",
+        "principal_component",
+        "paid"
+    ],
+    "fields": [
+        {
+            "fieldname": "due_date",
+            "label": "Due Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "amount",
+            "label": "Amount",
+            "fieldtype": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "interest_component",
+            "label": "Interest",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "principal_component",
+            "label": "Principal",
+            "fieldtype": "Currency"
+        },
+        {
+            "fieldname": "paid",
+            "label": "Paid",
+            "fieldtype": "Check"
+        }
+    ],
+    "permissions": []
+}

@@ -1,0 +1,33 @@
+{
+    "doctype": "DocType",
+    "name": "Spare Request Item",
+    "module": "TEMS Supply Chain",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "item_code",
+        "qty",
+        "needed_by"
+    ],
+    "fields": [
+        {
+            "fieldname": "item_code",
+            "label": "Item",
+            "fieldtype": "Link",
+            "options": "Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "qty",
+            "label": "Qty",
+            "fieldtype": "Float",
+            "reqd": 1
+        },
+        {
+            "fieldname": "needed_by",
+            "label": "Needed By",
+            "fieldtype": "Date"
+        }
+    ],
+    "permissions": []
+}

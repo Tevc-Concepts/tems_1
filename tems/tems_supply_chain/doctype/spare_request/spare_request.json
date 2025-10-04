@@ -1,0 +1,81 @@
+{
+    "doctype": "DocType",
+    "name": "Spare Request",
+    "module": "TEMS Supply Chain",
+    "engine": "InnoDB",
+    "field_order": [
+        "asset",
+        "requested_by",
+        "priority",
+        "status",
+        "parts",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "asset",
+            "label": "Asset",
+            "fieldtype": "Link",
+            "options": "Asset",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "requested_by",
+            "label": "Requested By",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fieldname": "priority",
+            "label": "Priority",
+            "fieldtype": "Select",
+            "options": "Low\nMedium\nHigh",
+            "default": "Medium",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Draft\nSubmitted\nApproved\nRejected\nFulfilled",
+            "default": "Draft",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "parts",
+            "label": "Parts",
+            "fieldtype": "Table",
+            "options": "Spare Request Item"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Maintenance Tech",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Procurement Officer",
+            "read": 1
+        },
+        {
+            "role": "Fleet Manager",
+            "read": 1
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+"""Child table controller for Lease Loan Schedule."""
+from __future__ import annotations
+
+from frappe.model.document import Document
+
+
+class LeaseLoanSchedule(Document):
+    pass

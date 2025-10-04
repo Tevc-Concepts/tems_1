@@ -1,0 +1,92 @@
+{
+    "doctype": "DocType",
+    "name": "FX Risk Log",
+    "module": "TEMS Finance",
+    "engine": "InnoDB",
+    "field_order": [
+        "date",
+        "currency_pair",
+        "exposure_amount",
+        "exposure_currency",
+        "rate_used",
+        "hedge_action",
+        "vehicle",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "date",
+            "label": "Date",
+            "fieldtype": "Date",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "currency_pair",
+            "label": "Currency Pair",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "Format: BASE/QUOTE e.g. USD/NGN"
+        },
+        {
+            "fieldname": "exposure_amount",
+            "label": "Exposure Amount",
+            "fieldtype": "Float",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "exposure_currency",
+            "label": "Exposure Currency",
+            "fieldtype": "Link",
+            "options": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "rate_used",
+            "label": "Rate Used",
+            "fieldtype": "Float",
+            "reqd": 1
+        },
+        {
+            "fieldname": "hedge_action",
+            "label": "Hedge Action",
+            "fieldtype": "Select",
+            "options": "None\nForward\nSwap\nOption",
+            "default": "None"
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle (Optional)",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "in_standard_filter": 1
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Finance Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Finance Officer",
+            "read": 1,
+            "create": 1
+        }
+    ]
+}

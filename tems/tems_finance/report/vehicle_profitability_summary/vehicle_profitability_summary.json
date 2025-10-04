@@ -1,0 +1,20 @@
+{
+    "doctype": "Report",
+    "name": "Vehicle Profitability Summary",
+    "is_standard": "Yes",
+    "report_name": "Vehicle Profitability Summary",
+    "ref_doctype": "Vehicle",
+    "report_type": "Script Report",
+    "module": "TEMS Finance",
+    "roles": [
+        {
+            "role": "Finance Manager"
+        },
+        {
+            "role": "Finance Officer"
+        },
+        {
+            "role": "TEMS Executive"
+        }
+    ]
+}

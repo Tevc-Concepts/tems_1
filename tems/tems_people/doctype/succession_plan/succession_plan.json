@@ -1,0 +1,66 @@
+{
+    "doctype": "DocType",
+    "name": "Succession Plan",
+    "module": "TEMS People",
+    "engine": "InnoDB",
+    "field_order": [
+        "position",
+        "incumbent_employee",
+        "readiness_risk",
+        "candidates",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "position",
+            "label": "Position",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "incumbent_employee",
+            "label": "Incumbent Employee",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fieldname": "readiness_risk",
+            "label": "Readiness Risk",
+            "fieldtype": "Select",
+            "options": "Low\nMedium\nHigh",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "candidates",
+            "label": "Candidates",
+            "fieldtype": "Table",
+            "options": "Succession Candidate"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "HR",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1
+        }
+    ]
+}

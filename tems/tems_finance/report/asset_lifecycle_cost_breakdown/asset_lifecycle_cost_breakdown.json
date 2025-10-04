@@ -1,0 +1,20 @@
+{
+    "doctype": "Report",
+    "name": "Asset Lifecycle Cost Breakdown",
+    "is_standard": "Yes",
+    "report_name": "Asset Lifecycle Cost Breakdown",
+    "ref_doctype": "Asset",
+    "report_type": "Script Report",
+    "module": "TEMS Finance",
+    "roles": [
+        {
+            "role": "Finance Manager"
+        },
+        {
+            "role": "Finance Officer"
+        },
+        {
+            "role": "Fleet Manager"
+        }
+    ]
+}

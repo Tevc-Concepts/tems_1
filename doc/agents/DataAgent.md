@@ -9,6 +9,7 @@ TASKS:
 - Implement predictive models (maintenance, demand forecasting, risk scoring).
 - Configure anomaly detection workflows across Finance, Safety, Operations.
 - Provide auto-report generation with natural language summaries.
+ 
 
 CONSTRAINTS:
 - Use Frappe Insights for dashboards.
@@ -17,7 +18,7 @@ CONSTRAINTS:
 - All reporting data must come from linked DocTypes (no siloed data).
 
 INTER-RELATIONSHIPS:
-- Fleet ↔ Operation  ↔HR ↔ Finance (Driver performance, Vehicle Profitability,Customer Profitabilty, Route Profitabilit, TCO).
+- Fleet ↔ Operation  ↔People ↔ Finance (Driver performance, asset, Vehicle Profitability,Customer Profitabilty, Route Profitabilit, TCO).
 - Operation  ↔ Safety ↔ Climate (Journey risk reports).
 - Trade ↔ Finance (Cross-border compliance).
 - CRM ↔ Governance (Customer SLA monitoring).

@@ -1,0 +1,82 @@
+{
+    "doctype": "DocType",
+    "name": "Journey Costing",
+    "module": "TEMS Finance",
+    "engine": "InnoDB",
+    "field_order": [
+        "journey_plan",
+        "vehicle",
+        "total_cost",
+        "total_revenue",
+        "margin",
+        "currency",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "journey_plan",
+            "label": "Journey Plan",
+            "fieldtype": "Link",
+            "options": "Journey Plan",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "label": "Vehicle",
+            "fieldtype": "Link",
+            "options": "Vehicle",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "total_cost",
+            "label": "Total Cost",
+            "fieldtype": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "total_revenue",
+            "label": "Total Revenue",
+            "fieldtype": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "margin",
+            "label": "Margin",
+            "fieldtype": "Currency",
+            "read_only": 1
+        },
+        {
+            "fieldname": "currency",
+            "label": "Currency",
+            "fieldtype": "Link",
+            "options": "Currency",
+            "default": "USD"
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Finance Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Finance Officer",
+            "read": 1,
+            "create": 1
+        }
+    ]
+}

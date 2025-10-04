@@ -1,0 +1,33 @@
+{
+    "doctype": "DocType",
+    "name": "Succession Candidate",
+    "module": "TEMS People",
+    "istable": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "employee",
+        "readiness",
+        "development_actions"
+    ],
+    "fields": [
+        {
+            "fieldname": "employee",
+            "label": "Employee",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fieldname": "readiness",
+            "label": "Readiness",
+            "fieldtype": "Select",
+            "options": "Ready Now\n< 1 Year\n1-2 Years\n> 2 Years"
+        },
+        {
+            "fieldname": "development_actions",
+            "label": "Development Actions",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": []
+}

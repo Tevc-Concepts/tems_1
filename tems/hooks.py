@@ -144,38 +144,37 @@ web_include_js = "/assets/tems/js/tems_web.js"
 
 # Fixtures ensure roles/workspaces/number cards ship with the app (export-fixtures)
 fixtures = [
-	{"dt": "Role", "filters": [["name", "in", [
-		"TEMS Executive",
-		"Operations Manager",
-		"Operations Officer",
-		"Fleet Manager",
-		"Fleet Officer",
-		"Safety Officer",
-		"Safety Manager",
-		"Driver",
-		"Informal Operator",
-		"Border Agent",
-		"Community Leader",
-		"Maintenance Tech",
-		"Finance Manager",
-		"Finance Officer",
-		"Analyst",
-		"HR"
-	]]]},
-	{"dt": "Number Card", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},
-    {"dt": "Client Script", "filters": [["module", "in", ["TEMS Governance", "TEMS Operations", "TEMS People", "TEMS Fleet", "TEMS Safety", "TEMS Trade", "TEMS Informal", "TEMS Climate", "TEMS Finance", "TEMS CRM", "TEMS Supply Chain", "TEMS Documents"]]]},
-	{"dt": "Workflow", "filters": [["document_type", "in", ["Safety Incident"]]]},
-	"Custom Field",
-	"Print Format",
-	"Report",
-	"Dashboard",
-    "Dashboard Chart",
-    "Email Template",
-    "Notification",
-    "Scheduled Job Type",
-    "Tag",
-    # Intentionally exclude "Workspace" fixtures; use module-based JSON in tems_*/workspace/* instead
-    ]
+    {"dt": "Role", "filters": [["name", "in", [
+        "TEMS Executive",
+        "Operations Manager",
+        "Operations Officer",
+        "Fleet Manager",
+        "Fleet Officer",
+        "Safety Officer",
+        "Safety Manager",
+        "Driver",
+        "Informal Operator",
+        "Border Agent",
+        "Community Leader",
+        "Maintenance Tech",
+        "Finance Manager",
+        "Finance Officer",
+        "Analyst",
+        "HR"
+    ]]]},
+    # Temporarily trimming fixture list to isolate migration failure (will restore after cleanup)
+    # {"dt": "Number Card", "filters": ...},
+    # {"dt": "Client Script", "filters": ...},
+    # {"dt": "Workflow", "filters": ...},
+    # "Custom Field",
+    # "Print Format",
+    # "Dashboard",
+    # "Dashboard Chart",
+    # "Email Template",
+    # "Notification",
+    # "Scheduled Job Type",
+    # "Tag",
+]
 
 
 doc_events = {
@@ -263,7 +262,9 @@ scheduler_events = {
         "tems.tems_fleet.tasks.compute_predictive_maintenance",  # new stub daily predictive maintenance rollup
         "tems.tems_operations.tasks.generate_daily_operations_report",
         "tems.tems_operations.tasks.validate_driver_vehicle_assignments",
-        "tems.tems_finance.tasks.update_fx_rates"
+        "tems.tems_finance.tasks.update_fx_rates",
+        "tems.tems_people.tasks.remind_expiring_driver_docs",
+        "tems.tems_supply_chain.tasks.low_stock_alert"
 	],
 	"cron": {
 		"0 1 * * *": ["tems.tasks.compute_nightly_jobs"],

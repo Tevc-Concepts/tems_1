@@ -1,0 +1,20 @@
+{
+    "doctype": "Report",
+    "name": "Low Stock Breach",
+    "is_standard": "Yes",
+    "report_name": "Low Stock Breach",
+    "ref_doctype": "Spare Parts",
+    "report_type": "Script Report",
+    "module": "TEMS Supply Chain",
+    "roles": [
+        {
+            "role": "Procurement Officer"
+        },
+        {
+            "role": "Maintenance Tech"
+        },
+        {
+            "role": "Fleet Manager"
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "doctype": "DocType",
+    "name": "Competency Matrix",
+    "module": "TEMS People",
+    "engine": "InnoDB",
+    "field_order": [
+        "employee",
+        "vehicle_type",
+        "skill",
+        "level",
+        "last_assessed",
+        "next_review",
+        "status",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "employee",
+            "label": "Employee",
+            "fieldtype": "Link",
+            "options": "Employee",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "vehicle_type",
+            "label": "Vehicle Type",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "skill",
+            "label": "Skill / Competency",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "level",
+            "label": "Level",
+            "fieldtype": "Select",
+            "options": "Beginner\nIntermediate\nAdvanced\nExpert",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "last_assessed",
+            "label": "Last Assessed",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "next_review",
+            "label": "Next Review",
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Active\nExpired\nRevoked",
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "HR",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1
+        },
+        {
+            "role": "Safety Manager",
+            "read": 1
+        }
+    ]
+}

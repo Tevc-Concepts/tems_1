@@ -1,0 +1,70 @@
+{
+    "doctype": "DocType",
+    "name": "Allocation Rule",
+    "module": "TEMS Finance",
+    "custom": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "field_order": [
+        "title",
+        "disabled",
+        "allocation_basis",
+        "percentage",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "title",
+            "fieldtype": "Data",
+            "label": "Title",
+            "reqd": 1
+        },
+        {
+            "fieldname": "disabled",
+            "fieldtype": "Check",
+            "label": "Disabled"
+        },
+        {
+            "fieldname": "allocation_basis",
+            "fieldtype": "Select",
+            "label": "Allocation Basis",
+            "reqd": 1,
+            "options": "Vehicle\nAsset\nJourney"
+        },
+        {
+            "fieldname": "percentage",
+            "fieldtype": "Float",
+            "label": "Percentage",
+            "reqd": 1
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Small Text",
+            "label": "Notes"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "TEMS Administrator",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Finance Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Finance Officer",
+            "read": 1
+        },
+        {
+            "role": "Analyst",
+            "read": 1
+        }
+    ],
+    "allow_rename": 1
+}

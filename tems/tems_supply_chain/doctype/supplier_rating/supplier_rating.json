@@ -1,0 +1,82 @@
+{
+    "doctype": "DocType",
+    "name": "Supplier Rating",
+    "module": "TEMS Supply Chain",
+    "engine": "InnoDB",
+    "field_order": [
+        "supplier",
+        "period",
+        "on_time_score",
+        "quality_score",
+        "cost_score",
+        "composite_score",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "supplier",
+            "label": "Supplier",
+            "fieldtype": "Link",
+            "options": "Supplier",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "period",
+            "label": "Period",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "in_list_view": 1,
+            "description": "e.g. 2025-Q3"
+        },
+        {
+            "fieldname": "on_time_score",
+            "label": "On Time Score",
+            "fieldtype": "Int",
+            "reqd": 1
+        },
+        {
+            "fieldname": "quality_score",
+            "label": "Quality Score",
+            "fieldtype": "Int",
+            "reqd": 1
+        },
+        {
+            "fieldname": "cost_score",
+            "label": "Cost Score",
+            "fieldtype": "Int",
+            "reqd": 1
+        },
+        {
+            "fieldname": "composite_score",
+            "label": "Composite Score",
+            "fieldtype": "Float",
+            "read_only": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Small Text"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "Procurement Officer",
+            "read": 1,
+            "write": 1,
+            "create": 1
+        },
+        {
+            "role": "Finance Manager",
+            "read": 1
+        }
+    ]
+}

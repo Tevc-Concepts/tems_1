@@ -28,3 +28,10 @@ except Exception:  # pragma: no cover
 	# Non-fatal if this fails; only impacts test harness expecting old class.
 	pass
 
+# Re-export demo seeding utilities for simplified bench execute import path
+try:  # pragma: no cover
+	from .tems_demo.orchestrator import run_all as demo_run_all, run_minimal as demo_run_minimal  # noqa: F401
+except Exception:
+	# ignore if not yet generated
+	pass
+

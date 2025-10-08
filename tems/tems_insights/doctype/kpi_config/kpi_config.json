@@ -1,0 +1,70 @@
+{
+    "doctype": "DocType",
+    "name": "KPI Config",
+    "module": "TEMS Insights",
+    "custom": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "field_order": [
+        "title",
+        "reference_doctype",
+        "metric_field",
+        "filter_json",
+        "aggregation",
+        "target_value"
+    ],
+    "fields": [
+        {
+            "fieldname": "title",
+            "fieldtype": "Data",
+            "label": "Title",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "fieldname": "reference_doctype",
+            "fieldtype": "Link",
+            "label": "Reference DocType",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "metric_field",
+            "fieldtype": "Data",
+            "label": "Metric Field"
+        },
+        {
+            "fieldname": "aggregation",
+            "fieldtype": "Select",
+            "label": "Aggregation",
+            "options": "Count\nSum\nAvg",
+            "default": "Count"
+        },
+        {
+            "fieldname": "filter_json",
+            "fieldtype": "Code",
+            "label": "Filters (JSON)"
+        },
+        {
+            "fieldname": "target_value",
+            "fieldtype": "Float",
+            "label": "Target"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        },
+        {
+            "role": "TEMS Executive",
+            "read": 1
+        },
+        {
+            "role": "Operations Manager",
+            "read": 1
+        }
+    ]
+}

@@ -68,7 +68,9 @@ def update_vehicle_status(doc, method=None):
         new_status = "Available"
 
     if new_status:
-        frappe.db.set_value("Vehicle", veh, "status", new_status)
+        # Only attempt if status column actually exists on Vehicle (guard for demo environment)
+        if frappe.db.has_column("Vehicle", "status"):
+            frappe.db.set_value("Vehicle", veh, "status", new_status)
 
 
 def ensure_driver_vehicle_valid(doc, method=None):

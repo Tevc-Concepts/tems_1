@@ -59,7 +59,7 @@
     "module": "TEMS Safety",
     "name": "Safety Management",
     "owner": "Administrator",
-    "parent_page": "",
+    "parent_page": "TEMS",
     "public": 1,
     "restrict_to_domain": "",
     "roles": [

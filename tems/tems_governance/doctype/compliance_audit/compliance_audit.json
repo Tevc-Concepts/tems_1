@@ -1,93 +1,151 @@
 {
-    "doctype": "DocType",
-    "name": "Compliance Audit",
-    "module": "TEMS Governance",
-    "engine": "InnoDB",
-    "field_order": [
-        "audit_date",
-        "auditor",
-        "policy",
-        "scope",
-        "findings",
-        "severity",
-        "status",
-        "evidence_section",
-        "evidence"
-    ],
-    "fields": [
-        {
-            "fieldname": "audit_date",
-            "label": "Audit Date",
-            "fieldtype": "Date",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "auditor",
-            "label": "Auditor",
-            "fieldtype": "Link",
-            "options": "Employee",
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "policy",
-            "label": "Policy",
-            "fieldtype": "Link",
-            "options": "Governance Policy",
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "scope",
-            "label": "Scope",
-            "fieldtype": "Small Text"
-        },
-        {
-            "fieldname": "findings",
-            "label": "Findings",
-            "fieldtype": "Long Text"
-        },
-        {
-            "fieldname": "severity",
-            "label": "Severity",
-            "fieldtype": "Select",
-            "options": "Low\nMedium\nHigh\nCritical",
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "status",
-            "label": "Status",
-            "fieldtype": "Select",
-            "options": "Open\nIn Progress\nClosed",
-            "default": "Open",
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "evidence_section",
-            "label": "Evidence",
-            "fieldtype": "Section Break"
-        },
-        {
-            "fieldname": "evidence",
-            "label": "Evidence",
-            "fieldtype": "Table",
-            "options": "Compliance Audit Evidence"
-        }
-    ],
-    "permissions": [
-        {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "delete": 1
-        },
-        {
-            "role": "Safety Manager",
-            "read": 1
-        },
-        {
-            "role": "TEMS Executive",
-            "read": 1
-        }
-    ]
+ "actions": [],
+ "autoname": "format:CA-{DD}{MM}{YY}-{####}",
+ "creation": "2025-10-02 00:29:10.934135",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "audit_date",
+  "auditor",
+  "policy",
+  "severity",
+  "status",
+  "column_break_yxbj",
+  "scope",
+  "findings",
+  "evidence_section",
+  "evidence"
+ ],
+ "fields": [
+  {
+   "fieldname": "audit_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Audit Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "auditor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Auditor",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "policy",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Policy",
+   "options": "Governance Policy"
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Small Text",
+   "label": "Scope"
+  },
+  {
+   "fieldname": "findings",
+   "fieldtype": "Long Text",
+   "label": "Findings"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Severity",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nIn Progress\nClosed"
+  },
+  {
+   "fieldname": "evidence_section",
+   "fieldtype": "Section Break",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Table",
+   "label": "Evidence",
+   "options": "Compliance Audit Evidence"
+  },
+  {
+   "fieldname": "column_break_yxbj",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "is_calendar_and_gantt": 1,
+ "links": [],
+ "modified": "2025-10-11 17:14:59.875022",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Compliance Audit",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Safety Manager"
+  },
+  {
+   "read": 1,
+   "role": "TEMS Executive"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }

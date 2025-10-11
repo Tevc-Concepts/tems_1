@@ -17,7 +17,7 @@ def low_stock_alert() -> None:
     This is a lightweight placeholder; real implementation could create Material Requests.
     """
     # Expect DocType name maybe 'Spare Parts'; keep dynamic fallback.
-    doctype_candidates = ["Spare Part", "Spare Parts"]
+    doctype_candidates = ["Spare Part", "Spare Part"]
     target_doctype = None
     for dt in doctype_candidates:
         if frappe.db.table_exists(f"tab{dt}"):

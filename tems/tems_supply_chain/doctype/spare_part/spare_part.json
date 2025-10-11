@@ -1,34 +1,27 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-09-28 23:23:05.257583",
+ "autoname": "format:SP-{DD}{MM}{YY}-{#####}",
+ "creation": "2025-10-10 10:48:35.632837",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "items",
-  "min_stock",
-  "reorder_qty",
-  "asset_compatibility"
+  "item",
+  "minstock",
+  "reorder_qty"
  ],
  "fields": [
   {
-   "fieldname": "items",
+   "fieldname": "item",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Items",
-   "options": "Item",
-   "reqd": 1
+   "label": "Item",
+   "options": "Item"
   },
   {
-   "fetch_from": "items.min_order_qty",
-   "fieldname": "min_stock",
+   "fetch_from": "item.min_order_qty",
+   "fieldname": "minstock",
    "fieldtype": "Float",
-   "label": "Min Stock"
-  },
-  {
-   "fieldname": "asset_compatibility",
-   "fieldtype": "Small Text",
-   "label": "Asset Compatibility"
+   "label": "Min.Stock"
   },
   {
    "fieldname": "reorder_qty",
@@ -39,10 +32,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-28 23:28:07.048763",
+ "modified": "2025-10-10 10:52:41.363943",
  "modified_by": "Administrator",
  "module": "TEMS Supply Chain",
- "name": "Spare Parts",
+ "name": "Spare Part",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -61,5 +55,7 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
 }

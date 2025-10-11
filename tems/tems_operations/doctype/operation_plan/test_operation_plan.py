@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestSpareParts(FrappeTestCase):
+class TestOperationPlan(FrappeTestCase):
 	pass

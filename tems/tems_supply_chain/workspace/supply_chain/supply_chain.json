@@ -29,7 +29,7 @@
    "color": "Grey",
    "doc_view": "List",
    "label": "Spare Part",
-   "link_to": "Spare Parts",
+   "link_to": "Spare Part",
    "stats_filter": "[]",
    "type": "DocType"
   },

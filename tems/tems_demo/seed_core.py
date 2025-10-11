@@ -143,12 +143,19 @@ def seed_purchase_and_stock(context, count: int = 20, stock_target: int | None =
         except Exception:
             stock_target = 0
     se_names = []
-    warehouses = frappe.get_all("Warehouse", pluck="name", limit=1)
+    # Resolve company early
+    company = context.get("company") or frappe.db.get_value("Company", {}, "name")
+    # Pick a warehouse that belongs to the same company to avoid cross-company validation errors
+    warehouses = frappe.get_all("Warehouse", filters={"company": company, "is_group": 0}, pluck="name", limit=1)
     target_wh = warehouses[0] if warehouses else None
     if not target_wh:
         try:
-            company = context.get("company") or frappe.db.get_value("Company", {}, "name")
-            wh = frappe.get_doc({"doctype": "Warehouse", "warehouse_name": "Main", "is_group": 0, "company": company})
+            wh = frappe.get_doc({
+                "doctype": "Warehouse",
+                "warehouse_name": "Main",
+                "is_group": 0,
+                "company": company,
+            })
             wh.insert(ignore_permissions=True)
             frappe.db.commit()
             target_wh = wh.name
@@ -156,10 +163,16 @@ def seed_purchase_and_stock(context, count: int = 20, stock_target: int | None =
             log_error(context, "Warehouse Provision", e, capture_tb=True)
             frappe.db.rollback()
             return
-    candidate_pos = frappe.get_all("Purchase Order", pluck="name", limit=count)
+    # Filter candidate POs by company to avoid cross-company warehouse mismatch
+    candidate_pos = frappe.get_all(
+        "Purchase Order",
+        filters={"company": company} if frappe.db.has_column("Purchase Order", "company") else None,
+        pluck="name",
+        limit=max(count, stock_target or 0) or 20,
+    )
     if not candidate_pos:
         log_error(context, "Stock Entry", Exception("No candidate Purchase Orders found"))
-    company = context.get("company") or frappe.db.get_value("Company", {}, "name")
+    # Ensure Items have stock_uom set
     for itm in items:
         try:
             if frappe.db.has_column("Item", "stock_uom") and not frappe.db.get_value("Item", itm, "stock_uom"):
@@ -167,12 +180,16 @@ def seed_purchase_and_stock(context, count: int = 20, stock_target: int | None =
         except Exception:
             frappe.db.rollback()
     attempts = 0
+    max_po_attempts = max((stock_target or 0) * 3, 10)
     for po in candidate_pos:
-        if len(se_names) >= (stock_target or 0):
+        if len(se_names) >= (stock_target or 0) or attempts >= max_po_attempts:
             break
         try:
             attempts += 1
             po_doc = frappe.get_doc("Purchase Order", po)
+            # Skip PO if company mismatch (defensive)
+            if getattr(po_doc, "company", company) != company:
+                continue
             po_items = po_doc.get("items") or []
             if not po_items:
                 continue
@@ -199,7 +216,10 @@ def seed_purchase_and_stock(context, count: int = 20, stock_target: int | None =
             frappe.db.rollback()
             continue
     fallback_attempts = 0
-    while len(se_names) < (stock_target or 0) and items:
+    max_fallback_attempts = max((stock_target or 0) * 5, 25)
+    repeating_error_counter = 0
+    last_error_sig = None
+    while len(se_names) < (stock_target or 0) and items and fallback_attempts < max_fallback_attempts:
         itm_code = random.choice(items)
         try:
             fallback_attempts += 1
@@ -221,8 +241,18 @@ def seed_purchase_and_stock(context, count: int = 20, stock_target: int | None =
             se_names.append(se.name)
             frappe.db.commit()
         except Exception as e:
+            # Detect repeated identical error to bail out
+            err_sig = str(e).split(':')[0]
+            if err_sig == last_error_sig:
+                repeating_error_counter += 1
+            else:
+                repeating_error_counter = 1
+                last_error_sig = err_sig
             log_error(context, "Stock Entry (Direct)", e, capture_tb=True)
             frappe.db.rollback()
+            if repeating_error_counter >= 5 and len(se_names) == 0:
+                # Bail out to avoid endless identical failures
+                break
             continue
     context.setdefault("stock_entries", []).extend([s for s in se_names if s not in context.get("stock_entries", [])])
     try:
@@ -233,6 +263,10 @@ def seed_purchase_and_stock(context, count: int = 20, stock_target: int | None =
             "attempts": attempts,
             "fallback_attempts": fallback_attempts,
             "stock_target": stock_target,
+            "max_po_attempts": max_po_attempts,
+            "max_fallback_attempts": max_fallback_attempts,
+            "repeat_error_sig": last_error_sig,
+            "repeat_error_hits": repeating_error_counter,
         }
         write_debug_json("demo_dbg_stock_post.json", post)
         log(context, f"StockEntry top-up attempts={attempts} fallback_attempts={fallback_attempts} created={len(se_names)} target={stock_target}")

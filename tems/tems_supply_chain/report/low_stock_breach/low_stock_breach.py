@@ -13,7 +13,7 @@ def _safe_float(val):
 
 def execute(filters=None):
     # Determine spare part doctype name
-    dt = "Spare Parts" if frappe.db.table_exists("tabSpare Parts") else ("Spare Part" if frappe.db.table_exists("tabSpare Part") else None)
+    dt = "Spare Part" if frappe.db.table_exists("tabSpare Part") else ("Spare Part" if frappe.db.table_exists("tabSpare Part") else None)
     columns = [
         {"label": "Record", "fieldname": "name", "fieldtype": "Data", "width": 140},
         {"label": "Item", "fieldname": "item_code", "fieldtype": "Link", "options": "Item", "width": 140},

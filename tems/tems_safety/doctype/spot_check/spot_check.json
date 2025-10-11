@@ -1,72 +1,99 @@
 {
-    "doctype": "DocType",
-    "name": "Spot Check",
-    "module": "TEMS Safety",
-    "engine": "InnoDB",
-    "field_order": [
-        "date",
-        "vehicle",
-        "driver",
-        "location",
-        "notes",
-        "photos"
-    ],
-    "fields": [
-        {
-            "fieldname": "date",
-            "label": "Date",
-            "fieldtype": "Date",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "vehicle",
-            "label": "Vehicle",
-            "fieldtype": "Link",
-            "options": "Vehicle",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "driver",
-            "label": "Driver",
-            "fieldtype": "Link",
-            "options": "Employee"
-        },
-        {
-            "fieldname": "location",
-            "label": "Location",
-            "fieldtype": "Data"
-        },
-        {
-            "fieldname": "notes",
-            "label": "Notes",
-            "fieldtype": "Small Text"
-        },
-        {
-            "fieldname": "photos",
-            "label": "Photos",
-            "fieldtype": "Table",
-            "options": "Spot Check Photo"
-        }
-    ],
-    "permissions": [
-        {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "delete": 1
-        },
-        {
-            "role": "Safety Officer",
-            "read": 1,
-            "write": 1,
-            "create": 1
-        },
-        {
-            "role": "Safety Manager",
-            "read": 1
-        }
-    ]
+ "actions": [],
+ "autoname": "format:SC-{DD}{MM}{YY}-{####}",
+ "creation": "2025-09-25 20:47:09.023261",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "vehicle",
+  "driver",
+  "location",
+  "notes",
+  "photos"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Table",
+   "label": "Photos",
+   "options": "Spot Check Photo"
+  }
+ ],
+ "is_calendar_and_gantt": 1,
+ "links": [],
+ "modified": "2025-10-11 17:23:00.835562",
+ "modified_by": "Administrator",
+ "module": "TEMS Safety",
+ "name": "Spot Check",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Safety Officer",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Safety Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
 }

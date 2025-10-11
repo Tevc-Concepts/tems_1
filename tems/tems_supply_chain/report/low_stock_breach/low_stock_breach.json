@@ -3,7 +3,7 @@
     "name": "Low Stock Breach",
     "is_standard": "Yes",
     "report_name": "Low Stock Breach",
-    "ref_doctype": "Spare Parts",
+    "ref_doctype": "Spare Part",
     "report_type": "Script Report",
     "module": "TEMS Supply Chain",
     "roles": [

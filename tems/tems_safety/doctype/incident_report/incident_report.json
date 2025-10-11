@@ -1,30 +1,191 @@
 {
-    "doctype": "DocType",
-    "name": "Incident Report",
-    "module": "TEMS Safety",
-    "fields": [
-        {
-            "fieldname": "vehicle",
-            "fieldtype": "Link",
-            "options": "Vehicle"
-        },
-        {
-            "fieldname": "description",
-            "fieldtype": "Text"
-        },
-        {
-            "fieldname": "incident_date",
-            "fieldtype": "Date"
-        }
-    ],
-    "permissions": [
-        {
-            "role": "Safety Officer",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "submit": 1,
-            "cancel": 1
-        }
-    ]
+ "actions": [],
+ "autoname": "format:IR-{DD}{MM}{YY}-{#####}",
+ "creation": "2025-10-04 12:13:35.963035",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "quick_details_section",
+  "vehicle",
+  "description",
+  "incident_date",
+  "status",
+  "section_break_vdob",
+  "closed_date",
+  "resolved_by",
+  "resolution_comments",
+  "incident_duration",
+  "section_break_slnd",
+  "column_break_ewpc",
+  "reporter",
+  "column_break_xogl",
+  "reported_date"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vechicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "incident_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nIn Progress\nClosed\nOn Hold"
+  },
+  {
+   "fieldname": "section_break_vdob",
+   "fieldtype": "Section Break",
+   "label": "Resolution Section"
+  },
+  {
+   "fieldname": "closed_date",
+   "fieldtype": "Date",
+   "label": "Closed Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolved_by",
+   "fieldtype": "Link",
+   "label": "Resolved By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "resolution_comments",
+   "fieldtype": "Small Text",
+   "label": "Resolution Comments"
+  },
+  {
+   "fieldname": "incident_duration",
+   "fieldtype": "Duration",
+   "label": "Incident Duration",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quick_details_section",
+   "fieldtype": "Section Break",
+   "label": "Quick Details"
+  },
+  {
+   "fieldname": "section_break_slnd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ewpc",
+   "fieldtype": "Column Break",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reporter",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reporter",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xogl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reported_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reported Date",
+   "read_only": 1
+  }
+ ],
+ "is_calendar_and_gantt": 1,
+ "links": [],
+ "modified": "2025-10-11 15:51:00.950222",
+ "modified_by": "Administrator",
+ "module": "TEMS Safety",
+ "name": "Incident Report",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Safety Officer",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Safety Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
 }

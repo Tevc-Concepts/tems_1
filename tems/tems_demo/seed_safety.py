@@ -3,11 +3,15 @@ import random
 import frappe
 from frappe.utils import nowdate, now_datetime, add_to_date
 from .seed_utils import ensure_min_records, log_error
+try:
+    from . import settings as demo_settings
+except Exception:  # pragma: no cover
+    demo_settings = None
 
 INCIDENT_TYPES = ["Minor", "Major", "Near Miss"]
 
 
-def seed_safety_records(context, count: int = 20):
+def seed_safety_records(context, count: int = 20, spot_check_target: int | None = None):
     vehicles = context.get("vehicles", [])
     employees = context.get("employees", [])
     journey_plans = context.setdefault("journey_plans", [])
@@ -22,7 +26,12 @@ def seed_safety_records(context, count: int = 20):
     i = 0
     # Continue looping until each target met or safety cap
     safety_cap = count * 5
-    while ((len(journey_plans) < count) or (len(incidents) < count) or (len(risks) < count)) and i < safety_cap:
+    spot_checks_ctx = context.setdefault("spot_checks", [])
+    if spot_check_target is None and demo_settings:
+        spot_check_target = demo_settings.TARGETS.get("Spot Check", 0)
+    if spot_check_target is None:
+        spot_check_target = 0
+    while ((len(journey_plans) < count) or (len(incidents) < count) or (len(risks) < count) or (len(spot_checks_ctx) < spot_check_target)) and i < safety_cap:
         i += 1
         if not vehicles:
             break
@@ -73,4 +82,18 @@ def seed_safety_records(context, count: int = 20):
                     risks.append(risk.name)
             except Exception as e:
                 log_error(context, "Risk Assessment", e)
+                frappe.db.rollback()
+        if spot_check_target and frappe.db.exists("DocType", "Spot Check") and len(spot_checks_ctx) < spot_check_target:
+            sc_doc = frappe.get_doc({
+                "doctype": "Spot Check",
+                "vehicle": veh if frappe.db.has_column("Spot Check", "vehicle") else None,
+                "inspection_time": now_datetime() if frappe.db.has_column("Spot Check", "inspection_time") else None,
+                "notes": "Auto-generated demo spot check" if frappe.db.has_column("Spot Check", "notes") else None,
+            })
+            try:
+                sc_doc.insert(ignore_permissions=True, ignore_mandatory=True)
+                frappe.db.commit()
+                spot_checks_ctx.append(sc_doc.name)
+            except Exception as e:
+                log_error(context, "Spot Check", e)
                 frappe.db.rollback()

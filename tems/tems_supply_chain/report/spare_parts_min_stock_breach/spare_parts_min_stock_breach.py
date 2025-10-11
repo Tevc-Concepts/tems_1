@@ -15,7 +15,7 @@ def execute(filters=None):
                 """
                 select sp.item, sp.min_stock,
                        coalesce(sum(b.actual_qty), 0) as qty
-                from `tabSpare Parts` sp
+                from `tabSpare Part` sp
                 left join `tabBin` b on b.item_code = sp.item
                 group by sp.item, sp.min_stock
                 having qty < coalesce(sp.min_stock, 0)

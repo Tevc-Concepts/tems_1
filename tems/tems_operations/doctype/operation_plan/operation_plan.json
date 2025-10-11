@@ -1,82 +1,107 @@
 {
-    "doctype": "DocType",
-    "name": "Operation Plan",
-    "module": "TEMS Operations",
-    "engine": "InnoDB",
-    "field_order": [
-        "title",
-        "vehicle",
-        "driver",
-        "start_time",
-        "end_time",
-        "route_reference",
-        "notes"
-    ],
-    "fields": [
-        {
-            "fieldname": "title",
-            "label": "Title",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "reqd": 1
-        },
-        {
-            "fieldname": "vehicle",
-            "label": "Vehicle",
-            "fieldtype": "Link",
-            "options": "Vehicle",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "driver",
-            "label": "Driver",
-            "fieldtype": "Link",
-            "options": "Employee",
-            "reqd": 0,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "start_time",
-            "label": "Start Time",
-            "fieldtype": "Datetime",
-            "reqd": 1
-        },
-        {
-            "fieldname": "end_time",
-            "label": "End Time",
-            "fieldtype": "Datetime"
-        },
-        {
-            "fieldname": "route_reference",
-            "label": "Route (Ref)",
-            "fieldtype": "Link",
-            "options": "Route Planning"
-        },
-        {
-            "fieldname": "notes",
-            "label": "Notes",
-            "fieldtype": "Small Text"
-        }
-    ],
-    "permissions": [
-        {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "delete": 1
-        },
-        {
-            "role": "Operations Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1
-        },
-        {
-            "role": "Operations Officer",
-            "read": 1,
-            "write": 1
-        }
-    ]
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "autoname": "format:OP-{DD}{MM}{YY}-{####}",
+ "creation": "2025-10-02 23:01:53.339947",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "vehicle",
+  "driver",
+  "start_time",
+  "end_time",
+  "route_reference",
+  "notes",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time"
+  },
+  {
+   "fieldname": "route_reference",
+   "fieldtype": "Link",
+   "label": "Route (Ref)",
+   "options": "Route Planning"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Assigned\nActive\nExpired\nCompleted"
+  }
+ ],
+ "is_calendar_and_gantt": 1,
+ "links": [],
+ "modified": "2025-10-11 15:04:09.948262",
+ "modified_by": "Administrator",
+ "module": "TEMS Operations",
+ "name": "Operation Plan",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Operations Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Operations Officer",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
 }

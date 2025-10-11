@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class SpareParts(Document):
+class SparePart(Document):
 	pass

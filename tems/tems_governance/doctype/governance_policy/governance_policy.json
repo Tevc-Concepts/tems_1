@@ -1,128 +1,173 @@
 {
-    "actions": [],
-    "allow_rename": 1,
-    "creation": "2025-09-25 00:00:00",
-    "doctype": "DocType",
-    "engine": "InnoDB",
-    "field_order": [
-        "title",
-        "code",
-        "category",
-        "owner_employee",
-        "column_break_hgyv",
-        "effective_from",
-        "review_cycle",
-        "next_review_date",
-        "status",
-        "acknowledgement_required",
-        "attached_files",
-        "amended_from"
-    ],
-    "fields": [
-        {
-            "fieldname": "title",
-            "fieldtype": "Data",
-            "label": "Title",
-            "reqd": 1
-        },
-        {
-            "fieldname": "code",
-            "fieldtype": "Data",
-            "label": "Code",
-            "unique": 1
-        },
-        {
-            "fieldname": "category",
-            "fieldtype": "Select",
-            "label": "Category",
-            "options": "Policy\nSOP\nGuideline\nOther"
-        },
-        {
-            "fieldname": "owner_employee",
-            "fieldtype": "Link",
-            "label": "Owner (Employee)",
-            "options": "Employee"
-        },
-        {
-            "fieldname": "effective_from",
-            "fieldtype": "Date",
-            "label": "Effective From",
-            "reqd": 1
-        },
-        {
-            "fieldname": "review_cycle",
-            "fieldtype": "Select",
-            "label": "Review Cycle",
-            "options": "Monthly\nQuarterly\nBiannually\nAnnually"
-        },
-        {
-            "fieldname": "next_review_date",
-            "fieldtype": "Date",
-            "in_list_view": 1,
-            "label": "Next Review Date"
-        },
-        {
-            "fieldname": "status",
-            "fieldtype": "Select",
-            "in_list_view": 1,
-            "label": "Status",
-            "options": "Draft\nActive\nUnder Review\nArchived"
-        },
-        {
-            "default": "0",
-            "fieldname": "acknowledgement_required",
-            "fieldtype": "Check",
-            "label": "Acknowledgement Required"
-        },
-        {
-            "fieldname": "attached_files",
-            "fieldtype": "Table",
-            "label": "Attached Files",
-            "options": "Governance Policy File",
-            "editable_grid": 1
-        },
-        {
-            "fieldname": "amended_from",
-            "fieldtype": "Link",
-            "label": "Amended From",
-            "no_copy": 1,
-            "options": "Governance Policy",
-            "print_hide": 1,
-            "read_only": 1
-        },
-        {
-            "fieldname": "column_break_hgyv",
-            "fieldtype": "Column Break"
-        }
-    ],
-    "links": [],
-    "modified": "2025-09-25 17:12:53.772578",
-    "modified_by": "Administrator",
-    "module": "TEMS Governance",
-    "name": "Governance Policy",
-    "owner": "Administrator",
-    "permissions": [
-        {
-            "create": 1,
-            "delete": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "System Manager",
-            "write": 1
-        },
-        {
-            "create": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "TEMS Executive",
-            "write": 1
-        }
-    ],
-    "row_format": "Dynamic",
-    "sort_field": "modified",
-    "sort_order": "DESC",
-    "states": []
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:GP-{category}-{DD}{MM}{YY}-{##}",
+ "creation": "2025-09-25 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "code",
+  "category",
+  "owner_employee",
+  "column_break_hgyv",
+  "effective_from",
+  "review_cycle",
+  "next_review_date",
+  "status",
+  "acknowledgement_required",
+  "attached_files",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Policy\nSOP\nGuideline\nOther"
+  },
+  {
+   "fieldname": "owner_employee",
+   "fieldtype": "Link",
+   "label": "Owner (Employee)",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Date",
+   "label": "Effective From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "review_cycle",
+   "fieldtype": "Select",
+   "label": "Review Cycle",
+   "options": "Monthly\nQuarterly\nBiannually\nAnnually"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Next Review Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nUnder Review\nArchived"
+  },
+  {
+   "default": "0",
+   "fieldname": "acknowledgement_required",
+   "fieldtype": "Check",
+   "label": "Acknowledgement Required"
+  },
+  {
+   "fieldname": "attached_files",
+   "fieldtype": "Table",
+   "label": "Attached Files",
+   "options": "Governance Policy File"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Governance Policy",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hgyv",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-11 16:12:51.816226",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Governance Policy",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "TEMS Executive",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "TEMS Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Business Transformation Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Auditor",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
 }

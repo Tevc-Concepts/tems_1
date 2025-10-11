@@ -17,7 +17,8 @@
         "asset",
         "reference_doctype",
         "reference_name",
-        "notes"
+        "notes",
+        "source_type"
     ],
     "fields": [
         {
@@ -78,6 +79,13 @@
             "fieldname": "notes",
             "label": "Notes",
             "fieldtype": "Small Text"
+        },
+        {
+            "fieldname": "source_type",
+            "label": "Source Type",
+            "fieldtype": "Select",
+            "options": "Cargo\nPassenger",
+            "in_standard_filter": 1
         }
     ],
     "permissions": [

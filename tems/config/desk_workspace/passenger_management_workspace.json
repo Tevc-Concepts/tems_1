@@ -1,0 +1,27 @@
+{
+    "label": "Passenger Management",
+    "module": "TEMS Passenger",
+    "type": "Workspace",
+    "content": [
+        {
+            "type": "shortcut",
+            "label": "Passenger Trip",
+            "link": "/app/passenger-trip"
+        },
+        {
+            "type": "shortcut",
+            "label": "Passenger Booking",
+            "link": "/app/passenger-booking"
+        },
+        {
+            "type": "shortcut",
+            "label": "Passenger Manifest",
+            "link": "/app/passenger-manifest"
+        },
+        {
+            "type": "shortcut",
+            "label": "Passenger Feedback",
+            "link": "/app/passenger-feedback"
+        }
+    ]
+}

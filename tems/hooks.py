@@ -194,6 +194,7 @@ doc_events = {
     },
     # Operations
     "Operation Plan": {
+        "validate": "tems.tems_operations.handlers.validate_operation_plan",
         "before_submit": "tems.tems_operations.handlers.ensure_vehicle_available",
         "on_submit": "tems.tems_operations.handlers.log_movement_start"
     },
@@ -241,7 +242,14 @@ doc_events = {
         "on_submit": "tems.tems_governance.handlers.on_compliance_audit"
     },
     # Documents
-    "Compliance Document": {"on_update": "tems.tems_documents.handlers.validate_vehicle_document"}
+    "Compliance Document": {"on_update": "tems.tems_documents.handlers.validate_vehicle_document"},
+    # Cargo & Passenger
+    "Cargo Consignment": {
+        "validate": "tems.tems_cargo.handlers.consignment.validate_vehicle_type"
+    },
+    "Passenger Trip": {
+        "validate": "tems.tems_passenger.handlers.trip.validate_vehicle_type"
+    }
 }
 
 # Scheduled Tasks

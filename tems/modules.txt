@@ -15,3 +15,5 @@ TEMS CRM
 TEMS Supply Chain
 TEMS Documents
 TEMS Insights
+TEMS Cargo
+TEMS Passenger

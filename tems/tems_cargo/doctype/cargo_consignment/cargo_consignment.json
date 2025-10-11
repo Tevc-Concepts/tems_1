@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "autoname": "format:CC-{DD}{MM}{YY}-{###}",
+ "creation": "2025-10-11 22:20:51.562832",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "operation_plan",
+  "vehicle",
+  "column_break_ustu",
+  "origin",
+  "destination",
+  "cargo_weight",
+  "cargo_value",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "operation_plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Operation Plan",
+   "options": "Operation Plan",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "origin",
+   "fieldtype": "Data",
+   "label": "Origin",
+   "reqd": 1
+  },
+  {
+   "fieldname": "destination",
+   "fieldtype": "Data",
+   "label": "Destination",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cargo_weight",
+   "fieldtype": "Float",
+   "label": "Cargo Weight"
+  },
+  {
+   "fieldname": "cargo_value",
+   "fieldtype": "Currency",
+   "label": "Cargo Value"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "column_break_ustu",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-11 22:39:38.122571",
+ "modified_by": "Administrator",
+ "module": "TEMS Cargo",
+ "name": "Cargo Consignment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Operations Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Operations Officer",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

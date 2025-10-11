@@ -7,24 +7,37 @@ from frappe import _
 class OperationPlan(Document):
     # on save checks if vehicle is available in the given time range
     def validate(self):
+        # sync operation_mode from vehicle.vehicle_type if vehicle present
+        veh = getattr(self, "vehicle", None)
+        if veh:
+            vtype = frappe.db.get_value("Vehicle", veh, "vehicle_type") or frappe.db.get_value("Vehicle", veh, "custom_vehicle_type")
+            if vtype:
+                vtype_norm = str(vtype).strip().title()
+                # normalize to Title case matching Select options
+                if vtype_norm in {"Cargo", "Passenger"}:
+                    self.operation_mode = vtype_norm
+        # availability check
         if not self.is_vehicle_available():
             frappe.throw(_("Vehicle is not available in the selected time range"))
 
     def is_vehicle_available(self):
         # Ensure required attributes exist
-        if not hasattr(self, "vehicle") or not hasattr(self, "start_time") or not hasattr(self, "end_time"):
+        veh = getattr(self, "vehicle", None)
+        st = getattr(self, "start_time", None)
+        et = getattr(self, "end_time", None)
+        if veh is None or st is None or et is None:
             return True
-        if not self.vehicle or not self.start_time or not self.end_time:
+        if not veh or not st or not et:
             return True
         overlapping_plans = frappe.get_all(
             "Operation Plan",
             filters={
-                "vehicle": self.vehicle,
+                "vehicle": veh,
                 "name": ["!=", self.name],
                 "status": ["in", ["Assigned", "Active"]],
                 # Overlap logic: (start_time < self.end_time) and (end_time > self.start_time)
-                "start_time": ["<", self.end_time],
-                "end_time": [">", self.start_time],
+                "start_time": ["<", et],
+                "end_time": [">", st],
             },
             limit=1,
         )
@@ -32,12 +45,13 @@ class OperationPlan(Document):
     
     def on_save(self):
     # if end time is past and vehicle assigned, set status to completed
-        if hasattr(self, "end_time") and self.end_time:
+        et = getattr(self, "end_time", None)
+        if et:
             # Parse end_time and nowdate to datetime objects for accurate comparison
             try:
-                end_time_dt = datetime.strptime(str(self.end_time), "%Y-%m-%d %H:%M:%S")
+                end_time_dt = datetime.strptime(str(et), "%Y-%m-%d %H:%M:%S")
             except ValueError:
-                end_time_dt = datetime.strptime(str(self.end_time), "%Y-%m-%d")
+                end_time_dt = datetime.strptime(str(et), "%Y-%m-%d")
             now_dt = datetime.strptime(nowdate(), "%Y-%m-%d")
             if end_time_dt.date() < now_dt.date() and self.status == "Assigned":
                 self.status = "Completed"

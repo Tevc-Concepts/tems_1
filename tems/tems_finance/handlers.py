@@ -24,7 +24,7 @@ def recalculate_vehicle_profitability(doc, method=None):
     ledger_rows = frappe.get_all(
         "Cost And Revenue Ledger",
         filters={"vehicle": vehicle},
-        fields=["type", "amount"],
+        fields=["type", "amount", "source_type"],
     )
     revenues = sum(_safe_float(r.get("amount")) for r in ledger_rows if r.get("type") == "Revenue")
     direct_costs = sum(_safe_float(r.get("amount")) for r in ledger_rows if r.get("type") == "Cost")

@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "autoname": "format:CRC-{DD}{MM}{YY}-{#####}",
+ "creation": "2025-10-11 22:20:51.795407",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "route",
+  "base_rate",
+  "per_kg_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "base_rate",
+   "fieldtype": "Currency",
+   "label": "Base Rate"
+  },
+  {
+   "fieldname": "per_kg_rate",
+   "fieldtype": "Currency",
+   "label": "Per Kg Rate"
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-11 22:45:49.403906",
+ "modified_by": "Administrator",
+ "module": "TEMS Cargo",
+ "name": "Cargo Rate Card",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

@@ -20,3 +20,4 @@ tems.patches.v15.seed_crm
 tems.patches.v15.seed_supply_chain
 tems.patches.v15.seed_documents
 tems.patches.v15.add_vehicle_profitability_field
+tems.patches.v15.add_vehicle_type_custom_field

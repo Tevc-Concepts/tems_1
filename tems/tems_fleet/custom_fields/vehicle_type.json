@@ -1,0 +1,21 @@
+{
+    "custom_fields": [
+        {
+            "dt": "Vehicle",
+            "fieldname": "vehicle_type",
+            "fieldtype": "Select",
+            "label": "Vehicle Type",
+            "options": "Cargo\nPassenger",
+            "insert_after": "custom_tems_details",
+            "reqd": 1,
+            "in_list_view": 0,
+            "in_standard_filter": 1,
+            "translatable": 1,
+            "no_copy": 0,
+            "read_only": 0,
+            "owner": "Administrator"
+        }
+    ],
+    "doctype": "Vehicle",
+    "sync_on_migrate": 1
+}

@@ -1,0 +1,27 @@
+{
+    "label": "Cargo Management",
+    "module": "TEMS Cargo",
+    "type": "Workspace",
+    "content": [
+        {
+            "type": "shortcut",
+            "label": "Cargo Consignment",
+            "link": "/app/cargo-consignment"
+        },
+        {
+            "type": "shortcut",
+            "label": "Cargo Manifest",
+            "link": "/app/cargo-manifest"
+        },
+        {
+            "type": "shortcut",
+            "label": "Cargo Waybill",
+            "link": "/app/cargo-waybill"
+        },
+        {
+            "type": "shortcut",
+            "label": "Cargo Delivery Log",
+            "link": "/app/cargo-delivery-log"
+        }
+    ]
+}

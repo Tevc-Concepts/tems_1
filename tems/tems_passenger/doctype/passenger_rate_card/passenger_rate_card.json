@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "autoname": "format:PRC-{DD}{MM}{YY}-{#####}",
+ "creation": "2025-10-11 22:20:52.114563",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "route",
+  "base_fare",
+  "per_km_fare"
+ ],
+ "fields": [
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  },
+  {
+   "fieldname": "base_fare",
+   "fieldtype": "Currency",
+   "label": "Base Fare"
+  },
+  {
+   "fieldname": "per_km_fare",
+   "fieldtype": "Currency",
+   "label": "Per KM Fare"
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-11 22:50:52.650796",
+ "modified_by": "Administrator",
+ "module": "TEMS Passenger",
+ "name": "Passenger Rate Card",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

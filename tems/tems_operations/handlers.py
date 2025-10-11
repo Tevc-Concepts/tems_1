@@ -126,6 +126,22 @@ def publish_sos_event(doc, method=None):
     except Exception:
         pass
 
+
+def validate_operation_plan(doc, method=None):
+    """Ensure Operation Plan.operation_mode matches Vehicle.vehicle_type and auto-sync it."""
+    veh = getattr(doc, "vehicle", None)
+    if veh:
+        vt = frappe.db.get_value("Vehicle", veh, "vehicle_type") or frappe.db.get_value("Vehicle", veh, "custom_vehicle_type")
+        vt_norm = str(vt or "").strip().title()
+        if vt_norm in {"Cargo", "Passenger"}:
+            doc.operation_mode = vt_norm
+    # If explicitly set and inconsistent, block
+    if getattr(doc, "operation_mode", None) and veh:
+        vt = frappe.db.get_value("Vehicle", veh, "vehicle_type") or frappe.db.get_value("Vehicle", veh, "custom_vehicle_type")
+        vt_norm = str(vt or "").strip().title()
+        if vt_norm in {"Cargo", "Passenger"} and doc.operation_mode != vt_norm:
+            frappe.throw("Operation Mode must match Vehicle Type.")
+
     try:
         # Notify Safety Manager and Operations Manager roles
         recipients = [u.name for u in frappe.get_all("User", filters={"roles.role": ["in", ["Safety Manager", "Operations Manager"]]}, fields=["name"])]

@@ -38,3 +38,20 @@ Audience: Stakeholders, architects, and senior developers.
 ## Quality
 - Unit tests per domain for critical logic. Smoke test to load workspaces and dashboards.
 
+TASK:
+Design and integrate **Cargo** and **Passenger** management features into TEMS.
+
+CONSTRAINTS:
+- `Vehicle` (ERPNext) must have a field `vehicle_type` = Cargo | Passenger.
+- Cargo operations → handled in `tems_cargo`.
+- Passenger operations → handled in `tems_passenger`.
+- All operations must link through `tems_operations.Operation Plan` and `Vehicle`.
+- Finance and Insights modules must aggregate both types for profitability.
+- Ensure all hooks and validations enforce type consistency.
+
+OUTPUTS:
+- Updated ERD (VehicleType relationships).
+- Folder structure for `tems_cargo` and `tems_passenger`.
+- hooks.py updates.
+- DocType definitions and fixtures for Cargo and Passenger doctypes.
+- Example Operation Plan JSON with linked Cargo or Passenger records.

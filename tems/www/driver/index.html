@@ -1,0 +1,14 @@
+{% extends "templates/web.html" %}
+
+{% block title %}TEMS Driver App{% endblock %}
+
+{% block head_include %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0ea5e9">
+<link rel="manifest" href="/assets/tems/frontend/driver-pwa/dist/manifest.webmanifest">
+{% endblock %}
+
+{% block page_content %}
+<div id="app"></div>
+<script type="module" src="/assets/tems/frontend/driver-pwa/dist/index.js"></script>
+{% endblock %}

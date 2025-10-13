@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/assets/tems/frontend/driver-pwa/dist/sw.js', { scope: '/assets/tems/frontend/driver-pwa/dist/' })})}

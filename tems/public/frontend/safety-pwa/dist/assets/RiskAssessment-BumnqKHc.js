@@ -1,0 +1,2 @@
+import{_ as t}from"./index-CcWKIptE.js";import{g as o,i as e,f as n}from"./vue-vendor-CiCQoITm.js";import"./utils-CX__Uu54.js";const a={},r={class:"p-6"};function i(m,s){return n(),o("div",r,[...s[0]||(s[0]=[e("h1",{class:"text-2xl font-bold mb-6"},"Risk Assessment",-1),e("p",{class:"text-gray-600"},"Risk assessment and mitigation - To be implemented",-1)])])}const f=t(a,[["render",i]]);export{f as default};
+//# sourceMappingURL=RiskAssessment-BumnqKHc.js.map

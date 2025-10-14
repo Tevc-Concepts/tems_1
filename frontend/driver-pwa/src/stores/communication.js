@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import frappeClient from '@/utils/frappeClient'
+import { frappeClient } from '@shared'
 
 export const useCommunicationStore = defineStore('communication', () => {
     const messages = ref([])

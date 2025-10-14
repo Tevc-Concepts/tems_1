@@ -1,0 +1,59 @@
+{
+    "name": "tems-frontend-monorepo",
+    "version": "1.0.0",
+    "private": true,
+    "description": "TEMS Frontend Monorepo - Role-based PWAs for Transportation Enterprise Management",
+    "type": "module",
+    "workspaces": [
+        "shared",
+        "driver-pwa",
+        "operations-pwa",
+        "safety-pwa",
+        "fleet-pwa"
+    ],
+    "scripts": {
+        "dev:all": "concurrently \"npm run dev -w driver-pwa\" \"npm run dev -w operations-pwa\" \"npm run dev -w safety-pwa\" \"npm run dev -w fleet-pwa\"",
+        "dev:driver": "npm run dev -w driver-pwa",
+        "dev:operations": "npm run dev -w operations-pwa",
+        "dev:safety": "npm run dev -w safety-pwa",
+        "dev:fleet": "npm run dev -w fleet-pwa",
+        "build:all": "npm run build -w shared && npm run build -w driver-pwa && npm run build -w operations-pwa && npm run build -w safety-pwa && npm run build -w fleet-pwa",
+        "build:driver": "npm run build -w shared && npm run build -w driver-pwa",
+        "build:operations": "npm run build -w shared && npm run build -w operations-pwa",
+        "build:safety": "npm run build -w shared && npm run build -w safety-pwa",
+        "build:fleet": "npm run build -w shared && npm run build -w fleet-pwa",
+        "type-check": "npm run type-check --workspaces --if-present",
+        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+        "format": "prettier --write \"**/*.{js,vue,json,md}\"",
+        "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
+        "install:all": "npm install"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^6.0.1",
+        "autoprefixer": "^10.4.21",
+        "concurrently": "^9.1.2",
+        "eslint": "^9.17.0",
+        "eslint-plugin-vue": "^9.31.0",
+        "postcss": "^8.5.6",
+        "prettier": "^3.4.2",
+        "tailwindcss": "^3.4.18",
+        "typescript": "^5.7.3",
+        "vite": "^7.1.7",
+        "vite-plugin-pwa": "^1.1.0"
+    },
+    "dependencies": {
+        "@vueuse/core": "^13.9.0",
+        "date-fns": "^4.1.0",
+        "leaflet": "1.9.4",
+        "localforage": "^1.10.0",
+        "lucide-vue-next": "^0.545.0",
+        "pinia": "^3.0.3",
+        "vue": "^3.5.22",
+        "vue-router": "^4.5.1",
+        "workbox-window": "^7.3.0"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    }
+}

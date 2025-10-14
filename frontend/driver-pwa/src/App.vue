@@ -1,16 +1,18 @@
 <script setup>
 import { onMounted } from 'vue'
-import { useOfflineStore } from './stores/offline'
+import { Toast, useOfflineSync } from '@shared'
 
-const offlineStore = useOfflineStore()
+// Initialize offline sync
+const offlineSync = useOfflineSync({ autoInit: false })
 
 onMounted(() => {
-  offlineStore.initializeOnlineListener()
+  offlineSync.init()
 })
 </script>
 
 <template>
   <RouterView />
+  <Toast />
 </template>
 
 <style>

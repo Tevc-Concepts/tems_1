@@ -1,0 +1,2 @@
+import{_ as s}from"./index-Cor5ZgGs.js";import{g as o,i as t,f as a}from"./vue-vendor-CiCQoITm.js";import"./utils-2PtTei_Y.js";const c={},i={class:"p-6"};function l(r,e){return a(),o("div",i,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Vehicle Details",-1),t("p",{class:"text-gray-600"},"Vehicle details view - To be implemented",-1)])])}const f=s(c,[["render",l]]);export{f as default};
+//# sourceMappingURL=VehicleDetails-DEEiu7WQ.js.map

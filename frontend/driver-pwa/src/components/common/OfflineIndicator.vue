@@ -24,7 +24,7 @@
 
 <script setup>
 import { WifiOff } from 'lucide-vue-next'
-import { useOfflineStore } from '@/stores/offline'
+import { useOfflineStore } from '@shared'
 
 const offlineStore = useOfflineStore()
 </script>

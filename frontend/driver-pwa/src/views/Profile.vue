@@ -111,7 +111,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useAuthStore } from '@/stores/auth'
+import { useAuth as useAuthStore } from '@shared'
 import { useTripStore } from '@/stores/trip'
 import { CreditCard, TrendingUp, FileText, File, Edit, History } from 'lucide-vue-next'
 import StatusBadge from '@/components/common/StatusBadge.vue'

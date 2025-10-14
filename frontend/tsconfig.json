@@ -1,0 +1,87 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "module": "ESNext",
+        "lib": [
+            "ES2020",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "skipLibCheck": true,
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowJs": true,
+        /* Path aliases */
+        "baseUrl": ".",
+        "paths": {
+            "@shared/*": [
+                "./shared/src/*"
+            ],
+            "@shared/components/*": [
+                "./shared/src/components/*"
+            ],
+            "@shared/composables/*": [
+                "./shared/src/composables/*"
+            ],
+            "@shared/stores/*": [
+                "./shared/src/stores/*"
+            ],
+            "@shared/utils/*": [
+                "./shared/src/utils/*"
+            ],
+            "@shared/types/*": [
+                "./shared/src/types/*"
+            ]
+        }
+    },
+    "include": [
+        "shared/src/**/*.ts",
+        "shared/src/**/*.d.ts",
+        "shared/src/**/*.tsx",
+        "shared/src/**/*.vue",
+        "driver-pwa/src/**/*.ts",
+        "driver-pwa/src/**/*.d.ts",
+        "driver-pwa/src/**/*.tsx",
+        "driver-pwa/src/**/*.vue",
+        "operations-pwa/src/**/*.ts",
+        "operations-pwa/src/**/*.d.ts",
+        "operations-pwa/src/**/*.tsx",
+        "operations-pwa/src/**/*.vue",
+        "safety-pwa/src/**/*.ts",
+        "safety-pwa/src/**/*.d.ts",
+        "safety-pwa/src/**/*.tsx",
+        "safety-pwa/src/**/*.vue",
+        "fleet-pwa/src/**/*.ts",
+        "fleet-pwa/src/**/*.d.ts",
+        "fleet-pwa/src/**/*.tsx",
+        "fleet-pwa/src/**/*.vue"
+    ],
+    "references": [
+        {
+            "path": "./shared"
+        },
+        {
+            "path": "./driver-pwa"
+        },
+        {
+            "path": "./operations-pwa"
+        },
+        {
+            "path": "./safety-pwa"
+        },
+        {
+            "path": "./fleet-pwa"
+        }
+    ]
+}

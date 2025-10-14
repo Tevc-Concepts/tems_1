@@ -47,7 +47,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Truck, ChevronRight } from 'lucide-vue-next'
 import { useVehicleStore } from '@/stores/vehicle'
-import { useNotifications } from '@/composables/useNotifications'
+import { useNotifications } from '@shared'
 import SpotCheckForm from '@/components/inspection/SpotCheckForm.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 

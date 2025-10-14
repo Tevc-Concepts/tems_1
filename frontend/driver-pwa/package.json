@@ -1,14 +1,15 @@
 {
-  "name": "tems-driver-pwa",
+  "name": "@tems/driver-pwa",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5173",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tems/shared": "file:../shared",
     "@vueuse/core": "^13.9.0",
     "date-fns": "^4.1.0",
     "leaflet": "1.9.4",

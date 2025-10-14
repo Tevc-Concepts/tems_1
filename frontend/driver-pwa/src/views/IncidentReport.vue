@@ -11,7 +11,7 @@
 import { useRouter } from 'vue-router'
 import { useIncidentStore } from '@/stores/incident'
 import IncidentReportForm from '@/components/Incident/IncidentReportForm.vue'
-import { useToast } from '@/composables/useToast'
+import { useToast } from '@shared'
 
 const router = useRouter()
 const incidentStore = useIncidentStore()

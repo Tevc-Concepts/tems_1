@@ -87,7 +87,7 @@
 <script setup>
 import { ref } from 'vue'
 import { MapPin, Camera } from 'lucide-vue-next'
-import { useGeolocation } from '@/composables/useGeolocation'
+import { useGeolocation } from '@shared'
 import CameraModal from '@/components/common/CameraModal.vue'
 
 const emit = defineEmits(['submit'])

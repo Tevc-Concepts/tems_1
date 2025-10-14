@@ -229,8 +229,8 @@
 import { ref, computed, onMounted } from 'vue'
 import { format } from 'date-fns'
 import { Fuel, MapPin, Camera, Upload, Loader } from 'lucide-vue-next'
-import { useGeolocation } from '@/composables/useGeolocation'
-import frappeClient from '@/utils/frappeClient'
+import { useGeolocation } from '@shared'
+import { frappeClient } from '@shared'
 import Toast from '@/components/common/Toast.vue'
 import CameraModal from '@/components/common/CameraModal.vue'
 

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import frappeClient from '@/utils/frappeClient'
+import { frappeClient } from '@shared'
 
 export const useCargoStore = defineStore('cargo', () => {
     const consignments = ref([])

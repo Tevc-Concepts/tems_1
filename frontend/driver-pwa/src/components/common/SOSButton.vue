@@ -128,7 +128,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { AlertCircle, AlertTriangle, MapPin, Phone, Ambulance, Car, Wrench } from 'lucide-vue-next'
-import { useGeolocation, formatCoordinates } from '@/composables/useGeolocation'
+import { useGeolocation, formatCoordinates } from '@shared'
 import { useIncidentStore } from '@/stores/incident'
 import Modal from './Modal.vue'
 import Toast from './Toast.vue'

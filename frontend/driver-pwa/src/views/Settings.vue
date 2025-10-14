@@ -209,9 +209,9 @@ import { formatDistanceToNow } from 'date-fns'
 import { 
   RefreshCw, Download, CheckCircle, Trash2, LogOut 
 } from 'lucide-vue-next'
-import { useAuthStore } from '@/stores/auth'
-import { useOfflineStore } from '@/stores/offline'
-import { useNotifications } from '@/composables/useNotifications'
+import { useAuth as useAuthStore } from '@shared'
+import { useOfflineStore } from '@shared'
+import { useNotifications } from '@shared'
 import StatusBadge from '@/components/common/StatusBadge.vue'
 import Toast from '@/components/common/Toast.vue'
 
@@ -297,7 +297,7 @@ async function clearCache() {
   if (confirm('Are you sure you want to clear all cached data? This cannot be undone.')) {
     try {
       // Clear cache via frappe client
-      const frappeClient = (await import('@/utils/frappeClient')).default
+      const { frappeClient } = await import('@shared')
       await frappeClient.clearCache()
       
       toastType.value = 'success'

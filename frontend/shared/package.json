@@ -1,0 +1,24 @@
+{
+    "name": "@tems/shared",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "main": "./src/index.js",
+    "exports": {
+        ".": "./src/index.js",
+        "./components/*": "./src/components/*/index.js",
+        "./composables/*": "./src/composables/*.js",
+        "./stores/*": "./src/stores/*.js",
+        "./utils/*": "./src/utils/*.js",
+        "./types/*": "./src/types/*.js"
+    },
+    "scripts": {
+        "build": "echo 'Shared module - no build needed'",
+        "clean": "rm -rf node_modules"
+    },
+    "peerDependencies": {
+        "vue": "^3.5.22",
+        "vue-router": "^4.5.1",
+        "pinia": "^3.0.3"
+    }
+}

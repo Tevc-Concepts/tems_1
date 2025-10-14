@@ -264,7 +264,7 @@ import StatusBadge from '@/components/common/StatusBadge.vue'
 import TripTimeline from '@/components/trip/TripTimeline.vue'
 import { useTripStore } from '@/stores/trip'
 import { useVehicleStore } from '@/stores/vehicle'
-import { useNotifications } from '@/composables/useNotifications'
+import { useNotifications } from '@shared'
 import { formatDateTime } from '@/utils/helpers'
 
 const router = useRouter()

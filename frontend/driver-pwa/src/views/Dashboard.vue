@@ -190,7 +190,7 @@ import {
   User, MapPin, ChevronRight, CreditCard, 
   AlertCircle, ClipboardCheck, AlertTriangle, Fuel 
 } from 'lucide-vue-next'
-import { useAuthStore } from '@/stores/auth'
+import { useAuth as useAuthStore } from '@shared'
 import { useTripStore } from '@/stores/trip'
 import TripCard from '@/components/trip/TripCard.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'

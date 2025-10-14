@@ -1,0 +1,1124 @@
+.
+├── current-structure.txt
+├── doc
+│   ├── 192x192.png
+│   ├── 512x512.png
+│   ├── agents
+│   │   ├── ArchitectAgent.md
+│   │   ├── ArchitectAgentv2.md
+│   │   ├── DataAgent.md
+│   │   ├── DemoDataAgent.md
+│   │   ├── DeployAgent.md
+│   │   ├── DomainAgent.md
+│   │   ├── domains
+│   │   │   ├── ClimateAgent.md
+│   │   │   ├── CRMAgent.md
+│   │   │   ├── Documentagen.md
+│   │   │   ├── FinanceAgent.md
+│   │   │   ├── FleetAgent.md
+│   │   │   ├── GovernanceAgent.md
+│   │   │   ├── HRMSAgent.md
+│   │   │   ├── InformalAgent.md
+│   │   │   ├── InsightsAgent.md
+│   │   │   ├── OperationsAgent.md
+│   │   │   ├── PassengerNCargoAgent.md
+│   │   │   ├── README.md
+│   │   │   ├── SafetyAgent.md
+│   │   │   ├── SupplyChainAgent.md
+│   │   │   ├── TEMS-Domain-TODO.md
+│   │   │   └── TradeAgent.md
+│   │   ├── DriverPWA_Prompt.md
+│   │   ├── IntegrationAgent.md
+│   │   ├── LandpageAgent.md
+│   │   ├── OperationsPWA_Prompt.md
+│   │   ├── README.md
+│   │   ├── SafetyPWA_Prompt.md
+│   │   ├── TestAgent.md
+│   │   └── UIAgent.md
+│   ├── examples
+│   │   └── operation_plan_examples.json
+│   ├── hooks_scaffolding.md
+│   ├── Insight_Spec.md
+│   ├── logo 1.png
+│   ├── logoTems.png
+│   ├── Module_Map.md
+│   ├── TEMS_Architecture.md
+│   ├── TEMS_ERD.md
+│   ├── TEMS_ERD_V2.md
+│   ├── TEMS_FULL_ERD.md
+│   ├── TEMS_PRD.md
+│   ├── tems_prompt.md
+│   └── TODO_Status_Review.md
+├── frontend
+│   ├── driver-pwa
+│   │   ├── ACCESS_GUIDE.md
+│   │   ├── build.sh
+│   │   ├── CONTRAST_FIX.md
+│   │   ├── CUSTOM_TEMPLATE.md
+│   │   ├── CUSTOM_TEMPLATE_SUMMARY.md
+│   │   ├── DEPLOYMENT.md
+│   │   ├── FILES_SUMMARY.md
+│   │   ├── FIX_404_ISSUE.md
+│   │   ├── IMPLEMENTATION.md
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── postcss.config.js
+│   │   ├── public
+│   │   │   ├── 192x192.png
+│   │   │   ├── 512x512.png
+│   │   │   ├── pwa-192x192.png
+│   │   │   ├── pwa-512x512.png
+│   │   │   └── vite.svg
+│   │   ├── QUICK_REFERENCE.md
+│   │   ├── README.md
+│   │   ├── src
+│   │   │   ├── App.vue
+│   │   │   ├── assets
+│   │   │   │   ├── styles
+│   │   │   │   └── vue.svg
+│   │   │   ├── components
+│   │   │   │   ├── common
+│   │   │   │   ├── HelloWorld.vue
+│   │   │   │   ├── Incident
+│   │   │   │   ├── inspection
+│   │   │   │   ├── layout
+│   │   │   │   └── trip
+│   │   │   ├── composables
+│   │   │   │   ├── useCamera.js
+│   │   │   │   ├── useGeolocation.js
+│   │   │   │   ├── useMedia.js
+│   │   │   │   ├── useNotification.js
+│   │   │   │   ├── useNotifications.js
+│   │   │   │   ├── useOfflineSync.js
+│   │   │   │   └── useToast.js
+│   │   │   ├── main.js
+│   │   │   ├── router
+│   │   │   │   └── index.js
+│   │   │   ├── stores
+│   │   │   │   ├── auth.js
+│   │   │   │   ├── cargo.js
+│   │   │   │   ├── communication.js
+│   │   │   │   ├── incident.js
+│   │   │   │   ├── offline.js
+│   │   │   │   ├── passenger.js
+│   │   │   │   ├── trip.js
+│   │   │   │   └── vehicle.js
+│   │   │   ├── style.css
+│   │   │   ├── utils
+│   │   │   │   ├── frappeClient.js
+│   │   │   │   └── helpers.js
+│   │   │   └── views
+│   │   │       ├── CargoManagement.vue
+│   │   │       ├── Communication.vue
+│   │   │       ├── Dashboard.vue
+│   │   │       ├── FuelLog.vue
+│   │   │       ├── IncidentReport.vue
+│   │   │       ├── Notifications.vue
+│   │   │       ├── PassengerManagement.vue
+│   │   │       ├── Profile.vue
+│   │   │       ├── Settings.vue
+│   │   │       ├── TripDetails.vue
+│   │   │       ├── TripManagement.vue
+│   │   │       └── VehicleInspection.vue
+│   │   ├── tailwind.config.js
+│   │   ├── THEME_CHECKLIST.md
+│   │   ├── THEME_GUIDE.md
+│   │   ├── THEME_UPDATE_SUMMARY.md
+│   │   ├── update-template.sh
+│   │   └── vite.config.js
+│   └── shared
+│       └── utils
+│           └── frappeClient.js
+├── license.txt
+├── pyproject.toml
+├── README-Governance.md
+├── README.md
+└── tems
+    ├── api
+    │   ├── assets.py
+    │   ├── governance.py
+    │   ├── journey.py
+    │   └── pwa
+    │       ├── driver.py
+    │       ├── __init__.py
+    │       └── operations.py
+    ├── ate
+    │   ├── doctype
+    │   │   ├── accuracy_metric
+    │   │   │   ├── accuracy_metric.json
+    │   │   │   ├── accuracy_metric.py
+    │   │   │   └── __init__.py
+    │   │   ├── climate_risk_assessment
+    │   │   │   ├── climate_risk_assessment.js
+    │   │   │   ├── climate_risk_assessment.json
+    │   │   │   ├── climate_risk_assessment.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_climate_risk_assessment.py
+    │   │   ├── cross_border_journey
+    │   │   │   ├── cross_border_journey.js
+    │   │   │   ├── cross_border_journey.json
+    │   │   │   ├── cross_border_journey.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_cross_border_journey.py
+    │   │   ├── customs_declaration
+    │   │   │   ├── customs_declaration.js
+    │   │   │   ├── customs_declaration.json
+    │   │   │   ├── customs_declaration.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_customs_declaration.py
+    │   │   ├── informal_transport_operator
+    │   │   │   ├── informal_transport_operator.js
+    │   │   │   ├── informal_transport_operator.json
+    │   │   │   ├── informal_transport_operator.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_informal_transport_operator.py
+    │   │   ├── __init__.py
+    │   │   ├── operating_area
+    │   │   │   ├── __init__.py
+    │   │   │   ├── operating_area.json
+    │   │   │   └── operating_area.py
+    │   │   └── prediction_model
+    │   │       ├── __init__.py
+    │   │       ├── prediction_model.js
+    │   │       ├── prediction_model.json
+    │   │       ├── prediction_model.py
+    │   │       └── test_prediction_model.py
+    │   └── __init__.py
+    ├── CHANGELOG.md
+    ├── config
+    │   ├── desk_workspace
+    │   │   ├── analyst_workspace.json
+    │   │   ├── border_agent_workspace.json
+    │   │   ├── cargo_management_workspace.json
+    │   │   ├── community_leader_workspace.json
+    │   │   ├── driver_workspace.json
+    │   │   ├── executive_workspace.json
+    │   │   ├── finance_manager_workspace.json
+    │   │   ├── fleet_manager_workspace.json
+    │   │   ├── fleet_officer_workspace.json
+    │   │   ├── hr_workspace.json
+    │   │   ├── informal_operator_workspace.json
+    │   │   ├── operations_manager_workspace.json
+    │   │   ├── operations_workspace.json
+    │   │   ├── passenger_management_workspace.json
+    │   │   └── safety_officer_workspace.json
+    │   └── __init__.py
+    ├── doc
+    │   ├── doctype_reference.md
+    │   ├── TESTING_CHECKLIST.md
+    │   └── USER_GUIDE.md
+    ├── fixtures
+    │   ├── client_script.json
+    │   ├── custom_field.json.bak
+    │   ├── dashboard_chart.json.bak
+    │   ├── dashboard.json.bak
+    │   ├── email_template.json.bak
+    │   ├── notification.json.bak
+    │   ├── number_card.json
+    │   ├── print_format.json.bak
+    │   ├── report.json.bak
+    │   ├── role.json
+    │   ├── scheduled_job_type.json.bak
+    │   ├── tag.json.bak
+    │   └── workflow.json.bak
+    ├── hooks.py
+    ├── __init__.py
+    ├── modules.txt
+    ├── patches
+    │   └── v15
+    │       ├── add_indexes_safety.py
+    │       ├── add_initial_finance_seed_data.py
+    │       ├── add_unique_index_passenger_booking_seat.py
+    │       ├── add_vehicle_profitability_field.py
+    │       ├── add_vehicle_type_custom_field.py
+    │       ├── align_vehicle_vs_asset.py
+    │       ├── rename_asset_to_vehicle_in_operations.py
+    │       ├── seed_climate.py
+    │       ├── seed_crm.py
+    │       ├── seed_documents.py
+    │       ├── seed_finance.py
+    │       ├── seed_fleet.py
+    │       ├── seed_governance.py
+    │       ├── seed_informal.py
+    │       ├── seed_operations.py
+    │       ├── seed_people.py
+    │       ├── seed_safety.py
+    │       ├── seed_supply_chain.py
+    │       └── seed_trade.py
+    ├── patches.txt
+    ├── public
+    │   ├── css
+    │   │   ├── tems_theme.css
+    │   │   └── tems_theme.css.backup
+    │   ├── frontend
+    │   │   └── driver-pwa
+    │   └── js
+    │       ├── tems_desk.js
+    │       └── tems_web.js
+    ├── scripts
+    │   └── generate_doctype_docs.py
+    ├── tasks.py
+    ├── templates
+    │   ├── __init__.py
+    │   └── pages
+    │       ├── executive-dashboard.html
+    │       ├── fleet-dashboard.html
+    │       ├── __init__.py
+    │       └── safety-dashboard.html
+    ├── tems
+    │   ├── api
+    │   │   └── drive_integration.py
+    │   ├── custom
+    │   │   ├── location.json
+    │   │   ├── vehicle.json
+    │   │   └── vehicle_log.json
+    │   ├── doctype
+    │   │   ├── custom_checkpoint
+    │   │   │   ├── custom_checkpoint.json
+    │   │   │   ├── custom_checkpoint.py
+    │   │   │   └── __init__.py
+    │   │   ├── __init__.py
+    │   │   ├── operating_area
+    │   │   │   ├── __init__.py
+    │   │   │   ├── operating_area.json
+    │   │   │   └── operating_area.py
+    │   │   ├── route_planning
+    │   │   │   ├── __init__.py
+    │   │   │   ├── route_planning.js
+    │   │   │   ├── route_planning.json
+    │   │   │   ├── route_planning.py
+    │   │   │   └── test_route_planning.py
+    │   │   ├── tems_role_share
+    │   │   │   ├── __init__.py
+    │   │   │   ├── tems_role_share.json
+    │   │   │   └── tems_role_share.py
+    │   │   ├── tems_setting
+    │   │   │   ├── __init__.py
+    │   │   │   ├── tems_setting.js
+    │   │   │   ├── tems_setting.json
+    │   │   │   ├── tems_setting.py
+    │   │   │   └── test_tems_setting.py
+    │   │   ├── vehicle_trip
+    │   │   │   ├── __init__.py
+    │   │   │   ├── test_vehicle_trip.py
+    │   │   │   ├── vehicle_trip.js
+    │   │   │   ├── vehicle_trip.json
+    │   │   │   └── vehicle_trip.py
+    │   │   ├── verification_documents
+    │   │   │   ├── __init__.py
+    │   │   │   ├── verification_documents.json
+    │   │   │   └── verification_documents.py
+    │   │   └── way_points
+    │   │       ├── __init__.py
+    │   │       ├── way_points.json
+    │   │       └── way_points.py
+    │   ├── __init__.py
+    │   ├── report
+    │   ├── tems_cargo
+    │   │   └── __init__.py
+    │   ├── tems_passenger
+    │   │   └── __init__.py
+    │   ├── utils.py
+    │   └── workspace
+    │       └── tems
+    │           └── tems.json
+    ├── tems_cargo
+    │   ├── api
+    │   │   ├── consignment.py
+    │   │   └── __init__.py
+    │   ├── doctype
+    │   │   ├── cargo_consignment
+    │   │   │   ├── cargo_consignment.js
+    │   │   │   ├── cargo_consignment.json
+    │   │   │   ├── cargo_consignment.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_cargo_consignment.py
+    │   │   ├── cargo_delivery_log
+    │   │   │   ├── cargo_delivery_log.js
+    │   │   │   ├── cargo_delivery_log.json
+    │   │   │   ├── cargo_delivery_log.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_cargo_delivery_log.py
+    │   │   ├── cargo_manifest
+    │   │   │   ├── cargo_manifest.js
+    │   │   │   ├── cargo_manifest.json
+    │   │   │   ├── cargo_manifest.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_cargo_manifest.py
+    │   │   ├── cargo_rate_card
+    │   │   │   ├── cargo_rate_card.js
+    │   │   │   ├── cargo_rate_card.json
+    │   │   │   ├── cargo_rate_card.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_cargo_rate_card.py
+    │   │   ├── cargo_waybill
+    │   │   │   ├── cargo_waybill.js
+    │   │   │   ├── cargo_waybill.json
+    │   │   │   ├── cargo_waybill.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_cargo_waybill.py
+    │   │   └── __init__.py
+    │   ├── handlers
+    │   │   ├── consignment.py
+    │   │   └── __init__.py
+    │   ├── __init__.py
+    │   ├── README.md
+    │   ├── tasks.py
+    │   ├── tests
+    │   │   └── test_cargo_consignment.py
+    │   └── utils
+    │       └── __init__.py
+    ├── tems_climate
+    │   ├── doctype
+    │   │   ├── climate_risk_events
+    │   │   │   ├── climate_risk_events.js
+    │   │   │   ├── climate_risk_events.json
+    │   │   │   ├── climate_risk_events.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_climate_risk_events.py
+    │   │   ├── climate_risk_journey
+    │   │   │   ├── climate_risk_journey.js
+    │   │   │   ├── climate_risk_journey.json
+    │   │   │   ├── climate_risk_journey.py
+    │   │   │   └── __init__.py
+    │   │   ├── emissions_log
+    │   │   │   ├── emissions_log.js
+    │   │   │   ├── emissions_log.json
+    │   │   │   ├── emissions_log.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_emissions_log.py
+    │   │   └── __init__.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── report
+    │   │   ├── emissions_by_vehicle_per_month
+    │   │   │   ├── emissions_by_vehicle_per_month.js
+    │   │   │   ├── emissions_by_vehicle_per_month.json
+    │   │   │   ├── emissions_by_vehicle_per_month.py
+    │   │   │   └── __init__.py
+    │   │   └── __init__.py
+    │   ├── workspace
+    │   │   └── climate
+    │   │       └── climate.json
+    │   └── workspace.json
+    ├── tems_crm
+    │   ├── doctype
+    │   │   ├── customer_feedbacks
+    │   │   │   ├── customer_feedbacks.js
+    │   │   │   ├── customer_feedbacks.json
+    │   │   │   ├── customer_feedbacks.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_customer_feedbacks.py
+    │   │   ├── field_service_requests
+    │   │   │   ├── field_service_requests.js
+    │   │   │   ├── field_service_requests.json
+    │   │   │   ├── field_service_requests.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_field_service_requests.py
+    │   │   └── __init__.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── report
+    │   │   ├── fsr_open_by_priority
+    │   │   │   ├── fsr_open_by_priority.js
+    │   │   │   ├── fsr_open_by_priority.json
+    │   │   │   ├── fsr_open_by_priority.py
+    │   │   │   └── __init__.py
+    │   │   └── __init__.py
+    │   └── workspace
+    │       └── crm
+    │           └── crm.json
+    ├── tems_demo
+    │   ├── demo_data_summary.md
+    │   ├── fixtures
+    │   ├── __init__.py
+    │   ├── manage.py
+    │   ├── orchestrator.py
+    │   ├── README.md
+    │   ├── seed_climate.py
+    │   ├── seed_core.py
+    │   ├── seed_crm.py
+    │   ├── seed_demo_data.py
+    │   ├── seed_documents.py
+    │   ├── seed_finance.py
+    │   ├── seed_fleet.py
+    │   ├── seed_governance.py
+    │   ├── seed_informal.py
+    │   ├── seed_insights.py
+    │   ├── seed_operations.py
+    │   ├── seed_people.py
+    │   ├── seed_safety.py
+    │   ├── seed_supply_chain.py
+    │   ├── seed_trade.py
+    │   ├── seed_utils.py
+    │   └── settings.py
+    ├── tems_documents
+    │   ├── doctype
+    │   │   ├── document_checklist
+    │   │   │   ├── document_checklist.js
+    │   │   │   ├── document_checklist.json
+    │   │   │   ├── document_checklist.py
+    │   │   │   └── __init__.py
+    │   │   ├── document_checklist_item
+    │   │   │   ├── document_checklist_item.json
+    │   │   │   ├── document_checklist_item.py
+    │   │   │   └── __init__.py
+    │   │   ├── document_checklists
+    │   │   │   ├── document_checklists.js
+    │   │   │   ├── document_checklists.json
+    │   │   │   ├── document_checklists.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_document_checklists.py
+    │   │   └── __init__.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── report
+    │   │   ├── checklist_count_by_context
+    │   │   │   ├── checklist_count_by_context.js
+    │   │   │   ├── checklist_count_by_context.json
+    │   │   │   ├── checklist_count_by_context.py
+    │   │   │   └── __init__.py
+    │   │   └── __init__.py
+    │   └── workspace
+    │       └── documents
+    │           └── documents.json
+    ├── tems_finance
+    │   ├── api.py
+    │   ├── doctype
+    │   │   ├── allocation_rule
+    │   │   │   ├── allocation_rule.json
+    │   │   │   ├── allocation_rule.py
+    │   │   │   └── __init__.py
+    │   │   ├── allocation_rules
+    │   │   │   ├── allocation_rules.js
+    │   │   │   ├── allocation_rules.json
+    │   │   │   ├── allocation_rules.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_allocation_rules.py
+    │   │   ├── cost_and_revenue_ledger
+    │   │   │   ├── cost_and_revenue_ledger.json
+    │   │   │   ├── cost_and_revenue_ledger.py
+    │   │   │   └── __init__.py
+    │   │   ├── fleet_costs
+    │   │   │   ├── fleet_costs.js
+    │   │   │   ├── fleet_costs.json
+    │   │   │   ├── fleet_costs.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_fleet_costs.py
+    │   │   ├── fx_risk_log
+    │   │   │   ├── fx_risk_log.json
+    │   │   │   ├── fx_risk_log.py
+    │   │   │   └── __init__.py
+    │   │   ├── __init__.py
+    │   │   ├── journey_costing
+    │   │   │   ├── journey_costing.json
+    │   │   │   └── journey_costing.py
+    │   │   ├── lease_loan
+    │   │   │   ├── lease_loan.json
+    │   │   │   └── lease_loan.py
+    │   │   └── lease_loan_schedule
+    │   │       ├── __init__.py
+    │   │       ├── lease_loan_schedule.json
+    │   │       └── lease_loan_schedule.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── number_card
+    │   │   ├── overdue_purchase_invoices
+    │   │   │   └── overdue_purchase_invoices.json
+    │   │   └── unpaid_sales_invoices
+    │   │       └── unpaid_sales_invoices.json
+    │   ├── report
+    │   │   ├── asset_lifecycle_cost_breakdown
+    │   │   │   ├── asset_lifecycle_cost_breakdown.json
+    │   │   │   └── asset_lifecycle_cost_breakdown.py
+    │   │   ├── __init__.py
+    │   │   ├── total_cost_by_type
+    │   │   │   ├── __init__.py
+    │   │   │   ├── total_cost_by_type.js
+    │   │   │   ├── total_cost_by_type.json
+    │   │   │   └── total_cost_by_type.py
+    │   │   ├── vehicle_asset_transactions
+    │   │   │   ├── __init__.py
+    │   │   │   ├── vehicle_asset_transactions.json
+    │   │   │   └── vehicle_asset_transactions.py
+    │   │   └── vehicle_profitability_summary
+    │   │       ├── vehicle_profitability_summary.json
+    │   │       └── vehicle_profitability_summary.py
+    │   ├── tasks.py
+    │   └── workspace
+    │       └── finance
+    │           └── finance.json
+    ├── tems_fleet
+    │   ├── api
+    │   │   ├── asset.py
+    │   │   └── maintenance_work_order.py
+    │   ├── client_script
+    │   │   └── journey_plan_validate_driver
+    │   │       └── journey_plan_validate_driver.json
+    │   ├── custom
+    │   │   └── vehicle.json
+    │   ├── custom_fields
+    │   │   └── vehicle_type.json
+    │   ├── doctype
+    │   │   ├── asset_utilization_log
+    │   │   │   ├── asset_utilization_log.js
+    │   │   │   ├── asset_utilization_log.json
+    │   │   │   ├── asset_utilization_log.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_asset_utilization_log.py
+    │   │   ├── fuel_log
+    │   │   │   ├── fuel_log.json
+    │   │   │   └── fuel_log.py
+    │   │   ├── __init__.py
+    │   │   ├── journey_plan
+    │   │   │   ├── journey_plan.json
+    │   │   │   └── journey_plan.py
+    │   │   ├── maintenance_part_item
+    │   │   │   ├── maintenance_part_item.json
+    │   │   │   └── maintenance_part_item.py
+    │   │   ├── maintenance_work_order
+    │   │   │   ├── maintenance_work_order.json
+    │   │   │   └── maintenance_work_order.py
+    │   │   └── route_planning
+    │   │       ├── __init__.py
+    │   │       ├── route_planning.js
+    │   │       ├── route_planning.json
+    │   │       ├── route_planning.py
+    │   │       └── test_route_planning.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── number_card
+    │   │   ├── open_work_orders
+    │   │   │   └── open_work_orders.json
+    │   │   └── overdue_maintenance
+    │   │       └── overdue_maintenance.json
+    │   ├── page
+    │   │   └── fleet_dashboard
+    │   │       ├── fleet_dashboard.js
+    │   │       └── fleet_dashboard.json
+    │   ├── report
+    │   │   ├── fuel_efficiency_by_vehicle
+    │   │   │   ├── fuel_efficiency_by_asset.json
+    │   │   │   └── fuel_efficiency_by_asset.py
+    │   │   ├── open_work_orders
+    │   │   │   └── open_work_orders.json
+    │   │   └── vehicle_uptime_summary
+    │   │       ├── vehicle_uptime_summary.json
+    │   │       └── vehicle_uptime_summary.sql
+    │   ├── tasks.py
+    │   └── workspace
+    │       └── fleet_manager
+    │           └── fleet_manager.json
+    ├── tems_governance
+    │   ├── api
+    │   │   └── __init__.py
+    │   ├── api.py
+    │   ├── client_script
+    │   │   └── compliance_obligation_guard.json
+    │   ├── doctype
+    │   │   ├── approval_matrix
+    │   │   │   ├── approval_matrix.js
+    │   │   │   ├── approval_matrix.json
+    │   │   │   ├── approval_matrix.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_approval_matrix.py
+    │   │   ├── approval_role
+    │   │   │   ├── approval_role.js
+    │   │   │   ├── approval_role.json
+    │   │   │   ├── approval_role.py
+    │   │   │   └── __init__.py
+    │   │   ├── compliance_audit
+    │   │   │   ├── compliance_audit.js
+    │   │   │   ├── compliance_audit.json
+    │   │   │   ├── compliance_audit.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_compliance_audit.py
+    │   │   ├── compliance_audit_evidence
+    │   │   │   ├── compliance_audit_evidence.json
+    │   │   │   └── compliance_audit_evidence.py
+    │   │   ├── compliance_obligation
+    │   │   │   ├── compliance_obligation.js
+    │   │   │   ├── compliance_obligation.json
+    │   │   │   ├── compliance_obligation.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_compliance_obligation.py
+    │   │   ├── governance_meeting
+    │   │   │   ├── governance_meeting.js
+    │   │   │   ├── governance_meeting.json
+    │   │   │   ├── governance_meeting.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_governance_meeting.py
+    │   │   ├── governance_policy
+    │   │   │   ├── governance_policy.js
+    │   │   │   ├── governance_policy.json
+    │   │   │   ├── governance_policy.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_governance_policy.py
+    │   │   ├── governance_policy_file
+    │   │   │   ├── governance_policy_file.js
+    │   │   │   ├── governance_policy_file.json
+    │   │   │   ├── governance_policy_file.py
+    │   │   │   └── __init__.py
+    │   │   ├── __init__.py
+    │   │   ├── leadership_meeting
+    │   │   │   ├── __init__.py
+    │   │   │   ├── leadership_meeting.js
+    │   │   │   ├── leadership_meeting.json
+    │   │   │   ├── leadership_meeting.py
+    │   │   │   └── test_leadership_meeting.py
+    │   │   ├── meeting_action_item
+    │   │   │   ├── __init__.py
+    │   │   │   ├── meeting_action_item.js
+    │   │   │   ├── meeting_action_item.json
+    │   │   │   └── meeting_action_item.py
+    │   │   ├── meeting_participant
+    │   │   │   ├── __init__.py
+    │   │   │   ├── meeting_participant.js
+    │   │   │   ├── meeting_participant.json
+    │   │   │   └── meeting_participant.py
+    │   │   └── strategic_goal
+    │   │       ├── __init__.py
+    │   │       ├── strategic_goal.js
+    │   │       ├── strategic_goal.json
+    │   │       ├── strategic_goal.py
+    │   │       └── test_strategic_goal.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── number_card
+    │   │   ├── active_policies
+    │   │   │   └── active_policies.json
+    │   │   ├── active_policies.json
+    │   │   ├── obligations_due_30d.json
+    │   │   ├── open_action_items
+    │   │   │   └── open_action_items.json
+    │   │   └── open_obligations
+    │   │       └── open_obligations.json
+    │   ├── page
+    │   │   └── executive_dashboard
+    │   │       ├── executive_dashboard.js
+    │   │       └── executive_dashboard.json
+    │   ├── report
+    │   │   ├── __init__.py
+    │   │   ├── obligation_status_aging
+    │   │   │   ├── obligation_status_aging.json
+    │   │   │   └── obligation_status_aging.py
+    │   │   ├── policy_review_schedule
+    │   │   │   └── policy_review_schedule.json
+    │   │   └── strategic_goals_overview
+    │   │       ├── strategic_goals_overview.json
+    │   │       └── strategic_goals_overview.py
+    │   ├── tasks.py
+    │   └── workspace
+    │       ├── executive_dashboard
+    │       │   └── executive_dashboard.json
+    │       └── governance
+    │           └── governance.json
+    ├── tems_informal
+    │   ├── api
+    │   ├── client_script
+    │   ├── doctype
+    │   │   ├── informal_operator_profile
+    │   │   │   ├── informal_operator_profile.js
+    │   │   │   ├── informal_operator_profile.json
+    │   │   │   ├── informal_operator_profile.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_informal_operator_profile.py
+    │   │   ├── __init__.py
+    │   │   ├── operator_market
+    │   │   │   ├── __init__.py
+    │   │   │   ├── operator_market.json
+    │   │   │   └── operator_market.py
+    │   │   └── operator_route_associations
+    │   │       ├── __init__.py
+    │   │       ├── operator_route_associations.js
+    │   │       ├── operator_route_associations.json
+    │   │       ├── operator_route_associations.py
+    │   │       └── test_operator_route_associations.py
+    │   ├── __init__.py
+    │   ├── report
+    │   │   ├── active_informal_operators
+    │   │   │   ├── active_informal_operators.js
+    │   │   │   ├── active_informal_operators.json
+    │   │   │   ├── active_informal_operators.py
+    │   │   │   └── __init__.py
+    │   │   └── __init__.py
+    │   └── workspace
+    │       └── informal
+    │           └── informal.json
+    ├── tems_insights
+    │   ├── doctype
+    │   │   ├── __init__.py
+    │   │   ├── kpi_config
+    │   │   │   ├── __init__.py
+    │   │   │   ├── kpi_config.json
+    │   │   │   └── kpi_config.py
+    │   │   └── report_subscription
+    │   │       ├── __init__.py
+    │   │       ├── report_subscription.js
+    │   │       ├── report_subscription.json
+    │   │       ├── report_subscription.py
+    │   │       └── test_report_subscription.py
+    │   ├── __init__.py
+    │   └── workspace
+    ├── tems_operations
+    │   ├── api
+    │   │   └── __init__.py
+    │   ├── api.py
+    │   ├── client_script
+    │   │   ├── control_exception_guard
+    │   │   │   └── control_exception_guard.json
+    │   │   └── duty_assignment_validate_today
+    │   │       └── duty_assignment_validate_today.json
+    │   ├── dashboard
+    │   │   └── operations_dashboard.json
+    │   ├── doctype
+    │   │   ├── control_exception
+    │   │   │   ├── control_exception.json
+    │   │   │   └── control_exception.py
+    │   │   ├── dispatch_schedule
+    │   │   │   ├── dispatch_schedule.json
+    │   │   │   └── dispatch_schedule.py
+    │   │   ├── duty_assignment
+    │   │   │   ├── duty_assignment.json
+    │   │   │   └── duty_assignment.py
+    │   │   ├── __init__.py
+    │   │   ├── movement_log
+    │   │   │   ├── __init__.py
+    │   │   │   ├── movement_log.js
+    │   │   │   ├── movement_log.json
+    │   │   │   ├── movement_log.py
+    │   │   │   └── test_movement_log.py
+    │   │   ├── operation_plan
+    │   │   │   ├── __init__.py
+    │   │   │   ├── operation_plan.js
+    │   │   │   ├── operation_plan.json
+    │   │   │   ├── operation_plan.py
+    │   │   │   └── test_operation_plan.py
+    │   │   ├── operations_event
+    │   │   │   ├── operations_event.json
+    │   │   │   └── operations_event.py
+    │   │   ├── planned_departure
+    │   │   │   ├── planned_departure.json
+    │   │   │   └── planned_departure.py
+    │   │   ├── shift_plan
+    │   │   │   ├── shift_plan.json
+    │   │   │   └── shift_plan.py
+    │   │   ├── shift_team_member
+    │   │   │   ├── shift_team_member.json
+    │   │   │   └── shift_team_member.py
+    │   │   ├── sos_event
+    │   │   │   ├── sos_event.json
+    │   │   │   └── sos_event.py
+    │   │   └── trip_allocation
+    │   │       ├── __init__.py
+    │   │       ├── trip_allocation.json
+    │   │       └── trip_allocation.py
+    │   ├── handlers
+    │   │   └── operation_plan.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── number_card
+    │   │   ├── on_duty_todays
+    │   │   │   └── on_duty_todays.json
+    │   │   ├── open_control_exceptions
+    │   │   │   └── open_control_exceptions.json
+    │   │   └── today's_duty_assignments
+    │   │       └── today's_duty_assignments.json
+    │   ├── README.md
+    │   ├── report
+    │   │   ├── control_exceptions_aging
+    │   │   │   ├── control_exceptions_aging.json
+    │   │   │   ├── control_exceptions_aging.py
+    │   │   │   └── __init__.py
+    │   │   ├── duty_assignments_today
+    │   │   │   └── duty_assignments_today.json
+    │   │   ├── otp_by_route_and_shift
+    │   │   │   ├── __init__.py
+    │   │   │   ├── otp_by_route_and_shift.json
+    │   │   │   └── otp_by_route_and_shift.py
+    │   │   └── shift_coverage
+    │   │       ├── __init__.py
+    │   │       ├── shift_coverage.json
+    │   │       └── shift_coverage.py
+    │   ├── tasks.py
+    │   └── workspace
+    │       └── operations_control
+    │           └── operations_control.json
+    ├── tems_passenger
+    │   ├── api
+    │   │   ├── __init__.py
+    │   │   └── trip.py
+    │   ├── doctype
+    │   │   ├── __init__.py
+    │   │   ├── passenger_booking
+    │   │   │   ├── __init__.py
+    │   │   │   ├── passenger_booking.js
+    │   │   │   ├── passenger_booking.json
+    │   │   │   ├── passenger_booking.py
+    │   │   │   └── test_passenger_booking.py
+    │   │   ├── passenger_feedback
+    │   │   │   ├── __init__.py
+    │   │   │   ├── passenger_feedback.js
+    │   │   │   ├── passenger_feedback.json
+    │   │   │   ├── passenger_feedback.py
+    │   │   │   └── test_passenger_feedback.py
+    │   │   ├── passenger_manifest
+    │   │   │   ├── __init__.py
+    │   │   │   ├── passenger_manifest.js
+    │   │   │   ├── passenger_manifest.json
+    │   │   │   ├── passenger_manifest.py
+    │   │   │   └── test_passenger_manifest.py
+    │   │   ├── passenger_rate_card
+    │   │   │   ├── __init__.py
+    │   │   │   ├── passenger_rate_card.js
+    │   │   │   ├── passenger_rate_card.json
+    │   │   │   ├── passenger_rate_card.py
+    │   │   │   └── test_passenger_rate_card.py
+    │   │   └── passenger_trip
+    │   │       ├── __init__.py
+    │   │       ├── passenger_trip.js
+    │   │       ├── passenger_trip.json
+    │   │       ├── passenger_trip.py
+    │   │       └── test_passenger_trip.py
+    │   ├── handlers
+    │   │   ├── __init__.py
+    │   │   └── trip.py
+    │   ├── __init__.py
+    │   ├── README.md
+    │   ├── tasks.py
+    │   ├── tests
+    │   │   └── test_passenger_trip.py
+    │   └── utils
+    │       └── __init__.py
+    ├── tems_people
+    │   ├── api
+    │   │   └── __init__.py
+    │   ├── client_script
+    │   │   └── driver_qualification_validate_expiry
+    │   │       └── driver_qualification_validate_expiry.json
+    │   ├── doctype
+    │   │   ├── competency_matrix
+    │   │   │   ├── competency_matrix.json
+    │   │   │   ├── competency_matrix.py
+    │   │   │   └── __init__.py
+    │   │   ├── driver_qualification
+    │   │   │   ├── driver_qualification.json
+    │   │   │   └── driver_qualification.py
+    │   │   ├── incident_involvement
+    │   │   │   ├── incident_involvement.json
+    │   │   │   └── incident_involvement.py
+    │   │   ├── succession_candidate
+    │   │   │   ├── __init__.py
+    │   │   │   ├── succession_candidate.json
+    │   │   │   └── succession_candidate.py
+    │   │   ├── succession_plan
+    │   │   │   ├── __init__.py
+    │   │   │   ├── succession_plan.json
+    │   │   │   └── succession_plan.py
+    │   │   └── training_record
+    │   │       ├── training_record.json
+    │   │       └── training_record.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── number_card
+    │   │   └── driver_qualification_expire_in_30d
+    │   │       └── driver_qualification_expire_in_30d.json
+    │   ├── report
+    │   │   ├── expiring_driver_qualifications
+    │   │   │   ├── expiring_driver_qualifications.json
+    │   │   │   └── expiring_driver_qualifications.py
+    │   │   └── training_compliance_by_dept
+    │   │       ├── training_compliance_by_dept.json
+    │   │       └── training_compliance_by_dept.py
+    │   ├── tasks.py
+    │   └── workspace
+    │       └── people
+    │           └── people.json
+    ├── tems_safety
+    │   ├── api
+    │   │   ├── incident_report.py
+    │   │   └── journey_plan.py
+    │   ├── client_script
+    │   │   └── safety_incident_form
+    │   │       └── safety_incident_form.json
+    │   ├── doctype
+    │   │   ├── incident_participant
+    │   │   │   ├── incident_participant.json
+    │   │   │   └── incident_participant.py
+    │   │   ├── incident_report
+    │   │   │   ├── incident_report.js
+    │   │   │   ├── incident_report.json
+    │   │   │   ├── incident_report.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_incident_report.py
+    │   │   ├── __init__.py
+    │   │   ├── journey_plan
+    │   │   │   ├── __init__.py
+    │   │   │   ├── journey_plan.js
+    │   │   │   ├── journey_plan.json
+    │   │   │   ├── journey_plan.py
+    │   │   │   └── test_journey_plan.py
+    │   │   ├── risk_assessment
+    │   │   │   ├── __init__.py
+    │   │   │   ├── risk_assessment.js
+    │   │   │   ├── risk_assessment.json
+    │   │   │   ├── risk_assessment.py
+    │   │   │   └── test_risk_assessment.py
+    │   │   ├── safety_incident
+    │   │   │   ├── __init__.py
+    │   │   │   ├── safety_incident.json
+    │   │   │   └── safety_incident.py
+    │   │   ├── spot_check
+    │   │   │   ├── __init__.py
+    │   │   │   ├── spot_check.js
+    │   │   │   ├── spot_check.json
+    │   │   │   ├── spot_check.py
+    │   │   │   └── test_spot_check.py
+    │   │   ├── spot_check_photo
+    │   │   │   ├── __init__.py
+    │   │   │   ├── spot_check_photo.json
+    │   │   │   └── spot_check_photo.py
+    │   │   └── tems_safety_settings
+    │   │       ├── __init__.py
+    │   │       ├── tems_safety_settings.json
+    │   │       └── tems_safety_settings.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── number_card
+    │   │   ├── incidents_this_month
+    │   │   │   └── incidents_this_month.json
+    │   │   └── open_safety_incidents
+    │   │       └── open_safety_incidents.json
+    │   ├── page
+    │   │   └── safety_dashboard
+    │   │       ├── safety_dashboard.js
+    │   │       └── safety_dashboard.json
+    │   ├── report
+    │   │   ├── incident_severity_distribution
+    │   │   │   ├── incident_severity_distribution.json
+    │   │   │   └── incident_severity_distribution.py
+    │   │   ├── safety_incidents_by_severity
+    │   │   │   └── safety_incidents_by_severity.json
+    │   │   └── spot_checks_today
+    │   │       └── spot_checks_today.json
+    │   ├── tasks.py
+    │   ├── workflow
+    │   │   └── safety_incident_workflow.json
+    │   └── workspace
+    │       └── safety_management
+    │           └── safety_management.json
+    ├── tems_supply_chain
+    │   ├── doctype
+    │   │   ├── __init__.py
+    │   │   ├── logistics_task
+    │   │   │   ├── __init__.py
+    │   │   │   ├── logistics_task.json
+    │   │   │   └── logistics_task.py
+    │   │   ├── spare_part
+    │   │   │   ├── __init__.py
+    │   │   │   ├── spare_part.js
+    │   │   │   ├── spare_part.json
+    │   │   │   ├── spare_part.py
+    │   │   │   └── test_spare_part.py
+    │   │   ├── spare_request
+    │   │   │   ├── __init__.py
+    │   │   │   ├── spare_request.json
+    │   │   │   └── spare_request.py
+    │   │   ├── spare_request_item
+    │   │   │   ├── __init__.py
+    │   │   │   ├── spare_request_item.json
+    │   │   │   └── spare_request_item.py
+    │   │   └── supplier_rating
+    │   │       ├── __init__.py
+    │   │       ├── supplier_rating.json
+    │   │       └── supplier_rating.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── report
+    │   │   ├── __init__.py
+    │   │   ├── low_stock_breach
+    │   │   │   ├── low_stock_breach.json
+    │   │   │   └── low_stock_breach.py
+    │   │   └── spare_parts_min_stock_breach
+    │   │       ├── __init__.py
+    │   │       ├── spare_parts_min_stock_breach.js
+    │   │       ├── spare_parts_min_stock_breach.json
+    │   │       └── spare_parts_min_stock_breach.py
+    │   ├── tasks.py
+    │   └── workspace
+    │       └── supply_chain
+    │           └── supply_chain.json
+    ├── tems_trade
+    │   ├── api
+    │   ├── client_script
+    │   ├── doctype
+    │   │   ├── border_crossing
+    │   │   │   ├── border_crossing.js
+    │   │   │   ├── border_crossing.json
+    │   │   │   ├── border_crossing.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_border_crossing.py
+    │   │   ├── customs_clearance
+    │   │   │   ├── customs_clearance.js
+    │   │   │   ├── customs_clearance.json
+    │   │   │   ├── customs_clearance.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_customs_clearance.py
+    │   │   ├── trade_lane
+    │   │   │   ├── __init__.py
+    │   │   │   ├── test_trade_lane.py
+    │   │   │   ├── trade_lane.js
+    │   │   │   ├── trade_lane.json
+    │   │   │   └── trade_lane.py
+    │   │   ├── trade_lane_border_post
+    │   │   │   ├── __init__.py
+    │   │   │   ├── trade_lane_border_post.json
+    │   │   │   └── trade_lane_border_post.py
+    │   │   └── trade_lane_document
+    │   │       ├── __init__.py
+    │   │       ├── trade_lane_document.json
+    │   │       └── trade_lane_document.py
+    │   ├── handlers.py
+    │   ├── __init__.py
+    │   ├── report
+    │   │   ├── border_dwelling
+    │   │   │   ├── border_dwelling.js
+    │   │   │   ├── border_dwelling.json
+    │   │   │   ├── border_dwelling.py
+    │   │   │   └── __init__.py
+    │   │   └── __init__.py
+    │   └── workspace
+    │       └── trade_and_borders
+    │           └── trade_and_borders.json
+    ├── tests
+    │   ├── run_selected_tests.py
+    │   ├── test_climate.py
+    │   ├── test_crm.py
+    │   ├── test_documents.py
+    │   ├── test_finance_profitability.py
+    │   ├── test_finance.py
+    │   ├── test_fixture_integrity.py
+    │   ├── test_fleet.py
+    │   ├── test_fx_failure.py
+    │   ├── test_governance.py
+    │   ├── test_informal.py
+    │   ├── test_integration_finance_safety.py
+    │   ├── test_operations.py
+    │   ├── test_people.py
+    │   ├── test_permissions.py
+    │   ├── test_reports_execution.py
+    │   ├── test_safety_journey_expiry.py
+    │   ├── test_safety.py
+    │   ├── test_scheduler_smoke.py
+    │   ├── test_supply_chain_low_stock.py
+    │   ├── test_supply_chain.py
+    │   └── test_trade.py
+    ├── transport_enterprise_management_system
+    │   └── __init__.py
+    └── www
+        └── driver
+            ├── index.html
+            └── index.py
+
+308 directories, 814 files

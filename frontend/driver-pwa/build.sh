@@ -20,17 +20,23 @@ if [ $? -eq 0 ]; then
     echo ""
     echo "✅ Build successful!"
     echo ""
-    echo "📍 Output location:"
+    
+    # Update the Frappe template with new asset hashes
+    echo "� Updating Frappe template..."
+    ./update-template.sh
+    
+    echo ""
+    echo "�📍 Output location:"
     echo "   ../../tems/public/frontend/driver-pwa/dist/"
     echo ""
-    echo "🌐 Access URL (after Frappe restart):"
-    echo "   https://your-site.com/driver/"
+    echo "🌐 Access URL (after cache clear):"
+    echo "   http://tems.local:8000/driver/"
     echo ""
     echo "⚡ Next steps:"
     echo "   1. cd /workspace/development/frappe-bench"
-    echo "   2. bench restart"
-    echo "   3. bench clear-cache"
-    echo "   4. Visit https://your-site.com/driver/"
+    echo "   2. bench --site tems.local clear-cache"
+    echo "   3. bench --site tems.local clear-website-cache"
+    echo "   4. Visit http://tems.local:8000/driver/"
     echo ""
 else
     echo ""

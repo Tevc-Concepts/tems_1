@@ -8,20 +8,45 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#e6f3f8',
-          100: '#d0dfe9ff',
-          500: '#0ea5e9',
-          600: '#0970a0', // TEMS Primary
-          700: '#035a83ff',
+          50: '#e6ffe8',    // Lightest neon green tint
+          100: '#ccffce',   // Light neon green
+          200: '#99ff9d',   // Soft neon green
+          300: '#66ff6b',   // Medium neon green
+          400: '#4dff3a',   // Bright neon green
+          500: '#39ff14',   // TEMS Neon Green (Main)
+          600: '#2ecc10',   // Darker neon green
+          700: '#24990c',   // Deep neon green
+          800: '#196607',   // Very deep green
+          900: '#0f3304',   // Darkest green
         },
-        success: '#10b981',
-        warning: '#f59e0b',
-        danger: '#ef4444',
-        background: '#ebe8e8ff', // TEMS Background
+        charcoal: {
+          50: '#e8eaeb',    // Lightest charcoal
+          100: '#d1d5d7',   // Light charcoal
+          200: '#a3abb0',   // Soft charcoal
+          300: '#758188',   // Medium charcoal
+          400: '#475761',   // Dark charcoal
+          500: '#36454f',   // TEMS Charcoal Gray (Main)
+          600: '#2b373f',   // Deeper charcoal
+          700: '#20292f',   // Very deep charcoal
+          800: '#161c20',   // Darkest charcoal
+          900: '#0b0e10',   // Almost black
+        },
+        background: '#e0e2db',  // TEMS Light Gray Background
+        success: '#39ff14',     // Neon green for success
+        warning: '#ffcc00',     // Bright yellow for warnings
+        danger: '#ff3366',      // Bright red for errors
+        info: '#00ccff',        // Bright cyan for info
       },
       boxShadow: {
-        'soft': '0 2px 15px -3px rgba(27, 27, 27, 0.07), 0 10px 20px -2px rgba(19, 18, 18, 0.04)',
-        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'soft': '0 2px 15px -3px rgba(54, 69, 79, 0.12), 0 10px 20px -2px rgba(54, 69, 79, 0.08)',
+        'card': '0 1px 3px 0 rgba(54, 69, 79, 0.15), 0 1px 2px 0 rgba(54, 69, 79, 0.10)',
+        'neon': '0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3)',
+        'neon-lg': '0 0 20px rgba(57, 255, 20, 0.6), 0 0 40px rgba(57, 255, 20, 0.4)',
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(135deg, #39ff14 0%, #2ecc10 100%)',
+        'gradient-charcoal': 'linear-gradient(135deg, #36454f 0%, #2b373f 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #36454f 0%, #2b373f 50%, #20292f 100%)',
       },
     },
   },

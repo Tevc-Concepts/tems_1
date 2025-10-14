@@ -1,32 +1,32 @@
 <template>
   <div class="space-y-6">
     <!-- Welcome Card -->
-    <div class="card p-6 bg-gradient-to-br from-primary-500 to-primary-600 text-white">
+    <div class="card p-6 bg-gradient-to-br from-charcoal-600 via-charcoal-500 to-charcoal-600 border-2 border-primary-500/30 shadow-neon">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="text-2xl font-bold mb-1">
+          <h2 class="text-2xl font-bold mb-1 text-primary-500">
             Welcome back, {{ authStore.driverName }}!
           </h2>
-          <p class="text-primary-100">{{ currentDate }}</p>
+          <p class="text-charcoal-300">{{ currentDate }}</p>
         </div>
-        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-          <User class="w-8 h-8" />
+        <div class="w-16 h-16 bg-primary-500/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border-2 border-primary-500/50">
+          <User class="w-8 h-8 text-primary-500" />
         </div>
       </div>
       
       <!-- Quick Stats -->
       <div class="grid grid-cols-3 gap-4 mt-6">
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
-          <p class="text-2xl font-bold">{{ dashboardData?.journey_plans?.length || 0 }}</p>
-          <p class="text-xs text-primary-100">Trips Today</p>
+        <div class="bg-primary-500/10 backdrop-blur-sm rounded-lg p-3 text-center border border-primary-500/30">
+          <p class="text-2xl font-bold text-primary-500">{{ dashboardData?.journey_plans?.length || 0 }}</p>
+          <p class="text-xs text-charcoal-300">Trips Today</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
-          <p class="text-2xl font-bold">{{ activeTripsCount }}</p>
-          <p class="text-xs text-primary-100">Active</p>
+        <div class="bg-primary-500/10 backdrop-blur-sm rounded-lg p-3 text-center border border-primary-500/30">
+          <p class="text-2xl font-bold text-primary-500">{{ activeTripsCount }}</p>
+          <p class="text-xs text-charcoal-300">Active</p>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
-          <p class="text-2xl font-bold">{{ dashboardData?.pending_checks?.length || 0 }}</p>
-          <p class="text-xs text-primary-100">Pending</p>
+        <div class="bg-primary-500/10 backdrop-blur-sm rounded-lg p-3 text-center border border-primary-500/30">
+          <p class="text-2xl font-bold text-primary-500">{{ dashboardData?.pending_checks?.length || 0 }}</p>
+          <p class="text-xs text-charcoal-300">Pending</p>
         </div>
       </div>
     </div>

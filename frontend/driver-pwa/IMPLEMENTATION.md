@@ -177,7 +177,7 @@ All endpoints follow pattern: `/api/method/tems.api.pwa.driver.{function_name}`
 - ✅ Offline page fallback
 
 ### Visual Consistency
-- ✅ TEMS color palette (#0970a0 primary, #ebe8e8 background)
+- ✅ TEMS color palette (#0970a0 primary, #e8ebe8ff background)
 - ✅ Consistent spacing system
 - ✅ Card-based layout
 - ✅ Status badges (success, warning, danger, info)

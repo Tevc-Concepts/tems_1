@@ -13,8 +13,8 @@ export default defineConfig({
         name: 'TEMS Driver',
         short_name: 'Driver',
         description: 'Transportation Enterprise Management - Driver Portal',
-        theme_color: '#0970a0ff',
-        background_color: '#ebe8e8ff',
+        theme_color: '#36454f',        // TEMS Charcoal Gray
+        background_color: '#e0e2db',   // TEMS Light Gray
         display: 'standalone',
         orientation: 'portrait',
         scope: '/driver/',

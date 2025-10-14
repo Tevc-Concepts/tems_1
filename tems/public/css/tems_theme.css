@@ -1,116 +1,251 @@
-/* TEMS Design System — modern, accessible, and scoped */
+/**
+ * TEMS Global Theme - Neon Green & Charcoal Gray
+ * Color Palette:
+ * - Primary: Neon Green #39ff14
+ * - Secondary: Charcoal Gray #36454f  
+ * - Background: Light Gray #e0e2db
+ */
+
 :root {
-    --tems-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    --tems-color-bg: #0b0c0f;
-    --tems-color-surface: #0f1115;
-    --tems-color-card: #151922;
-    --tems-color-border: #222837;
-    --tems-color-muted: #94a3b8;
-    --tems-color-text: #e6edf3;
-    --tems-color-accent: #3b82f6;
-    /* blue-500 */
-    --tems-color-accent-2: #22c55e;
-    /* green-500 */
-    --tems-shadow-sm: 0 1px 2px rgba(0, 0, 0, .15);
-    --tems-shadow-md: 0 8px 24px rgba(0, 0, 0, .25);
-    --tems-radius: 12px;
+    /* TEMS Brand Colors */
+    --tems-neon-green: #39ff14;
+    --tems-charcoal-gray: #36454f;
+    --tems-light-gray: #e0e2db;
+
+    /* Neon Green Variants */
+    --tems-green-500: #39ff14;
+    --tems-green-600: #2ecc10;
+    --tems-green-700: #24990c;
+
+    /* Charcoal Gray Variants */
+    --tems-charcoal-500: #36454f;
+    --tems-charcoal-600: #2b373f;
+    --tems-charcoal-700: #20292f;
+
+    /* Shadows with Neon Glow */
+    --tems-shadow-neon: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3);
+    --tems-shadow-neon-lg: 0 0 20px rgba(57, 255, 20, 0.6), 0 0 40px rgba(57, 255, 20, 0.4);
+
+    /* Gradients */
+    --tems-gradient-primary: linear-gradient(135deg, #39ff14 0%, #2ecc10 100%);
+    --tems-gradient-charcoal: linear-gradient(135deg, #36454f 0%, #2b373f 50%, #20292f 100%);
 }
 
-.theme-light:root {
-    --tems-color-bg: #f8fafc;
-    --tems-color-surface: #ffffff;
-    --tems-color-card: #ffffff;
-    --tems-color-border: #e5e7eb;
-    --tems-color-muted: #475569;
-    --tems-color-text: #0f172a;
+/* Global Theme */
+body.tems-theme,
+.tems-portal {
+    background-color: var(--tems-light-gray) !important;
+    color: var(--tems-charcoal-700) !important;
 }
 
-/* Scope to TEMS containers to avoid affecting core */
-.tems-branding,
-.page-wrapper .tems-dashboard {
-    font-family: var(--tems-font-sans);
-    color: var(--tems-color-text);
+/* Headers & Navigation */
+.tems-navbar,
+.navbar.tems-navbar,
+header.tems-header {
+    background: var(--tems-gradient-charcoal) !important;
+    border-bottom: 2px solid var(--tems-neon-green) !important;
 }
 
-.tems-dashboard {
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.06), transparent 35%), var(--tems-color-bg);
-    padding: 1.25rem 1.25rem 2rem;
-    border-radius: var(--tems-radius);
+.tems-navbar .nav-link,
+.tems-navbar a {
+    color: var(--tems-light-gray) !important;
 }
 
-.tems-dashboard .page-title {
-    font-size: 1.375rem;
-    font-weight: 700;
-    letter-spacing: .2px;
-    margin: 0 0 1rem 0;
+.tems-navbar .nav-link:hover,
+.tems-navbar a:hover {
+    color: var(--tems-neon-green) !important;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
 }
 
-.kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
+.tems-navbar .nav-link.active {
+    color: var(--tems-neon-green) !important;
+    border-bottom: 2px solid var(--tems-neon-green);
 }
 
-.kpi-card {
-    background: var(--tems-color-card);
-    border: 1px solid var(--tems-color-border);
-    border-radius: var(--tems-radius);
-    padding: 1rem 1rem;
-    box-shadow: var(--tems-shadow-sm);
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+/* Buttons */
+.btn-primary.tems-btn,
+.tems-btn-primary {
+    background: var(--tems-gradient-primary) !important;
+    color: var(--tems-charcoal-700) !important;
+    border: none !important;
+    font-weight: 700 !important;
+    box-shadow: var(--tems-shadow-neon) !important;
 }
 
-.kpi-card:hover {
+.btn-primary.tems-btn:hover,
+.tems-btn-primary:hover {
+    box-shadow: var(--tems-shadow-neon-lg) !important;
     transform: translateY(-2px);
-    box-shadow: var(--tems-shadow-md);
-    border-color: color-mix(in oklab, var(--tems-color-accent) 30%, var(--tems-color-border));
 }
 
-.kpi-card .title {
-    font-size: 0.9rem;
-    color: var(--tems-color-muted);
-    margin-bottom: .375rem;
+.btn-secondary.tems-btn,
+.tems-btn-secondary {
+    background: var(--tems-charcoal-500) !important;
+    color: var(--tems-neon-green) !important;
+    border: 2px solid var(--tems-neon-green) !important;
+    font-weight: 600 !important;
 }
 
-.kpi-card .value {
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: .3px;
+.btn-secondary.tems-btn:hover,
+.tems-btn-secondary:hover {
+    box-shadow: var(--tems-shadow-neon) !important;
+    background: var(--tems-charcoal-600) !important;
 }
 
-.tems-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    padding: .25rem .6rem;
-    border-radius: 999px;
-    background: color-mix(in oklab, var(--tems-color-accent) 14%, transparent);
-    color: var(--tems-color-text);
-    border: 1px solid color-mix(in oklab, var(--tems-color-accent) 24%, var(--tems-color-border));
+/* Cards */
+.card.tems-card,
+.tems-card {
+    background: white !important;
+    border: 1px solid rgba(54, 69, 79, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(54, 69, 79, 0.1) !important;
+    border-radius: 12px !important;
 }
 
-.tems-muted {
-    color: var(--tems-color-muted);
+.card-header.tems-card-header {
+    background: var(--tems-gradient-charcoal) !important;
+    color: var(--tems-neon-green) !important;
+    border-bottom: 2px solid var(--tems-neon-green) !important;
+    font-weight: 700 !important;
 }
 
-/* Compact cards for list & workspace blocks */
-.frappe-card.tems-card,
-.workspace .card.tems-card {
-    border-radius: var(--tems-radius);
-    border-color: var(--tems-color-border);
+/* Forms */
+.form-control.tems-input,
+.tems-input {
+    border: 2px solid rgba(54, 69, 79, 0.3) !important;
+    border-radius: 8px !important;
 }
 
-/* Head & navbar tweaks when wrapped in tems-branding */
-.tems-branding .page-head,
-.tems-branding .navbar {
-    color: var(--tems-color-text);
+.form-control.tems-input:focus,
+.tems-input:focus {
+    border-color: var(--tems-neon-green) !important;
+    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.15) !important;
 }
 
-/* Accessibility: focus rings */
-.tems-branding a:focus,
-.tems-branding button:focus,
-.kpi-card:focus {
-    outline: 2px solid color-mix(in oklab, var(--tems-color-accent) 40%, #fff);
-    outline-offset: 2px;
-    border-radius: var(--tems-radius);
+/* Badges */
+.badge.tems-badge {
+    font-weight: 700 !important;
+    border: 1px solid currentColor !important;
+    padding: 0.35em 0.75em !important;
+}
+
+.badge-success.tems-badge {
+    background: rgba(57, 255, 20, 0.1) !important;
+    color: var(--tems-green-700) !important;
+    border-color: var(--tems-neon-green) !important;
+}
+
+/* Page Headers */
+.page-title,
+h1.page-title,
+.page-header h1 {
+    color: var(--tems-charcoal-700) !important;
+    font-weight: 800 !important;
+}
+
+/* Neon Text Effect */
+.tems-neon-text {
+    color: var(--tems-neon-green) !important;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.8),
+        0 0 20px rgba(57, 255, 20, 0.5) !important;
+}
+
+/* Sidebar (if applicable) */
+.sidebar.tems-sidebar {
+    background: var(--tems-charcoal-700) !important;
+    color: var(--tems-light-gray) !important;
+}
+
+.sidebar.tems-sidebar .sidebar-link {
+    color: var(--tems-light-gray) !important;
+}
+
+.sidebar.tems-sidebar .sidebar-link:hover,
+.sidebar.tems-sidebar .sidebar-link.active {
+    color: var(--tems-neon-green) !important;
+    background: rgba(57, 255, 20, 0.1) !important;
+}
+
+/* Tables */
+.table.tems-table thead {
+    background: var(--tems-charcoal-500) !important;
+    color: var(--tems-neon-green) !important;
+}
+
+.table.tems-table tbody tr:hover {
+    background: rgba(57, 255, 20, 0.05) !important;
+}
+
+/* Links */
+a.tems-link {
+    color: var(--tems-neon-green) !important;
+    text-decoration: none !important;
+}
+
+a.tems-link:hover {
+    text-decoration: underline !important;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+/* Scrollbar */
+.tems-portal::-webkit-scrollbar,
+.tems-theme::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.tems-portal::-webkit-scrollbar-track,
+.tems-theme::-webkit-scrollbar-track {
+    background: var(--tems-light-gray);
+}
+
+.tems-portal::-webkit-scrollbar-thumb,
+.tems-theme::-webkit-scrollbar-thumb {
+    background: var(--tems-charcoal-500);
+    border-radius: 4px;
+}
+
+.tems-portal::-webkit-scrollbar-thumb:hover,
+.tems-theme::-webkit-scrollbar-thumb:hover {
+    background: var(--tems-neon-green);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+/* Loading Spinner */
+.tems-spinner {
+    border: 3px solid var(--tems-light-gray);
+    border-top-color: var(--tems-neon-green);
+    box-shadow: var(--tems-shadow-neon);
+}
+
+/* Modal/Dialog */
+.modal-content.tems-modal {
+    border: 2px solid var(--tems-charcoal-500) !important;
+    box-shadow: 0 20px 40px rgba(54, 69, 79, 0.3) !important;
+}
+
+.modal-header.tems-modal-header {
+    background: var(--tems-gradient-charcoal) !important;
+    color: var(--tems-neon-green) !important;
+    border-bottom: 2px solid var(--tems-neon-green) !important;
+}
+
+/* Alerts */
+.alert.tems-alert {
+    border-left: 4px solid var(--tems-neon-green) !important;
+    background: rgba(57, 255, 20, 0.05) !important;
+    border-radius: 8px !important;
+}
+
+/* Footer */
+.footer.tems-footer {
+    background: var(--tems-charcoal-700) !important;
+    color: var(--tems-light-gray) !important;
+    border-top: 2px solid var(--tems-neon-green) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tems-navbar {
+        padding: 0.5rem 1rem !important;
+    }
 }

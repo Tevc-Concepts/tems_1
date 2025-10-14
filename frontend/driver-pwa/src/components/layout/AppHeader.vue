@@ -1,15 +1,15 @@
 <template>
-  <header class="sticky top-0 z-50 bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-lg">
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-charcoal-600 to-charcoal-500 text-primary-500 shadow-lg border-b-2 border-primary-500/30">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-center justify-between h-16">
         <!-- Logo & Title -->
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md">
-            <Truck class="w-6 h-6 text-primary-600" />
+          <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center shadow-neon">
+            <Truck class="w-6 h-6 text-charcoal-900" />
           </div>
           <div>
-            <h1 class="text-lg font-bold">TEMS Driver</h1>
-            <p class="text-xs text-primary-100">{{ pageTitle }}</p>
+            <h1 class="text-lg font-bold text-primary-500">TEMS Driver</h1>
+            <p class="text-xs text-charcoal-300">{{ pageTitle }}</p>
           </div>
         </div>
         
@@ -19,21 +19,21 @@
           <button 
             v-if="offlineStore.hasPendingChanges"
             @click="handleSync"
-            class="p-2 rounded-lg bg-white/20 hover:bg-white/30 transition-colors"
+            class="p-2 rounded-lg bg-primary-500/20 hover:bg-primary-500/30 transition-colors border border-primary-500/30"
             :disabled="offlineStore.syncInProgress"
           >
             <RefreshCw 
-              :class="['w-5 h-5', offlineStore.syncInProgress && 'animate-spin']" 
+              :class="['w-5 h-5 text-primary-500', offlineStore.syncInProgress && 'animate-spin']" 
             />
           </button>
           
           <!-- Profile -->
           <button 
             @click="showProfile = !showProfile"
-            class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/20 transition-colors"
+            class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-500/20 border border-primary-500/30 transition-colors"
           >
-            <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-              <User class="w-5 h-5 text-primary-600" />
+            <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center shadow-neon">
+              <User class="w-5 h-5 text-charcoal-900" />
             </div>
           </button>
         </div>

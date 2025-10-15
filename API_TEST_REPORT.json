@@ -1,0 +1,343 @@
+{
+  "timestamp": "2025-10-15T09:01:25.153490",
+  "total_tests": 28,
+  "total_passed": 16,
+  "success_rate": 57.14285714285714,
+  "results": {
+    "driver": [
+      {
+        "method": "get_active_trips",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.driver.get_active_trips",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.drive"
+      },
+      {
+        "method": "get_trip_history",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.driver.get_trip_history",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.drive"
+      },
+      {
+        "method": "get_upcoming_trips",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.driver.get_upcoming_trips",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.drive"
+      },
+      {
+        "method": "get_profile_info",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.driver.get_profile_info",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.drive"
+      },
+      {
+        "method": "get_documents",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.driver.get_documents",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.drive"
+      },
+      {
+        "method": "get_notifications",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.driver.get_notifications",
+        "response": {
+          "message": []
+        },
+        "has_message": true
+      }
+    ],
+    "operations": [
+      {
+        "method": "get_vehicles",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.operations.get_vehicles",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.opera"
+      },
+      {
+        "method": "get_vehicle_locations",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.operations.get_vehicle_locations",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.opera"
+      },
+      {
+        "method": "get_dispatch_queue",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.operations.get_dispatch_queue",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.opera"
+      },
+      {
+        "method": "get_active_trips",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.operations.get_active_trips",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.opera"
+      },
+      {
+        "method": "get_route_optimization",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.operations.get_route_optimization",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.opera"
+      },
+      {
+        "method": "get_driver_availability",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.operations.get_driver_availability",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.opera"
+      },
+      {
+        "method": "get_operations_statistics",
+        "status": 417,
+        "success": false,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.operations.get_operations_statistics",
+        "error": "{\"exception\":\"frappe.exceptions.ValidationError: Failed to get method for command tems.api.pwa.opera"
+      }
+    ],
+    "safety": [
+      {
+        "method": "get_incidents",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.get_incidents",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1054, \"Unknown column 'incident_type' in 'SELECT'\")"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_audits",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.get_audits",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "('DocType', 'Safety Audit')"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_compliance_items",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.get_compliance_items",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "('DocType', 'Compliance Document')"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_risk_assessments",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.get_risk_assessments",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1054, \"Unknown column 'risk_type' in 'SELECT'\")"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_safety_statistics",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.get_safety_statistics",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1054, \"Unknown column 'severity' in 'WHERE'\")"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_expiring_compliance",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.get_expiring_compliance",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "can only concatenate str (not \"int\") to str"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_critical_incidents",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.get_critical_incidents",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1054, \"Unknown column 'incident_type' in 'SELECT'\")"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "calculate_compliance_rate",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.safety.calculate_compliance_rate",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1146, \"Table '_d99b955afde9dd20.tabCompliance Document' doesn't exist\")"
+          },
+          "_debug_messages": "[\"Error in query:\\n('SELECT DISTINCT COUNT(*) FROM `tabCompliance Document`', {})\"]"
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      }
+    ],
+    "fleet": [
+      {
+        "method": "get_assets",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.fleet.get_assets",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1054, \"Unknown column 'current_value' in 'SELECT'\")"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_asset_categories",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.fleet.get_asset_categories",
+        "response": {
+          "message": {
+            "success": true,
+            "data": [
+              {
+                "name": "Fleet Parts",
+                "enable_cwip_accounting": 0
+              }
+            ],
+            "count": 1
+          }
+        },
+        "has_message": true,
+        "data_success": true,
+        "count": 1
+      },
+      {
+        "method": "get_work_orders",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.fleet.get_work_orders",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1054, \"Unknown column 'maintenance_date' in 'SELECT'\")"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_upcoming_maintenance",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.fleet.get_upcoming_maintenance",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "can only concatenate str (not \"int\") to str"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_fuel_logs",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.fleet.get_fuel_logs",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "('DocType', 'Fuel Log Entry')"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_fuel_stats",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.fleet.get_fuel_stats",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1146, \"Table '_d99b955afde9dd20.tabFuel Log Entry' doesn't exist\")"
+          },
+          "_debug_messages": "[\"Error in query:\\n('SELECT \\\\n                COUNT(*) as total_entries,\\\\n                SUM(quantity) as total_fuel,\\\\n                SUM(cost) as total_cost,\\\\n                AVG(quantity) as avg_quantity,\\\\n                AVG(cost) as avg_cost\\\\n            FROM `tabFuel Log Entry`\\\\n            WHERE date >= %(from_date)s', {'from_date': '2025-09-15'})\"]"
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      },
+      {
+        "method": "get_lifecycle_data",
+        "status": 200,
+        "success": true,
+        "endpoint": "http://localhost:8000/api/method/tems.api.pwa.fleet.get_lifecycle_data",
+        "response": {
+          "message": {
+            "success": false,
+            "message": "(1054, \"Unknown column 'a.current_value' in 'SELECT'\")"
+          }
+        },
+        "has_message": true,
+        "data_success": false,
+        "count": 0
+      }
+    ]
+  }
+}

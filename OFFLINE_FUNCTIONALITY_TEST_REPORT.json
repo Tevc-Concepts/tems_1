@@ -1,0 +1,266 @@
+{
+  "driver-pwa": {
+    "service_worker": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/driver-pwa/dist/sw.js",
+      "size_bytes": 4573,
+      "status": "PASS"
+    },
+    "sw_analysis": {
+      "analyzed": true,
+      "uses_workbox": true,
+      "has_precache": true,
+      "has_network_first": true,
+      "has_cache_first": true,
+      "has_stale_while_revalidate": false,
+      "has_api_cache": true,
+      "has_offline_fallback": false,
+      "has_cleanup": true,
+      "has_navigation_route": true,
+      "file_size": 4571,
+      "status": "PASS"
+    },
+    "manifest": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/driver-pwa/dist/manifest.webmanifest",
+      "valid_json": true,
+      "name": "TEMS Driver",
+      "short_name": "Driver",
+      "display": "standalone",
+      "theme_color": "#39ff14",
+      "background_color": "#e0e2db",
+      "start_url": "/driver-pwa/",
+      "scope": "/driver-pwa/",
+      "icons_count": 2,
+      "has_192x192": true,
+      "has_512x512": true,
+      "missing_fields": [],
+      "status": "PASS"
+    },
+    "icons": {
+      "icons": {
+        "192x192": {
+          "exists": true,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/driver-pwa/dist/pwa-192x192.png",
+          "size_bytes": 36116
+        },
+        "512x512": {
+          "exists": true,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/driver-pwa/dist/pwa-512x512.png",
+          "size_bytes": 270132
+        }
+      },
+      "all_exist": true,
+      "status": "PASS"
+    },
+    "index_html": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/driver-pwa/dist/index.html",
+      "has_viewport": true,
+      "has_theme_color": false,
+      "has_manifest_link": true,
+      "has_apple_touch_icon": false,
+      "has_sw_registration": true,
+      "file_size": 993,
+      "status": "PASS"
+    }
+  },
+  "operations-pwa": {
+    "service_worker": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/operations-pwa/dist/sw.js",
+      "size_bytes": 2193,
+      "status": "PASS"
+    },
+    "sw_analysis": {
+      "analyzed": true,
+      "uses_workbox": true,
+      "has_precache": true,
+      "has_network_first": true,
+      "has_cache_first": true,
+      "has_stale_while_revalidate": false,
+      "has_api_cache": true,
+      "has_offline_fallback": false,
+      "has_cleanup": true,
+      "has_navigation_route": true,
+      "file_size": 2191,
+      "status": "PASS"
+    },
+    "manifest": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/operations-pwa/dist/manifest.webmanifest",
+      "valid_json": true,
+      "name": "TEMS Operations",
+      "short_name": "Operations",
+      "display": "standalone",
+      "theme_color": "#0284c7",
+      "background_color": "#e0e2db",
+      "start_url": "/operations-pwa/",
+      "scope": "/operations-pwa/",
+      "icons_count": 2,
+      "has_192x192": true,
+      "has_512x512": true,
+      "missing_fields": [],
+      "status": "PASS"
+    },
+    "icons": {
+      "icons": {
+        "192x192": {
+          "exists": false,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/operations-pwa/dist/pwa-192x192.png",
+          "size_bytes": 0
+        },
+        "512x512": {
+          "exists": false,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/operations-pwa/dist/pwa-512x512.png",
+          "size_bytes": 0
+        }
+      },
+      "all_exist": false,
+      "status": "FAIL"
+    },
+    "index_html": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/operations-pwa/dist/index.html",
+      "has_viewport": true,
+      "has_theme_color": true,
+      "has_manifest_link": true,
+      "has_apple_touch_icon": false,
+      "has_sw_registration": true,
+      "file_size": 1118,
+      "status": "PASS"
+    }
+  },
+  "safety-pwa": {
+    "service_worker": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/safety-pwa/dist/sw.js",
+      "size_bytes": 2233,
+      "status": "PASS"
+    },
+    "sw_analysis": {
+      "analyzed": true,
+      "uses_workbox": true,
+      "has_precache": true,
+      "has_network_first": true,
+      "has_cache_first": true,
+      "has_stale_while_revalidate": false,
+      "has_api_cache": true,
+      "has_offline_fallback": false,
+      "has_cleanup": true,
+      "has_navigation_route": true,
+      "file_size": 2231,
+      "status": "PASS"
+    },
+    "manifest": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/safety-pwa/dist/manifest.webmanifest",
+      "valid_json": true,
+      "name": "TEMS Safety",
+      "short_name": "Safety",
+      "display": "standalone",
+      "theme_color": "#ef4444",
+      "background_color": "#e0e2db",
+      "start_url": "/safety-pwa/",
+      "scope": "/safety-pwa/",
+      "icons_count": 2,
+      "has_192x192": true,
+      "has_512x512": true,
+      "missing_fields": [],
+      "status": "PASS"
+    },
+    "icons": {
+      "icons": {
+        "192x192": {
+          "exists": false,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/safety-pwa/dist/pwa-192x192.png",
+          "size_bytes": 0
+        },
+        "512x512": {
+          "exists": false,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/safety-pwa/dist/pwa-512x512.png",
+          "size_bytes": 0
+        }
+      },
+      "all_exist": false,
+      "status": "FAIL"
+    },
+    "index_html": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/safety-pwa/dist/index.html",
+      "has_viewport": true,
+      "has_theme_color": true,
+      "has_manifest_link": true,
+      "has_apple_touch_icon": false,
+      "has_sw_registration": true,
+      "file_size": 1089,
+      "status": "PASS"
+    }
+  },
+  "fleet-pwa": {
+    "service_worker": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/fleet-pwa/dist/sw.js",
+      "size_bytes": 2198,
+      "status": "PASS"
+    },
+    "sw_analysis": {
+      "analyzed": true,
+      "uses_workbox": true,
+      "has_precache": true,
+      "has_network_first": true,
+      "has_cache_first": true,
+      "has_stale_while_revalidate": false,
+      "has_api_cache": true,
+      "has_offline_fallback": false,
+      "has_cleanup": true,
+      "has_navigation_route": true,
+      "file_size": 2196,
+      "status": "PASS"
+    },
+    "manifest": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/fleet-pwa/dist/manifest.webmanifest",
+      "valid_json": true,
+      "name": "TEMS Fleet",
+      "short_name": "Fleet",
+      "display": "standalone",
+      "theme_color": "#10b981",
+      "background_color": "#e0e2db",
+      "start_url": "/fleet-pwa/",
+      "scope": "/fleet-pwa/",
+      "icons_count": 2,
+      "has_192x192": true,
+      "has_512x512": true,
+      "missing_fields": [],
+      "status": "PASS"
+    },
+    "icons": {
+      "icons": {
+        "192x192": {
+          "exists": false,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/fleet-pwa/dist/pwa-192x192.png",
+          "size_bytes": 0
+        },
+        "512x512": {
+          "exists": false,
+          "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/fleet-pwa/dist/pwa-512x512.png",
+          "size_bytes": 0
+        }
+      },
+      "all_exist": false,
+      "status": "FAIL"
+    },
+    "index_html": {
+      "exists": true,
+      "path": "/workspace/development/frappe-bench/apps/tems/tems/public/frontend/fleet-pwa/dist/index.html",
+      "has_viewport": true,
+      "has_theme_color": true,
+      "has_manifest_link": true,
+      "has_apple_touch_icon": false,
+      "has_sw_registration": true,
+      "file_size": 1072,
+      "status": "PASS"
+    }
+  }
+}

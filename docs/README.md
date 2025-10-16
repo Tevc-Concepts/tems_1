@@ -6,6 +6,43 @@
 
 ## 📚 Documentation Structure
 
+### 🔗 [PWA URL Mapping](./PWA_URL_MAPPING.md)
+
+**Essential reference for PWA access URLs and architecture:**
+- Clean URL structure (`/operations`, `/safety`, `/fleet`, `/driver`)
+- Architecture and routing explanation
+- Authentication flow
+- Build and deployment process
+- Troubleshooting and best practices
+
+### 🔧 [PWA Asset Loading Fix](./PWA_ASSET_LOADING_FIX.md)
+
+**Technical guide for PWA asset synchronization:**
+- 404 error resolution for PWA assets
+- Vite hashed filename management
+- `www` and `dist` HTML synchronization
+- Post-build automation script
+- Deployment best practices
+
+### ⚠️ [PWA jQuery Conflict Fix](./PWA_JQUERY_CONFLICT_FIX.md)
+
+**Fix for "TypeError: t is not a function" error:**
+- Frappe base template interference issue
+- `skip_frappe_bundle` configuration
+- PWA standalone operation
+- Best practices for future PWAs
+- All PWAs (Operations, Safety, Fleet) working
+
+### 📋 [PWA Asset Fix Summary](./PWA_ASSET_FIX_SUMMARY.md)
+
+**Quick reference for the PWA asset loading fix:**
+- Issue summary and resolution
+- Files modified
+- Testing results
+- Future build instructions
+
+---
+
 ### 1. [Deployment Documentation](./deployment/)
 
 Production deployment guides and checklists:

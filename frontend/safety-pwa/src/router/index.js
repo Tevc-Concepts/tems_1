@@ -58,7 +58,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory('/assets/tems/frontend/safety-pwa/dist/'),
+    history: createWebHistory('/safety/'),
     routes
 })
 

@@ -1,0 +1,2 @@
+import{_ as o}from"./index-DQgvFvEv.js";import{g as a,i as t,f as n}from"./vue-vendor-CiCQoITm.js";import"./utils-2PtTei_Y.js";const s={},r={class:"p-6"};function m(c,e){return n(),a("div",r,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Route Management",-1),t("p",{class:"text-gray-600"},"Route management view - To be implemented",-1)])])}const p=o(s,[["render",m]]);export{p as default};
+//# sourceMappingURL=RouteManagement-CIt4kNAn.js.map

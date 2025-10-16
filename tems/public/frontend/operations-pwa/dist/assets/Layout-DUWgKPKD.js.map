@@ -1,1 +1,0 @@
-{"version":3,"file":"Layout-DUWgKPKD.js","sources":["../../../../../../frontend/operations-pwa/src/views/Layout.vue"],"sourcesContent":["<template>\n  <AppLayout />\n</template>\n\n<script setup>\nimport { AppLayout } from '@shared'\n</script>\n"],"names":["_createBlock","_unref","AppLayout"],"mappings":"iPACEA,EAAaC,EAAAC,CAAA,CAAA"}

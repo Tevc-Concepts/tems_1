@@ -1,0 +1,2 @@
+import{_ as s}from"./index-CB5-bSH7.js";import{g as a,i as e,f as o}from"./vue-vendor-CiCQoITm.js";import"./utils-CX__Uu54.js";const r={},n={class:"p-6"};function c(f,t){return o(),a("div",n,[...t[0]||(t[0]=[e("h1",{class:"text-2xl font-bold mb-6"},"Safety Audits",-1),e("p",{class:"text-gray-600"},"Safety audit management - To be implemented",-1)])])}const l=s(r,[["render",c]]);export{l as default};
+//# sourceMappingURL=SafetyAudits-WHDy_f7d.js.map

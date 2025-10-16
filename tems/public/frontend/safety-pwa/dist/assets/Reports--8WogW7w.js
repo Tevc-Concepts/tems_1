@@ -1,2 +1,0 @@
-import{_ as s}from"./index-CcWKIptE.js";import{g as o,i as t,f as r}from"./vue-vendor-CiCQoITm.js";import"./utils-CX__Uu54.js";const a={},n={class:"p-6"};function c(p,e){return r(),o("div",n,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Safety Reports",-1),t("p",{class:"text-gray-600"},"Safety reports and analytics - To be implemented",-1)])])}const m=s(a,[["render",c]]);export{m as default};
-//# sourceMappingURL=Reports--8WogW7w.js.map

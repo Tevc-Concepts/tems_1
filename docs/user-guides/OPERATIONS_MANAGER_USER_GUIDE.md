@@ -65,7 +65,7 @@ This guide will help you:
 
 **Step 1: Open Your Browser**
 - Use Chrome, Edge, Firefox, or Safari
-- Navigate to: `https://tems.yourdomain.com/assets/tems/frontend/operations-pwa/dist/index.html`
+- Navigate to: `https://tems.yourdomain.com/operations`
 
 **Step 2: Login**
 1. Enter your email address

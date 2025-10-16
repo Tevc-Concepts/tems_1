@@ -1,0 +1,93 @@
+{
+    "custom_fields": [
+        {
+            "dt": "Asset",
+            "fieldname": "custom_tyre_section",
+            "fieldtype": "Section Break",
+            "label": "Tyre Information",
+            "insert_after": "asset_category",
+            "collapsible": 1
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_is_tyre",
+            "fieldtype": "Check",
+            "label": "Is Tyre",
+            "insert_after": "custom_tyre_section",
+            "default": "0",
+            "description": "Check if this asset represents a tyre"
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_tyre_link",
+            "fieldtype": "Link",
+            "label": "Tyre Record",
+            "options": "Tyre",
+            "insert_after": "custom_is_tyre",
+            "depends_on": "eval:doc.custom_is_tyre==1",
+            "description": "Link to detailed tyre tracking record"
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_column_break_tyre1",
+            "fieldtype": "Column Break",
+            "insert_after": "custom_tyre_link",
+            "depends_on": "eval:doc.custom_is_tyre==1"
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_tyre_brand",
+            "fieldtype": "Data",
+            "label": "Tyre Brand",
+            "insert_after": "custom_column_break_tyre1",
+            "depends_on": "eval:doc.custom_is_tyre==1"
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_tyre_model",
+            "fieldtype": "Data",
+            "label": "Tyre Model",
+            "insert_after": "custom_tyre_brand",
+            "depends_on": "eval:doc.custom_is_tyre==1"
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_tyre_size",
+            "fieldtype": "Data",
+            "label": "Tyre Size",
+            "insert_after": "custom_tyre_model",
+            "depends_on": "eval:doc.custom_is_tyre==1",
+            "description": "E.g., 315/80R22.5"
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_section_break_tyre2",
+            "fieldtype": "Section Break",
+            "label": "Tyre Status",
+            "insert_after": "custom_tyre_size",
+            "depends_on": "eval:doc.custom_is_tyre==1",
+            "collapsible": 1
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_tyre_health_index",
+            "fieldtype": "Int",
+            "label": "Health Index",
+            "insert_after": "custom_section_break_tyre2",
+            "depends_on": "eval:doc.custom_is_tyre==1",
+            "read_only": 1,
+            "description": "AI-calculated health score (0-100)"
+        },
+        {
+            "dt": "Asset",
+            "fieldname": "custom_tyre_current_mileage",
+            "fieldtype": "Float",
+            "label": "Current Mileage (km)",
+            "insert_after": "custom_tyre_health_index",
+            "depends_on": "eval:doc.custom_is_tyre==1",
+            "read_only": 1
+        }
+    ],
+    "doctype": "Asset",
+    "sync_on_migrate": 1
+}

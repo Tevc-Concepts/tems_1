@@ -1,0 +1,87 @@
+{
+    "custom_fields": [
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_tyre_section",
+            "fieldtype": "Section Break",
+            "label": "Tyre Management",
+            "insert_after": "custom_tems_details",
+            "collapsible": 0
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_tyre_map",
+            "fieldtype": "JSON",
+            "label": "Tyre Position Map",
+            "insert_after": "custom_tyre_section",
+            "read_only": 1,
+            "description": "Auto-updated tyre position mapping showing which tyre is in which position"
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_column_break_tyre1",
+            "fieldtype": "Column Break",
+            "insert_after": "custom_tyre_map"
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_total_tyre_positions",
+            "fieldtype": "Int",
+            "label": "Total Tyre Positions",
+            "insert_after": "custom_column_break_tyre1",
+            "default": "6",
+            "description": "Number of tyre positions including spares (e.g., 6 for standard truck, 18 for tractor-trailer)"
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_section_break_tyre2",
+            "fieldtype": "Section Break",
+            "label": "Tyre Monitoring",
+            "insert_after": "custom_total_tyre_positions",
+            "collapsible": 1
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_last_tyre_inspection",
+            "fieldtype": "Date",
+            "label": "Last Tyre Inspection",
+            "insert_after": "custom_section_break_tyre2",
+            "read_only": 1
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_next_tyre_rotation_due",
+            "fieldtype": "Date",
+            "label": "Next Rotation Due",
+            "insert_after": "custom_last_tyre_inspection"
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_column_break_tyre3",
+            "fieldtype": "Column Break",
+            "insert_after": "custom_next_tyre_rotation_due"
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_tyre_alert_count",
+            "fieldtype": "Int",
+            "label": "Active Tyre Alerts",
+            "insert_after": "custom_column_break_tyre3",
+            "read_only": 1,
+            "default": "0",
+            "description": "Number of tyres requiring immediate attention"
+        },
+        {
+            "dt": "Vehicle",
+            "fieldname": "custom_avg_tyre_health",
+            "fieldtype": "Float",
+            "label": "Average Tyre Health",
+            "insert_after": "custom_tyre_alert_count",
+            "read_only": 1,
+            "precision": "1",
+            "description": "Average AI health index of all installed tyres (0-100)"
+        }
+    ],
+    "doctype": "Vehicle",
+    "sync_on_migrate": 1
+}

@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TINSP-{DD}{MM}{YY}-{#####}",
+ "creation": "2025-10-16 19:49:51.712904",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tyre",
+  "inspection_date",
+  "column_break_nqqs",
+  "inspector",
+  "inspection_type",
+  "measurements_section",
+  "pressure_psi",
+  "tread_depth_mm",
+  "column_break_oyqk",
+  "temperature_c",
+  "visual_inspection_section",
+  "visual_condition",
+  "damage_detected",
+  "damage_type",
+  "column_break_voxk",
+  "damage_severity",
+  "observations",
+  "ai_analysis_section",
+  "ai_condition_classification",
+  "ai_health_check",
+  "column_break_gkyb",
+  "ai_confidence_score",
+  "photo_attachment",
+  "action_required_section",
+  "action_required",
+  "column_break_jdfa",
+  "recommended_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "tyre",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tyre",
+   "options": "Tyre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inspection_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Inspection Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nqqs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspector",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Inspector",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inspection_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Inspection Type",
+   "options": "Routine\nPre-Trip\nPost-Trip\nIncident\nAI-Photo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "measurements_section",
+   "fieldtype": "Section Break",
+   "label": "Measurements"
+  },
+  {
+   "fieldname": "pressure_psi",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Pressure PSI"
+  },
+  {
+   "fieldname": "tread_depth_mm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Tread Depth (mm)"
+  },
+  {
+   "fieldname": "temperature_c",
+   "fieldtype": "Float",
+   "label": "Temperature (C)"
+  },
+  {
+   "fieldname": "column_break_oyqk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "visual_inspection_section",
+   "fieldtype": "Section Break",
+   "label": "Visual Inspection"
+  },
+  {
+   "fieldname": "visual_condition",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Visual Condition",
+   "options": "Good\nFair\nPoor"
+  },
+  {
+   "default": "0",
+   "fieldname": "damage_detected",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Damage Detected"
+  },
+  {
+   "fieldname": "damage_type",
+   "fieldtype": "Select",
+   "label": "Damage Type",
+   "options": "Cut\nBulge\nCrack\nPuncture\nUneven\nWear\nOther"
+  },
+  {
+   "fieldname": "column_break_voxk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "damage_severity",
+   "fieldtype": "Select",
+   "label": "Damage Severity",
+   "options": "Minor\nModerate\nSevere"
+  },
+  {
+   "fieldname": "observations",
+   "fieldtype": "Text",
+   "label": "Observations"
+  },
+  {
+   "fieldname": "ai_analysis_section",
+   "fieldtype": "Section Break",
+   "label": "AI Analysis"
+  },
+  {
+   "fieldname": "ai_condition_classification",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "AI Classification",
+   "options": "Good\nCaution\nReplace Soon\nReplace Immediately"
+  },
+  {
+   "fieldname": "ai_health_check",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "AI Health Check"
+  },
+  {
+   "fieldname": "ai_confidence_score",
+   "fieldtype": "Percent",
+   "label": "AI Confidence"
+  },
+  {
+   "fieldname": "photo_attachment",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "action_required_section",
+   "fieldtype": "Section Break",
+   "label": "Action Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "action_required",
+   "fieldtype": "Check",
+   "label": "Action Required"
+  },
+  {
+   "fieldname": "recommended_action",
+   "fieldtype": "Select",
+   "label": "Recommended Action",
+   "options": "Monitor\nRotate\nRepair\nReplace\nImmediate Replacement"
+  },
+  {
+   "fieldname": "column_break_gkyb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jdfa",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 20:08:08.166478",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Tyre Inspection Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

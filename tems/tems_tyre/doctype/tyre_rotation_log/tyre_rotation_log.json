@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TROT-{DD}{MM}{YY}-{#####}",
+ "creation": "2025-10-16 19:39:11.661793",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle",
+  "rotation_date",
+  "mileage_at_rotation",
+  "column_break_gsry",
+  "rotation_pattern",
+  "technician",
+  "cost",
+  "section_break_qjxx",
+  "tyre_movements",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rotation_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Rotation Date ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mileage_at_rotation",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Mileage",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gsry",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rotation_pattern",
+   "fieldtype": "Select",
+   "label": "Rotation Pattern",
+   "options": "Front-to-Rear\nCross\nCustom",
+   "reqd": 1
+  },
+  {
+   "fieldname": "technician",
+   "fieldtype": "Link",
+   "label": "Technician",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "section_break_qjxx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "tyre_movements",
+   "fieldtype": "Table",
+   "label": "Tyre Movements",
+   "options": "Tyre Rotation Item"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 19:49:24.085298",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Tyre Rotation Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

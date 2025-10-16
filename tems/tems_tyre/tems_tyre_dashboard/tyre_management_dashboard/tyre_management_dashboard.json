@@ -1,0 +1,47 @@
+{
+ "cards": [
+  {
+   "card": "Average Tyre Health"
+  },
+  {
+   "card": "Total Active Tyres"
+  },
+  {
+   "card": "Tyres Needing Attention"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Monthly Tyre Costs",
+   "width": "Half"
+  },
+  {
+   "chart": "Monthly Tyre Running Cost",
+   "width": "Half"
+  },
+  {
+   "chart": "Tyre Brand Spread",
+   "width": "Half"
+  },
+  {
+   "chart": "Brand Performance Comparison",
+   "width": "Half"
+  },
+  {
+   "chart": "Tyre Health Distribution",
+   "width": "Half"
+  }
+ ],
+ "creation": "2025-10-16 22:47:13.045153",
+ "dashboard_name": "Tyre Management Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2025-10-16 23:26:52.031991",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Tyre Management Dashboard",
+ "owner": "Administrator"
+}

@@ -18,3 +18,4 @@ TEMS Documents
 TEMS Insights
 TEMS Cargo
 TEMS Passenger
+TEMS Tyre

@@ -1,0 +1,180 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-10-16 20:20:14.112921",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_qfrv",
+  "sensor_id",
+  "tyre",
+  "timestamp",
+  "pressure_psi",
+  "alert_generated",
+  "column_break_qxyj",
+  "temperature_c",
+  "battery_level",
+  "signal_strength",
+  "speed_kmh",
+  "ai_status_flag"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_qfrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sensor_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sensor ID",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "tyre",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tyre",
+   "options": "Tyre",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Timestamp",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "pressure_psi",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Pressure (PSI)"
+  },
+  {
+   "fieldname": "temperature_c",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Temperature (\u00b0C)"
+  },
+  {
+   "fieldname": "battery_level",
+   "fieldtype": "Percent",
+   "label": "Battery Level (%)"
+  },
+  {
+   "fieldname": "signal_strength",
+   "fieldtype": "Int",
+   "label": "Signal Strength"
+  },
+  {
+   "fieldname": "speed_kmh",
+   "fieldtype": "Float",
+   "label": "Speed (Km/h)"
+  },
+  {
+   "default": "0",
+   "fieldname": "alert_generated",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Alert Generated"
+  },
+  {
+   "fieldname": "ai_status_flag",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "AI Status",
+   "options": "Normal\nWarning\nCritical",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "column_break_qxyj",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 21:30:10.072458",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Tyre Sensor Data",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Tech",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Technician",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

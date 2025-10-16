@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TINST-{DD}{MM}{YYYY}-{#####}",
+ "creation": "2025-10-16 19:17:38.363706",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tyre",
+  "link_rbfj",
+  "position",
+  "installation_date",
+  "column_break_uyhq",
+  "mileage_at_installation",
+  "removed_date",
+  "mileage_at_removal",
+  "technician",
+  "installation_cost",
+  "section_break_tpvs",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "tyre",
+   "fieldtype": "Link",
+   "label": "Tyre",
+   "options": "Tyre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "link_rbfj",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Position",
+   "options": "Front Left- FL\nFront Right- FR\nRear Left 1 - RL1\nRear Right 1 - RR1\nRear Left 2 - RL2\nRear Right 2 - RR2\nRear Left 3 - RL3\nRear Right 4 - RR3\nSpare",
+   "reqd": 1
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Installation Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_uyhq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mileage_at_installation",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Mileage At Installation"
+  },
+  {
+   "fieldname": "removed_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Removed Date"
+  },
+  {
+   "fieldname": "mileage_at_removal",
+   "fieldtype": "Float",
+   "label": "Mileage At Removal"
+  },
+  {
+   "fieldname": "technician",
+   "fieldtype": "Link",
+   "label": "Technician",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "installation_cost",
+   "fieldtype": "Currency",
+   "label": "Installation Cost"
+  },
+  {
+   "fieldname": "section_break_tpvs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 19:37:08.755210",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Tyre Installation Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

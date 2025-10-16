@@ -1,0 +1,471 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TYRE-{DD}{MM}{YYYY}-{#####}",
+ "creation": "2025-10-16 18:20:27.623827",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_uwup",
+  "tyre_id",
+  "brand",
+  "model",
+  "column_break_ueeb",
+  "size",
+  "tyre_type",
+  "serial_number",
+  "financial_section",
+  "cost",
+  "supplier",
+  "column_break_tzvr",
+  "warrant_months",
+  "location_tab",
+  "status_and_location_section",
+  "status",
+  "vehicle",
+  "column_break_ffgu",
+  "asset",
+  "warehouse",
+  "lifecycle_section",
+  "disposal_date",
+  "disposal_reason",
+  "column_break_aebe",
+  "scrap_value",
+  "predicted_replacement_date",
+  "technical_tab",
+  "technical_specification_section",
+  "load_index",
+  "speed_rating",
+  "column_break_pbzf",
+  "tread_pattern",
+  "ply_rating",
+  "mileage_and_usage_section",
+  "initial_tread_depth",
+  "last_tread_depth_mm",
+  "column_break_zfne",
+  "current_mileage",
+  "estimated_remaining_life",
+  "maintenance_and_inspection_section",
+  "last_inspection_date",
+  "last_pressure_psi",
+  "column_break_ohga",
+  "last_rotation_date",
+  "next_rotation_date",
+  "automation_tab",
+  "ai_and_sensors_section",
+  "pressure_sensor_id",
+  "ai_health_index",
+  "column_break_srlb",
+  "ai_health_status",
+  "last_health_check",
+  "additional_section",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_uwup",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "tyre_id",
+   "fieldtype": "Data",
+   "label": "Tyre ID",
+   "reqd": 1
+  },
+  {
+   "description": "Manufacturer (e.g., Michelin, Bridgestone)",
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Brand",
+   "reqd": 1
+  },
+  {
+   "description": "Tyre model number",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Model",
+   "reqd": 1
+  },
+  {
+   "description": "Size spec (e.g., 315/80R22.5)",
+   "fieldname": "size",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Size",
+   "reqd": 1
+  },
+  {
+   "description": "Position Type",
+   "fieldname": "tyre_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tyre Type",
+   "options": "Steer\nDrive\nTrailer\nSpare",
+   "reqd": 1
+  },
+  {
+   "description": "Manufacturer serial",
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number"
+  },
+  {
+   "fieldname": "financial_section",
+   "fieldtype": "Section Break",
+   "label": "Financial"
+  },
+  {
+   "description": "Acquisition Cost",
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Purchase Cost",
+   "reqd": 1
+  },
+  {
+   "description": "Vendor",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "description": "Warranty Period",
+   "fieldname": "warrant_months",
+   "fieldtype": "Int",
+   "label": "Warranty (Months)"
+  },
+  {
+   "fieldname": "column_break_ueeb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tzvr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location_tab",
+   "fieldtype": "Tab Break",
+   "label": "Location"
+  },
+  {
+   "fieldname": "status_and_location_section",
+   "fieldtype": "Section Break",
+   "label": "Status and Location"
+  },
+  {
+   "default": "In Stock",
+   "description": "Current Status",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "In Stock\nInstalled\nIn Repair\nRetread\nDisposed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "description": "ERPNext Asset reference ",
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset",
+   "options": "Asset"
+  },
+  {
+   "description": "Storage location (if in stock)",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "technical_tab",
+   "fieldtype": "Tab Break",
+   "label": "Technical"
+  },
+  {
+   "fieldname": "technical_specification_section",
+   "fieldtype": "Section Break",
+   "label": "Technical Specification"
+  },
+  {
+   "description": "Load Rating",
+   "fieldname": "load_index",
+   "fieldtype": "Int",
+   "label": "Load Index"
+  },
+  {
+   "description": "Speed Code",
+   "fieldname": "speed_rating",
+   "fieldtype": "Data",
+   "label": "Speed Rating"
+  },
+  {
+   "description": "Pattern Type",
+   "fieldname": "tread_pattern",
+   "fieldtype": "Select",
+   "label": "Tread Pattern",
+   "options": "Highway\nAll-Terrain\nMud\nWinter"
+  },
+  {
+   "description": "Strength rating",
+   "fieldname": "ply_rating",
+   "fieldtype": "Data",
+   "label": "Ply Rating"
+  },
+  {
+   "fieldname": "column_break_pbzf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mileage_and_usage_section",
+   "fieldtype": "Section Break",
+   "label": "Mileage and Usage"
+  },
+  {
+   "default": "16.0",
+   "description": "New tyre tread (default 16.0) ",
+   "fieldname": "initial_tread_depth",
+   "fieldtype": "Float",
+   "label": "Initial Tread Depth (mm)"
+  },
+  {
+   "description": "Most recent measurement ",
+   "fieldname": "last_tread_depth_mm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Last Tread Depth (mm)"
+  },
+  {
+   "description": "Total km traveled",
+   "fieldname": "current_mileage",
+   "fieldtype": "Float",
+   "label": "Current Mileage (km)"
+  },
+  {
+   "description": "Predicted km remaining",
+   "fieldname": "estimated_remaining_life",
+   "fieldtype": "Float",
+   "label": "Estimated Remaining Life (km)"
+  },
+  {
+   "fieldname": "column_break_zfne",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maintenance_and_inspection_section",
+   "fieldtype": "Section Break",
+   "label": "Maintenance and Inspection"
+  },
+  {
+   "description": "Most recent check",
+   "fieldname": "last_inspection_date",
+   "fieldtype": "Datetime",
+   "label": "Last Inspection"
+  },
+  {
+   "description": "Most recent reading ",
+   "fieldname": "last_pressure_psi",
+   "fieldtype": "Float",
+   "label": "Last Pressure (PSI)"
+  },
+  {
+   "description": "Last rotation event",
+   "fieldname": "last_rotation_date",
+   "fieldtype": "Date",
+   "label": "Last Rotation Date"
+  },
+  {
+   "description": "Scheduled Rotation",
+   "fieldname": "next_rotation_date",
+   "fieldtype": "Date",
+   "label": "Next Rotation Date"
+  },
+  {
+   "fieldname": "column_break_ohga",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ffgu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lifecycle_section",
+   "fieldtype": "Section Break",
+   "label": "Lifecycle"
+  },
+  {
+   "description": "End of Life date",
+   "fieldname": "disposal_date",
+   "fieldtype": "Date",
+   "label": "Disposal Date"
+  },
+  {
+   "description": "Reason for Disposal",
+   "fieldname": "disposal_reason",
+   "fieldtype": "Select",
+   "label": "Disposal Reason",
+   "options": "Worn Out\nDamaged\nDefect\nAge\nOther"
+  },
+  {
+   "description": "Residual Value",
+   "fieldname": "scrap_value",
+   "fieldtype": "Currency",
+   "label": "Scrap Value"
+  },
+  {
+   "description": "AI Forecast",
+   "fieldname": "predicted_replacement_date",
+   "fieldtype": "Date",
+   "label": "Predicted Replacement",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_aebe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "automation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Automation"
+  },
+  {
+   "fieldname": "ai_and_sensors_section",
+   "fieldtype": "Section Break",
+   "label": "AI and Sensors"
+  },
+  {
+   "description": "TPMS sensor identifier",
+   "fieldname": "pressure_sensor_id",
+   "fieldtype": "Data",
+   "label": "Pressure Sensor ID"
+  },
+  {
+   "description": "0-100 health score",
+   "fieldname": "ai_health_index",
+   "fieldtype": "Int",
+   "label": "AI Health Index"
+  },
+  {
+   "description": "AI classification",
+   "fieldname": "ai_health_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "AI Health Status",
+   "options": "Good\nCaution\nReplace Soon\nReplace Immediately"
+  },
+  {
+   "description": "Last AI calculation",
+   "fieldname": "last_health_check",
+   "fieldtype": "Datetime",
+   "label": "Last Health Check"
+  },
+  {
+   "fieldname": "column_break_srlb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "additional_section",
+   "fieldtype": "Section Break",
+   "label": "Additional"
+  },
+  {
+   "description": "Notes",
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 22:32:01.148753",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Tyre",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Tech",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Driver",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

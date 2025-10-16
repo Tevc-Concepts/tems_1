@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: TDISP-{DD}{MM}{YYYY}-{#####}",
+ "creation": "2025-10-16 20:52:58.207876",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tyre",
+  "vehicle",
+  "disposal_date",
+  "reason",
+  "finial_mileage",
+  "finial_tread_depth",
+  "disposal_method",
+  "scrap_value",
+  "disposal_cost",
+  "finial_cost_impact",
+  "recycler",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "tyre",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tyre",
+   "options": "Tyre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Last Vehicle ",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "disposal_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Disposal Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Reason",
+   "options": "Worn Out\nIrreparable Damage\nAge limit\nDefect\nAccident\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "finial_mileage",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Finial Mileage (Km)"
+  },
+  {
+   "fieldname": "finial_tread_depth",
+   "fieldtype": "Float",
+   "label": "Finial Tread Depth (mm)"
+  },
+  {
+   "fieldname": "disposal_method",
+   "fieldtype": "Select",
+   "label": "Disposal Method ",
+   "options": "Recycling\nRetread\nscrap\nResale",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scrap_value",
+   "fieldtype": "Currency",
+   "label": "Scrap Value"
+  },
+  {
+   "fieldname": "disposal_cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Disposal Cost"
+  },
+  {
+   "fieldname": "finial_cost_impact",
+   "fieldtype": "Currency",
+   "label": "Finial Cost Impact"
+  },
+  {
+   "fieldname": "recycler",
+   "fieldtype": "Link",
+   "label": "Recycler/ Buyer",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 21:32:29.506427",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Tyre Disposal Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Officer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Tech",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Technician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Manager",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

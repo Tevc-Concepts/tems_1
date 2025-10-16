@@ -1,111 +1,122 @@
 {
-    "doctype": "DocType",
-    "name": "Cost And Revenue Ledger",
-    "owner": "Administrator",
-    "creation": "2024-06-17 10:20:00.000000",
-    "modified": "2024-06-17 10:20:00.000000",
-    "modified_by": "Administrator",
-    "custom": 0,
-    "module": "TEMS Finance",
-    "engine": "InnoDB",
-    "field_order": [
-        "date",
-        "vehicle",
-        "type",
-        "amount",
-        "currency",
-        "asset",
-        "reference_doctype",
-        "reference_name",
-        "notes",
-        "source_type"
-    ],
-    "fields": [
-        {
-            "fieldname": "date",
-            "label": "Date",
-            "fieldtype": "Date",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "vehicle",
-            "label": "Vehicle",
-            "fieldtype": "Link",
-            "options": "Vehicle",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "type",
-            "label": "Type",
-            "fieldtype": "Select",
-            "options": "Cost\nRevenue",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "amount",
-            "label": "Amount",
-            "fieldtype": "Currency",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "currency",
-            "label": "Currency",
-            "fieldtype": "Link",
-            "options": "Currency",
-            "default": "USD"
-        },
-        {
-            "fieldname": "asset",
-            "label": "Asset (Breakdown)",
-            "fieldtype": "Link",
-            "options": "Asset"
-        },
-        {
-            "fieldname": "reference_doctype",
-            "label": "Reference DocType",
-            "fieldtype": "Data"
-        },
-        {
-            "fieldname": "reference_name",
-            "label": "Reference Name",
-            "fieldtype": "Dynamic Link",
-            "options": "reference_doctype"
-        },
-        {
-            "fieldname": "notes",
-            "label": "Notes",
-            "fieldtype": "Small Text"
-        },
-        {
-            "fieldname": "source_type",
-            "label": "Source Type",
-            "fieldtype": "Select",
-            "options": "Cargo\nPassenger",
-            "in_standard_filter": 1
-        }
-    ],
-    "permissions": [
-        {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "delete": 1
-        },
-        {
-            "role": "Finance Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1
-        },
-        {
-            "role": "Finance Officer",
-            "read": 1,
-            "write": 1
-        }
-    ]
+ "actions": [],
+ "creation": "2024-06-17 10:20:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "vehicle",
+  "type",
+  "amount",
+  "currency",
+  "column_break_sssx",
+  "asset",
+  "reference_doctype",
+  "reference_name",
+  "notes",
+  "source_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Cost\nRevenue",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "default": "USD",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "asset",
+   "fieldtype": "Link",
+   "label": "Asset (Breakdown)",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Name",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Source Type",
+   "options": "Cargo\nPassenger"
+  },
+  {
+   "fieldname": "column_break_sssx",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "links": [],
+ "modified": "2025-10-16 23:00:06.601031",
+ "modified_by": "Administrator",
+ "module": "TEMS Finance",
+ "name": "Cost And Revenue Ledger",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Finance Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Finance Officer",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
 }

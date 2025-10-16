@@ -259,6 +259,17 @@ doc_events = {
     },
     "Passenger Trip": {
         "validate": "tems.tems_passenger.handlers.trip.validate_vehicle_type"
+    },
+    # Tyre Management
+    "Tyre Installation Log": {
+        "after_insert": "tems.tems_tyre.handlers.tyre_lifecycle.on_tyre_install",
+        "on_update": "tems.tems_tyre.handlers.tyre_lifecycle.on_tyre_removal"
+    },
+    "Tyre Inspection Log": {
+        "after_insert": "tems.tems_tyre.handlers.tyre_lifecycle.on_tyre_inspection"
+    },
+    "Tyre Disposal Log": {
+        "after_insert": "tems.tems_tyre.handlers.tyre_lifecycle.on_tyre_disposal"
     }
 }
 
@@ -284,7 +295,11 @@ scheduler_events = {
         "tems.tems_people.tasks.remind_expiring_driver_docs",
         "tems.tems_supply_chain.tasks.low_stock_alert",
         # TEMS AI Module scheduled tasks
-        "tems.tems_ai.tasks.update_model_performance_metrics"
+        "tems.tems_ai.tasks.update_model_performance_metrics",
+        # TEMS Tyre Module scheduled tasks
+        "tems.tems_tyre.tasks.update_tyre_health_scores",
+        "tems.tems_tyre.tasks.predict_replacement_schedule",
+        "tems.tems_tyre.tasks.sync_tyre_costs_to_finance"
 	],
 	"cron": {
 		"0 1 * * *": ["tems.tasks.compute_nightly_jobs"],
@@ -300,14 +315,17 @@ scheduler_events = {
 	"hourly": [
 		"tems.tems_operations.tasks.hourly_sync_checkpoint",
         "tems.tems_operations.tasks.check_vehicle_availability",
+        "tems.tems_tyre.tasks.monitor_tyre_sensors",
         "tems.tems_ai.tasks.evaluate_alerts_hourly"  # AI: Hourly alert evaluation
 	],
 	"weekly": [
-		"tems.tems_operations.tasks.weekly_sync_checkpoint"
+		"tems.tems_operations.tasks.weekly_sync_checkpoint",
+                "tems.tems_tyre.tasks.analyze_fleet_tyre_performance" # Tyre: Weekly performance analysis
 	],
 	"monthly": [
 		"tems.tems_operations.tasks.monthly_sync_checkpoint",
-		"tems.tems_safety.tasks.aggregate_emissions_monthly"
+		"tems.tems_safety.tasks.aggregate_emissions_monthly",
+        "tems.tems_tyre.tasks.cleanup_old_sensor_data" # Tyre: Monthly sensor data cleanup
 	],
 }
 

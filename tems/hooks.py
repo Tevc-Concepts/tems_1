@@ -186,11 +186,11 @@ fixtures = [
     # "Tag",
 ]
 
-
 doc_events = {
     # Core Fleet assets
     "Vehicle": {
-        "on_update": "tems.tems_fleet.handlers.update_vehicle_profitability",
+        "on_update": ["tems.tems_fleet.handlers.update_vehicle_profitability",
+                      "tems.tems_fleet.api.vehicle.on_vehicle_update"],
         "on_submit": "tems.tems_fleet.handlers.validate_vehicle_assets"
     },
     "Asset": {
@@ -282,16 +282,25 @@ scheduler_events = {
         "tems.tems_operations.tasks.validate_driver_vehicle_assignments",
         "tems.tems_finance.tasks.update_fx_rates",
         "tems.tems_people.tasks.remind_expiring_driver_docs",
-        "tems.tems_supply_chain.tasks.low_stock_alert"
+        "tems.tems_supply_chain.tasks.low_stock_alert",
+        # TEMS AI Module scheduled tasks
+        "tems.tems_ai.tasks.update_model_performance_metrics"
 	],
 	"cron": {
 		"0 1 * * *": ["tems.tasks.compute_nightly_jobs"],
-		"0 2 * * *": ["tems.tasks.update_tariffs"],
+		"0 1 * * 1": ["tems.tems_ai.tasks.retrain_models_weekly"],  # AI: Monday 01:00 AM
+		"0 2 * * *": ["tems.tasks.update_tariffs", "tems.tems_ai.tasks.generate_daily_insights"],  # AI: 02:00 AM
 		"0 3 * * 1": ["tems.tasks.rotate_rosca"],
+		"0 3 * * 0": ["tems.tems_ai.tasks.cleanup_old_insights"],  # AI: Sunday 03:00 AM
+		"0 5 * * *": ["tems.tems_ai.tasks.calculate_driver_risk_scores"],  # AI: 05:00 AM
+		"0 6 * * *": ["tems.tems_ai.tasks.generate_fleet_maintenance_predictions"],  # AI: 06:00 AM
+		"0 7 * * *": ["tems.tems_ai.tasks.forecast_financial_metrics"],  # AI: 07:00 AM
+        "0 8 * * *": ["tems.tems_ai.tasks.send_daily_ai_summary"], # AI: 08:00 AM
 	},
 	"hourly": [
 		"tems.tems_operations.tasks.hourly_sync_checkpoint",
-        "tems.tems_operations.tasks.check_vehicle_availability"
+        "tems.tems_operations.tasks.check_vehicle_availability",
+        "tems.tems_ai.tasks.evaluate_alerts_hourly"  # AI: Hourly alert evaluation
 	],
 	"weekly": [
 		"tems.tems_operations.tasks.weekly_sync_checkpoint"

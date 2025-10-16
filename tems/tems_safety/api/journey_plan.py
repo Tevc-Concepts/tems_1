@@ -1,5 +1,6 @@
 import frappe
 from frappe import _
+from tems.tems_ai.handlers.safety_ai import predict_journey_risk
 
 
 def validate_driver_competence(doc, method=None):
@@ -39,3 +40,31 @@ def validate_driver_competence(doc, method=None):
 def after_insert(doc, method=None):
     # Placeholder for post-insert logic such as scheduling tracking or notifications
     pass
+
+
+# Assess driver risk before approving a journey.
+def validate_journey_plan(doc, method):
+    """
+    Validate journey plan using AI risk assessment.
+    """
+    # Get AI risk prediction
+    risk_assessment = predict_journey_risk(doc.name)
+    
+    # Store risk score
+    doc.risk_score = risk_assessment.get("overall_risk_score", 0)
+    doc.risk_level = risk_assessment.get("risk_level", "unknown")
+    
+    # Prevent submission if risk is too high
+    if risk_assessment.get("overall_risk_score", 0) > 70:
+        frappe.throw(
+            f"Journey risk too high: {risk_assessment.get('recommendation')}",
+            title="High Risk Journey"
+        )
+    
+    # Require additional approval for medium risk
+    if risk_assessment.get("overall_risk_score", 0) > 50:
+        doc.requires_supervisor_approval = 1
+        frappe.msgprint(
+            "This journey has elevated risk and requires supervisor approval",
+            indicator="orange"
+        )

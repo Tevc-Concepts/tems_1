@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:AI-CON-{DD}{MM}{YY}-{##}",
+ "creation": "2025-10-16 13:48:20.706613",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_2tfa",
+  "domain",
+  "insight_mode",
+  "model",
+  "enabled",
+  "column_break_rnrh",
+  "confidence_threshold",
+  "alert_threshold",
+  "alert_on_high_confidence"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_2tfa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "domain",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Domain",
+   "options": "fleet\noperations\nsafety\nfinance\ncargo\npassenger\ntyre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "insight_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Insight Mode",
+   "options": "forecast\nrisk\nnanomaly\nrecommendation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Model",
+   "options": "AI Model Registry"
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "confidence_threshold",
+   "fieldtype": "Float",
+   "label": "Confidence Threshold"
+  },
+  {
+   "fieldname": "alert_threshold",
+   "fieldtype": "Float",
+   "label": "Alert Threshold"
+  },
+  {
+   "default": "0",
+   "fieldname": "alert_on_high_confidence",
+   "fieldtype": "Check",
+   "label": "Alert on High Confidence"
+  },
+  {
+   "fieldname": "column_break_rnrh",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 14:58:46.820824",
+ "modified_by": "Administrator",
+ "module": "TEMS AI",
+ "name": "AI Configuration",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "TEMS Executive",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Dashboard Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

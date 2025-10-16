@@ -1,0 +1,35 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-10-16 15:46:46.352659",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-10-16 15:46:46.352659",
+ "modified_by": "Administrator",
+ "module": "TEMS AI",
+ "name": "Daily AI Summary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "AI Insight Log",
+ "report_name": "Daily AI Summary",
+ "report_script": "\nimport frappe\nfrom frappe.utils import today, add_days\nfrom tems.tems_ai.services.insights_engine import get_recent_insights\nfrom tems.tems_ai.services.alert_engine import get_active_alerts\n\ndef send_daily_ai_summary():\n    \"\"\"\n    Send daily AI summary email to executives.\n    Scheduled to run daily at 08:00 AM.\n    \"\"\"\n    # Get yesterday's insights\n    insights = get_recent_insights(domain=None, limit=50)\n    yesterday_insights = [\n        i for i in insights \n        if frappe.utils.getdate(i.get(\"creation\")) >= frappe.utils.add_days(today(), -1)\n    ]\n    \n    # Get active alerts\n    alerts = get_active_alerts(domain=None, limit=20)\n    \n    # Group by domain\n    insights_by_domain = {}\n    for insight in yesterday_insights:\n        domain = insight.get(\"domain\")\n        if domain not in insights_by_domain:\n            insights_by_domain[domain] = []\n        insights_by_domain[domain].append(insight)\n    \n    # Build email content\n    html_content = f\"\"\"\n    <h2>TEMS AI Daily Summary - {today()}</h2>\n    \n    <h3>Summary</h3>\n    <ul>\n        <li>Total Insights Generated: {len(yesterday_insights)}</li>\n        <li>Active Alerts: {len(alerts)}</li>\n    </ul>\n    \n    <h3>Insights by Domain</h3>\n    \"\"\"\n    \n    for domain, domain_insights in insights_by_domain.items():\n        html_content += f\"\"\"\n        <h4>{domain.title()}</h4>\n        <ul>\n        \"\"\"\n        for insight in domain_insights[:5]:  # Top 5 per domain\n            html_content += f\"\"\"\n            <li>\n                {insight.get(\"insight_type\")}: {insight.get(\"prediction_value\")} \n                (Confidence: {insight.get(\"confidence_score\", 0):.2f})\n            </li>\n            \"\"\"\n        html_content += \"</ul>\"\n    \n    html_content += \"\"\"\n    <h3>Active Alerts</h3>\n    <ul>\n    \"\"\"\n    \n    for alert in alerts[:10]:  # Top 10 alerts\n        html_content += f\"\"\"\n        <li>\n            <strong>{alert.get(\"domain\").upper()}</strong>: {alert.get(\"alert_message\")}\n        </li>\n        \"\"\"\n    \n    html_content += \"\"\"\n    </ul>\n    \n    <p>View full details in the AI Center workspace.</p>\n    \"\"\"\n    \n    # Send email\n    frappe.sendmail(\n        recipients=[\"executive@company.com\", \"operations@company.com\"],\n        subject=f\"TEMS AI Daily Summary - {today()}\",\n        message=html_content,\n        delayed=False\n    )",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "TEMS Executive"
+  },
+  {
+   "role": "Script Manager"
+  }
+ ],
+ "timeout": 0
+}

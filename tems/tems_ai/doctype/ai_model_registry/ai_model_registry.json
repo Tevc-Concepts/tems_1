@@ -1,0 +1,179 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:AI-MR-{DD}{MM}{YY}-{##}",
+ "creation": "2025-10-16 13:52:41.092618",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "model_name",
+  "model_type",
+  "domain",
+  "source",
+  "column_break_gdcf",
+  "endpoint_url",
+  "model_path",
+  "api_key",
+  "api_provider",
+  "enabled",
+  "parameters_section",
+  "auto_retrain",
+  "confidence_threshold",
+  "retrain_frequency",
+  "avg_confidence",
+  "column_break_mqzh",
+  "last_performance_check",
+  "last_trained_date",
+  "total_predictions"
+ ],
+ "fields": [
+  {
+   "fieldname": "model_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Model Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "model_type",
+   "fieldtype": "Select",
+   "label": "Model Type",
+   "options": "Regresssion\nClassification\nForecast\nNLP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "domain",
+   "fieldtype": "Select",
+   "label": "Domain",
+   "options": "fleet\noperations\nsafety\nfinance\ntyre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "label": "Source",
+   "options": "Local\nAPI\nExternal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "endpoint_url",
+   "fieldtype": "Data",
+   "label": "Endpoint URL"
+  },
+  {
+   "fieldname": "model_path",
+   "fieldtype": "Data",
+   "label": "Model Path"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key"
+  },
+  {
+   "fieldname": "api_provider",
+   "fieldtype": "Select",
+   "label": "API Provider",
+   "options": "openai\nazure_ml\ngemini\nclaude\ngrok\nhuggingface\ntensorflow_serving"
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "confidence_threshold",
+   "fieldtype": "Float",
+   "label": "Confidence Threshold"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_retrain",
+   "fieldtype": "Check",
+   "label": "Auto Retrain"
+  },
+  {
+   "fieldname": "retrain_frequency",
+   "fieldtype": "Select",
+   "label": "Retrain Frequency",
+   "options": "daily\nweekly\nmonthly"
+  },
+  {
+   "fieldname": "last_trained_date",
+   "fieldtype": "Datetime",
+   "label": "Last Trained Date"
+  },
+  {
+   "fieldname": "last_performance_check",
+   "fieldtype": "Datetime",
+   "label": "Last Performance Check"
+  },
+  {
+   "fieldname": "avg_confidence",
+   "fieldtype": "Float",
+   "label": "Avg Confidence"
+  },
+  {
+   "fieldname": "total_predictions",
+   "fieldtype": "Int",
+   "label": "Total Predictions"
+  },
+  {
+   "fieldname": "column_break_gdcf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parameters_section",
+   "fieldtype": "Section Break",
+   "label": "Parameters"
+  },
+  {
+   "fieldname": "column_break_mqzh",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-16 14:57:48.237031",
+ "modified_by": "Administrator",
+ "module": "TEMS AI",
+ "name": "AI Model Registry",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "model_name",
+ "track_changes": 1
+}

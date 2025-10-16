@@ -1,0 +1,72 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"H5jJlVoMEM\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">AI Center</span>\",\"col\":12}},{\"id\":\"dEQAH4HzxZ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"AI Generated Today\",\"col\":4}},{\"id\":\"WCfnZ4dFSK\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Ap3wzTAf_C\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"AI Insight Log\",\"col\":3}},{\"id\":\"_b5hBgpGiw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"AI Model Registry\",\"col\":3}},{\"id\":\"YXopxJbGjw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"AI Configuration\",\"col\":3}}]",
+ "creation": "2025-10-16 15:09:39.820645",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "unhide",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "AI Center",
+ "links": [],
+ "modified": "2025-10-16 15:16:11.346769",
+ "modified_by": "Administrator",
+ "module": "TEMS AI",
+ "name": "AI Center",
+ "number_cards": [
+  {
+   "label": "AI Generated Today",
+   "number_card_name": "Generated AI Today"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "TEMS",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "TEMS Executive"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Operations Manager"
+  },
+  {
+   "role": "Safety Manager"
+  }
+ ],
+ "sequence_id": 61.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "AI Insight Log",
+   "link_to": "AI Insight Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "AI Model Registry",
+   "link_to": "AI Model Registry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "AI Configuration",
+   "link_to": "AI Configuration",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "AI Center"
+}

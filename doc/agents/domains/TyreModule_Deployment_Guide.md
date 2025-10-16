@@ -780,6 +780,417 @@ def get_data(filters):
 
 ---
 
+### Report 4: Brand Performance Comparison
+
+**Type**: Script Report  
+**Module**: TEMS Tyre  
+**File**: `tems/tems_tyre/report/brand_performance_comparison/brand_performance_comparison.py`
+
+```python
+import frappe
+from frappe import _
+from frappe.utils import flt
+
+def execute(filters=None):
+    columns = get_columns()
+    data = get_data(filters)
+    chart = get_chart_data(data)
+    return columns, data, None, chart
+
+def get_columns():
+    return [
+        {"label": _("Brand"), "fieldname": "brand", "fieldtype": "Data", "width": 120},
+        {"label": _("Total Tyres"), "fieldname": "total_tyres", "fieldtype": "Int", "width": 100},
+        {"label": _("Active Tyres"), "fieldname": "active_tyres", "fieldtype": "Int", "width": 100},
+        {"label": _("Avg Health Index"), "fieldname": "avg_health", "fieldtype": "Float", "width": 120},
+        {"label": _("Avg Cost per km"), "fieldname": "avg_cost_per_km", "fieldtype": "Currency", "width": 120},
+        {"label": _("Total Mileage"), "fieldname": "total_mileage", "fieldtype": "Float", "width": 120},
+        {"label": _("Avg Lifespan (km)"), "fieldname": "avg_lifespan", "fieldtype": "Float", "width": 120},
+        {"label": _("Total Investment"), "fieldname": "total_investment", "fieldtype": "Currency", "width": 120},
+        {"label": _("Performance Score"), "fieldname": "performance_score", "fieldtype": "Float", "width": 120},
+        {"label": _("Recommendation"), "fieldname": "recommendation", "fieldtype": "Data", "width": 150}
+    ]
+
+def get_data(filters):
+    from tems.tems_tyre.utils.tyre_calculator import compare_tyre_performance
+    
+    # Get all brands
+    brands = frappe.db.sql("""
+        SELECT DISTINCT brand 
+        FROM `tabTyre` 
+        WHERE brand IS NOT NULL AND brand != ''
+        ORDER BY brand
+    """, as_list=True)
+    
+    data = []
+    for (brand,) in brands:
+        # Get brand statistics
+        brand_stats = frappe.db.sql("""
+            SELECT 
+                COUNT(*) as total_tyres,
+                COUNT(CASE WHEN status IN ('Installed', 'In Stock') THEN 1 END) as active_tyres,
+                AVG(CASE WHEN ai_health_index IS NOT NULL THEN ai_health_index END) as avg_health,
+                SUM(current_mileage) as total_mileage,
+                SUM(cost) as total_investment,
+                AVG(CASE WHEN current_mileage > 0 THEN current_mileage END) as avg_lifespan
+            FROM `tabTyre`
+            WHERE brand = %s
+        """, (brand,), as_dict=True)[0]
+        
+        # Calculate cost per km
+        total_cost = flt(brand_stats.total_investment)
+        total_km = flt(brand_stats.total_mileage)
+        avg_cost_per_km = total_cost / total_km if total_km > 0 else 0
+        
+        # Calculate performance score (0-100)
+        # Higher health + lower cost per km + higher lifespan = better score
+        health_score = flt(brand_stats.avg_health, 2) or 50
+        cost_score = min(100, (1 / (avg_cost_per_km + 0.01)) * 10) if avg_cost_per_km > 0 else 50
+        lifespan_score = min(100, (flt(brand_stats.avg_lifespan) / 1000)) if brand_stats.avg_lifespan else 50
+        
+        performance_score = (health_score * 0.4) + (cost_score * 0.3) + (lifespan_score * 0.3)
+        
+        # Generate recommendation
+        if performance_score >= 80:
+            recommendation = "Excellent - Recommended"
+        elif performance_score >= 60:
+            recommendation = "Good - Consider"
+        elif performance_score >= 40:
+            recommendation = "Average - Monitor"
+        else:
+            recommendation = "Below Average - Review"
+        
+        data.append({
+            "brand": brand,
+            "total_tyres": int(brand_stats.total_tyres),
+            "active_tyres": int(brand_stats.active_tyres),
+            "avg_health": round(health_score, 2),
+            "avg_cost_per_km": round(avg_cost_per_km, 2),
+            "total_mileage": round(total_km, 2),
+            "avg_lifespan": round(flt(brand_stats.avg_lifespan), 2),
+            "total_investment": total_cost,
+            "performance_score": round(performance_score, 2),
+            "recommendation": recommendation
+        })
+    
+    # Sort by performance score descending
+    data = sorted(data, key=lambda x: x['performance_score'], reverse=True)
+    
+    return data
+
+def get_chart_data(data):
+    labels = [d["brand"] for d in data[:10]]
+    health_values = [d["avg_health"] for d in data[:10]]
+    cost_values = [d["avg_cost_per_km"] for d in data[:10]]
+    
+    return {
+        "data": {
+            "labels": labels,
+            "datasets": [
+                {
+                    "name": "Avg Health Index",
+                    "values": health_values
+                },
+                {
+                    "name": "Cost per km (scaled)",
+                    "values": [v * 10 for v in cost_values]  # Scale for visibility
+                }
+            ]
+        },
+        "type": "bar",
+        "colors": ["#1ABC9C", "#E74C3C"]
+    }
+```
+
+**Filters**:
+- Date Range (optional)
+- Minimum Sample Size (default: 5 tyres)
+
+---
+
+### Report 5: Fleet Tyre Metrics
+
+**Type**: Script Report  
+**Module**: TEMS Tyre  
+**File**: `tems/tems_tyre/report/fleet_tyre_metrics/fleet_tyre_metrics.py`
+
+```python
+import frappe
+from frappe import _
+from frappe.utils import flt, getdate, add_days
+
+def execute(filters=None):
+    columns = get_columns()
+    data = get_data(filters)
+    summary = get_summary_data(data)
+    chart = get_chart_data(data)
+    
+    return columns, data, None, chart, summary
+
+def get_columns():
+    return [
+        {"label": _("Metric"), "fieldname": "metric", "fieldtype": "Data", "width": 250},
+        {"label": _("Value"), "fieldname": "value", "fieldtype": "Data", "width": 150},
+        {"label": _("Unit"), "fieldname": "unit", "fieldtype": "Data", "width": 100},
+        {"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 150},
+        {"label": _("Trend"), "fieldname": "trend", "fieldtype": "Data", "width": 100}
+    ]
+
+def get_data(filters):
+    from tems.tems_tyre.utils.tyre_calculator import calculate_fleet_tyre_metrics
+    
+    vehicle = filters.get("vehicle") if filters else None
+    metrics = calculate_fleet_tyre_metrics(vehicle)
+    
+    data = []
+    
+    # Fleet Overview
+    data.append({
+        "metric": "Total Active Tyres",
+        "value": str(metrics.get("total_tyres", 0)),
+        "unit": "tyres",
+        "status": "Active",
+        "trend": "→"
+    })
+    
+    data.append({
+        "metric": "Tyres on Vehicles",
+        "value": str(metrics.get("installed_tyres", 0)),
+        "unit": "tyres",
+        "status": "Installed",
+        "trend": "→"
+    })
+    
+    data.append({
+        "metric": "Tyres in Stock",
+        "value": str(metrics.get("stock_tyres", 0)),
+        "unit": "tyres",
+        "status": "Available",
+        "trend": "→"
+    })
+    
+    # Health Metrics
+    avg_health = metrics.get("avg_health_index", 0)
+    health_status = "Good" if avg_health >= 70 else "Caution" if avg_health >= 50 else "Critical"
+    
+    data.append({
+        "metric": "Average Health Index",
+        "value": f"{avg_health:.1f}",
+        "unit": "score",
+        "status": health_status,
+        "trend": get_health_trend(avg_health)
+    })
+    
+    # Alert Metrics
+    critical_tyres = metrics.get("critical_tyres", 0)
+    alert_status = "Critical" if critical_tyres > 5 else "Warning" if critical_tyres > 0 else "OK"
+    
+    data.append({
+        "metric": "Tyres Needing Immediate Attention",
+        "value": str(critical_tyres),
+        "unit": "tyres",
+        "status": alert_status,
+        "trend": "⚠️" if critical_tyres > 0 else "✓"
+    })
+    
+    data.append({
+        "metric": "Replacement Due (14 days)",
+        "value": str(metrics.get("replacement_due_soon", 0)),
+        "unit": "tyres",
+        "status": "Scheduled",
+        "trend": "→"
+    })
+    
+    # Financial Metrics
+    data.append({
+        "metric": "Total Tyre Investment",
+        "value": f"{metrics.get('total_investment', 0):,.2f}",
+        "unit": "currency",
+        "status": "Invested",
+        "trend": "↑"
+    })
+    
+    avg_cost_per_km = metrics.get("avg_cost_per_km", 0)
+    cost_status = "Excellent" if avg_cost_per_km < 3 else "Good" if avg_cost_per_km < 5 else "Review"
+    
+    data.append({
+        "metric": "Average Cost per km",
+        "value": f"{avg_cost_per_km:.2f}",
+        "unit": "currency/km",
+        "status": cost_status,
+        "trend": get_cost_trend(avg_cost_per_km)
+    })
+    
+    data.append({
+        "metric": "Monthly Tyre Spend (Current)",
+        "value": f"{metrics.get('monthly_spend', 0):,.2f}",
+        "unit": "currency",
+        "status": "Current Month",
+        "trend": "→"
+    })
+    
+    # Performance Metrics
+    data.append({
+        "metric": "Total Fleet Mileage on Tyres",
+        "value": f"{metrics.get('total_mileage', 0):,.0f}",
+        "unit": "km",
+        "status": "Cumulative",
+        "trend": "↑"
+    })
+    
+    avg_lifespan = metrics.get("avg_tyre_lifespan", 0)
+    lifespan_status = "Excellent" if avg_lifespan > 80000 else "Good" if avg_lifespan > 50000 else "Review"
+    
+    data.append({
+        "metric": "Average Tyre Lifespan",
+        "value": f"{avg_lifespan:,.0f}",
+        "unit": "km",
+        "status": lifespan_status,
+        "trend": get_lifespan_trend(avg_lifespan)
+    })
+    
+    # Maintenance Metrics
+    data.append({
+        "metric": "Inspections This Month",
+        "value": str(metrics.get("inspections_this_month", 0)),
+        "unit": "inspections",
+        "status": "Completed",
+        "trend": "→"
+    })
+    
+    data.append({
+        "metric": "Rotations This Month",
+        "value": str(metrics.get("rotations_this_month", 0)),
+        "unit": "rotations",
+        "status": "Completed",
+        "trend": "→"
+    })
+    
+    data.append({
+        "metric": "Tyres Disposed This Month",
+        "value": str(metrics.get("disposals_this_month", 0)),
+        "unit": "tyres",
+        "status": "End of Life",
+        "trend": "→"
+    })
+    
+    # Sensor Metrics
+    sensor_active = metrics.get("sensors_active", 0)
+    sensor_total = metrics.get("sensors_total", 0)
+    sensor_status = "OK" if sensor_active == sensor_total else "Check Required"
+    
+    data.append({
+        "metric": "Active Sensor Coverage",
+        "value": f"{sensor_active}/{sensor_total}",
+        "unit": "sensors",
+        "status": sensor_status,
+        "trend": "→"
+    })
+    
+    return data
+
+def get_summary_data(data):
+    """Generate summary cards for the report"""
+    summary = []
+    
+    # Extract key metrics
+    for row in data:
+        if row["metric"] == "Average Health Index":
+            summary.append({
+                "value": row["value"],
+                "label": "Fleet Health",
+                "datatype": "Data",
+                "indicator": "Green" if float(row["value"]) >= 70 else "Orange" if float(row["value"]) >= 50 else "Red"
+            })
+        elif row["metric"] == "Tyres Needing Immediate Attention":
+            summary.append({
+                "value": row["value"],
+                "label": "Action Required",
+                "datatype": "Int",
+                "indicator": "Red" if int(row["value"]) > 0 else "Green"
+            })
+        elif row["metric"] == "Average Cost per km":
+            summary.append({
+                "value": row["value"],
+                "label": "Avg Cost/km",
+                "datatype": "Currency",
+                "indicator": "Green" if float(row["value"]) < 5 else "Orange"
+            })
+    
+    return summary
+
+def get_chart_data(data):
+    """Generate chart for key metrics"""
+    labels = []
+    values = []
+    
+    # Select key metrics for chart
+    chart_metrics = [
+        "Average Health Index",
+        "Total Active Tyres",
+        "Tyres Needing Immediate Attention",
+        "Average Cost per km"
+    ]
+    
+    for row in data:
+        if row["metric"] in chart_metrics:
+            labels.append(row["metric"])
+            try:
+                values.append(float(row["value"].replace(",", "")))
+            except:
+                values.append(0)
+    
+    return {
+        "data": {
+            "labels": labels,
+            "datasets": [{"values": values}]
+        },
+        "type": "bar",
+        "colors": ["#3498DB"]
+    }
+
+def get_health_trend(health):
+    """Determine health trend indicator"""
+    if health >= 80:
+        return "↑"
+    elif health >= 60:
+        return "→"
+    else:
+        return "↓"
+
+def get_cost_trend(cost):
+    """Determine cost trend indicator"""
+    if cost < 3:
+        return "↓"  # Low cost is good
+    elif cost < 5:
+        return "→"
+    else:
+        return "↑"  # High cost is bad
+
+def get_lifespan_trend(lifespan):
+    """Determine lifespan trend indicator"""
+    if lifespan > 80000:
+        return "↑"
+    elif lifespan > 50000:
+        return "→"
+    else:
+        return "↓"
+```
+
+**Filters**:
+- Vehicle (optional - if provided, shows metrics for specific vehicle)
+- Date Range (optional - for time-based metrics)
+
+**Features**:
+- Real-time fleet-wide KPIs
+- Health, financial, and performance metrics
+- Trend indicators
+- Status classifications
+- Summary cards for dashboard
+- Interactive chart visualization
+
+---
+
 ### Dashboard: Tyre Management Dashboard
 
 **Number Cards**:

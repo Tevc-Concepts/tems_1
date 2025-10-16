@@ -1,0 +1,212 @@
+{
+ "charts": [
+  {
+   "chart_name": "Tyre Health Distribution",
+   "label": "Tyre Health Distribution"
+  },
+  {
+   "chart_name": "Replacement Predictions",
+   "label": "Replacement Predictions"
+  }
+ ],
+ "content": "[{\"id\":\"E69VW0e1ng\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Fleet Tyre Management</span>\",\"col\":12}},{\"id\":\"iZ5FIGFgbE\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Tyre Health Distribution\",\"col\":12}},{\"id\":\"JlZV1hZrIh\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Replacement Predictions\",\"col\":12}},{\"id\":\"RW7I2JQWKg\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"oel-R0U4hJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tyre\",\"col\":3}},{\"id\":\"wS3g5iySm-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tyre Installation Log\",\"col\":3}},{\"id\":\"3nddCYkwBt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tyre Inspection Log\",\"col\":3}},{\"id\":\"S04pxCbGIH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tyre Performance Analysis\",\"col\":3}},{\"id\":\"obysPQnoWk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tyre Replacement Schedule\",\"col\":3}},{\"id\":\"78LPMWD2bm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Tyre Cost Analysis\",\"col\":3}},{\"id\":\"w730enPCP4\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kXbc2ceFKE\",\"type\":\"card\",\"data\":{\"card_name\":\"Quick Actions\",\"col\":4}},{\"id\":\"hBrOOt8gTF\",\"type\":\"card\",\"data\":{\"card_name\":\"Monitoring\",\"col\":4}},{\"id\":\"QoD9iBbFUi\",\"type\":\"card\",\"data\":{\"card_name\":\"Analytics\",\"col\":4}}]",
+ "creation": "2025-10-16 21:55:53.454850",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "quantity-1",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Fleet Tyre Management",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Quick Actions",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Register New Tyre",
+   "link_count": 0,
+   "link_to": "Tyre",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Record Installation",
+   "link_count": 0,
+   "link_to": "Tyre Installation Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Conduct Inspection",
+   "link_count": 0,
+   "link_to": "Tyre Inspection Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Monitoring",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Replacement Schedule",
+   "link_count": 0,
+   "link_to": "Tyre Replacement Schedule",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Active Alerts",
+   "link_count": 0,
+   "link_to": "Tyre Alert Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tyre",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Analytics",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Performance by Brand",
+   "link_count": 0,
+   "link_to": "Tyre Performance Analysis",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Fleet Tyre Metrics",
+   "link_count": 0,
+   "link_to": "Fleet Tyre Metrics",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Tyre Brand Metrics",
+   "link_count": 0,
+   "link_to": "Brand Performance Comparison",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-10-17 00:00:02.918951",
+ "modified_by": "Administrator",
+ "module": "TEMS Tyre",
+ "name": "Fleet Tyre Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Fleet Manager",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Fleet Manager"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "TEMS Executive"
+  },
+  {
+   "role": "Fleet Officer"
+  },
+  {
+   "role": "Maintenance Manager"
+  }
+ ],
+ "sequence_id": 62.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Tyre",
+   "link_to": "Tyre",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Tyre Performance Analysis",
+   "link_to": "Tyre Performance Analysis",
+   "report_ref_doctype": "Tyre",
+   "type": "Report"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Tyre Installation Log",
+   "link_to": "Tyre Installation Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Tyre Cost Analysis",
+   "link_to": "Tyre Cost Analysis",
+   "report_ref_doctype": "Tyre",
+   "type": "Report"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Tyre Inspection Log",
+   "link_to": "Tyre Inspection Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Tyre Replacement Schedule",
+   "link_to": "Tyre Replacement Schedule",
+   "report_ref_doctype": "Tyre",
+   "type": "Report"
+  }
+ ],
+ "title": "Fleet Tyre Management"
+}

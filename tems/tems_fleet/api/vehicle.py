@@ -9,7 +9,7 @@ def on_vehicle_update(doc, method):
     Checks if maintenance is needed.
     """
     # first get the list of all email of user with role - fleet managers
-    fleet_manager_emails = frappe.get_all("User", filters={"roles": "Fleet Manager"}, fields=["email"])
+    fleet_manager_emails = frappe.get_all("User", filters={"role": "Fleet Manager"}, fields=["email"])
     
     # check if empty assign default platform support "code@tevcng.com"
     if not fleet_manager_emails:

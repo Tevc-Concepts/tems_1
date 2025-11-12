@@ -1,0 +1,9 @@
+{
+  "report_name": "Vehicle Profitability Detail",
+  "module": "TEMS Finance",
+  "is_standard": "Yes",
+  "ref_doctype": "Cost & Revenue Ledger",
+  "report_type": "Query Report",
+  "prepared_report": 0,
+  "query": "SELECT\n    crl.vehicle,\n    DATE_FORMAT(crl.posting_date, '%Y-%m') AS posting_month,\n    SUM(CASE WHEN crl.account = 'Revenue' THEN crl.credit - crl.debit ELSE 0 END) AS revenue,\n    SUM(CASE WHEN crl.account = 'Direct Cost' THEN crl.debit - crl.credit ELSE 0 END) AS direct_costs,\n    SUM(CASE WHEN crl.account = 'Tyre Expense' THEN crl.debit - crl.credit ELSE 0 END) AS tyre_cost,\n    SUM(crl.credit - crl.debit) AS net_profit,\n    (SUM(crl.credit - crl.debit) / NULLIF(SUM(CASE WHEN crl.account = 'Revenue' THEN crl.credit - crl.debit ELSE 0 END), 0)) * 100 AS margin_pct\nFROM `tabCost & Revenue Ledger` crl\nWHERE crl.posting_date BETWEEN %(from_date)s AND %(to_date)s\nGROUP BY crl.vehicle, posting_month\nORDER BY posting_month DESC, margin_pct DESC\nLIMIT 500"
+}

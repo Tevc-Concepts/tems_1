@@ -1,0 +1,165 @@
+{
+  "name": "tyre_intelligence",
+  "title": "Tyre Intelligence Dashboard",
+  "version": 1,
+  "description": "Live tyre health, cost efficiency, and sensor reliability for maintenance teams.",
+  "filters": [
+    {
+      "field": "vehicle",
+      "label": "Vehicle",
+      "type": "link",
+      "target": "Vehicle"
+    },
+    {
+      "field": "tyre_brand",
+      "label": "Brand",
+      "type": "link",
+      "target": "Tyre Brand"
+    },
+    {
+      "field": "axle_position",
+      "label": "Axle Position",
+      "type": "select",
+      "options": [
+        "All",
+        "Steer",
+        "Drive",
+        "Trailer"
+      ],
+      "default": "All"
+    }
+  ],
+  "layout": {
+    "rows": [
+      {
+        "columns": [
+          {
+            "width": 4,
+            "components": [
+              {
+                "id": "TYRE-KPI-01",
+                "type": "gauge",
+                "title": "Avg Tyre Health",
+                "query": "kpi_tyre_health_index",
+                "options": {
+                  "min": 0,
+                  "max": 100,
+                  "bands": [
+                    {
+                      "from": 0,
+                      "to": 50,
+                      "color": "#d32f2f"
+                    },
+                    {
+                      "from": 50,
+                      "to": 65,
+                      "color": "#f9a825"
+                    },
+                    {
+                      "from": 65,
+                      "to": 100,
+                      "color": "#388e3c"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "TYRE-KPI-02",
+                "type": "number",
+                "title": "Upcoming Replacements (7d)",
+                "query": "kpi_tyre_replacements_due",
+                "format": {
+                  "decimals": 0
+                },
+                "thresholds": {
+                  "warning": 15,
+                  "danger": 25
+                }
+              }
+            ]
+          },
+          {
+            "width": 8,
+            "components": [
+              {
+                "id": "TYRE-CH-01",
+                "type": "line",
+                "title": "Tyre Cost per Km Trend",
+                "query": "chart_tyre_cost_trend",
+                "options": {
+                  "x_field": "operating_date",
+                  "y_fields": [
+                    "tyre_cost_per_km"
+                  ],
+                  "time_series": true
+                }
+              },
+              {
+                "id": "TYRE-CH-02",
+                "type": "heatmap",
+                "title": "Sensor Temperature Heatmap",
+                "query": "chart_tyre_temp_heatmap",
+                "options": {
+                  "x_field": "hour_bucket",
+                  "y_field": "sensor_id",
+                  "value_field": "avg_temp"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "width": 12,
+            "components": [
+              {
+                "id": "TYRE-TBL-01",
+                "type": "table",
+                "title": "Sensors Offline > 10 Minutes",
+                "query": "table_tyre_sensor_offline",
+                "options": {
+                  "limit": 20,
+                  "order_by": "minutes_stale DESC"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drilldowns": {
+    "TYRE-KPI-01": {
+      "route": [
+        "List",
+        "Tyre"
+      ],
+      "filters": {
+        "status": "Active"
+      }
+    },
+    "TYRE-KPI-02": {
+      "route": [
+        "Report",
+        "Tyre Replacement Schedule"
+      ],
+      "filters": {}
+    },
+    "TYRE-CH-01": {
+      "route": [
+        "Report",
+        "Tyre Cost Trend"
+      ],
+      "filters": {}
+    },
+    "TYRE-TBL-01": {
+      "route": [
+        "Form",
+        "Tyre Sensor Data"
+      ],
+      "field": "sensor_id"
+    }
+  }
+}

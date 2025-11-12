@@ -1,0 +1,700 @@
+[
+  {
+    "id": "KPI-001",
+    "name": "Vehicle Utilization %",
+    "description": "Percentage of available time that vehicles spend in transit across the network.",
+    "formula": "(SUM(transit_minutes) / SUM(available_minutes)) * 100",
+    "aggregation_window": "day",
+    "doctypes": [
+      "Movement Log",
+      "Operation Plan"
+    ],
+    "fields": {
+      "Movement Log": [
+        "vehicle",
+        "status",
+        "from_timestamp",
+        "to_timestamp"
+      ],
+      "Operation Plan": [
+        "vehicle",
+        "planned_start",
+        "planned_end"
+      ]
+    },
+    "thresholds": {
+      "green": ">=85",
+      "yellow": "75-84",
+      "red": "<75"
+    },
+    "drilldown": {
+      "report": "Operations Service Level",
+      "doctype": "Movement Log"
+    },
+    "query": "SELECT vehicle, SUM(transit_minutes) / NULLIF(SUM(available_minutes),0) * 100 AS utilization_pct FROM ins_ops_vehicle_daily WHERE operating_date BETWEEN %(from_date)s AND %(to_date)s GROUP BY vehicle"
+  },
+  {
+    "id": "KPI-002",
+    "name": "Fleet Availability %",
+    "description": "Share of active vehicles that are ready for dispatch.",
+    "formula": "(COUNT(status = 'Available') / COUNT(active vehicles)) * 100",
+    "aggregation_window": "day",
+    "doctypes": [
+      "Vehicle",
+      "Maintenance Work Order"
+    ],
+    "fields": {
+      "Vehicle": [
+        "name",
+        "status",
+        "depot"
+      ],
+      "Maintenance Work Order": [
+        "vehicle",
+        "status",
+        "schedule_start",
+        "schedule_end"
+      ]
+    },
+    "thresholds": {
+      "green": ">=90",
+      "yellow": "80-89",
+      "red": "<80"
+    },
+    "drilldown": {
+      "doctype": "Vehicle",
+      "route_filters": {
+        "status": "Available"
+      }
+    },
+    "query": "SELECT depot, (SUM(CASE WHEN status = 'Available' THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS availability_pct FROM tabVehicle WHERE disabled = 0 GROUP BY depot"
+  },
+  {
+    "id": "KPI-003",
+    "name": "Average Turnaround Time (hrs)",
+    "description": "Average duration between pickup and delivery for completed operations.",
+    "formula": "AVG(TIMESTAMPDIFF(HOUR, pickup_ts, delivery_ts))",
+    "aggregation_window": "rolling_7d",
+    "doctypes": [
+      "Movement Log"
+    ],
+    "fields": {
+      "Movement Log": [
+        "operation_plan",
+        "pickup_ts",
+        "delivery_ts",
+        "status"
+      ]
+    },
+    "thresholds": {
+      "green": "<=6",
+      "yellow": "6-8",
+      "red": ">8"
+    },
+    "drilldown": {
+      "report": "Operations Turnaround Detail",
+      "doctype": "Movement Log"
+    },
+    "query": "SELECT operation_plan, AVG(TIMESTAMPDIFF(MINUTE, pickup_ts, delivery_ts))/60 AS turnaround_hours FROM `tabMovement Log` WHERE status = 'Delivered' AND delivery_ts >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY operation_plan"
+  },
+  {
+    "id": "KPI-004",
+    "name": "On-Time Delivery %",
+    "description": "Percentage of trips delivered on or before the expected arrival time.",
+    "formula": "(On-time deliveries / Total deliveries) * 100",
+    "aggregation_window": "day",
+    "doctypes": [
+      "Movement Log",
+      "Operation Plan"
+    ],
+    "fields": {
+      "Movement Log": [
+        "name",
+        "operation_plan",
+        "actual_delivery_ts"
+      ],
+      "Operation Plan": [
+        "name",
+        "expected_arrival"
+      ]
+    },
+    "thresholds": {
+      "green": ">=95",
+      "yellow": "90-94",
+      "red": "<90"
+    },
+    "drilldown": {
+      "report": "Operations Service Level",
+      "doctype": "Movement Log"
+    },
+    "query": "SELECT COUNT(CASE WHEN ml.actual_delivery_ts <= op.expected_arrival THEN 1 END) / NULLIF(COUNT(*),0) * 100 AS on_time_pct FROM `tabMovement Log` ml JOIN `tabOperation Plan` op ON op.name = ml.operation_plan WHERE ml.status = 'Delivered' AND ml.delivery_date BETWEEN %(from_date)s AND %(to_date)s"
+  },
+  {
+    "id": "KPI-005",
+    "name": "In-Transit Vehicles",
+    "description": "Number of vehicles currently marked as In Transit.",
+    "formula": "COUNT(status = 'In Transit')",
+    "aggregation_window": "real_time",
+    "doctypes": [
+      "Movement Log"
+    ],
+    "fields": {
+      "Movement Log": [
+        "vehicle",
+        "status",
+        "last_status_change"
+      ]
+    },
+    "thresholds": {
+      "green": ">=planned",
+      "yellow": "planned-10%",
+      "red": "planned-20%"
+    },
+    "drilldown": {
+      "doctype": "Movement Log",
+      "route_filters": {
+        "status": "In Transit"
+      }
+    },
+    "query": "SELECT COUNT(*) AS in_transit FROM `tabMovement Log` WHERE status = 'In Transit' AND last_status_change >= NOW() - INTERVAL 1 HOUR"
+  },
+  {
+    "id": "KPI-006",
+    "name": "Tyre Health Index Avg",
+    "description": "Average health index across all active tyres.",
+    "formula": "AVG(health_index)",
+    "aggregation_window": "5_min",
+    "doctypes": [
+      "Tyre"
+    ],
+    "fields": {
+      "Tyre": [
+        "name",
+        "vehicle",
+        "health_index",
+        "status"
+      ]
+    },
+    "thresholds": {
+      "green": ">=80",
+      "yellow": "65-79",
+      "red": "<65"
+    },
+    "drilldown": {
+      "doctype": "Tyre",
+      "route_filters": {
+        "status": "Active"
+      }
+    },
+    "query": "SELECT AVG(health_index) AS avg_health FROM `tabTyre` WHERE status = 'Active'"
+  },
+  {
+    "id": "KPI-007",
+    "name": "Tyre Cost per Km",
+    "description": "Tyre-related expenditure divided by kilometres travelled.",
+    "formula": "SUM(tyre_cost) / SUM(distance_km)",
+    "aggregation_window": "month",
+    "doctypes": [
+      "Cost & Revenue Ledger",
+      "Movement Log",
+      "Tyre Installation Log"
+    ],
+    "fields": {
+      "Cost & Revenue Ledger": [
+        "posting_date",
+        "vehicle",
+        "asset",
+        "amount",
+        "account"
+      ],
+      "Movement Log": [
+        "vehicle",
+        "distance_km",
+        "status"
+      ],
+      "Tyre Installation Log": [
+        "tyre",
+        "vehicle"
+      ]
+    },
+    "thresholds": {
+      "green": "<=25",
+      "yellow": "26-35",
+      "red": ">35"
+    },
+    "drilldown": {
+      "report": "Tyre Cost Breakdown",
+      "doctype": "Tyre"
+    },
+    "query": "SELECT ml.vehicle, SUM(CASE WHEN crl.account = 'Tyre Expense' THEN crl.amount ELSE 0 END) / NULLIF(SUM(ml.distance_km),0) AS tyre_cost_per_km FROM `tabMovement Log` ml LEFT JOIN `tabCost & Revenue Ledger` crl ON crl.vehicle = ml.vehicle AND crl.posting_date BETWEEN %(from_month)s AND %(to_month)s GROUP BY ml.vehicle"
+  },
+  {
+    "id": "KPI-008",
+    "name": "Predictive Failure Risk Score",
+    "description": "Highest AI-predicted failure probability per vehicle in the lookback window.",
+    "formula": "MAX(confidence)",
+    "aggregation_window": "hour",
+    "doctypes": [
+      "AI Insight Log"
+    ],
+    "fields": {
+      "AI Insight Log": [
+        "vehicle",
+        "prediction_type",
+        "confidence",
+        "prediction_window_days",
+        "created_at"
+      ]
+    },
+    "thresholds": {
+      "green": "<=0.4",
+      "yellow": "0.41-0.7",
+      "red": ">0.7"
+    },
+    "drilldown": {
+      "doctype": "AI Insight Log",
+      "route_filters": {
+        "prediction_type": "failure"
+      }
+    },
+    "query": "SELECT vehicle, MAX(confidence) AS max_confidence FROM `tabAI Insight Log` WHERE prediction_type = 'failure' AND created_at >= NOW() - INTERVAL 1 HOUR GROUP BY vehicle"
+  },
+  {
+    "id": "KPI-009",
+    "name": "Maintenance Backlog",
+    "description": "Open or scheduled maintenance work orders.",
+    "formula": "COUNT(status IN ('Open','Scheduled'))",
+    "aggregation_window": "day",
+    "doctypes": [
+      "Maintenance Work Order"
+    ],
+    "fields": {
+      "Maintenance Work Order": [
+        "name",
+        "vehicle",
+        "status",
+        "schedule_start",
+        "priority"
+      ]
+    },
+    "thresholds": {
+      "green": "<=15",
+      "yellow": "16-30",
+      "red": ">30"
+    },
+    "drilldown": {
+      "doctype": "Maintenance Work Order",
+      "route_filters": {
+        "status": [
+          "Open",
+          "Scheduled"
+        ]
+      }
+    },
+    "query": "SELECT COUNT(*) AS backlog FROM `tabMaintenance Work Order` WHERE status IN ('Open','Scheduled')"
+  },
+  {
+    "id": "KPI-010",
+    "name": "MTBF (days)",
+    "description": "Mean number of days between recorded failures per asset.",
+    "formula": "AVG(days_between_failures)",
+    "aggregation_window": "rolling_90d",
+    "doctypes": [
+      "Maintenance Work Order"
+    ],
+    "fields": {
+      "Maintenance Work Order": [
+        "asset",
+        "closed_on",
+        "failure_type"
+      ]
+    },
+    "thresholds": {
+      "green": ">=45",
+      "yellow": "30-44",
+      "red": "<30"
+    },
+    "drilldown": {
+      "report": "Maintenance Failure History",
+      "doctype": "Maintenance Work Order"
+    },
+    "query": "WITH ordered_failures AS (SELECT asset, closed_on, LAG(closed_on) OVER (PARTITION BY asset ORDER BY closed_on) AS previous_closed FROM `tabMaintenance Work Order` WHERE status = 'Closed' AND closed_on >= DATE_SUB(CURDATE(), INTERVAL 120 DAY)) SELECT asset, AVG(DATEDIFF(closed_on, previous_closed)) AS mtbf FROM ordered_failures WHERE previous_closed IS NOT NULL GROUP BY asset"
+  },
+  {
+    "id": "KPI-011",
+    "name": "Fuel Efficiency (km/l)",
+    "description": "Distance travelled per litre of fuel consumed.",
+    "formula": "SUM(distance_km) / SUM(liters)",
+    "aggregation_window": "week",
+    "doctypes": [
+      "Fuel Log",
+      "Movement Log"
+    ],
+    "fields": {
+      "Fuel Log": [
+        "vehicle",
+        "posting_date",
+        "liters"
+      ],
+      "Movement Log": [
+        "vehicle",
+        "distance_km",
+        "status",
+        "from_timestamp",
+        "to_timestamp"
+      ]
+    },
+    "thresholds": {
+      "green": ">=4.5",
+      "yellow": "3.5-4.4",
+      "red": "<3.5"
+    },
+    "drilldown": {
+      "report": "Fuel Efficiency Detail",
+      "doctype": "Fuel Log"
+    },
+    "query": "SELECT fl.vehicle, SUM(ml.distance_km) / NULLIF(SUM(fl.liters),0) AS km_per_litre FROM `tabFuel Log` fl JOIN `tabMovement Log` ml ON ml.vehicle = fl.vehicle AND ml.from_timestamp BETWEEN %(from_date)s AND %(to_date)s GROUP BY fl.vehicle"
+  },
+  {
+    "id": "KPI-012",
+    "name": "Revenue per Vehicle-Day",
+    "description": "Net revenue earned per active vehicle-day.",
+    "formula": "SUM(net_revenue) / SUM(active_vehicle_days)",
+    "aggregation_window": "day",
+    "doctypes": [
+      "Cost & Revenue Ledger",
+      "ins_ops_vehicle_daily"
+    ],
+    "fields": {
+      "Cost & Revenue Ledger": [
+        "vehicle",
+        "posting_date",
+        "debit",
+        "credit",
+        "currency"
+      ],
+      "ins_ops_vehicle_daily": [
+        "vehicle",
+        "operating_date",
+        "active_flag"
+      ]
+    },
+    "thresholds": {
+      "green": ">=180000",
+      "yellow": "150000-179999",
+      "red": "<150000"
+    },
+    "drilldown": {
+      "report": "Vehicle Profitability Detail",
+      "doctype": "Cost & Revenue Ledger"
+    },
+    "query": "SELECT vehicle, SUM(credit - debit) / NULLIF(SUM(active_flag),0) AS revenue_per_day FROM `tabCost & Revenue Ledger` crl JOIN ins_ops_vehicle_daily vod ON vod.vehicle = crl.vehicle AND vod.operating_date = crl.posting_date WHERE crl.posting_date BETWEEN %(from_date)s AND %(to_date)s GROUP BY vehicle"
+  },
+  {
+    "id": "KPI-013",
+    "name": "Gross Margin %",
+    "description": "Percentage margin after direct costs per vehicle/month.",
+    "formula": "((Revenue - Direct Cost) / Revenue) * 100",
+    "aggregation_window": "month",
+    "doctypes": [
+      "Cost & Revenue Ledger"
+    ],
+    "fields": {
+      "Cost & Revenue Ledger": [
+        "vehicle",
+        "posting_date",
+        "account",
+        "credit",
+        "debit",
+        "currency"
+      ]
+    },
+    "thresholds": {
+      "green": ">=22",
+      "yellow": "18-21",
+      "red": "<18"
+    },
+    "drilldown": {
+      "doctype": "Cost & Revenue Ledger",
+      "route_filters": {
+        "account": [
+          "Revenue",
+          "Direct Cost"
+        ]
+      }
+    },
+    "query": "SELECT vehicle, ((SUM(CASE WHEN account = 'Revenue' THEN credit - debit ELSE 0 END) - SUM(CASE WHEN account = 'Direct Cost' THEN debit - credit ELSE 0 END)) / NULLIF(SUM(CASE WHEN account = 'Revenue' THEN credit - debit ELSE 0 END),0)) * 100 AS margin_pct FROM `tabCost & Revenue Ledger` WHERE posting_date BETWEEN %(from_month)s AND %(to_month)s GROUP BY vehicle"
+  },
+  {
+    "id": "KPI-014",
+    "name": "Outstanding Compliance Items",
+    "description": "Open compliance checklist items across drivers, vehicles, and policies.",
+    "formula": "COUNT(status = 'Open')",
+    "aggregation_window": "day",
+    "doctypes": [
+      "Document Checklist Item",
+      "Driver Qualification"
+    ],
+    "fields": {
+      "Document Checklist Item": [
+        "reference_doctype",
+        "reference_name",
+        "status",
+        "valid_to"
+      ],
+      "Driver Qualification": [
+        "employee",
+        "expiry_date"
+      ]
+    },
+    "thresholds": {
+      "green": "<=10",
+      "yellow": "11-20",
+      "red": ">20"
+    },
+    "drilldown": {
+      "doctype": "Document Checklist Item",
+      "route_filters": {
+        "status": "Open"
+      }
+    },
+    "query": "SELECT reference_doctype, COUNT(*) AS open_items FROM `tabDocument Checklist Item` WHERE status = 'Open' GROUP BY reference_doctype"
+  },
+  {
+    "id": "KPI-015",
+    "name": "Incident Frequency Rate",
+    "description": "Incidents per 100 completed trips.",
+    "formula": "(Incidents / Trips Completed) * 100",
+    "aggregation_window": "month",
+    "doctypes": [
+      "Incident Report",
+      "Movement Log"
+    ],
+    "fields": {
+      "Incident Report": [
+        "incident_date",
+        "vehicle",
+        "severity"
+      ],
+      "Movement Log": [
+        "status",
+        "vehicle",
+        "delivery_date"
+      ]
+    },
+    "thresholds": {
+      "green": "<=1.5",
+      "yellow": "1.5-2.0",
+      "red": ">2.0"
+    },
+    "drilldown": {
+      "doctype": "Incident Report",
+      "route_filters": {
+        "severity": [
+          "High",
+          "Critical"
+        ]
+      }
+    },
+    "query": "SELECT (COUNT(ir.name) / NULLIF(COUNT(CASE WHEN ml.status = 'Delivered' THEN 1 END),0)) * 100 AS incident_rate FROM `tabIncident Report` ir LEFT JOIN `tabMovement Log` ml ON ml.vehicle = ir.vehicle AND ml.status = 'Delivered' AND ml.delivery_date BETWEEN %(from_date)s AND %(to_date)s WHERE ir.incident_date BETWEEN %(from_date)s AND %(to_date)s"
+  },
+  {
+    "id": "KPI-016",
+    "name": "Driver Risk Score",
+    "description": "Composite driver risk score blending incidents, spot checks, and AI predictions.",
+    "formula": "(incidents*15) + (spot_nonconformances*10) + (ai_score*60)",
+    "aggregation_window": "week",
+    "doctypes": [
+      "Incident Report",
+      "Spot Check",
+      "AI Insight Log"
+    ],
+    "fields": {
+      "Incident Report": [
+        "driver",
+        "incident_date",
+        "severity"
+      ],
+      "Spot Check": [
+        "driver",
+        "total_findings",
+        "severity"
+      ],
+      "AI Insight Log": [
+        "prediction_type",
+        "subject",
+        "score_json"
+      ]
+    },
+    "thresholds": {
+      "green": "<=30",
+      "yellow": "31-50",
+      "red": ">50"
+    },
+    "drilldown": {
+      "doctype": "Employee",
+      "route_filters": {
+        "driver_status": "Active"
+      }
+    },
+    "query": "SELECT driver, (COUNT(ir.name)*15) + (SUM(sc.total_findings)*10) + (MAX(CASE WHEN ai.prediction_type = 'driver_risk' THEN ai.confidence ELSE 0 END)*60) AS risk_score FROM `tabEmployee` drv LEFT JOIN `tabIncident Report` ir ON ir.driver = drv.name AND ir.incident_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) LEFT JOIN `tabSpot Check` sc ON sc.driver = drv.name AND sc.creation >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) LEFT JOIN `tabAI Insight Log` ai ON ai.subject = drv.name AND ai.prediction_type = 'driver_risk' AND ai.created_at >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY driver"
+  },
+  {
+    "id": "KPI-017",
+    "name": "Cargo OTIF %",
+    "description": "Cargo deliveries on time and in full compared to total deliveries.",
+    "formula": "(On time & full deliveries / total deliveries) * 100",
+    "aggregation_window": "week",
+    "doctypes": [
+      "Cargo Consignment"
+    ],
+    "fields": {
+      "Cargo Consignment": [
+        "name",
+        "expected_delivery_date",
+        "actual_delivery_date",
+        "ordered_qty",
+        "delivered_qty"
+      ]
+    },
+    "thresholds": {
+      "green": ">=95",
+      "yellow": "90-94",
+      "red": "<90"
+    },
+    "drilldown": {
+      "doctype": "Cargo Consignment",
+      "route_filters": {
+        "status": "Delivered"
+      }
+    },
+    "query": "SELECT SUM(CASE WHEN actual_delivery_date <= expected_delivery_date AND delivered_qty >= ordered_qty THEN 1 ELSE 0 END) / NULLIF(COUNT(*),0) * 100 AS otif_pct FROM `tabCargo Consignment` WHERE actual_delivery_date BETWEEN %(from_date)s AND %(to_date)s"
+  },
+  {
+    "id": "KPI-018",
+    "name": "Passenger Occupancy Ratio",
+    "description": "Seats sold divided by total capacity across passenger trips.",
+    "formula": "SUM(booked_seats) / SUM(capacity)",
+    "aggregation_window": "day",
+    "doctypes": [
+      "Passenger Trip"
+    ],
+    "fields": {
+      "Passenger Trip": [
+        "route",
+        "departure_time",
+        "booked_seats",
+        "capacity",
+        "status"
+      ]
+    },
+    "thresholds": {
+      "green": ">=80",
+      "yellow": "65-79",
+      "red": "<65"
+    },
+    "drilldown": {
+      "doctype": "Passenger Trip",
+      "route_filters": {
+        "status": "Completed"
+      }
+    },
+    "query": "SELECT route, SUM(booked_seats) / NULLIF(SUM(capacity),0) AS occupancy_ratio FROM `tabPassenger Trip` WHERE departure_time BETWEEN %(from_date)s AND %(to_date)s GROUP BY route"
+  },
+  {
+    "id": "KPI-019",
+    "name": "AI Insight Adoption Rate",
+    "description": "Percentage of AI insights that resulted in recorded actions.",
+    "formula": "SUM(action_taken) / COUNT(insights) * 100",
+    "aggregation_window": "day",
+    "doctypes": [
+      "AI Insight Log"
+    ],
+    "fields": {
+      "AI Insight Log": [
+        "name",
+        "prediction_type",
+        "status",
+        "action_taken",
+        "created_at"
+      ]
+    },
+    "thresholds": {
+      "green": ">=75",
+      "yellow": "60-74",
+      "red": "<60"
+    },
+    "drilldown": {
+      "doctype": "AI Insight Log",
+      "route_filters": {
+        "status": "New"
+      }
+    },
+    "query": "SELECT SUM(CASE WHEN action_taken = 1 THEN 1 ELSE 0 END) / NULLIF(COUNT(*),0) * 100 AS adoption_rate FROM `tabAI Insight Log` WHERE created_at BETWEEN %(from_date)s AND %(to_date)s"
+  },
+  {
+    "id": "KPI-020",
+    "name": "Carbon Emissions per Km",
+    "description": "CO2e output per kilometre for the fleet.",
+    "formula": "SUM(co2e_amount) / SUM(distance_km)",
+    "aggregation_window": "month",
+    "doctypes": [
+      "Emissions Log",
+      "Movement Log"
+    ],
+    "fields": {
+      "Emissions Log": [
+        "vehicle",
+        "co2e_amount",
+        "emission_date"
+      ],
+      "Movement Log": [
+        "vehicle",
+        "distance_km",
+        "status"
+      ]
+    },
+    "thresholds": {
+      "green": "<=1.2",
+      "yellow": "1.2-1.5",
+      "red": ">1.5"
+    },
+    "drilldown": {
+      "doctype": "Emissions Log",
+      "route_filters": {}
+    },
+    "query": "SELECT el.vehicle, SUM(el.co2e_amount) / NULLIF(SUM(ml.distance_km),0) AS co2e_per_km FROM `tabEmissions Log` el JOIN `tabMovement Log` ml ON ml.vehicle = el.vehicle AND ml.status = 'Delivered' AND ml.delivery_date BETWEEN %(from_month)s AND %(to_month)s WHERE el.emission_date BETWEEN %(from_month)s AND %(to_month)s GROUP BY el.vehicle"
+  },
+  {
+    "id": "KPI-021",
+    "name": "Sensor Data Freshness (mins)",
+    "description": "Minutes since the last telemetry packet per sensor.",
+    "formula": "TIMESTAMPDIFF(MINUTE, MAX(last_packet_ts), NOW())",
+    "aggregation_window": "5_min",
+    "doctypes": [
+      "Tyre Sensor Data",
+      "Vehicle Telemetry Log"
+    ],
+    "fields": {
+      "Tyre Sensor Data": [
+        "sensor_id",
+        "vehicle",
+        "last_packet_ts"
+      ],
+      "Vehicle Telemetry Log": [
+        "vehicle",
+        "timestamp"
+      ]
+    },
+    "thresholds": {
+      "green": "<=5",
+      "yellow": "6-10",
+      "red": ">10"
+    },
+    "drilldown": {
+      "doctype": "Tyre Sensor Data",
+      "route_filters": {}
+    },
+    "query": "SELECT sensor_id, TIMESTAMPDIFF(MINUTE, MAX(last_packet_ts), NOW()) AS minutes_stale FROM `tabTyre Sensor Data` GROUP BY sensor_id"
+  }
+]

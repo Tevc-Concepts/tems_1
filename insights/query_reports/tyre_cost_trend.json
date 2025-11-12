@@ -1,0 +1,9 @@
+{
+  "report_name": "Tyre Cost Trend",
+  "module": "TEMS Tyre",
+  "is_standard": "Yes",
+  "ref_doctype": "Tyre",
+  "report_type": "Query Report",
+  "prepared_report": 0,
+  "query": "SELECT\n    iad.operating_date,\n    iad.vehicle,\n    iad.tyre_cost_per_km,\n    iad.maintenance_cost,\n    iad.sensor_packets_received\nFROM ins_asset_daily iad\nWHERE iad.operating_date BETWEEN %(from_date)s AND %(to_date)s\nORDER BY iad.operating_date ASC, iad.vehicle"
+}

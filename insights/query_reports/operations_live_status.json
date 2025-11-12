@@ -1,0 +1,9 @@
+{
+  "report_name": "Operations Live Status",
+  "module": "TEMS Operations",
+  "is_standard": "Yes",
+  "ref_doctype": "Movement Log",
+  "report_type": "Query Report",
+  "prepared_report": 0,
+  "query": "SELECT\n    ml.name AS movement_log,\n    ml.vehicle,\n    ml.driver,\n    ml.status,\n    ml.route_id,\n    ml.from_timestamp,\n    ml.to_timestamp,\n    TIMESTAMPDIFF(MINUTE, ml.expected_arrival_ts, ml.actual_delivery_ts) AS delay_minutes,\n    op.control_room_contact\nFROM `tabMovement Log` ml\nLEFT JOIN `tabOperation Plan` op ON op.name = ml.operation_plan\nWHERE ml.from_timestamp BETWEEN %(from_time)s AND %(to_time)s\nORDER BY ml.from_timestamp DESC\nLIMIT 500"
+}

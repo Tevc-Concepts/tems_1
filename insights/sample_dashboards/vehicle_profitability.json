@@ -1,0 +1,182 @@
+{
+  "name": "vehicle_profitability",
+  "title": "Vehicle Profitability Dashboard",
+  "version": 1,
+  "description": "Margin, cost drivers, and profitability rankings per vehicle.",
+  "filters": [
+    {
+      "field": "fiscal_month",
+      "label": "Fiscal Month",
+      "type": "month",
+      "default": "current_month"
+    },
+    {
+      "field": "vehicle_type",
+      "label": "Vehicle Type",
+      "type": "select",
+      "options": [
+        "All",
+        "Cargo",
+        "Passenger"
+      ],
+      "default": "All"
+    },
+    {
+      "field": "currency",
+      "label": "Currency",
+      "type": "select",
+      "options": [
+        "NGN",
+        "USD",
+        "KES"
+      ],
+      "default": "NGN"
+    }
+  ],
+  "layout": {
+    "rows": [
+      {
+        "columns": [
+          {
+            "width": 3,
+            "components": [
+              {
+                "id": "PROF-KPI-01",
+                "type": "number",
+                "title": "Average Margin %",
+                "query": "kpi_margin_pct",
+                "format": {
+                  "decimals": 1,
+                  "suffix": "%"
+                },
+                "thresholds": {
+                  "warning": 18,
+                  "danger": 15
+                }
+              },
+              {
+                "id": "PROF-KPI-02",
+                "type": "number",
+                "title": "Tyre Cost per Km",
+                "query": "kpi_tyre_cost_per_km",
+                "format": {
+                  "prefix": "₦",
+                  "decimals": 2
+                },
+                "thresholds": {
+                  "warning": 35,
+                  "danger": 40
+                }
+              }
+            ]
+          },
+          {
+            "width": 9,
+            "components": [
+              {
+                "id": "PROF-CH-01",
+                "type": "waterfall",
+                "title": "Revenue to Net Margin",
+                "query": "chart_vehicle_waterfall",
+                "options": {
+                  "value_field": "amount",
+                  "label_field": "step",
+                  "orientation": "vertical"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "width": 6,
+            "components": [
+              {
+                "id": "PROF-CH-02",
+                "type": "line",
+                "title": "Margin Trend (3 Months)",
+                "query": "chart_margin_trend",
+                "options": {
+                  "x_field": "posting_month",
+                  "y_fields": [
+                    "margin_pct",
+                    "revenue"
+                  ],
+                  "secondary_axis": [
+                    "revenue"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "width": 6,
+            "components": [
+              {
+                "id": "PROF-TBL-01",
+                "type": "table",
+                "title": "Top 10 Vehicles by Profit",
+                "query": "table_vehicle_profit_rank",
+                "options": {
+                  "limit": 10,
+                  "order_by": "net_profit DESC"
+                }
+              },
+              {
+                "id": "PROF-TBL-02",
+                "type": "table",
+                "title": "Vehicles with High Tyre Cost Share",
+                "query": "table_vehicle_tyre_share",
+                "options": {
+                  "limit": 10,
+                  "order_by": "tyre_cost_share DESC"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drilldowns": {
+    "PROF-KPI-01": {
+      "route": [
+        "Report",
+        "Vehicle Profitability Detail"
+      ],
+      "filters": {}
+    },
+    "PROF-KPI-02": {
+      "route": [
+        "Report",
+        "Tyre Cost Breakdown"
+      ],
+      "filters": {}
+    },
+    "PROF-CH-01": {
+      "route": [
+        "Report",
+        "Vehicle Profitability Detail"
+      ],
+      "filters": {
+        "view": "Waterfall"
+      }
+    },
+    "PROF-TBL-01": {
+      "route": [
+        "Form",
+        "Vehicle"
+      ],
+      "field": "vehicle"
+    },
+    "PROF-TBL-02": {
+      "route": [
+        "Form",
+        "Vehicle"
+      ],
+      "field": "vehicle"
+    }
+  }
+}

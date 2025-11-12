@@ -1,0 +1,187 @@
+{
+  "name": "executive_overview",
+  "title": "Executive Overview Dashboard",
+  "version": 1,
+  "description": "System-wide KPIs for TEMS executives covering utilization, revenue, and service levels.",
+  "filters": [
+    {
+      "field": "posting_date",
+      "label": "Date Range",
+      "type": "date",
+      "default": "last_30_days"
+    },
+    {
+      "field": "vehicle_type",
+      "label": "Vehicle Type",
+      "type": "select",
+      "options": [
+        "All",
+        "Cargo",
+        "Passenger"
+      ],
+      "default": "All"
+    },
+    {
+      "field": "business_unit",
+      "label": "Business Unit",
+      "type": "link",
+      "target": "Business Unit"
+    }
+  ],
+  "layout": {
+    "rows": [
+      {
+        "columns": [
+          {
+            "width": 4,
+            "components": [
+              {
+                "id": "EXEC-KPI-01",
+                "type": "number",
+                "title": "Vehicle Utilization %",
+                "query": "kpi_vehicle_utilization",
+                "format": {
+                  "decimals": 1,
+                  "suffix": "%"
+                },
+                "thresholds": {
+                  "warning": 75,
+                  "danger": 65
+                }
+              },
+              {
+                "id": "EXEC-KPI-02",
+                "type": "number",
+                "title": "Revenue per Vehicle-Day",
+                "query": "kpi_revenue_per_vehicle_day",
+                "format": {
+                  "prefix": "₦",
+                  "decimals": 0
+                },
+                "thresholds": {
+                  "warning": 150000,
+                  "danger": 130000
+                }
+              },
+              {
+                "id": "EXEC-KPI-03",
+                "type": "number",
+                "title": "On-Time Delivery %",
+                "query": "kpi_on_time_delivery",
+                "format": {
+                  "decimals": 1,
+                  "suffix": "%"
+                },
+                "thresholds": {
+                  "warning": 90,
+                  "danger": 85
+                }
+              }
+            ]
+          },
+          {
+            "width": 8,
+            "components": [
+              {
+                "id": "EXEC-CH-01",
+                "type": "combo",
+                "title": "Margin vs Cost Mix",
+                "query": "chart_margin_cost_mix",
+                "options": {
+                  "series": [
+                    {
+                      "field": "margin_pct",
+                      "type": "line",
+                      "axis": "left"
+                    },
+                    {
+                      "field": "tyre_cost_share",
+                      "type": "bar",
+                      "axis": "right"
+                    },
+                    {
+                      "field": "fuel_cost_share",
+                      "type": "bar",
+                      "axis": "right"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "EXEC-CH-02",
+                "type": "sankey",
+                "title": "Revenue Flow by Business Line",
+                "query": "chart_revenue_flow",
+                "options": {
+                  "source_field": "source",
+                  "target_field": "target",
+                  "value_field": "value"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "width": 12,
+            "components": [
+              {
+                "id": "EXEC-TBL-01",
+                "type": "table",
+                "title": "Top 10 Vehicles by Margin",
+                "query": "table_top_vehicle_margin",
+                "options": {
+                  "limit": 10,
+                  "order_by": "margin_pct DESC"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drilldowns": {
+    "EXEC-KPI-01": {
+      "route": [
+        "List",
+        "Movement Log"
+      ],
+      "filters": {
+        "status": "In Transit"
+      }
+    },
+    "EXEC-KPI-02": {
+      "route": [
+        "Report",
+        "Vehicle Profitability Detail"
+      ],
+      "filters": {}
+    },
+    "EXEC-KPI-03": {
+      "route": [
+        "Report",
+        "Operations Service Level"
+      ],
+      "filters": {}
+    },
+    "EXEC-CH-01": {
+      "route": [
+        "Report",
+        "Vehicle Profitability Detail"
+      ],
+      "filters": {
+        "view": "Cost Breakdown"
+      }
+    },
+    "EXEC-TBL-01": {
+      "route": [
+        "Form",
+        "Vehicle"
+      ],
+      "field": "vehicle"
+    }
+  }
+}

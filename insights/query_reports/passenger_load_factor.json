@@ -1,0 +1,9 @@
+{
+  "report_name": "Passenger Load Factor",
+  "module": "TEMS Passenger",
+  "is_standard": "Yes",
+  "ref_doctype": "Passenger Trip",
+  "report_type": "Query Report",
+  "prepared_report": 0,
+  "query": "SELECT\n    pt.route AS route_id,\n    DATE(pt.departure_time) AS travel_date,\n    SUM(pt.booked_seats) AS seats_booked,\n    SUM(pt.capacity) AS seats_capacity,\n    ROUND(SUM(pt.booked_seats) / NULLIF(SUM(pt.capacity), 0) * 100, 2) AS load_factor_pct,\n    SUM(CASE WHEN pt.status = 'Cancelled' THEN 1 ELSE 0 END) AS cancellations\nFROM `tabPassenger Trip` pt\nWHERE pt.departure_time BETWEEN %(from_date)s AND %(to_date)s\nGROUP BY route_id, travel_date\nORDER BY travel_date DESC, route_id\nLIMIT 365"
+}

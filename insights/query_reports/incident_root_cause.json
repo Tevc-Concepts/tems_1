@@ -1,0 +1,9 @@
+{
+  "report_name": "Incident Root Cause Breakdown",
+  "module": "TEMS Safety",
+  "is_standard": "Yes",
+  "ref_doctype": "Incident Report",
+  "report_type": "Query Report",
+  "prepared_report": 0,
+  "query": "SELECT\n    ir.route_id,\n    ir.vehicle,\n    ir.driver,\n    ir.severity,\n    ir.root_cause,\n    COUNT(ir.name) AS total_incidents,\n    SUM(CASE WHEN ir.severity IN ('High','Critical') THEN 1 ELSE 0 END) AS critical_incidents\nFROM `tabIncident Report` ir\nWHERE ir.incident_date BETWEEN %(from_date)s AND %(to_date)s\nGROUP BY ir.route_id, ir.vehicle, ir.driver, ir.severity, ir.root_cause\nORDER BY critical_incidents DESC, total_incidents DESC\nLIMIT 300"
+}

@@ -255,7 +255,7 @@
     // Fetch and update metrics
     async function fetchMetrics() {
         try {
-            const response = await fetch('/api/method/tems.tems.www.index.get_live_metrics');
+            const response = await fetch('/api/method/tems.www.index.get_live_metrics');
             const data = await response.json();
             
             if (data.message) {

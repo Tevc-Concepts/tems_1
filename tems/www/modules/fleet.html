@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TEMS Fleet Management - Comprehensive asset lifecycle, maintenance scheduling, and utilization tracking">
+    <title>Fleet Management - TEMS</title>
+    <link rel="icon" type="image/x-icon" href="/assets/tems/images/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .nav {
+            background: #0f172a;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #39ff14;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #16a34a 0%, #059669 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #16a34a;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-alt {
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .feature-description {
+            color: #64748b;
+        }
+
+        .benefits-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-check {
+            color: #16a34a;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #16a34a 0%, #059669 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .screenshot {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 2rem 0;
+        }
+
+        .use-cases {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .use-case {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid #16a34a;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .use-case-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .use-case-description {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="nav-logo">← TEMS</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/app">Dashboard</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-icon">🔧</div>
+        <h1 class="hero-title">Fleet Management</h1>
+        <p class="hero-description">
+            Comprehensive asset lifecycle management, maintenance scheduling, and utilization tracking
+            to maximize your fleet's efficiency and minimize downtime
+        </p>
+        <a href="/app/vehicle/new" class="cta-btn">Get Started</a>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">95%</div>
+                    <div class="stat-label">Fleet Uptime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">30%</div>
+                    <div class="stat-label">Cost Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">40%</div>
+                    <div class="stat-label">Maintenance Efficiency</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Real-time</div>
+                    <div class="stat-label">Asset Tracking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚛</div>
+                    <h3 class="feature-title">Vehicle Registry</h3>
+                    <p class="feature-description">
+                        Complete vehicle master data with registration, specifications, ownership details,
+                        and documentation in one centralized system.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3 class="feature-title">Maintenance Scheduling</h3>
+                    <p class="feature-description">
+                        Automated preventive maintenance scheduling based on mileage, engine hours,
+                        or calendar intervals with alerts and reminders.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Work Order Management</h3>
+                    <p class="feature-description">
+                        Create, assign, track, and close maintenance work orders with parts tracking,
+                        labor costs, and vendor management.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Utilization Analytics</h3>
+                    <p class="feature-description">
+                        Real-time visibility into fleet utilization, idle time, mileage, fuel consumption,
+                        and performance metrics.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Cost Tracking</h3>
+                    <p class="feature-description">
+                        Comprehensive cost-per-mile and cost-per-vehicle tracking including fuel,
+                        maintenance, depreciation, and insurance.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Mobile Access</h3>
+                    <p class="feature-description">
+                        Access fleet information, create work orders, and log inspections from
+                        any device with our mobile-first interface.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3 class="feature-title">Asset Lifecycle</h3>
+                    <p class="feature-description">
+                        Track assets from acquisition through disposal including depreciation,
+                        transfers, and retirement workflows.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Smart Alerts</h3>
+                    <p class="feature-description">
+                        Automated notifications for upcoming maintenance, expired documents,
+                        overdue inspections, and critical issues.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Predictive Maintenance</h3>
+                    <p class="feature-description">
+                        AI-powered predictions for component failures and optimal maintenance
+                        timing to prevent unexpected breakdowns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="section">
+        <div class="container">
+            <h2 class="section-title">Key Benefits</h2>
+            <ul class="benefits-list">
+                <li class="benefit-item">
+                    <span class="benefit-check">✓</span>
+                    <div>
+                        <strong>Reduce Downtime:</strong> Preventive maintenance scheduling minimizes unexpected
+                        breakdowns
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <span class="benefit-check">✓</span>
+                    <div>
+                        <strong>Lower Costs:</strong> Optimize maintenance spending and extend asset lifespan
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <span class="benefit-check">✓</span>
+                    <div>
+                        <strong>Improve Compliance:</strong> Never miss document renewals or mandatory inspections
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <span class="benefit-check">✓</span>
+                    <div>
+                        <strong>Maximize Utilization:</strong> Identify underutilized assets and optimize fleet size
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <span class="benefit-check">✓</span>
+                    <div>
+                        <strong>Data-Driven Decisions:</strong> Access comprehensive analytics for strategic planning
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <span class="benefit-check">✓</span>
+                    <div>
+                        <strong>Centralized Information:</strong> Single source of truth for all fleet data
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Real-World Applications</h2>
+            <div class="use-cases">
+                <div class="use-case">
+                    <h3 class="use-case-title">🚌 Public Transport Operations</h3>
+                    <p class="use-case-description">
+                        A regional bus company manages 150+ vehicles across multiple routes. TEMS Fleet Management
+                        helps them track each vehicle's maintenance history, schedule preventive services based on
+                        mileage, and maintain 98% fleet availability. The system automatically alerts mechanics
+                        when vehicles are due for service, reducing roadside breakdowns by 60%.
+                    </p>
+                </div>
+
+                <div class="use-case">
+                    <h3 class="use-case-title">🚚 Logistics Fleet</h3>
+                    <p class="use-case-description">
+                        A logistics provider operates 200 heavy trucks for long-haul freight. Using TEMS, they track
+                        fuel efficiency, maintenance costs, and vehicle utilization in real-time. The predictive
+                        maintenance feature has reduced emergency repairs by 45% and extended vehicle lifespan by
+                        2-3 years through optimal servicing.
+                    </p>
+                </div>
+
+                <div class="use-case">
+                    <h3 class="use-case-title">🏗️ Construction Equipment</h3>
+                    <p class="use-case-description">
+                        A construction company manages diverse equipment from excavators to cement mixers. TEMS
+                        tracks each asset's operating hours, maintenance schedule, and project allocation. This
+                        visibility helps them maximize equipment ROI, reduce rental costs by 30%, and ensure
+                        compliance with safety inspection requirements.
+                    </p>
+                </div>
+
+                <div class="use-case">
+                    <h3 class="use-case-title">🚗 Ride-Sharing Service</h3>
+                    <p class="use-case-description">
+                        A ride-sharing platform partners with vehicle owners across multiple cities. TEMS provides
+                        standardized vehicle onboarding, tracks required documents and insurance, schedules mandatory
+                        safety inspections, and monitors vehicle condition. This ensures consistent service quality
+                        and regulatory compliance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Ready to Transform Your Fleet Management?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #64748b;">
+                Join hundreds of transport operators using TEMS to manage their fleets more efficiently
+            </p>
+            <a href="/app/vehicle/new" class="cta-btn" style="margin-right: 1rem;">Start Managing Fleet</a>
+            <a href="/" class="cta-btn" style="background: #f1f5f9; color: #1e293b;">Explore Other Modules</a>
+        </div>
+    </section>
+</body>
+
+</html>

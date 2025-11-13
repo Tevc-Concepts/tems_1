@@ -64,12 +64,28 @@ web_include_js = "/assets/tems/js/tems_web.js"
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "index"
 
 # website user home page (by Role)
 # role_home_page = {
 # 	"Role": "home_page"
 # }
+
+# Website settings
+website_route_rules = [
+    {"from_route": "/driver/<path:app_path>", "to_route": "driver"},
+    {"from_route": "/operations/<path:app_path>", "to_route": "operations"},
+    {"from_route": "/safety/<path:app_path>", "to_route": "safety"},
+    {"from_route": "/fleet/<path:app_path>", "to_route": "fleet"},
+]
+
+# Pages that don't require login
+has_web_view = True
+
+# Whitelist methods for guest access
+override_whitelisted_methods = {
+    "tems.tems.www.index.get_live_metrics": "tems.tems.www.index.get_live_metrics"
+}
 
 # Generators
 # ----------
@@ -139,16 +155,6 @@ web_include_js = "/assets/tems/js/tems_web.js"
 # override_doctype_class = {
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
-# Add to existing hooks.py
-
-# Website routes for PWAs
-website_route_rules = [
-    {"from_route": "/driver/<path:app_path>", "to_route": "driver"},
-    {"from_route": "/operations/<path:app_path>", "to_route": "operations"},
-    {"from_route": "/safety/<path:app_path>", "to_route": "safety"},
-    {"from_route": "/fleet/<path:app_path>", "to_route": "fleet"},
-]
-
 
 # Fixtures
 

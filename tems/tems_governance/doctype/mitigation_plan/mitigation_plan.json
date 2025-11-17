@@ -20,7 +20,10 @@
   {
    "fieldname": "action_title",
    "fieldtype": "Data",
-   "label": "Action Title"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Action Title",
+   "reqd": 1
   },
   {
    "fieldname": "details",
@@ -40,18 +43,25 @@
   {
    "fieldname": "start_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Start Date"
   },
   {
    "fieldname": "target_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Target Date"
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Status",
-   "options": "Planned\nIn Progress\nBlocked\nCompleted"
+   "options": "Planned\nIn Progress\nBlocked\nCompleted",
+   "search_index": 1
   },
   {
    "fieldname": "progress_percent",
@@ -68,7 +78,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-17 00:25:30.367409",
+ "modified": "2025-11-17 21:59:44.759259",
  "modified_by": "Administrator",
  "module": "TEMS Governance",
  "name": "Mitigation Plan",

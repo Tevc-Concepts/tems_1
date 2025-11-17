@@ -1,7 +1,7 @@
 // Copyright (c) 2025, Tevc Concepts Limited and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Key Risk Indicator", {
+// frappe.ui.form.on("Risk KRI Assignment", {
 // 	refresh(frm) {
 
 // 	},

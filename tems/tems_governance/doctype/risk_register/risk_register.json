@@ -26,9 +26,9 @@
   "residual_risk_score",
   "risk_rating",
   "key_risk_indicators_tab",
-  "table_brax",
+  "kri_assignment",
   "controls_tab",
-  "table_jgnx",
+  "control_assignment",
   "mitigation_plan_tab",
   "table_umnc",
   "reviews_tab",
@@ -166,19 +166,9 @@
    "label": "Key Risk Indicators"
   },
   {
-   "fieldname": "table_brax",
-   "fieldtype": "Table",
-   "options": "Key Risk Indicator"
-  },
-  {
    "fieldname": "controls_tab",
    "fieldtype": "Tab Break",
    "label": "Controls"
-  },
-  {
-   "fieldname": "table_jgnx",
-   "fieldtype": "Table",
-   "options": "Risk Control"
   },
   {
    "fieldname": "mitigation_plan_tab",
@@ -216,6 +206,18 @@
    "fieldname": "general_attachment",
    "fieldtype": "Attach",
    "label": "General Attachment"
+  },
+  {
+   "fieldname": "kri_assignment",
+   "fieldtype": "Table",
+   "label": "KRIs",
+   "options": "Risk KRI Assignment"
+  },
+  {
+   "fieldname": "control_assignment",
+   "fieldtype": "Table",
+   "label": "Control Options",
+   "options": "Risk Control Assignment"
   }
  ],
  "grid_page_length": 50,
@@ -223,7 +225,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-17 00:58:56.754231",
+ "modified": "2025-11-17 23:50:29.893407",
  "modified_by": "Administrator",
  "module": "TEMS Governance",
  "name": "Risk Register",
@@ -269,9 +271,11 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "title",
  "track_changes": 1,
  "track_seen": 1,
  "track_views": 1

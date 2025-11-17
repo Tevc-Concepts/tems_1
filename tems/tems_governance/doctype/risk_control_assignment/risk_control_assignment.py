@@ -1,13 +1,9 @@
 # Copyright (c) 2025, Tevc Concepts Limited and contributors
 # For license information, please see license.txt
 
-import frappe
+# import frappe
 from frappe.model.document import Document
 
 
-class KeyRiskIndicator(Document):
-	# Server Script: Key Risk Indicator - before_save
-
-
-
-
+class RiskControlAssignment(Document):
+	pass

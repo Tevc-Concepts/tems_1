@@ -2,65 +2,63 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:RC-{#####}",
- "creation": "2025-11-17 00:10:16.910577",
+ "creation": "2025-11-17 22:58:01.788046",
+ "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "name1",
   "type",
-  "control_description",
+  "evidence",
   "column_break_jqbu",
-  "design_effectiveness",
   "operating_effectiveness",
-  "control_owner",
-  "evidence"
+  "last_test_date",
+  "next_test_date"
  ],
  "fields": [
   {
    "fieldname": "name1",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "in_preview": 1,
    "label": "Name",
+   "options": "Risk Control",
    "reqd": 1
   },
   {
+   "fetch_from": "name1.type",
    "fieldname": "type",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Type",
-   "options": "Preventive\nDetective\nCorrective"
-  },
-  {
-   "fieldname": "control_owner",
-   "fieldtype": "Link",
-   "label": "Control Owner",
-   "options": "Employee"
-  },
-  {
-   "fieldname": "control_description",
-   "fieldtype": "Small Text",
-   "label": "Control Description"
+   "read_only": 1
   },
   {
    "fieldname": "column_break_jqbu",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "design_effectiveness",
-   "fieldtype": "Select",
-   "label": "Design Effectiveness",
-   "options": "Poor\nFair\nGood\nExcellent"
-  },
-  {
+   "fetch_from": "name1.operating_effectiveness",
    "fieldname": "operating_effectiveness",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Operating Effectiveness",
-   "options": "Not Tested\nIneffective\nPartially Effective\nEffective"
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_test_date",
+   "fieldtype": "Date",
+   "label": "Last Test Date"
+  },
+  {
+   "fieldname": "next_test_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Next Test Date"
   },
   {
    "fieldname": "evidence",
@@ -70,34 +68,20 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "istable": 1,
  "links": [],
- "modified": "2025-11-17 23:20:44.268085",
+ "modified": "2025-11-17 23:02:30.161508",
  "modified_by": "Administrator",
  "module": "TEMS Governance",
- "name": "Risk Control",
+ "name": "Risk Control Assignment",
  "naming_rule": "Expression",
  "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
+ "permissions": [],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
- "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "name1",
  "track_changes": 1,
  "track_seen": 1,
  "track_views": 1

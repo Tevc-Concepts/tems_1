@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-17 00:22:44.518908",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "action_title",
+  "details",
+  "action_owner",
+  "column_break_qppt",
+  "start_date",
+  "target_date",
+  "status",
+  "progress_percent",
+  "dependencies"
+ ],
+ "fields": [
+  {
+   "fieldname": "action_title",
+   "fieldtype": "Data",
+   "label": "Action Title"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Small Text",
+   "label": "Details"
+  },
+  {
+   "fieldname": "action_owner",
+   "fieldtype": "Link",
+   "label": "Action Owner",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_qppt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "target_date",
+   "fieldtype": "Date",
+   "label": "Target Date"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Planned\nIn Progress\nBlocked\nCompleted"
+  },
+  {
+   "fieldname": "progress_percent",
+   "fieldtype": "Int",
+   "label": "Progress Percent"
+  },
+  {
+   "fieldname": "dependencies",
+   "fieldtype": "Data",
+   "label": "Dependencies"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-17 00:25:30.367409",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Mitigation Plan",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

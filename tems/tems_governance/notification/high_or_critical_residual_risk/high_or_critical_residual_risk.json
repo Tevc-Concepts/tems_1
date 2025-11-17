@@ -1,0 +1,32 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.residual_risk_score > 10",
+ "creation": "2025-11-17 01:27:30.137608",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Risk Register",
+ "enabled": 1,
+ "event": "Save",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<h3>Risk Alert</h3>\n\n<p>Risk {{ doc.name }} has exceeded residual risk score which is greater than 10. Please take necessary action.</p>\n\n<p> current residual risk score is {{doc.residual_risk_score}} </p>",
+ "message_type": "HTML",
+ "modified": "2025-11-17 01:27:30.137608",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "High or Critical Residual Risk",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "Risk Manager"
+  },
+  {
+   "receiver_by_role": "Risk Committee"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "subject": "High or Critical Residual Risk - {{ doc.name}}"
+}

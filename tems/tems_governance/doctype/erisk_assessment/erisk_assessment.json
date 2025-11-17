@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:ERM-RA-{YYYY}{MM}{DD}-{####}",
+ "creation": "2025-11-17 00:27:43.732000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "assessment_date",
+  "assessor",
+  "column_break_uhna",
+  "scope",
+  "methodology",
+  "risk_register_section",
+  "risk_register",
+  "summary_findings",
+  "column_break_sjoq",
+  "overall_residual_rating",
+  "recommendation"
+ ],
+ "fields": [
+  {
+   "fieldname": "assessment_date",
+   "fieldtype": "Date",
+   "label": "Assessment Date"
+  },
+  {
+   "fieldname": "assessor",
+   "fieldtype": "Link",
+   "label": "Assessor",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_uhna",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Small Text",
+   "label": "Scope"
+  },
+  {
+   "fieldname": "methodology",
+   "fieldtype": "Select",
+   "label": "Methodology",
+   "options": "Qualitative\nQuantitative\nHybrid"
+  },
+  {
+   "fieldname": "risk_register_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Register"
+  },
+  {
+   "fieldname": "risk_register",
+   "fieldtype": "Link",
+   "label": "Risk Register",
+   "options": "Risk Register"
+  },
+  {
+   "fieldname": "summary_findings",
+   "fieldtype": "Small Text",
+   "label": "Summary Findings"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Small Text",
+   "label": "Recommendation"
+  },
+  {
+   "fieldname": "overall_residual_rating",
+   "fieldtype": "Select",
+   "label": "Overall_Residual_Rating",
+   "options": "Low\nModerate\nHigh\nCritical",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sjoq",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-17 00:38:03.036785",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "ERisk Assessment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

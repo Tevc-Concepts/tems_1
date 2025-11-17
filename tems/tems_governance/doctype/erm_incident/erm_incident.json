@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:ERM-IN-{YYYY}{MM}{DD}-{####}",
+ "creation": "2025-11-17 00:40:07.666304",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "description",
+  "date_reported",
+  "reported_by",
+  "column_break_dqem",
+  "category",
+  "severity",
+  "related_risk",
+  "root_cause",
+  "section_break_ussy",
+  "loss_amount",
+  "resolution_summary",
+  "column_break_bpzt",
+  "status",
+  "attachments"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "date_reported",
+   "fieldtype": "Date",
+   "label": "Date Reported"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "label": "Reported By",
+   "options": "User"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "Operational\nCompliance\nCybersecurity\nFinancial\nOther"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "Minor\nModerate\nMajor\nCritical"
+  },
+  {
+   "fieldname": "related_risk",
+   "fieldtype": "Link",
+   "label": "Related Risk ",
+   "options": "Risk Register"
+  },
+  {
+   "fieldname": "root_cause",
+   "fieldtype": "Small Text",
+   "label": "Root Cause"
+  },
+  {
+   "fieldname": "loss_amount",
+   "fieldtype": "Float",
+   "label": "Loss Amount"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nInvestigating\nResolved\nClosed"
+  },
+  {
+   "fieldname": "column_break_dqem",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ussy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "resolution_summary",
+   "fieldtype": "Small Text",
+   "label": "Resolution Summary"
+  },
+  {
+   "fieldname": "column_break_bpzt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-17 00:47:56.870218",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "ERM Incident",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

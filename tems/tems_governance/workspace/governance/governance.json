@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"6ebXEVTJgp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Governance</span>\",\"col\":12}},{\"id\":\"rEY-YjDAug\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Governance Policy\",\"col\":3}},{\"id\":\"hM6QeA6rTH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Compliance Obligation\",\"col\":3}},{\"id\":\"nUrSGLDb9p\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Meeting Evidence\",\"col\":3}},{\"id\":\"9QnZlsJ46e\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle ESG Logs\",\"col\":3}},{\"id\":\"qLa0ospRIf\",\"type\":\"card\",\"data\":{\"card_name\":\"Details\",\"col\":4}}]",
+ "content": "[{\"id\":\"6ebXEVTJgp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Governance</span>\",\"col\":12}},{\"id\":\"UO2MnYAOUa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Policies\",\"col\":4}},{\"id\":\"rPgJ0SSIea\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Obligations\",\"col\":4}},{\"id\":\"N3eMSqS4bw\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Meeting Open Items\",\"col\":4}},{\"id\":\"hM6QeA6rTH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Compliance Obligation\",\"col\":3}},{\"id\":\"rEY-YjDAug\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Governance Policy\",\"col\":3}},{\"id\":\"nUrSGLDb9p\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Meeting Evidence\",\"col\":3}},{\"id\":\"9QnZlsJ46e\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle ESG Logs\",\"col\":3}},{\"id\":\"qLa0ospRIf\",\"type\":\"card\",\"data\":{\"card_name\":\"Details\",\"col\":4}}]",
  "creation": "2025-10-01 10:50:32.049399",
  "custom_blocks": [],
  "docstatus": 0,
@@ -73,11 +73,24 @@
    "type": "Link"
   }
  ],
- "modified": "2025-10-01 10:58:01.552426",
+ "modified": "2025-11-16 22:41:42.184873",
  "modified_by": "Administrator",
  "module": "TEMS Governance",
  "name": "Governance",
- "number_cards": [],
+ "number_cards": [
+  {
+   "label": "Active Policies",
+   "number_card_name": "Active Policies"
+  },
+  {
+   "label": "Open Obligations",
+   "number_card_name": "Open Obligations"
+  },
+  {
+   "label": "Meeting Open Items",
+   "number_card_name": "Open Action Items"
+  }
+ ],
  "owner": "Administrator",
  "parent_page": "TEMS",
  "public": 1,

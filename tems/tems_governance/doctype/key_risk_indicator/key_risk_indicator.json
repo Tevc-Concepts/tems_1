@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-16 23:58:04.082722",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "kri_name",
+  "definition",
+  "unit",
+  "status",
+  "column_break_gyeu",
+  "threshold_low",
+  "threshold_medium",
+  "threshold_high",
+  "current_value",
+  "as_of_date",
+  "source",
+  "kri_owner"
+ ],
+ "fields": [
+  {
+   "fieldname": "kri_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "KRI Name"
+  },
+  {
+   "fieldname": "definition",
+   "fieldtype": "Small Text",
+   "label": "Definition"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Select",
+   "label": "Unit",
+   "options": "Count\nPercent\nCurrency\nDays"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Normal\nWarning\nAlert",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_gyeu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "threshold_low",
+   "fieldtype": "Float",
+   "label": "Threshold Low"
+  },
+  {
+   "fieldname": "threshold_medium",
+   "fieldtype": "Float",
+   "label": "Threshold Medium"
+  },
+  {
+   "fieldname": "threshold_high",
+   "fieldtype": "Float",
+   "label": "Threshold High"
+  },
+  {
+   "fieldname": "current_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Current Value"
+  },
+  {
+   "fieldname": "as_of_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "As of Date"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fieldname": "kri_owner",
+   "fieldtype": "Link",
+   "label": "KRI Owner",
+   "options": "Employee"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-17 00:09:44.462038",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Key Risk Indicator",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

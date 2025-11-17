@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-17 00:10:16.910577",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "type",
+  "control_owner",
+  "control_description",
+  "column_break_jqbu",
+  "design_effectiveness",
+  "operating_effectiveness",
+  "last_test_date",
+  "next_test_date",
+  "evidence"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Preventive\nDetective\nCorrective"
+  },
+  {
+   "fieldname": "control_owner",
+   "fieldtype": "Link",
+   "label": "Control Owner",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "control_description",
+   "fieldtype": "Small Text",
+   "label": "Control Description"
+  },
+  {
+   "fieldname": "column_break_jqbu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "design_effectiveness",
+   "fieldtype": "Select",
+   "label": "Design Effectiveness",
+   "options": "Poor\nFair\nGood\nExcellent"
+  },
+  {
+   "fieldname": "operating_effectiveness",
+   "fieldtype": "Select",
+   "label": "Operating Effectiveness",
+   "options": "Not Tested\nIneffective\nPartially Effective\nEffective"
+  },
+  {
+   "fieldname": "last_test_date",
+   "fieldtype": "Date",
+   "label": "Last Test Date"
+  },
+  {
+   "fieldname": "next_test_date",
+   "fieldtype": "Date",
+   "label": "Next Test Date"
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Attach",
+   "label": "Evidence"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-17 00:21:17.696181",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Risk Control",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

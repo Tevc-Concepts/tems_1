@@ -1,0 +1,278 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:RISK-{YYYY}{MM}{DD}-{###}",
+ "creation": "2025-11-16 23:13:40.478792",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "description",
+  "business_unit",
+  "column_break_qmzj",
+  "category",
+  "risk_owner",
+  "amended_from",
+  "date_identified",
+  "status",
+  "assessment_and_scoring_section",
+  "likelihood",
+  "impact",
+  "risk_score",
+  "controls_effectiveness",
+  "column_break_pqqk",
+  "residual_likelihood",
+  "residual_impact",
+  "residual_risk_score",
+  "risk_rating",
+  "key_risk_indicators_tab",
+  "table_brax",
+  "controls_tab",
+  "table_jgnx",
+  "mitigation_plan_tab",
+  "table_umnc",
+  "reviews_tab",
+  "review_frequency",
+  "next_review_date",
+  "last_review_date",
+  "general_attachment"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_qmzj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Strategic\nOperational\nFinancial\nCompliance\nIT/Cyber\nReputation\nThird-Party\nAI\nEnvironment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Risk Register",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "risk_owner",
+   "fieldtype": "Link",
+   "label": "Risk Owner",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_identified",
+   "fieldtype": "Date",
+   "label": "Date Identified"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Identified\nAssessed\nMitigation Planned\nMitigation In Progress\nResidual\nAccepted\nClosed",
+   "search_index": 1
+  },
+  {
+   "fieldname": "assessment_and_scoring_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment and Scoring"
+  },
+  {
+   "default": "1",
+   "description": "Likelihood scale: 1-5 (Rare, Unlikely, Possible, Likely, Almost Certain)  ",
+   "fieldname": "likelihood",
+   "fieldtype": "Int",
+   "label": "Likelihood",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "business_unit",
+   "fieldtype": "Link",
+   "label": "Business Unit",
+   "options": "Company"
+  },
+  {
+   "default": "1",
+   "description": " scale: 1-5 (Insignificant, Minor, Moderate, Major, Catastrophic)",
+   "fieldname": "impact",
+   "fieldtype": "Int",
+   "label": "Impact"
+  },
+  {
+   "fieldname": "risk_score",
+   "fieldtype": "Float",
+   "label": "Risk Score",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "controls_effectiveness",
+   "fieldtype": "Select",
+   "label": "Controls Effectiveness",
+   "options": "Ineffective\nPartial\nAdequate\nStrong"
+  },
+  {
+   "fieldname": "column_break_pqqk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "1-5",
+   "fieldname": "residual_likelihood",
+   "fieldtype": "Int",
+   "label": "Residual Likelihood"
+  },
+  {
+   "description": "1-5",
+   "fieldname": "residual_impact",
+   "fieldtype": "Int",
+   "label": "Residual Impact"
+  },
+  {
+   "fieldname": "residual_risk_score",
+   "fieldtype": "Float",
+   "label": "Residual Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_rating",
+   "fieldtype": "Select",
+   "label": "Risk Rating",
+   "options": "Low\nModerate\nHigh\nCritical",
+   "search_index": 1
+  },
+  {
+   "fieldname": "key_risk_indicators_tab",
+   "fieldtype": "Tab Break",
+   "label": "Key Risk Indicators"
+  },
+  {
+   "fieldname": "table_brax",
+   "fieldtype": "Table",
+   "options": "Key Risk Indicator"
+  },
+  {
+   "fieldname": "controls_tab",
+   "fieldtype": "Tab Break",
+   "label": "Controls"
+  },
+  {
+   "fieldname": "table_jgnx",
+   "fieldtype": "Table",
+   "options": "Risk Control"
+  },
+  {
+   "fieldname": "mitigation_plan_tab",
+   "fieldtype": "Tab Break",
+   "label": "Mitigation Plan"
+  },
+  {
+   "fieldname": "table_umnc",
+   "fieldtype": "Table",
+   "options": "Mitigation Plan"
+  },
+  {
+   "fieldname": "reviews_tab",
+   "fieldtype": "Tab Break",
+   "label": "Reviews"
+  },
+  {
+   "fieldname": "review_frequency",
+   "fieldtype": "Select",
+   "label": "Review Frequency",
+   "options": "Monthly\nQuarterly\nSemi-Annual\nAnnual"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "label": "Next Review Date"
+  },
+  {
+   "fieldname": "last_review_date",
+   "fieldtype": "Date",
+   "label": "Last Review Date",
+   "search_index": 1
+  },
+  {
+   "fieldname": "general_attachment",
+   "fieldtype": "Attach",
+   "label": "General Attachment"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-11-17 00:58:56.754231",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Risk Register",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "TEMS Executive",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "TEMS Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

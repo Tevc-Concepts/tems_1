@@ -73,7 +73,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-11-16 22:41:42.184873",
+ "modified": "2025-11-18 22:40:07.532273",
  "modified_by": "Administrator",
  "module": "TEMS Governance",
  "name": "Governance",
@@ -95,7 +95,11 @@
  "parent_page": "TEMS",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "TEMS Executive"
+  }
+ ],
  "sequence_id": 60.0,
  "shortcuts": [
   {

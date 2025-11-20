@@ -1,0 +1,129 @@
+{
+ "charts": [
+  {
+   "chart_name": "Risk Rating Trend (Monthly)",
+   "label": "Risk Rating Trend (Monthly Line)"
+  },
+  {
+   "chart_name": "Risk by Category",
+   "label": "Risk by Category"
+  },
+  {
+   "chart_name": "Residual Risk Distribution",
+   "label": "Residual Risk Distribution"
+  }
+ ],
+ "content": "[{\"id\":\"snP6PVeCD0\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Enterprise Risk Dashboard</span>\",\"col\":12}},{\"id\":\"xqItVzgqIr\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Risk (count)\",\"col\":4}},{\"id\":\"Di_vG8Ummb\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"High/Critical Risk\",\"col\":4}},{\"id\":\"nV7GeE6b6r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Average Residual Risk Score\",\"col\":4}},{\"id\":\"s4Eu2Iu62x\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"KRIs In Alert\",\"col\":4}},{\"id\":\"MugAX-ymWu\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Mitigation Actions in Progress\",\"col\":4}},{\"id\":\"nmhuDBIVoJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Incident Loss YTD\",\"col\":4}},{\"id\":\"YWZ0VMH6Kj\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"bjZfehKZw4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Risk Rating Trend (Monthly Line)\",\"col\":6}},{\"id\":\"CEGAghqSY6\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Risk by Category\",\"col\":6}},{\"id\":\"TNZX08d2jT\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Residual Risk Distribution\",\"col\":12}},{\"id\":\"pv-hHQVv5v\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"TaOo_it1Kf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Risk Register\",\"col\":3}},{\"id\":\"lg8URuczec\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ERM Incident Log\",\"col\":3}},{\"id\":\"jEye-KDoof\",\"type\":\"card\",\"data\":{\"card_name\":\"Master ERM\",\"col\":4}}]",
+ "creation": "2025-11-17 13:02:59.393626",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "hide",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "Enterprise Risk",
+ "links": [
+  {
+   "description": "Master Records or details for ERM",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Master ERM",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "KRIs Master",
+   "link_count": 0,
+   "link_to": "KRI Master",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Register",
+   "link_count": 0,
+   "link_to": "Risk Register",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Risk Control Master",
+   "link_count": 0,
+   "link_to": "Risk Control",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-11-18 22:39:44.804485",
+ "modified_by": "Administrator",
+ "module": "TEMS Governance",
+ "name": "Enterprise Risk",
+ "number_cards": [
+  {
+   "label": "Open Risk (count)",
+   "number_card_name": "Open Risks (Count)"
+  },
+  {
+   "label": "High/Critical Risk",
+   "number_card_name": "High and Critical Risk (Count)"
+  },
+  {
+   "label": "Average Residual Risk Score",
+   "number_card_name": "Average Residual Risk Score"
+  },
+  {
+   "label": "KRIs In Alert",
+   "number_card_name": "KRIs In Alert"
+  },
+  {
+   "label": "Mitigation Actions in Progress",
+   "number_card_name": "Mitigation Actions In Progress"
+  },
+  {
+   "label": "Total Incident Loss YTD",
+   "number_card_name": "Total incident loss YTD"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "TEMS",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "TEMS Executive"
+  }
+ ],
+ "sequence_id": 63.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Risk Register",
+   "link_to": "Risk Register",
+   "stats_filter": "[[\"Risk Register\",\"status\",\"!=\",\"Closed\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "ERM Incident Log",
+   "link_to": "ERM Incident",
+   "stats_filter": "[[\"ERM Incident\",\"status\",\"=\",\"Closed\",false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Enterprise Risk"
+}

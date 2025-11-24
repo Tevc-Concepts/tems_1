@@ -5,7 +5,7 @@ utilities (e.g. HRMS) that still import IntegrationTestCase which was
 removed / renamed in newer Frappe versions. We create a lightweight
 alias to FrappeTestCase at import time so running isolated TEMS tests
 doesn't fail before our own tests execute.
-"""
+""" """
 
 from __future__ import annotations
 
@@ -22,4 +22,4 @@ try:
 except Exception:  # pragma: no cover - defensive; we don't want import errors to break app init
 	# Silently ignore; test environment may differ, and absence is non-fatal for production use
 	pass
-
+ """

@@ -7,7 +7,7 @@ from datetime import datetime, date
 from typing import Any
 from frappe.utils import now_datetime, get_datetime
 from frappe.model.document import Document
-from tems.tems.api.drive_integration import get_tems_settings, apply_incident_folder_permissions
+from tems.tems_main.api.drive_integration import get_tems_settings, apply_incident_folder_permissions
 
 class SafetyIncident(Document):
     def validate(self):

@@ -1,7 +1,8 @@
 {
     "doctype": "DocType",
     "name": "TEMS Role Share",
-    "module": "TEMS",
+    "modified_by": "Administrator",
+    "module": "TEMS Main",
     "istable": 1,
     "editable_grid": 1,
     "engine": "InnoDB",

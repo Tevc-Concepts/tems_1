@@ -1,7 +1,6 @@
 Transport Enterprise Management System
-tems
 ATE
-TEMS
+TEMS Main
 TEMS AI
 TEMS Governance
 TEMS Operations

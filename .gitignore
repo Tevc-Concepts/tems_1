@@ -29,3 +29,7 @@ __pycache__
 /tems/.venv
 /doc
 /docs
+/diagrams
+/tems/diagrams
+/tems/.gitignore
+/tems/.gitattributes

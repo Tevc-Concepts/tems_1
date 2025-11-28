@@ -39,7 +39,7 @@ def get_platform_metrics():
         # Active vehicles count
         active_vehicles = frappe.db.count("Vehicle", {
             "docstatus": ["!=", 2],
-            "status": ["in", ["Active", "In Transit", "On Route"]]
+            "vehicle_state": ["in", ["Active", "In Transit", "On Route","Arrival"]]
         })
         
         # Ongoing trips

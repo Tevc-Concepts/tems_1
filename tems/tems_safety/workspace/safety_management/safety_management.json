@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"WLrpzMtbGs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Safety Management</span>\",\"col\":12}}]",
+ "content": "[{\"id\":\"WLrpzMtbGs\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Safety Management</span>\",\"col\":12}},{\"id\":\"JysiaYD0it\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Incidents This Month\",\"col\":4}},{\"id\":\"dom8gFlZ2c\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Safety Incidents\",\"col\":4}},{\"id\":\"DXVyavjc97\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"High Severity Count\",\"col\":4}},{\"id\":\"9pWXxB0EFn\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"400ul2Ry6L\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Safety Incident\",\"col\":3}},{\"id\":\"73XqTfIvN_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Spot Check\",\"col\":3}},{\"id\":\"5ygVTF324P\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Journey Plan\",\"col\":3}},{\"id\":\"O2mekag4f9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Incident Severity Distribution\",\"col\":3}}]",
  "creation": "2025-09-25 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
@@ -42,13 +42,26 @@
    "type": "Link"
   }
  ],
- "modified": "2025-11-18 22:57:35.155037",
+ "modified": "2025-12-01 23:20:24.997535",
  "modified_by": "Administrator",
  "module": "TEMS Safety",
  "name": "Safety Management",
- "number_cards": [],
+ "number_cards": [
+  {
+   "label": "Incidents This Month",
+   "number_card_name": "Incidents This Month"
+  },
+  {
+   "label": "Open Safety Incidents",
+   "number_card_name": "Open Safety Incidents"
+  },
+  {
+   "label": "High Severity Count",
+   "number_card_name": "High Severity Count"
+  }
+ ],
  "owner": "Administrator",
- "parent_page": "TEMS Main",
+ "parent_page": "",
  "public": 1,
  "quick_lists": [],
  "restrict_to_domain": "",
@@ -67,6 +80,39 @@
   }
  ],
  "sequence_id": 1.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Safety Incident",
+   "link_to": "Safety Incident",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Spot Check",
+   "link_to": "Spot Check",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Journey Plan",
+   "link_to": "Journey Plan",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Incident Severity Distribution",
+   "link_to": "Incident Severity Distribution",
+   "report_ref_doctype": "Safety Incident",
+   "type": "Report"
+  }
+ ],
  "title": "Safety Management"
 }

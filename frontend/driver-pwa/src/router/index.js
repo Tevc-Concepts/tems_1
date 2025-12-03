@@ -3,6 +3,12 @@ import { useAuth as useAuthStore } from '@shared'
 
 const routes = [
   {
+    path: '/driver/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue'),
+    meta: { requiresAuth: false }
+  },
+  {
     path: '/driver',
     component: () => import('../components/layout/AppLayout.vue'),
     meta: { requiresAuth: true },
@@ -91,14 +97,35 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore()
 
-  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    try {
-      await authStore.fetchUserInfo()
+  if (to.meta.requiresAuth) {
+    // If not authenticated, try to fetch user info first
+    if (!authStore.isAuthenticated) {
+      try {
+        await authStore.fetchUserInfo()
+
+        // Check again after fetch - if still not authenticated, redirect to login
+        if (!authStore.isAuthenticated) {
+          console.warn('User not authenticated, redirecting to login')
+          next({ name: 'Login', query: { redirect: to.fullPath } })
+          return
+        }
+
+        // User is authenticated, proceed
+        next()
+      } catch (error) {
+        console.error('Authentication check failed:', error)
+        next({ name: 'Login', query: { redirect: to.fullPath } })
+        return
+      }
+    } else {
+      // Already authenticated, proceed
       next()
-    } catch (error) {
-      window.location.href = '/login?redirect=' + encodeURIComponent(to.fullPath)
     }
+  } else if (to.name === 'Login' && authStore.isAuthenticated) {
+    // Already logged in, redirect to dashboard
+    next('/driver')
   } else {
+    // Route doesn't require auth, proceed
     next()
   }
 })

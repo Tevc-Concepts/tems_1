@@ -1,0 +1,2 @@
+import{_ as s}from"./index-t7dltJZN.js";import{g as o,i as e,f as n}from"./vue-vendor-CiCQoITm.js";import"./utils-2PtTei_Y.js";const r={},a={class:"p-6"};function c(i,t){return n(),o("div",a,[...t[0]||(t[0]=[e("h1",{class:"text-2xl font-bold mb-6"},"Settings",-1),e("p",{class:"text-gray-600"},"Settings view - To be implemented",-1)])])}const p=s(r,[["render",c]]);export{p as default};
+//# sourceMappingURL=Settings-Ca_8F2Zn.js.map

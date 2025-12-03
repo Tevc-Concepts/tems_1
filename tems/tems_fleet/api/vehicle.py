@@ -16,12 +16,12 @@ def on_vehicle_update(doc, method):
         fleet_manager_emails = ["code@tevcng.com"]
 
     # Only check vehicles that are active and have odometer data
-    if doc.status == "Active" and doc.odometer:
+    if doc.custom_status == "Active" and doc.last_odometer:
         # Get AI prediction
         prediction = predict_maintenance_schedule(doc.name)
         
         # Store prediction on vehicle doc
-        doc.db_set("ai_maintenance_score", prediction.get("confidence", 0))
+        doc.db_set("custom_ai_maintenance_score", prediction.get("confidence", 0))
         
         # If high confidence that maintenance is needed, trigger alert
         if prediction.get("confidence", 0) > 0.85:

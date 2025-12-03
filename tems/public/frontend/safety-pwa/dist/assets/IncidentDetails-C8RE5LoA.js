@@ -1,0 +1,2 @@
+import{_ as s}from"./index-BjTAABJJ.js";import{g as n,i as t,f as o}from"./vue-vendor-CiCQoITm.js";import"./utils-CX__Uu54.js";const i={},a={class:"p-6"};function c(r,e){return o(),n("div",a,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Incident Details",-1),t("p",{class:"text-gray-600"},"Detailed incident view - To be implemented",-1)])])}const f=s(i,[["render",c]]);export{f as default};
+//# sourceMappingURL=IncidentDetails-C8RE5LoA.js.map

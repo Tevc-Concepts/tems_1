@@ -14,7 +14,7 @@ export const useAuthStore = defineStore('auth', () => {
     const loading = ref(false)
     const error = ref(null)
 
-    const isAuthenticated = computed(() => !!user.value)
+    const isAuthenticated = computed(() => !!user.value && user.value.name !== 'Guest')
     const userName = computed(() => employee.value?.employee_name || user.value?.full_name || 'User')
     const userInitials = computed(() => {
         const name = userName.value
@@ -29,6 +29,9 @@ export const useAuthStore = defineStore('auth', () => {
         error.value = null
 
         try {
+            // Refresh CSRF token first to ensure we have a valid token
+            await frappeClient.refreshCSRFToken()
+
             // Get logged user
             const currentUser = await frappeClient.getCurrentUser()
 

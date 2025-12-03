@@ -275,7 +275,6 @@ def get_vehicle_info(vehicle_name):
 
 
 @frappe.whitelist()
-@frappe.whitelist()
 def get_offline_sync_data(last_sync=None):
     """Get essential data for offline operation"""
     employee = frappe.db.get_value("Employee", {"user_id": frappe.session.user}, "name")
@@ -319,9 +318,14 @@ def get_offline_sync_data(last_sync=None):
     }
 
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=False, methods=['POST'])
 def send_sos_alert(location_data, notes=''):
     """Send SOS emergency alert"""
+    # Parse location_data if it's a string
+    if isinstance(location_data, str):
+        import json
+        location_data = json.loads(location_data)
+    
     employee = frappe.db.get_value("Employee", {"user_id": frappe.session.user}, "name")
     
     # Get current journey if any

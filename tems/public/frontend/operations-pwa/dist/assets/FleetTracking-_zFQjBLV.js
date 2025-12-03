@@ -1,2 +1,0 @@
-import{_ as o}from"./index-DQgvFvEv.js";import{g as r,i as t,f as s}from"./vue-vendor-CiCQoITm.js";import"./utils-2PtTei_Y.js";const a={},c={class:"p-6"};function n(i,e){return s(),r("div",c,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Fleet Tracking",-1),t("p",{class:"text-gray-600"},"Real-time vehicle tracking view - To be implemented",-1)])])}const p=o(a,[["render",n]]);export{p as default};
-//# sourceMappingURL=FleetTracking-_zFQjBLV.js.map

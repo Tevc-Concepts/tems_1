@@ -1,2 +1,0 @@
-import{b as i}from"./index-CB5-bSH7.js";import{s as l}from"./vue-vendor-CiCQoITm.js";function m(){const e=i(),{user:o,employee:s,isAuthenticated:r,userName:t,userInitials:a,roles:u,loading:h,error:n}=l(e);return{user:o,employee:s,isAuthenticated:r,userName:t,userInitials:a,roles:u,loading:h,error:n,fetchUserInfo:e.fetchUserInfo,hasRole:e.hasRole,hasAnyRole:e.hasAnyRole,hasPermission:e.hasPermission,logout:e.logout,clearAuth:e.clearAuth}}export{m as u};
-//# sourceMappingURL=useAuth-D2iABdl2.js.map

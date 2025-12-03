@@ -12,9 +12,12 @@ app.use(router)
 
 app.mount('#app')
 
-// Register service worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/driver/sw.js')
-  })
-}
+// Service worker registration disabled until sw.js is properly configured
+// TODO: Re-enable after setting up proper service worker
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/driver/sw.js').catch(err => {
+//       console.warn('Service worker registration failed:', err)
+//     })
+//   })
+// }

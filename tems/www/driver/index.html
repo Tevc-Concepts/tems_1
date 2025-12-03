@@ -1,16 +1,36 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/tems/frontend/driver-pwa/dist/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>driver-pwa</title>
-    <script type="module" crossorigin src="/assets/tems/frontend/driver-pwa/dist/assets/index-Dsp_1qOu.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/tems/frontend/driver-pwa/dist/assets/vue-vendor-DZCHTKbu.js">
-    <link rel="modulepreload" crossorigin href="/assets/tems/frontend/driver-pwa/dist/assets/utils-DGK9-2WQ.js">
-    <link rel="stylesheet" crossorigin href="/assets/tems/frontend/driver-pwa/dist/assets/index-DgdfmVw0.css">
-  <link rel="manifest" href="/assets/tems/frontend/driver-pwa/dist/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/assets/tems/frontend/driver-pwa/dist/registerSW.js"></script></head>
-  <body>
-    <div id="app"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/assets/tems/frontend/driver-pwa/dist/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#39ff14" />
+  <title>TEMS Driver Portal</title>
+
+  {% for css in css_files %}
+  <link rel="stylesheet" crossorigin href="{{ css }}">
+  {% endfor %}
+
+  {% for preload in preload_files %}
+  <link rel="modulepreload" crossorigin href="{{ preload }}">
+  {% endfor %}
+
+  {% if manifest_url %}
+  <link rel="manifest" href="{{ manifest_url }}">
+  {% endif %}
+
+  {% for js in js_files %}
+  <script type="module" crossorigin src="{{ js }}"></script>
+  {% endfor %}
+
+  {% if sw_script %}
+  <script id="vite-plugin-pwa:register-sw" src="{{ sw_script }}"></script>
+  {% endif %}
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
 </html>

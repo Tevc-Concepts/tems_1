@@ -37,9 +37,10 @@ class FrappeClient {
      * @param {string} method - Method path (e.g., 'tems.api.pwa.driver.get_trips')
      * @param {object} args - Method arguments
      * @param {boolean} cache - Whether to cache the result
+     * @param {boolean} retryWithRefresh - Internal flag for retry logic
      * @returns {Promise<any>}
      */
-    async call(method, args = {}, cache = false) {
+    async call(method, args = {}, cache = false, retryWithRefresh = true) {
         const endpoint = `${this.baseURL}/api/method/${method}`
         const cacheKey = `rpc:${method}:${JSON.stringify(args)}`
 
@@ -56,6 +57,19 @@ class FrappeClient {
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}))
+
+                // If CSRF error and we haven't retried yet, refresh token and retry
+                if (response.status === 400 &&
+                    (errorData.exc_type === 'CSRFTokenError' ||
+                        errorData.message?.includes('Invalid Request') ||
+                        errorData.message?.includes('CSRF')) &&
+                    retryWithRefresh) {
+                    console.warn('CSRF token error detected, refreshing token and retrying...')
+                    await this.refreshCSRFToken()
+                    // Retry once with the new token
+                    return this.call(method, args, cache, false)
+                }
+
                 throw new Error(errorData.message || `HTTP error! status: ${response.status}`)
             }
 
@@ -313,8 +327,55 @@ class FrappeClient {
      * @private
      */
     getCSRFToken() {
-        return document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ||
-            document.cookie.split('; ').find(row => row.startsWith('csrf_token='))?.split('=')[1] || ''
+        // Try multiple sources for CSRF token
+        // 1. Check meta tag (most reliable for web pages)
+        const metaToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+        if (metaToken) return metaToken
+
+        // 2. Check cookie
+        const cookieMatch = document.cookie.split('; ').find(row => row.startsWith('csrf_token='))
+        if (cookieMatch) return cookieMatch.split('=')[1]
+
+        // 3. Check localStorage (for PWAs that cache it)
+        const cachedToken = localStorage.getItem('csrf_token')
+        if (cachedToken) return cachedToken
+
+        // 4. Try to get from window (some Frappe setups expose it)
+        if (window.csrf_token) return window.csrf_token
+
+        return ''
+    }
+
+    /**
+     * Refresh CSRF token from server
+     * Call this after login or when token becomes stale
+     * @returns {Promise<string>}
+     */
+    async refreshCSRFToken() {
+        try {
+            const response = await fetch(`${this.baseURL}/api/method/frappe.auth.get_logged_user`, {
+                credentials: 'include',
+            })
+
+            if (response.ok) {
+                // Extract CSRF token from response headers or body
+                const csrfFromHeader = response.headers.get('X-Frappe-CSRF-Token')
+                if (csrfFromHeader) {
+                    localStorage.setItem('csrf_token', csrfFromHeader)
+                    return csrfFromHeader
+                }
+
+                // Try to get from cookie after the request
+                const token = this.getCSRFToken()
+                if (token) {
+                    localStorage.setItem('csrf_token', token)
+                    return token
+                }
+            }
+        } catch (error) {
+            console.error('Failed to refresh CSRF token:', error)
+        }
+        return ''
     }
 
     /**

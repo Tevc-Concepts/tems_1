@@ -5,7 +5,7 @@
       <div class="flex items-center justify-between">
         <div>
           <h2 class="text-2xl font-bold mb-1 text-primary-500">
-            Welcome back, {{ authStore.driverName }}!
+            Welcome back, {{ authStore.userName || 'Driver' }}!
           </h2>
           <p class="text-charcoal-300">{{ currentDate }}</p>
         </div>
@@ -250,6 +250,10 @@ function handleViewTrip(trip) {
 
 onMounted(async () => {
   try {
+    // Ensure auth is loaded first
+    if (!authStore.isAuthenticated) {
+      await authStore.fetchUserInfo()
+    }
     dashboardData.value = await tripStore.fetchDashboard()
   } catch (error) {
     console.error('Failed to load dashboard:', error)

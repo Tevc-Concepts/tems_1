@@ -1,5 +1,7 @@
 import frappe
 from frappe import _
+import os
+import json
 
 no_cache = 1
 
@@ -7,16 +9,33 @@ def get_context(context):
     """Context for driver portal page"""
     context.no_cache = 1
     context.no_breadcrumbs = True
-    context.skip_frappe_bundle = True  # Don't load Frappe's JS/CSS
+    context.skip_frappe_bundle = True
     
-    # Critical: Tell Frappe to render raw HTML without base template
-    frappe.response['type'] = 'page'
-    frappe.local.response.http_status_code = 200
+    # Allow guest access - authentication will be handled by the PWA Vue Router
+    # The Vue router will redirect to /driver/login if not authenticated
     
-    # Allow guest access for now - authentication will be handled by the PWA
-    # Uncomment below to enforce login
-    # if frappe.session.user == "Guest":
-    #     frappe.local.flags.redirect_location = "/login?redirect-to=/driver"
-    #     raise frappe.Redirect
+    # Get the built index.html and extract asset references
+    dist_path = frappe.get_app_path("tems", "public", "frontend", "driver-pwa", "dist")
+    index_html_path = os.path.join(dist_path, "index.html")
+    
+    if os.path.exists(index_html_path):
+        with open(index_html_path, 'r') as f:
+            html_content = f.read()
+            
+        # Extract JS and CSS references
+        import re
+        js_files = re.findall(r'<script[^>]+src="([^"]+)"', html_content)
+        css_files = re.findall(r'<link[^>]+href="([^"]+\.css)"', html_content)
+        preload_files = re.findall(r'<link rel="modulepreload"[^>]+href="([^"]+)"', html_content)
+        manifest = re.search(r'<link rel="manifest" href="([^"]+)"', html_content)
+        sw_script = re.search(r'<script[^>]+src="([^"]+registerSW\.js)"', html_content)
+        
+        context.js_files = js_files
+        context.css_files = css_files
+        context.preload_files = preload_files
+        context.manifest_url = manifest.group(1) if manifest else None
+        context.sw_script = sw_script.group(1) if sw_script else None
+    else:
+        frappe.throw(_("Driver PWA build not found. Please run 'bench build --app tems'"))
     
     return context

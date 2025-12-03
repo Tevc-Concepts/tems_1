@@ -1,0 +1,2 @@
+import{_ as n}from"./index-BjTAABJJ.js";import{g as s,i as t,f as a}from"./vue-vendor-CiCQoITm.js";import"./utils-CX__Uu54.js";const o={},c={class:"p-6"};function r(i,e){return a(),s("div",c,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Incident Management",-1),t("p",{class:"text-gray-600"},"Incident tracking and management - To be implemented",-1)])])}const f=n(o,[["render",r]]);export{f as default};
+//# sourceMappingURL=Incidents-DYNM1LGq.js.map

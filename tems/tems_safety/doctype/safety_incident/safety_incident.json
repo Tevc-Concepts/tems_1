@@ -1,154 +1,190 @@
 {
-    "doctype": "DocType",
-    "name": "Safety Incident",
-    "module": "TEMS Safety",
-    "engine": "InnoDB",
-    "is_submittable": 1,
-    "field_order": [
-        "title",
-        "incident_date",
-        "severity",
-        "status",
-        "vehicle",
-        "route",
-        "location",
-        "description",
-        "attachments",
-        "attachments_folder",
-        "participants",
-        "investigator",
-        "closure_notes",
-        "target_resolution_date",
-        "escalation_level",
-        "escalated_on"
-    ],
-    "fields": [
-        {
-            "fieldname": "title",
-            "label": "Title",
-            "fieldtype": "Data",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "incident_date",
-            "label": "Incident Date & Time",
-            "fieldtype": "Datetime",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "severity",
-            "label": "Severity",
-            "fieldtype": "Select",
-            "options": "near miss\nminor\nmajor\ncritical",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "status",
-            "label": "Status",
-            "fieldtype": "Select",
-            "options": "Open\nUnder Investigation\nClosed",
-            "reqd": 1,
-            "default": "Open",
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "vehicle",
-            "label": "Vehicle",
-            "fieldtype": "Link",
-            "options": "Vehicle",
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "route",
-            "label": "Route Planning",
-            "fieldtype": "Link",
-            "options": "Route Planning"
-        },
-        {
-            "fieldname": "location",
-            "label": "Location",
-            "fieldtype": "Data"
-        },
-        {
-            "fieldname": "description",
-            "label": "Description",
-            "fieldtype": "Small Text"
-        },
-        {
-            "fieldname": "attachments",
-            "label": "Attachments",
-            "fieldtype": "Attach"
-        },
-        {
-            "fieldname": "attachments_folder",
-            "label": "Attachments Folder",
-            "fieldtype": "Link",
-            "options": "Drive File",
-            "read_only": 1
-        },
-        {
-            "fieldname": "participants",
-            "label": "Participants",
-            "fieldtype": "Table",
-            "options": "Incident Participant"
-        },
-        {
-            "fieldname": "investigator",
-            "label": "Investigator",
-            "fieldtype": "Link",
-            "options": "Employee"
-        },
-        {
-            "fieldname": "closure_notes",
-            "label": "Closure Notes",
-            "fieldtype": "Small Text"
-        },
-        {
-            "fieldname": "target_resolution_date",
-            "label": "Target Resolution Date",
-            "fieldtype": "Date"
-        },
-        {
-            "fieldname": "escalation_level",
-            "label": "Escalation Level",
-            "fieldtype": "Select",
-            "options": "\nL1\nL2"
-        },
-        {
-            "fieldname": "escalated_on",
-            "label": "Escalated On",
-            "fieldtype": "Datetime"
-        }
-    ],
-    "permissions": [
-        {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "delete": 1,
-            "submit": 1,
-            "cancel": 1,
-            "amend": 1
-        },
-        {
-            "role": "Safety Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "submit": 1,
-            "cancel": 1,
-            "amend": 1
-        },
-        {
-            "role": "Safety Officer",
-            "read": 1,
-            "write": 1,
-            "create": 1
-        }
-    ],
-    "index_web_pages_for_search": 1
+ "actions": [],
+ "creation": "2025-11-25 01:12:30.403451",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "incident_date",
+  "severity",
+  "status",
+  "column_break_jnvi",
+  "vehicle",
+  "route",
+  "location",
+  "description",
+  "attachments",
+  "attachments_folder",
+  "section_break_yxbs",
+  "investigator",
+  "escalation_level",
+  "escalated_on",
+  "participants",
+  "column_break_oayi",
+  "target_resolution_date",
+  "closure_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "incident_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Incident Date & Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "near miss\nminor\nmajor\ncritical",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nUnder Investigation\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route Planning",
+   "options": "Route Planning"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "attachments_folder",
+   "fieldtype": "Link",
+   "label": "Attachments Folder",
+   "options": "Drive File",
+   "read_only": 1
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Table",
+   "label": "Participants",
+   "options": "Incident Participant"
+  },
+  {
+   "fieldname": "investigator",
+   "fieldtype": "Link",
+   "label": "Investigator",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "closure_notes",
+   "fieldtype": "Small Text",
+   "label": "Closure Notes"
+  },
+  {
+   "fieldname": "target_resolution_date",
+   "fieldtype": "Date",
+   "label": "Target Resolution Date"
+  },
+  {
+   "fieldname": "escalation_level",
+   "fieldtype": "Select",
+   "label": "Escalation Level",
+   "options": "\nL1\nL2"
+  },
+  {
+   "fieldname": "escalated_on",
+   "fieldtype": "Datetime",
+   "label": "Escalated On"
+  },
+  {
+   "fieldname": "column_break_jnvi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_yxbs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_oayi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Safety Incident",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-12-04 19:31:53.685174",
+ "modified_by": "Administrator",
+ "module": "TEMS Safety",
+ "name": "Safety Incident",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "read": 1,
+   "role": "Safety Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Safety Officer",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
 }

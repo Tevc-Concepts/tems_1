@@ -2,6 +2,9 @@
   <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-gray-900 dark:to-gray-800 px-4">
     <div class="max-w-md w-full space-y-8">
       <div class="text-center">
+        <div class="flex justify-center mb-4">
+          <img src="/logo.png" alt="TEMS Logo" class="h-16 w-16" />
+        </div>
         <h2 class="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">TEMS Fleet</h2>
         <p class="text-gray-600 dark:text-gray-400">Fleet Manager Access</p>
       </div>
@@ -67,7 +70,7 @@ import { useAuth, useToast } from '@shared'
 
 const router = useRouter()
 const { login } = useAuth()
-const { showToast } = useToast()
+const toast = useToast()
 
 const credentials = ref({
   usr: '',
@@ -83,11 +86,11 @@ async function handleLogin() {
 
   try {
     await login(credentials.value.usr, credentials.value.pwd)
-    showToast('Login successful', 'success')
+    toast.success('Login successful')
     router.push('/dashboard')
   } catch (err) {
     error.value = err.message || 'Invalid credentials'
-    showToast('Login failed', 'error')
+    toast.error('Login failed')
   } finally {
     loading.value = false
   }

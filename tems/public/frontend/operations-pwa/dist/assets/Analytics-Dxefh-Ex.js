@@ -1,0 +1,2 @@
+import{_ as s}from"./index-D1KR3w15.js";import{g as o,i as e,f as a}from"./vue-vendor-Dxtg618h.js";import"./utils-2PtTei_Y.js";const r={},c={class:"p-6"};function n(l,t){return a(),o("div",c,[...t[0]||(t[0]=[e("h1",{class:"text-2xl font-bold mb-6"},"Analytics",-1),e("p",{class:"text-gray-600"},"Analytics dashboard - To be implemented",-1)])])}const f=s(r,[["render",n]]);export{f as default};
+//# sourceMappingURL=Analytics-Dxefh-Ex.js.map

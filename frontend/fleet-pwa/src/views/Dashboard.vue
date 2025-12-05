@@ -1,26 +1,28 @@
 <template>
-  <div class="space-y-6">
+  <div class="min-h-screen bg-gray-50">
     <!-- Page Header -->
-    <div class="flex justify-between items-center">
-      <div>
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Fleet Dashboard</h1>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-          Asset management and maintenance overview
-        </p>
+    <div class="bg-white border-b border-gray-200 px-4 py-6">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Fleet Dashboard</h1>
+          <p class="text-sm text-gray-600 mt-1">Asset Management & Maintenance Overview</p>
+        </div>
+        <button
+          @click="refreshDashboard"
+          :disabled="loading"
+          class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 disabled:opacity-50 transition-colors flex items-center gap-2"
+        >
+          <svg class="w-5 h-5" :class="{ 'animate-spin': loading }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          Refresh
+        </button>
       </div>
-      <button
-        @click="refreshDashboard"
-        :disabled="loading"
-        class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 disabled:opacity-50 transition-colors flex items-center gap-2"
-      >
-        <svg class="w-5 h-5" :class="{ 'animate-spin': loading }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
-        Refresh
-      </button>
     </div>
 
-    <!-- KPI Cards -->
+    <!-- Content -->
+    <div class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+      <!-- KPI Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
         <div class="flex items-center justify-between">
@@ -188,6 +190,7 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
@@ -208,13 +211,15 @@ const loading = ref(false)
 
 async function loadDashboardData() {
   loading.value = true
+  console.log('Fleet Dashboard: Loading data...')
   
   try {
     await Promise.all([
-      assetStore.fetchAssets(),
-      maintenanceStore.fetchWorkOrders({ limit: 10 }),
-      fuelStore.fetchFuelStats()
+      assetStore.fetchAssets().catch(e => { console.warn('Assets fetch failed:', e); return [] }),
+      maintenanceStore.fetchWorkOrders({ limit: 10 }).catch(e => { console.warn('Maintenance fetch failed:', e); return [] }),
+      fuelStore.fetchFuelStats().catch(e => { console.warn('Fuel stats fetch failed:', e); return {} })
     ])
+    console.log('Fleet Dashboard: Data loaded successfully')
   } catch (error) {
     console.error('Error loading dashboard:', error)
   } finally {

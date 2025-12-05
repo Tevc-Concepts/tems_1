@@ -9,11 +9,11 @@
 import { onMounted } from 'vue'
 import { Toast, useOfflineSync } from '@shared'
 
-const { startSync } = useOfflineSync()
+const { init } = useOfflineSync()
 
 onMounted(() => {
-  // Start background sync for offline operations
-  startSync()
+  // Initialize offline sync for operations
+  init()
 })
 </script>
 

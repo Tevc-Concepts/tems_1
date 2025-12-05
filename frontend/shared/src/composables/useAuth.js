@@ -40,6 +40,7 @@ export function useAuth() {
 
         // Actions
         fetchUserInfo: authStore.fetchUserInfo,
+        login: authStore.login,
         hasRole: authStore.hasRole,
         hasAnyRole: authStore.hasAnyRole,
         hasPermission: authStore.hasPermission,

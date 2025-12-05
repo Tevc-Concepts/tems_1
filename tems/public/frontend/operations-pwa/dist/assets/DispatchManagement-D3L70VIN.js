@@ -1,2 +1,0 @@
-import{_ as a}from"./index-t7dltJZN.js";import{g as s,i as t,f as n}from"./vue-vendor-CiCQoITm.js";import"./utils-2PtTei_Y.js";const o={},c={class:"p-6"};function r(m,e){return n(),s("div",c,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Dispatch Management",-1),t("p",{class:"text-gray-600"},"Dispatch management view - To be implemented",-1)])])}const f=a(o,[["render",r]]);export{f as default};
-//# sourceMappingURL=DispatchManagement-D3L70VIN.js.map

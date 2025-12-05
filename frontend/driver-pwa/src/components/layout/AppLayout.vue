@@ -36,39 +36,40 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { AppHeader, AppBottomNav } from '@shared'
+import { AppHeader, AppBottomNav, useAuthStore } from '@shared'
 import OfflineIndicator from '../common/OfflineIndicator.vue'
 import SOSButton from '../common/SOSButton.vue'
 import { Home, Route, Clipboard, AlertTriangle, User } from 'lucide-vue-next'
 
 const router = useRouter()
 const route = useRoute()
+const authStore = useAuthStore()
 
 // Bottom navigation items
 const bottomNavItems = computed(() => [
   {
     name: 'Home',
-    href: '/driver',
+    href: '/',
     icon: Home
   },
   {
     name: 'Trips',
-    href: '/driver/trips',
+    href: '/trips',
     icon: Route
   },
   {
     name: 'Inspect',
-    href: '/driver/inspection',
+    href: '/inspection',
     icon: Clipboard
   },
   {
     name: 'Incident',
-    href: '/driver/incident',
+    href: '/incident',
     icon: AlertTriangle
   },
   {
     name: 'Profile',
-    href: '/driver/profile',
+    href: '/profile',
     icon: User
   }
 ])
@@ -78,6 +79,7 @@ function handleNavigate(item) {
 }
 
 function handleLogout() {
+  authStore.logout()
   router.push('/login')
 }
 </script>

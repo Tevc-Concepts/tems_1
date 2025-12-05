@@ -1,0 +1,2 @@
+import{_ as o}from"./index-CzaUriAi.js";import{g as a,i as t,f as n}from"./vue-vendor-Dxtg618h.js";import"./utils-CX__Uu54.js";const s={},c={class:"p-6"};function r(m,e){return n(),a("div",c,[...e[0]||(e[0]=[t("h1",{class:"text-2xl font-bold mb-6"},"Compliance Tracking",-1),t("p",{class:"text-gray-600"},"Compliance management - To be implemented",-1)])])}const f=o(s,[["render",r]]);export{f as default};
+//# sourceMappingURL=Compliance-taaNpXp4.js.map

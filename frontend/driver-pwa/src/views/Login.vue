@@ -2,10 +2,8 @@
   <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 px-4">
     <div class="max-w-md w-full">
       <div class="text-center mb-8">
-        <div class="inline-block p-4 bg-white rounded-full shadow-lg mb-4">
-          <svg class="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
+        <div class="flex justify-center mb-4">
+          <img src="/logo.png" alt="TEMS Logo" class="h-16 w-16" />
         </div>
         <h1 class="text-4xl font-bold text-blue-700 mb-2">TEMS Driver</h1>
         <p class="text-gray-600">Transport Excellence Management System</p>
@@ -85,13 +83,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { useAuth } from '@shared'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore, useToast } from '@shared'
 
 const router = useRouter()
-const route = useRoute()
-const { login, isAuthenticated } = useAuth()
+const authStore = useAuthStore()
+const toast = useToast()
 
 const username = ref('')
 const password = ref('')
@@ -99,29 +97,18 @@ const remember = ref(false)
 const loading = ref(false)
 const error = ref(null)
 
-// If already authenticated, redirect to dashboard
-onMounted(() => {
-  if (isAuthenticated.value) {
-    const redirect = route.query.redirect || '/driver'
-    router.push(redirect)
-  }
-})
-
 async function handleLogin() {
   loading.value = true
   error.value = null
 
   try {
-    await login(username.value, password.value)
-    
-    // Get redirect URL from query or default to dashboard
-    const redirect = route.query.redirect || '/driver'
-    
-    // Use router.push for internal navigation
-    router.push(redirect)
+    await authStore.login(username.value, password.value)
+    toast.success('Login successful')
+    router.push('/')
   } catch (err) {
     console.error('Login error:', err)
     error.value = err.message || 'Login failed. Please check your credentials and try again.'
+    toast.error('Login failed')
   } finally {
     loading.value = false
   }

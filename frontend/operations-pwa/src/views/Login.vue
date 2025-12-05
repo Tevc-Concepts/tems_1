@@ -2,6 +2,9 @@
   <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 px-4">
     <div class="max-w-md w-full">
       <div class="text-center mb-8">
+        <div class="flex justify-center mb-4">
+          <img src="/logo.png" alt="TEMS Logo" class="h-16 w-16" />
+        </div>
         <h1 class="text-4xl font-bold text-primary-700 mb-2">TEMS Operations</h1>
         <p class="text-gray-600">Fleet Tracking & Dispatch Management</p>
       </div>
@@ -64,7 +67,7 @@ import { useAuth, useToast } from '@shared'
 
 const router = useRouter()
 const { login } = useAuth()
-const { showToast } = useToast()
+const toast = useToast()
 
 const username = ref('')
 const password = ref('')
@@ -77,11 +80,11 @@ async function handleLogin() {
 
   try {
     await login(username.value, password.value)
-    showToast('Login successful', 'success')
+    toast.success('Login successful')
     router.push({ name: 'Dashboard' })
   } catch (err) {
     error.value = err.message || 'Login failed. Please check your credentials.'
-    showToast(error.value, 'error')
+    toast.error(error.value)
   } finally {
     loading.value = false
   }

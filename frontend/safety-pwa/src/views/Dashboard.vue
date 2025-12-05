@@ -1,10 +1,16 @@
 <template>
-  <AppLayout>
-    <template #header>
-      <h1 class="text-2xl font-bold text-gray-900">Safety Dashboard</h1>
-    </template>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Page Header -->
+    <div class="bg-white border-b border-gray-200 px-4 py-6">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl font-bold text-gray-900">Safety Dashboard</h1>
+        <p class="text-sm text-gray-600 mt-1">Incident Management & Safety Compliance</p>
+      </div>
+    </div>
 
-    <!-- KPI Cards -->
+    <!-- Content -->
+    <div class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+      <!-- KPI Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <Card>
         <div class="flex items-center justify-between">
@@ -124,13 +130,14 @@
         </div>
       </Card>
     </div>
-  </AppLayout>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { AppLayout, Card, Button, Badge, Loading, formatDate } from '@shared'
+import { Card, Button, Badge, Loading, formatDate } from '@shared'
 import { AlertTriangle, AlertCircle, Shield, ClipboardCheck, Plus } from 'lucide-vue-next'
 import { useIncidentStore } from '../stores/incidents'
 import { useAuditStore } from '../stores/audits'
@@ -149,13 +156,23 @@ const expiringItems = computed(() =>
   complianceStore.expiringItems.slice(0, 5)
 )
 
+const loading = ref(true)
+const fetchError = ref(null)
+
 onMounted(async () => {
-  await Promise.all([
-    incidentStore.fetchCriticalIncidents(),
-    incidentStore.fetchIncidents({ limit: 10 }),
-    auditStore.fetchUpcomingAudits(),
-    complianceStore.fetchExpiringItems(30),
-    complianceStore.fetchComplianceItems()
-  ])
+  try {
+    await Promise.all([
+      incidentStore.fetchCriticalIncidents().catch(e => console.warn('Critical incidents fetch error:', e)),
+      incidentStore.fetchIncidents({ limit: 10 }).catch(e => console.warn('Incidents fetch error:', e)),
+      auditStore.fetchUpcomingAudits().catch(e => console.warn('Audits fetch error:', e)),
+      complianceStore.fetchExpiringItems(30).catch(e => console.warn('Expiring items fetch error:', e)),
+      complianceStore.fetchComplianceItems().catch(e => console.warn('Compliance items fetch error:', e))
+    ])
+  } catch (err) {
+    fetchError.value = err.message
+    console.error('Dashboard data fetch error:', err)
+  } finally {
+    loading.value = false
+  }
 })
 </script>

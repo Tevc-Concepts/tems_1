@@ -50,17 +50,31 @@ def get_driver_dashboard(driver_email=None):
         limit=5
     )
     
-    # Get recent incidents involving driver
-    recent_incidents = frappe.get_all(
-        "Safety Incident",
+    # Get recent incidents involving driver via Incident Participant child table
+    incident_participants = frappe.get_all(
+        "Incident Participant",
         filters={
-            "participants": ["like", f"%{employee}%"],
-            "incident_date": [">=", frappe.utils.add_days(today, -7)]
+            "employee": employee,
+            "parenttype": "Safety Incident"
         },
-        fields=["name", "title", "incident_date", "severity", "status"],
-        order_by="incident_date desc",
-        limit=5
+        fields=["parent"],
+        distinct=True
     )
+    
+    incident_names = [p.parent for p in incident_participants]
+    
+    recent_incidents = []
+    if incident_names:
+        recent_incidents = frappe.get_all(
+            "Safety Incident",
+            filters={
+                "name": ["in", incident_names],
+                "incident_date": [">=", frappe.utils.add_days(today, -7)]
+            },
+            fields=["name", "title", "incident_date", "severity", "status"],
+            order_by="incident_date desc",
+            limit=5
+        )
     
     # Get driver qualification status
     qualification = frappe.db.get_value(

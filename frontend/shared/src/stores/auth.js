@@ -95,6 +95,54 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
     /**
+     * Login user with credentials
+     */
+    async function login(username, password) {
+        loading.value = true
+        error.value = null
+
+        try {
+            // Frappe's login endpoint
+            const response = await fetch(`${window.location.origin}/api/method/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({
+                    usr: username,
+                    pwd: password
+                })
+            })
+
+            if (!response.ok) {
+                const data = await response.json().catch(() => ({}))
+                throw new Error(data.message || 'Login failed')
+            }
+
+            const data = await response.json()
+
+            if (data.message === 'Logged In') {
+                // After successful login, refresh CSRF token
+                await frappeClient.refreshCSRFToken()
+
+                // Fetch user info
+                await fetchUserInfo()
+
+                return true
+            } else {
+                throw new Error('Invalid credentials')
+            }
+        } catch (err) {
+            console.error('Login error:', err)
+            error.value = err.message || 'Login failed'
+            throw err
+        } finally {
+            loading.value = false
+        }
+    }
+
+    /**
      * Logout current user
      */
     async function logout() {
@@ -135,6 +183,7 @@ export const useAuthStore = defineStore('auth', () => {
         userName,
         userInitials,
         fetchUserInfo,
+        login,
         hasRole,
         hasAnyRole,
         hasPermission,

@@ -1,10 +1,16 @@
 <template>
-  <AppLayout>
-    <template #header>
-      <h1 class="text-2xl font-bold text-gray-900">Operations Dashboard</h1>
-    </template>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Page Header -->
+    <div class="bg-white border-b border-gray-200 px-4 py-6">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl font-bold text-gray-900">Operations Dashboard</h1>
+        <p class="text-sm text-gray-600 mt-1">Fleet Tracking & Dispatch Management</p>
+      </div>
+    </div>
 
-    <!-- KPI Cards -->
+    <!-- Content -->
+    <div class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+      <!-- KPI Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <Card>
         <div class="flex items-center justify-between">
@@ -103,13 +109,14 @@
         </div>
       </Card>
     </div>
-  </AppLayout>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { AppLayout, Card, Button, Badge, Loading } from '@shared'
+import { Card, Button, Badge, Loading } from '@shared'
 import { Truck, Package, MapPin, CheckCircle, Plus, Route } from 'lucide-vue-next'
 import { useFleetStore } from '../stores/fleet'
 import { useDispatchStore } from '../stores/dispatch'
@@ -135,12 +142,22 @@ function getStatusVariant(status) {
   return variants[status] || 'secondary'
 }
 
+const loading = ref(true)
+const fetchError = ref(null)
+
 onMounted(async () => {
-  await Promise.all([
-    fleetStore.fetchActiveVehicles(),
-    dispatchStore.fetchPendingDispatches(),
-    dispatchStore.fetchDispatches({ limit: 5 }),
-    routeStore.fetchActiveRoutes()
-  ])
+  try {
+    await Promise.all([
+      fleetStore.fetchActiveVehicles().catch(e => console.warn('Fleet fetch error:', e)),
+      dispatchStore.fetchPendingDispatches().catch(e => console.warn('Dispatch fetch error:', e)),
+      dispatchStore.fetchDispatches({ limit: 5 }).catch(e => console.warn('Dispatches fetch error:', e)),
+      routeStore.fetchActiveRoutes().catch(e => console.warn('Routes fetch error:', e))
+    ])
+  } catch (err) {
+    fetchError.value = err.message
+    console.error('Dashboard data fetch error:', err)
+  } finally {
+    loading.value = false
+  }
 })
 </script>

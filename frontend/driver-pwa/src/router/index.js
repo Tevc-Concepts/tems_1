@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuth as useAuthStore } from '@shared'
+import { useAuthStore } from '@shared'
 
 const routes = [
   {
-    path: '/driver/login',
+    path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue'),
     meta: { requiresAuth: false }
   },
   {
-    path: '/driver',
-    component: () => import('../components/layout/AppLayout.vue'),
+    path: '/',
+    component: () => import('../views/Layout.vue'),
     meta: { requiresAuth: true },
     children: [
       {
@@ -90,42 +90,19 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/driver/'),
   routes
 })
 
-router.beforeEach(async (to, from, next) => {
+// Navigation guard - enforce authentication
+router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
 
-  if (to.meta.requiresAuth) {
-    // If not authenticated, try to fetch user info first
-    if (!authStore.isAuthenticated) {
-      try {
-        await authStore.fetchUserInfo()
-
-        // Check again after fetch - if still not authenticated, redirect to login
-        if (!authStore.isAuthenticated) {
-          console.warn('User not authenticated, redirecting to login')
-          next({ name: 'Login', query: { redirect: to.fullPath } })
-          return
-        }
-
-        // User is authenticated, proceed
-        next()
-      } catch (error) {
-        console.error('Authentication check failed:', error)
-        next({ name: 'Login', query: { redirect: to.fullPath } })
-        return
-      }
-    } else {
-      // Already authenticated, proceed
-      next()
-    }
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    next({ name: 'Login', query: { redirect: to.fullPath } })
   } else if (to.name === 'Login' && authStore.isAuthenticated) {
-    // Already logged in, redirect to dashboard
-    next('/driver')
+    next({ name: 'Dashboard' })
   } else {
-    // Route doesn't require auth, proceed
     next()
   }
 })

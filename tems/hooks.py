@@ -299,6 +299,8 @@ scheduler_events = {
         "tems.tems_operations.tasks.validate_driver_vehicle_assignments",
         "tems.tems_finance.tasks.update_fx_rates",
         "tems.tems_people.tasks.remind_expiring_driver_docs",
+        "tems.tems_people.tasks.remind_expiring_medical_clearances",
+        "tems.tems_people.tasks.auto_deactivate_drivers",
         "tems.tems_supply_chain.tasks.low_stock_alert",
         # TEMS AI Module scheduled tasks
         "tems.tems_ai.tasks.update_model_performance_metrics",

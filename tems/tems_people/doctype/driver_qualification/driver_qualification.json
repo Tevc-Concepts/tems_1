@@ -1,86 +1,293 @@
 {
-    "doctype": "DocType",
-    "name": "Driver Qualification",
-    "module": "TEMS People",
-    "engine": "InnoDB",
-    "field_order": [
-        "employee",
-        "license_no",
-        "license_class",
-        "medical_clearance",
-        "expiry_date",
-        "verified_by",
-        "verification_date",
-        "status"
-    ],
-    "fields": [
-        {
-            "fieldname": "employee",
-            "label": "Employee",
-            "fieldtype": "Link",
-            "options": "Employee",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "license_no",
-            "label": "License No",
-            "fieldtype": "Data",
-            "reqd": 1
-        },
-        {
-            "fieldname": "license_class",
-            "label": "License Class",
-            "fieldtype": "Data"
-        },
-        {
-            "fieldname": "medical_clearance",
-            "label": "Medical Clearance",
-            "fieldtype": "Date"
-        },
-        {
-            "fieldname": "expiry_date",
-            "label": "Expiry Date",
-            "fieldtype": "Date",
-            "reqd": 1,
-            "in_list_view": 1
-        },
-        {
-            "fieldname": "verified_by",
-            "label": "Verified By",
-            "fieldtype": "Link",
-            "options": "Employee"
-        },
-        {
-            "fieldname": "verification_date",
-            "label": "Verification Date",
-            "fieldtype": "Date"
-        },
-        {
-            "fieldname": "status",
-            "label": "Status",
-            "fieldtype": "Select",
-            "options": "Active\nVerified\nSuspended\nExpired",
-            "in_list_view": 1
-        }
-    ],
-    "permissions": [
-        {
-            "role": "System Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1,
-            "delete": 1
-        },
-        {
-            "role": "Operations Manager",
-            "read": 1,
-            "write": 1,
-            "create": 1
-        },
-        {
-            "role": "Operations Officer",
-            "read": 1
-        }
-    ]
+ "actions": [],
+ "autoname": "format:DQ-{YY}{MM}{DD}-{#####}",
+ "creation": "2025-11-25 01:12:29.579903",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "driver",
+  "employee",
+  "column_break_ocin",
+  "verified_by",
+  "qualification_date",
+  "state",
+  "license_details_section",
+  "license_no",
+  "license_status",
+  "column_break_rxis",
+  "expiry_date",
+  "section_break_ofqo",
+  "medical_clearance",
+  "medical_status",
+  "medical_expiry_date",
+  "column_break_rjwu",
+  "medical_notes",
+  "training_section_section",
+  "training_status",
+  "last_training_date",
+  "column_break_iahf",
+  "training_notes",
+  "performance_section",
+  "risk_score",
+  "column_break_yasr",
+  "risk_category",
+  "section_break_quse",
+  "auto_computed",
+  "status",
+  "column_break_kwny",
+  "reason_for_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fetch_from": "driver.employee",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "driver.license_number",
+   "fieldname": "license_no",
+   "fieldtype": "Data",
+   "label": "License No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "medical_clearance",
+   "fieldtype": "Date",
+   "label": "Medical Clearance",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "driver.expiry_date",
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "Employee"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nVerified\nInactive\nExpired"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_ocin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "license_details_section",
+   "fieldtype": "Section Break",
+   "label": "License Details"
+  },
+  {
+   "fetch_from": "driver.status",
+   "fieldname": "license_status",
+   "fieldtype": "Data",
+   "label": "License Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_rxis",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ofqo",
+   "fieldtype": "Section Break",
+   "label": "Medical Section"
+  },
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Info"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "medical_status",
+   "fieldtype": "Select",
+   "label": "Medical Status",
+   "options": "Fit\nUnfit\nPending"
+  },
+  {
+   "fieldname": "column_break_rjwu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "medical_expiry_date",
+   "fieldtype": "Date",
+   "label": "Medical Expiry Date"
+  },
+  {
+   "fieldname": "medical_notes",
+   "fieldtype": "Small Text",
+   "label": "Medical Notes"
+  },
+  {
+   "fieldname": "training_section_section",
+   "fieldtype": "Section Break",
+   "label": "Training Section"
+  },
+  {
+   "fieldname": "training_status",
+   "fieldtype": "Select",
+   "label": "Training Status",
+   "options": "Completed\nPending\nOverdue"
+  },
+  {
+   "fieldname": "last_training_date",
+   "fieldtype": "Date",
+   "label": "Last Training Date"
+  },
+  {
+   "fieldname": "column_break_iahf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "training_notes",
+   "fieldtype": "Small Text",
+   "label": "Training Notes"
+  },
+  {
+   "fieldname": "section_break_quse",
+   "fieldtype": "Section Break",
+   "label": "System Value"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_computed",
+   "fieldtype": "Check",
+   "label": "Auto Computed"
+  },
+  {
+   "fieldname": "reason_for_status",
+   "fieldtype": "Small Text",
+   "label": "Reason for Status"
+  },
+  {
+   "fieldname": "column_break_kwny",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "performance_section",
+   "fieldtype": "Section Break",
+   "label": "Performance"
+  },
+  {
+   "fieldname": "risk_score",
+   "fieldtype": "Int",
+   "label": "Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yasr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Low",
+   "fieldname": "risk_category",
+   "fieldtype": "Select",
+   "label": "Risk Category",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "qualification_date",
+   "fieldtype": "Date",
+   "label": "Qualification Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Driver Qualification",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "State",
+   "options": "Draft\nUnder Review\nApproved\nRejected"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-12-15 18:48:37.807931",
+ "modified_by": "Administrator",
+ "module": "TEMS People",
+ "name": "Driver Qualification",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Operations Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Operations Officer"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }

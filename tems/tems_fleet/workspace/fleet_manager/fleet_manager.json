@@ -1,11 +1,15 @@
 {
  "charts": [
   {
+   "chart_name": "Qualification Status Chart",
+   "label": "Driver Qualification Status"
+  },
+  {
    "chart_name": "Vehicle State",
    "label": "Vehicle State"
   }
  ],
- "content": "[{\"id\":\"O7v7Zfy8kZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Fleet Manager</span>\",\"col\":12}},{\"id\":\"HJtXISMs25\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Vehicle\",\"col\":4}},{\"id\":\"YqKcLw5VI0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Operational Vehicle\",\"col\":4}},{\"id\":\"ezmUqyt8t6\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Vehicle in Maintenance\",\"col\":4}},{\"id\":\"y20XIIkSBC\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Utilisation\",\"col\":4}},{\"id\":\"9Ecqocmw1X\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Idling Vehicle -Waiting or Standby\",\"col\":4}},{\"id\":\"VytJL_o56f\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vj-N3ZHnNE\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Vehicle State\",\"col\":12}},{\"id\":\"5IYGyoif0m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Route Planning\",\"col\":3}},{\"id\":\"_t0CvVeHvJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Journey Plan\",\"col\":3}},{\"id\":\"9SbkJ1ma4E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Maintenance Work Order (Open)\",\"col\":3}},{\"id\":\"bHzrbFNwJ2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hDbTAMmD7C\",\"type\":\"card\",\"data\":{\"card_name\":\"Asset Space\",\"col\":4}}]",
+ "content": "[{\"id\":\"O7v7Zfy8kZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Fleet Manager</span>\",\"col\":12}},{\"id\":\"HJtXISMs25\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Vehicle\",\"col\":4}},{\"id\":\"YqKcLw5VI0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Operational Vehicle\",\"col\":4}},{\"id\":\"ezmUqyt8t6\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Vehicle in Maintenance\",\"col\":4}},{\"id\":\"y20XIIkSBC\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Utilisation\",\"col\":4}},{\"id\":\"9Ecqocmw1X\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Idling Vehicle -Waiting or Standby\",\"col\":4}},{\"id\":\"VytJL_o56f\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vj-N3ZHnNE\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Vehicle State\",\"col\":6}},{\"id\":\"OGOjAI2vKe\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Driver Qualification Status\",\"col\":6}},{\"id\":\"5IYGyoif0m\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Route Planning\",\"col\":3}},{\"id\":\"_t0CvVeHvJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Journey Plan\",\"col\":3}},{\"id\":\"9SbkJ1ma4E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Maintenance Work Order (Open)\",\"col\":3}},{\"id\":\"ksE25WecqF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Driver Qualification\",\"col\":3}},{\"id\":\"bHzrbFNwJ2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"hDbTAMmD7C\",\"type\":\"card\",\"data\":{\"card_name\":\"Asset Space\",\"col\":4}},{\"id\":\"W0l5jVmzV1\",\"type\":\"card\",\"data\":{\"card_name\":\"Driver Management\",\"col\":4}}]",
  "creation": "2025-09-25 00:00:00",
  "custom_blocks": [],
  "docstatus": 0,
@@ -106,9 +110,58 @@
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Management",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Setup",
+   "link_count": 0,
+   "link_to": "Driver",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Qualification",
+   "link_count": 0,
+   "link_to": "Driver Qualification",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Infraction",
+   "link_count": 0,
+   "link_to": "Driver Infraction",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reward",
+   "link_count": 0,
+   "link_to": "Driver Reward",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2025-12-05 19:09:27.257918",
+ "modified": "2025-12-15 18:07:32.135160",
  "modified_by": "Administrator",
  "module": "TEMS Fleet",
  "name": "Fleet Manager",
@@ -157,6 +210,14 @@
    "label": "Journey Plan",
    "link_to": "Journey Plan",
    "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Driver Qualification",
+   "link_to": "Driver Qualification",
+   "stats_filter": "[[\"Driver Qualification\",\"status\",\"=\",\"Active\",false]]",
    "type": "DocType"
   },
   {

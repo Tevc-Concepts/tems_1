@@ -6,19 +6,21 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "driver",
   "vehicle",
+  "driver",
+  "route",
+  "column_break_gmln",
   "start_time",
   "end_time",
-  "route",
   "status"
  ],
  "fields": [
   {
+   "fetch_from": "vehicle.custom_assigned_driver",
    "fieldname": "driver",
    "fieldtype": "Link",
    "label": "Driver",
-   "options": "Employee"
+   "options": "Driver"
   },
   {
    "fieldname": "vehicle",
@@ -48,11 +50,15 @@
    "fieldtype": "Link",
    "label": "Route",
    "options": "Route Planning"
+  },
+  {
+   "fieldname": "column_break_gmln",
+   "fieldtype": "Column Break"
   }
  ],
  "is_calendar_and_gantt": 1,
  "links": [],
- "modified": "2025-10-11 15:20:47.617680",
+ "modified": "2025-12-15 20:37:27.808006",
  "modified_by": "Administrator",
  "module": "TEMS Safety",
  "name": "Journey Plan",

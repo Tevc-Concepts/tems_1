@@ -8,6 +8,7 @@
   "customer",
   "operation_plan",
   "vehicle",
+  "status",
   "column_break_ustu",
   "origin",
   "destination",
@@ -70,10 +71,16 @@
   {
    "fieldname": "column_break_ustu",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Processing\nTerminal\nIn Transit\nLoading\nReturning"
   }
  ],
  "links": [],
- "modified": "2025-10-11 22:39:38.122571",
+ "modified": "2025-12-15 20:27:49.684168",
  "modified_by": "Administrator",
  "module": "TEMS Cargo",
  "name": "Cargo Consignment",
